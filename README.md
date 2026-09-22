@@ -2,7 +2,7 @@
 
 **Current research notice: 19 September 2026**
 
-This repository preserves historical SymC cosmology and cross-scale stability work. Its older landing text and manuscripts were written before the current generator-first domain-licensing rules in SymC GOM v0.8.0 were established.
+This repository preserves historical SymC cosmology and cross-scale stability work. Its older landing text and manuscripts were written before the current generator-first domain-licensing rules in SymC GOM v0.8.3 were established.
 
 The repository is therefore **under scientific reconstruction**. Historical files remain public for provenance, but broader claims in them are not automatically current claims.
 
@@ -74,8 +74,13 @@ The current SymC Foundations program is generator-first and explicitly separates
 
 Future cosmology work should inherit those distinctions rather than preserve a broad universal-chi narrative.
 
+
+## Current reconstruction control
+
+The active reconstruction plan is `GOM_V0.8.3_RECONSTRUCTION_PLAN_20260921.md`. Under GOM v0.8.3, any licensed local/modal lowercase chi and the broader cosmological Chi architecture must be interpreted jointly rather than merely reported separately. Perturbation/recovery structure is used only when native science supports it, and stability is not defined as recovery.
+
 ## Repository status
 
-`main` is currently an archival/public research branch, not a GOM-v0.8.0-complete rebuilt cosmology program.
+`main` is currently an archival/public research branch, not a GOM-v0.8.3-complete rebuilt cosmology program.
 
 A new release should not be prepared until the current manuscript, supplemental derivations, figures, and claim map have been re-audited under the present generator-first rules. Negative or narrowed conclusions are valid outcomes of that reconstruction.
