@@ -64,3 +64,40 @@ No current refusal closes P0-D exploration.
 **LIT-023 resolved:** Bucher, Moodley & Turok is admitted for the existence of the five regular scalar-mode directions under the stated photons+baryons+neutrinos+CDM model and for the matrix-valued auto/cross-correlation representation of the general Gaussian primordial state. This does not establish that the basis remains complete under a no-CDM ontology.
 
 **LIT-024 resolved:** Nelson is partially admitted for the functional modal separation between a strongly acoustic baryon-radiation branch and a distinct CDM-dominated collapse branch in the paper's simplified relativistic equilibrium model. The stronger claim that this eigenbasis is the unique or complete pre-recombination modal architecture is not admitted.
+
+
+## Batch 002 - Direct modal alternatives inside standard GR
+
+| ID | Source | Claim component under adjudication | Layer | Status | Primary reason / ceiling | Exploration disposition |
+|---|---|---|---|---|---|---|
+| LIT-027 | Ishak GR cosmology review / standard GR DOF literature | Standard metric GR contains two independent propagating gravitational DOFs; linear cosmological scalar potentials are tied to matter perturbations and vector modes normally decay | Modal / limit | COUNTEREVIDENCE_ADMITTED | Counters the hypothesis that a hidden independent linear scalar gravitational mode can replace the pre-recombination CDM-like function | P0D_OPEN |
+| LIT-028 | Clarkson 2004 [PhysRevD.70.103524] | Second-order scalar perturbations can source tensor modes, and tensor perturbations can induce scalar density responses | Modal / coupling | PARTIAL_ADMISSION | Nonlinear cross-sector mode generation is established; induced modes are sourced quadratically by first-order perturbations and are not thereby an independent primordial scalar reservoir | P0D_OPEN |
+| LIT-029 | Milillo et al. 2015 [PhysRevD.92.023519] | Nonlinear matter currents source frame-dragging vector potentials; nonlinear GR separates scalar potentials and generates constrained tensor distortions | Modal / conglomerate | PARTIAL_ADMISSION | Genuine nonlinear GR mode mixing admitted; framework assumes pressureless matter plus Lambda and does not identify a new free scalar collapse mode | P0D_OPEN |
+| LIT-030 | Matarrese, Pantano & Saez 1994 / Al Roumi & Buchert | Magnetic Weyl / gravitomagnetic sector carries non-Newtonian relativistic information including gravitational-wave content | Modal / conglomerate | PARTIAL_ADMISSION | Weyl/gravitomagnetic architecture admitted; no evidence in these works for a pressureless pre-recombination scalar gravitational replacement independent of matter/shear | P0D_OPEN |
+| LIT-031 | Scalar-induced GW literature | Scalar perturbations generate tensor perturbations at second order | Modal / coupling | ADMITTED | Cross-sector generation is real; tensor response is higher-order, gauge-sensitive beyond linear order, and not equivalent to the required scalar collapse function | P0D_OPEN |
+
+### Batch 002 controlled conclusion
+
+The direct modal search narrows one route:
+
+[
+	ext{hidden ordinary GR linear mode}
+ightarrow
+	ext{REFUSED for the required scalar gravitational function}.
+]
+
+What remains open is not "no additional architecture exists." The remaining admissible exploration space is:
+
+[
+	ext{nonlinear modal coupling}
++
+	ext{Weyl/tidal organization}
++
+	ext{correlation/coarse-grained modes}
++
+	ext{nonlocal/history structure}
++
+	ext{additional architecture components}.
+]
+
+The literature currently supports nonlinear mode generation and relativistic gravitoelectric/gravitomagnetic structure, but does not establish an independent non-material pre-recombination mode with the same scalar gravitational function supplied by pressureless CDM in the standard model.
