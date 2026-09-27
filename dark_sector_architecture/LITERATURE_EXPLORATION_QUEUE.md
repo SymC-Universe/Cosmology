@@ -80,3 +80,34 @@ Entries here remain P0-D unless separately qualified. They cannot retroactively 
 **Question:** Is the missing function represented by an architecture object outside the current Scalar / Vector-Modal / Conglomerate-System starting basis?  
 **Status:** P0-D OPEN.  
 **Rule:** native naming first; any proposed new chi component is post-result and carries promotion debt.
+
+
+### EXP-013 - Gravitational edge-mode architecture
+**Trigger:** LIT-041 PARTIAL_ADMISSION  
+**Question:** Do Umeh-type matter-horizon edge modes generalize beyond late nonlinear galaxy dynamics into cluster, lensing, growth, or earlier cosmological regimes?  
+**Status:** P0-D OPEN.  
+**Constraint:** current evidence is late-time/nonlinear and cannot be counted as early-CMB support.
+
+### EXP-014 - Pure-GR field self-interaction qualification
+**Trigger:** LIT-042 and LIT-043  
+**Question:** Can GR self-interaction / gravito-magnetic proposals be derived without ad hoc amplitude assumptions and confronted with the full CMB spectrum, BAO, lensing, and growth rather than only selected late-time observables?  
+**Status:** P0-D OPEN.  
+**Promotion debt:** full nonlinear derivation and early-Universe validation required.
+
+### EXP-015 - Geon / pure-geometry object route
+**Trigger:** LIT-039 and LIT-040  
+**Question:** Can any pure-GR nonlinear gravitational configuration be sufficiently long-lived and cosmologically abundant to act as an early gravitational source without becoming merely a compact-object dark-matter inventory?  
+**Status:** P0-D OPEN, LOW PRIORITY.  
+**Current limitation:** radiation-like effective stress and unfavorable stability evidence.
+
+### EXP-016 - Full route reopening criterion
+**Trigger:** Stage A bounded pass completion  
+**Question:** What future evidence would justify reopening the full no-dark-substance route?  
+**Status:** P0-D WATCH.  
+**Reopen only if:** a new material candidate satisfies standard-GR nativeness, pre-recombination activity, persistent non-acoustic scalar projection, quantitative CMB/growth sufficiency, and cross-epoch continuation without weakening PREG-LIT-COSMO-v1.0.
+
+### EXP-017 - Partial architecture residual
+**Trigger:** FULL_NO_DARK_SUBSTANCE = UNSUPPORTED_AT_CURRENT_STAGE  
+**Question:** Which late-time DM-like and DE-like functions are actually produced or reorganized by GR-native structure/geometry feedback, edge modes, curvature/backreaction, modal reorganization, and inheritance?  
+**Status:** P0-D / P0-Q PRIORITY.  
+**Next promotion path:** derive PREG-S / PREG-M / PREG-C / PREG-J residual claim candidates from the controlled literature matrix.
