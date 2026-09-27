@@ -30,8 +30,8 @@
 | LIT-020 | Adamek et al. [Ada17] | Large inferred backreaction can be slicing-sensitive and is tiny in Poisson-gauge relativistic simulations | Conglomerate / limit | COUNTEREVIDENCE_ADMITTED | Gauge/slicing robustness becomes mandatory | P0D_OPEN |
 | LIT-021 | Ishak, Peel & Troxel [Ish13] | Inhomogeneous apparent-acceleration models can fit distance data while failing growth suppression | Conglomerate / functional burden | COUNTEREVIDENCE_ADMITTED | DE-like architecture must jointly reproduce distances and growth | P0D_OPEN |
 | LIT-022 | Planck 2018 [Agh18] | Baryon density and CMB gravitational/acoustic requirements constrain any no-dark-substance early architecture | Modal / functional burden | ADMITTED | Mandatory observational burden; does not by itself prove particle ontology | NO_FOLLOWUP_REQUIRED |
-| LIT-023 | Bucher, Moodley & Turok primordial mode basis | Regular adiabatic/isocurvature scalar-mode basis and correlated initial conditions | Modal / conglomerate | INDETERMINATE_NEED_MORE_INFO | Full paper-specific extraction and conventions needed before controlled admission | QUALIFICATION_NEEDED |
-| LIT-024 | Nelson primordial-medium eigenmodes [Nel22] | Acoustic and gravitational-collapse eigenmodes near recombination | Modal | INDETERMINATE_NEED_MORE_INFO | Full-text/equation context not yet extracted under frozen protocol | QUALIFICATION_NEEDED |
+| LIT-023 | Bucher, Moodley & Turok primordial mode basis | Regular adiabatic/isocurvature scalar-mode basis and matrix-valued auto/cross-correlation structure | Modal / conglomerate | ADMITTED | Established within linear scalar perturbation theory for photons, baryons, neutrinos, and CDM; model content retained and no no-CDM inference imported | P0D_OPEN |
+| LIT-024 | Nelson primordial-medium eigenmodes [Nel22] | Acoustic baryon-radiation mode and distinct CDM-dominated gravitational-collapse mode near recombination | Modal | PARTIAL_ADMISSION | Eigenmode separation admitted within the paper's strict-equilibrium simplified model; not treated as a complete Einstein-Boltzmann/CMB closure | P0D_OPEN |
 | LIT-025 | Kou & Lewis [Kou25] | Unified dark fluid as conceptual mechanism for this no-substance architecture | Conglomerate / ontology | REFUSED | ONTOLOGY_MISMATCH for mechanism foundation; retained as comparator | NO_FOLLOWUP_REQUIRED |
 | LIT-026 | Jimenez et al. [Jim26] | Solid unified dark sector as conceptual mechanism for this no-substance architecture | Conglomerate / ontology | REFUSED | ONTOLOGY_MISMATCH for mechanism foundation; retained as comparator | NO_FOLLOWUP_REQUIRED |
 
@@ -57,3 +57,10 @@ The controlled literature lane therefore remains open on:
 - cross-epoch closure between primordial organization and late averaged-GR architecture.
 
 No current refusal closes P0-D exploration.
+
+
+## Qualification update 001
+
+**LIT-023 resolved:** Bucher, Moodley & Turok is admitted for the existence of the five regular scalar-mode directions under the stated photons+baryons+neutrinos+CDM model and for the matrix-valued auto/cross-correlation representation of the general Gaussian primordial state. This does not establish that the basis remains complete under a no-CDM ontology.
+
+**LIT-024 resolved:** Nelson is partially admitted for the functional modal separation between a strongly acoustic baryon-radiation branch and a distinct CDM-dominated collapse branch in the paper's simplified relativistic equilibrium model. The stronger claim that this eigenbasis is the unique or complete pre-recombination modal architecture is not admitted.
