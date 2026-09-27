@@ -588,3 +588,71 @@ Do not activate or freeze a P1 claim until its exact residual text, strongest co
 - `WORKING_INVESTIGATION.md`
 
 **Status:** Paused at scientific development. Next valid action is residual partial-architecture preregistration construction.
+
+
+---
+
+## Development 007 - Native Shear-Weyl Modal Basis Identified
+
+**Date:** 2026-09-27  
+**GitHub checkpoint before entry:** `fae47446b9e17d1eea93f70e0bbcba7a7eb3e5c0`
+
+### Scientific development
+
+The partial-architecture preregistration build identified a stronger native late-time modal representation than generic generator/PCA/DMD modes.
+
+Covariant relativistic perturbation theory supplies:
+- shear (sigma_{ij});
+- electric Weyl curvature (E_{ij});
+- magnetic Weyl curvature (H_{ij}) where applicable;
+- their eigenvalues, eigenframes, and couplings
+
+as native modal/relational objects.
+
+Weak-field tidal and velocity-shear tensor eigenstructure provide the practical development analogue for large-scale-structure simulations.
+
+### Why this matters
+
+This creates an explicit three-layer mapping:
+
+[
+	ext{scalar invariants}
+leftrightarrow
+	ext{shear/Weyl modal eigenstructure}
+leftrightarrow
+	ext{spatial/domain conglomeration}.
+]
+
+A scalar norm or trace can discard eigenvalue-spectrum and eigenframe information. Therefore scalar insufficiency versus modal/conglomerate added value can be tested directly rather than asserted narratively.
+
+### Consequence for preregistration
+
+- `PREG-SCALAR-PA-0` remains NOT_ACTIVATED because no new standalone residual scalar claim has earned activation.
+- `PREG-MODAL-PA-1` is narrowed to native shear/Weyl/tidal eigenstructure.
+- `PREG-JOINT-PA-1` can now match scalar invariants while varying modal eigenstructure.
+- `PREG-JOINT-PA-2` can test whether earlier shear/Weyl/tidal eigenstructure predicts later conglomerate organization beyond scalar invariants.
+
+PCA/DMD may remain exploratory diagnostics but cannot define the primary modal claim.
+
+### Exact restart point
+
+Implement and execute the prospective modal known-truth qualification suite before any cosmological production or P1 freeze.
+
+The suite must test:
+- anisotropic collapse cases;
+- scalar-matched / modal-different cases;
+- rotation covariance;
+- degeneracy and near-degeneracy refusal;
+- shear-Weyl alignment;
+- known-bad tensor rejection.
+
+Thresholds/tolerances are not frozen until qualification behavior is observed.
+
+### Linked artifacts
+
+- `PARTIAL_ARCHITECTURE_PREREG_CANDIDATES.md`
+- `MODAL_OBJECT_QUALIFICATION.md`
+- `MODAL_KNOWN_TRUTH_QUALIFICATION_SUITE.md`
+- `LITERATURE_ADJUDICATION_MATRIX.md`
+
+**Status:** Paused at scientific development. Next valid action is mechanical implementation of the modal known-truth suite.
