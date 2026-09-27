@@ -2,7 +2,7 @@
 
 **Project:** Cosmic Stability Architecture  
 **Branch:** `dark-sector-stability-architecture`  
-**Current stage:** P0-Q modal qualification implementation; known-truth extractor/tests committed; pinned gevolution infrastructure pilot queued  
+**Current stage:** P0-Q modal qualification implementation; known-truth/HDF5/extraction/convergence code qualified; gevolution real-field smoke chain active  
 **Current scientific state:** The bounded nonperturbative/additional-architecture pass is complete. The full no-dark-substance route is UNSUPPORTED_AT_CURRENT_STAGE under the frozen literature rules, not falsified. The active branch is now the partial architecture; the full route remains open only in P0-D for genuinely new future candidates.
 
 ## Frozen objects
@@ -111,15 +111,15 @@ Mechanical qualification progress after Development 007:
 
 ## Next exact action
 
-Complete the **modal P0-Q infrastructure gates**:
+Complete the remaining **modal P0-Q infrastructure/convergence gates**:
 
-1. independently observe the GitHub Actions KT-01 through KT-12 result/artifact;
-2. inspect the pinned gevolution smoke workflow and repair only mechanical build/runtime defects;
-3. verify raw `phi`, `B`, `chi`, `hij`, and `v` outputs from the (z=100\rightarrow99) pilot;
-4. qualify the weak-field tidal/velocity-shear reconstruction against the same tensor extractor;
-5. estimate numerical tensor uncertainty from resolution/convergence evidence;
-6. carry directional uncertainty continuously through eigengap-sensitive perturbation bounds rather than inventing a universal eigengap cutoff;
-7. decide whether PREG-MODAL-PA-1 is fit to activate only after these P0-Q gates pass.
+1. finish the active 512-particle gevolution smoke and require finite real `phi`, `B`, `chi`, `hij`, and `v` fields;
+2. persist and inspect the real-field modal extraction summary;
+3. if smoke passes, execute Q-R1 extraction-resolution qualification on the real development field using explicit common-scale coarse-graining;
+4. separate extraction uncertainty from simulation uncertainty;
+5. determine whether a phase-identical IC strategy is available before Q-R2 simulation-resolution comparison;
+6. carry directional uncertainty continuously through tensor-error/eigengap bounds;
+7. only then decide whether PREG-MODAL-PA-1 is fit to activate.
 
 ## Resume pointers
 
@@ -163,3 +163,40 @@ See `PARTIAL_ARCHITECTURE_PREREG_CANDIDATES.md`.
 - independent validation checkpoint: `3974ad5c1fb453db10d57a6a3c7e6b4cd10b0c9f`
 - frozen gevolution pilot settings: `721ef700df28d5f778bdaf2d05759ef1aef05230`
 - pinned gevolution pilot workflow: `4b3902c6cb327a6743aace71289a3e2de7e05f98`
+
+
+## Durable modal qualification outputs
+
+- `qualification/results/modal_known_truth_report.json`: GENERATED / durable.
+- `qualification/results/weak_field_known_truth_report.json`: GENERATED / durable.
+- latest integrated modal qualification CI observed PASS: run `36350444568`.
+
+The modal qualification workflow now persists generated JSON reports back to the branch.
+
+## gevolution infrastructure chain
+
+Canonical CPU source pairing:
+- gevolution `0cca42e51a824002ae4fb602cbd79d671e8ffe60`;
+- UZH LATfield2 v1.1 `2d8c737ab6adc965a1d2718c209f5085af27b09c`.
+
+Preserved failure classes are recorded in `GEVOLUTION_PILOT_FAILURE_LEDGER.md`.
+
+Validated mechanical milestones:
+- canonical CPU backend fetches and compiles;
+- deterministic Gadget-2 template generator validates its binary structure;
+- 2x2 MPI layout is required for the smoke and uses hosted-runner oversubscription;
+- fail-closed pipeline handling is active;
+- LATfield2 HDF5 loader is qualified against the exact array-datatype schema;
+- weak-field tidal/shear transform and end-to-end synthetic extraction are qualified;
+- modal convergence utilities and tests are committed.
+
+Current active smoke:
+- run `36350573345`;
+- head `49a4a9648a51cf3d9c931675d000097f8fe5b2e4`;
+- template tiling changed to 8 so the 8^3 mesh receives 512 homogeneous template particles;
+- this repair follows run `36350469640`, whose sparse 8-particle IC produced an invalid cycle-0 NaN and was classified INVALID_INPUT rather than scientific evidence.
+
+Pending durable gevolution outputs:
+- `qualification/results/gevolution_modal_pilot_metadata.json`;
+- `qualification/results/gevolution_modal_pilot_manifest.txt`;
+- `qualification/results/gevolution_modal_extraction_summary.json`.
