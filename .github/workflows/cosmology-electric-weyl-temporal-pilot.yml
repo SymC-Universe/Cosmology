@@ -1,0 +1,301 @@
+name: Cosmology electric-Weyl temporal pilot
+
+on:
+  push:
+    branches:
+      - dark-sector-stability-architecture
+    paths:
+      - 'dark_sector_architecture/qualification/electric_weyl.py'
+      - 'dark_sector_architecture/qualification/temporal_derivatives.py'
+      - 'dark_sector_architecture/qualification/latfield_hdf5.py'
+      - 'dark_sector_architecture/qualification/run_electric_weyl_temporal_pilot.py'
+      - '.github/workflows/cosmology-electric-weyl-temporal-pilot.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cosmology-electric-weyl-temporal-pilot
+  cancel-in-progress: true
+
+jobs:
+  electric-weyl-temporal-pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    env:
+      GEVOLUTION_SHA: 0cca42e51a824002ae4fb602cbd79d671e8ffe60
+      LATFIELD2_SHA: 2d8c737ab6adc965a1d2718c209f5085af27b09c
+      TEMPLATE_BLOB: d4de9a5400ef58f6a0181fbe61f18056b233a425
+      BOXSIZE: 64.0
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          ref: dark-sector-stability-architecture
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install build and analysis dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            build-essential \
+            openmpi-bin \
+            libopenmpi-dev \
+            libfftw3-dev \
+            libgsl-dev \
+            libhdf5-dev
+          python -m pip install --upgrade pip
+          python -m pip install numpy h5py
+
+      - name: Fetch pinned gevolution and canonical CPU LATfield2
+        run: |
+          git clone https://github.com/gevolution-code/gevolution-1.3.git gevolution
+          git -C gevolution checkout "$GEVOLUTION_SHA"
+          git clone https://gitlab.uzh.ch/julian.adamek/LATfield2.git LATfield2
+          git -C LATfield2 checkout "$LATFIELD2_SHA"
+          printf 'gevolution=%s\nLATfield2=%s\n' \
+            "$(git -C gevolution rev-parse HEAD)" \
+            "$(git -C LATfield2 rev-parse HEAD)" \
+            | tee ew_temporal_upstream_revisions.txt
+
+      - name: Fetch and verify canonical particle template
+        run: |
+          curl -L --fail --silent --show-error \
+            https://raw.githubusercontent.com/gevolution-code/gevolution-1.2/df8a930732aae1bafa32fd839ee70728bb10773a/sc1_crystal.dat \
+            -o gevolution/ew_template.dat
+          test "$(git hash-object gevolution/ew_template.dat)" = "$TEMPLATE_BLOB"
+
+      - name: Patch snapshots to emit dynamically evolved hij
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path("gevolution/main.cpp")
+          text = path.read_text()
+          marker = """		// snapshot output
+		if (snapcount < sim.num_snapshot && 1. / a < sim.z_snapshot[snapcount] + 1.)
+"""
+          if marker not in text:
+              raise SystemExit("snapshot marker not found in pinned gevolution source")
+
+          replacement = """		// snapshot output
+#ifdef TENSOR_EVOLUTION
+		// Qualification-only patch: write the dynamically evolved hijFT field
+		// into the existing real-space Sij buffer before snapshot HDF5 output.
+		if ((sim.out_snapshot & MASK_HIJ) &&
+		    snapcount < sim.num_snapshot &&
+		    1. / a < sim.z_snapshot[snapcount] + 1.)
+		{
+			plan_hij.execute(FFT_BACKWARD);
+			Sij.updateHalo();
+			done_hij = 1;
+		}
+#endif
+		if (snapcount < sim.num_snapshot && 1. / a < sim.z_snapshot[snapcount] + 1.)
+"""
+          text = text.replace(marker, replacement, 1)
+          path.write_text(text)
+          PY
+          sha256sum gevolution/main.cpp | tee ew_temporal_patched_main_sha256.txt
+          grep -n "Qualification-only patch" gevolution/main.cpp
+
+      - name: Compile gevolution with dynamic tensor and velocity support
+        working-directory: gevolution
+        run: |
+          make clean
+          make -j2 \
+            INCLUDE="-I../LATfield2 -I/usr/include/hdf5/serial" \
+            LIB="-lfftw3 -lm -L/usr/lib/x86_64-linux-gnu/hdf5/serial -lhdf5 -lgsl -lgslcblas" \
+            DGEVOLUTION="-DPHINONLINEAR -DBENCHMARK -DVELOCITY -DTENSOR_EVOLUTION"
+          test -x gevolution
+
+      - name: Build five-snapshot N64 temporal settings
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json
+
+          base = Path(
+              "dark_sector_architecture/qualification/gevolution_modal_pilot.ini"
+          ).read_text()
+
+          scale_factors = [
+              0.009950,
+              0.009975,
+              0.010000,
+              0.010025,
+              0.010050,
+          ]
+          redshifts = [(1.0 / a) - 1.0 for a in scale_factors]
+          redshift_text = ", ".join(f"{z:.12f}" for z in redshifts)
+
+          replacements = {
+              "template file = pilot_template.dat": "template file = ew_template.dat",
+              "tiling factor = 2": "tiling factor = 16",
+              "Ngrid = 8": "Ngrid = 64",
+              "time step limit = 0.04": "time step limit = 0.0005",
+              "output path = ../pilot_output/": "output path = ../ew_temporal_output/",
+              "generic file base = modalpilot": "generic file base = ewt",
+              "snapshot file base = modalpilot_snap": "snapshot file base = ewt_snap",
+              "snapshot redshifts = 99": f"snapshot redshifts = {redshift_text}",
+              "snapshot outputs = phi, B, chi, hij, v": "snapshot outputs = phi, B, chi, hij",
+              "Pk file base = modalpilot_pk": "Pk file base = ewt_pk",
+              "Pk redshifts = 99": f"Pk redshifts = {redshifts[2]:.12f}",
+          }
+          for old, new in replacements.items():
+              if old not in base:
+                  raise SystemExit(f"missing expected settings token: {old}")
+              base = base.replace(old, new, 1)
+
+          Path("gevolution/ew_temporal.ini").write_text(base)
+          Path("ew_temporal_requested.json").write_text(
+              json.dumps(
+                  {
+                      "scale_factors": scale_factors,
+                      "requested_redshifts": redshifts,
+                      "central_index": 2,
+                      "time_step_limit": 0.0005,
+                      "grid": 64,
+                      "tiling_factor": 16,
+                      "seed": 424242,
+                  },
+                  indent=2,
+                  sort_keys=True,
+              )
+              + "\n"
+          )
+          print("requested redshifts:", redshifts)
+          PY
+
+      - name: Run five-snapshot N64 temporal pilot
+        run: |
+          set -o pipefail
+          rm -rf ew_temporal_output
+          mkdir -p ew_temporal_output
+          cd gevolution
+          mpirun --oversubscribe -np 4 ./gevolution -n 2 -m 2 -s ew_temporal.ini \
+            | tee ../ew_temporal.log
+
+      - name: Parse actual snapshot epochs and verify fields
+        run: |
+          python - <<'PY'
+          import json
+          import re
+          from pathlib import Path
+
+          requested = json.loads(Path("ew_temporal_requested.json").read_text())
+          text = Path("ew_temporal.log").read_text()
+          pattern = re.compile(
+              r"writing snapshot at z = ([0-9eE+.-]+) "
+              r"\(cycle ([0-9]+)\), tau/boxsize = ([0-9eE+.-]+)"
+          )
+          matches = pattern.findall(text)
+          if len(matches) != 5:
+              raise SystemExit(f"expected five snapshot log entries, found {matches}")
+
+          snapshots = []
+          for index, (z, cycle, tau) in enumerate(matches):
+              snapshots.append(
+                  {
+                      "index": index,
+                      "requested_redshift": requested["requested_redshifts"][index],
+                      "actual_redshift": float(z),
+                      "cycle": int(cycle),
+                      "tau_over_boxsize": float(tau),
+                  }
+              )
+
+          taus = [item["tau_over_boxsize"] for item in snapshots]
+          cycles = [item["cycle"] for item in snapshots]
+          if any(b <= a for a, b in zip(taus, taus[1:])):
+              raise SystemExit(f"snapshot conformal times not increasing: {taus}")
+          if len(set(cycles)) != 5:
+              raise SystemExit(f"snapshots not on five distinct cycles: {cycles}")
+
+          root = Path("ew_temporal_output")
+          for index in range(5):
+              for token in ("phi", "chi", "B", "hij"):
+                  matches_field = list(root.glob(f"*snap{index:03d}_{token}.h5"))
+                  if len(matches_field) != 1:
+                      raise SystemExit(
+                          f"expected one snap{index:03d}_{token}.h5, found {matches_field}"
+                      )
+
+          metadata = {
+              "protocol": "P0-Q_ELECTRIC_WEYL_TEMPORAL_SNAPSHOT_METADATA",
+              "gevolution_sha": "0cca42e51a824002ae4fb602cbd79d671e8ffe60",
+              "latfield2_sha": "2d8c737ab6adc965a1d2718c209f5085af27b09c",
+              "template_blob": "d4de9a5400ef58f6a0181fbe61f18056b233a425",
+              "tensor_evolution_compiled": True,
+              "dynamic_hij_snapshot_patch": True,
+              "grid": 64,
+              "boxsize_mpc_over_h": 64.0,
+              "seed": 424242,
+              "snapshots": snapshots,
+          }
+          out = Path("dark_sector_architecture/qualification/results")
+          out.mkdir(parents=True, exist_ok=True)
+          (out / "electric_weyl_temporal_snapshot_metadata.json").write_text(
+              json.dumps(metadata, indent=2, sort_keys=True) + "\n"
+          )
+          print(json.dumps(metadata, indent=2, sort_keys=True))
+          PY
+
+      - name: Analyze nested temporal derivatives and full electric Weyl
+        run: |
+          python dark_sector_architecture/qualification/run_electric_weyl_temporal_pilot.py \
+            --snapshot-dir ew_temporal_output \
+            --metadata dark_sector_architecture/qualification/results/electric_weyl_temporal_snapshot_metadata.json \
+            --boxsize-mpc-over-h "$BOXSIZE" \
+            --output dark_sector_architecture/qualification/results/electric_weyl_temporal_pilot.json \
+            --npz-output electric_weyl_temporal_arrays.npz
+
+      - name: Upload full temporal qualification artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: cosmology-electric-weyl-temporal-pilot
+          path: |
+            ew_temporal_upstream_revisions.txt
+            ew_temporal_patched_main_sha256.txt
+            ew_temporal_requested.json
+            ew_temporal.log
+            gevolution/ew_temporal.ini
+            ew_temporal_output/*_phi.h5
+            ew_temporal_output/*_chi.h5
+            ew_temporal_output/*_B.h5
+            ew_temporal_output/*_hij.h5
+            electric_weyl_temporal_arrays.npz
+            dark_sector_architecture/qualification/results/electric_weyl_temporal_snapshot_metadata.json
+            dark_sector_architecture/qualification/results/electric_weyl_temporal_pilot.json
+          if-no-files-found: error
+
+      - name: Persist temporal qualification summaries
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            dark_sector_architecture/qualification/results/electric_weyl_temporal_snapshot_metadata.json \
+            dark_sector_architecture/qualification/results/electric_weyl_temporal_pilot.json
+          if git diff --cached --quiet; then
+            echo "Temporal qualification summaries unchanged."
+            exit 0
+          fi
+          git commit -m "Persist electric Weyl temporal qualification"
+          for attempt in 1 2 3 4 5; do
+            git fetch origin dark-sector-stability-architecture
+            git rebase origin/dark-sector-stability-architecture
+            if git push origin HEAD:dark-sector-stability-architecture; then
+              exit 0
+            fi
+            echo "Push race on attempt $attempt; retrying."
+            sleep 2
+          done
+          echo "Unable to persist temporal qualification after retries." >&2
+          exit 1
