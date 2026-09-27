@@ -103,3 +103,33 @@ Repair:
 Successor run:
 - 36350469640
 - head commit `8f620e1e7f15d22a8531fc87b9b693b515f599da`
+
+
+## Failure family E - structurally valid but numerically invalid sparse IC template
+
+Affected run:
+- 36350469640
+
+Observed behavior:
+- canonical CPU gevolution/LATfield2 compiled;
+- valid 2x2 oversubscribed MPI launch executed;
+- all five requested HDF5 fields were written;
+- initialization reported only 8 CDM particles on an 8^3 mesh;
+- maximum displacement was approximately -7.38e19 lattice units;
+- average T00 was NaN at cycle 0;
+- phi HDF5 consequently contained non-finite values and extraction refused it.
+
+Classification:
+- root cause: qualification initial-condition/template density, not cosmological dynamics or parser behavior;
+- scientific status: INVALID_INPUT / NOT_ADJUDICABLE;
+- anomaly status: reproducible root-cause signature of sparse template plus displacement correction;
+- evidence integrity: finite-value loader correctly refused the result rather than sanitizing NaNs.
+
+Repair:
+- preserve one-particle deterministic Gadget-2 template;
+- change tiling factor from 2 to 8 so the 8^3 smoke mesh receives 8^3 = 512 homogeneous template particles, one per grid cell;
+- keep finite-value refusal and the same cosmology/transfer functions.
+
+Successor run:
+- 36350573345
+- head commit `49a4a9648a51cf3d9c931675d000097f8fe5b2e4`
