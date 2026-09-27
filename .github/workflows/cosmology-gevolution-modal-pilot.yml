@@ -7,6 +7,9 @@ on:
     paths:
       - 'dark_sector_architecture/qualification/gevolution_modal_pilot.ini'
       - 'dark_sector_architecture/qualification/make_minimal_gadget_template.py'
+      - 'dark_sector_architecture/qualification/latfield_hdf5.py'
+      - 'dark_sector_architecture/qualification/weak_field_tensors.py'
+      - 'dark_sector_architecture/qualification/extract_gevolution_modal_pilot.py'
       - '.github/workflows/cosmology-gevolution-modal-pilot.yml'
   workflow_dispatch:
 
@@ -33,7 +36,7 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Install build dependencies
+      - name: Install build and extraction dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y \
@@ -43,6 +46,8 @@ jobs:
             libfftw3-dev \
             libgsl-dev \
             libhdf5-dev
+          python -m pip install --upgrade pip
+          python -m pip install numpy h5py
 
       - name: Fetch pinned gevolution and LATfield2
         run: |
@@ -82,12 +87,25 @@ jobs:
       - name: Verify required modal-source fields exist
         run: |
           find pilot_output -maxdepth 2 -type f -printf '%P\n' | sort | tee pilot_output_manifest.txt
-          for token in _phi _B _chi _hij _v; do
-            if ! find pilot_output -maxdepth 2 -type f -name "*${token}*" | grep -q .; then
+          for token in _phi.h5 _B.h5 _chi.h5 _hij.h5 _v.h5; do
+            if ! find pilot_output -maxdepth 2 -type f -name "*${token}" | grep -q .; then
               echo "Missing required output token: ${token}" >&2
               exit 1
             fi
           done
+
+      - name: Extract weak-field modal tensors
+        run: |
+          phi_file="$(find pilot_output -maxdepth 2 -type f -name '*_phi.h5' | sort | head -n 1)"
+          velocity_file="$(find pilot_output -maxdepth 2 -type f -name '*_v.h5' | sort | head -n 1)"
+          test -n "$phi_file"
+          test -n "$velocity_file"
+          python dark_sector_architecture/qualification/extract_gevolution_modal_pilot.py \
+            --phi "$phi_file" \
+            --velocity "$velocity_file" \
+            --boxsize 64.0 \
+            --summary-output dark_sector_architecture/qualification/results/gevolution_modal_extraction_summary.json \
+            --npz-output gevolution_modal_extraction_arrays.npz
 
       - name: Record qualification metadata
         run: |
@@ -125,20 +143,23 @@ jobs:
             upstream_revisions.txt
             gevolution_modal_pilot.log
             pilot_output_manifest.txt
+            gevolution_modal_extraction_arrays.npz
             dark_sector_architecture/qualification/results/gevolution_modal_pilot_metadata.json
             dark_sector_architecture/qualification/results/gevolution_modal_pilot_manifest.txt
+            dark_sector_architecture/qualification/results/gevolution_modal_extraction_summary.json
           if-no-files-found: error
 
-      - name: Persist pilot metadata and manifest to branch
+      - name: Persist pilot metadata, manifest, and extraction summary
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add \
             dark_sector_architecture/qualification/results/gevolution_modal_pilot_metadata.json \
-            dark_sector_architecture/qualification/results/gevolution_modal_pilot_manifest.txt
+            dark_sector_architecture/qualification/results/gevolution_modal_pilot_manifest.txt \
+            dark_sector_architecture/qualification/results/gevolution_modal_extraction_summary.json
           if git diff --cached --quiet; then
-            echo "Pilot metadata unchanged."
+            echo "Pilot qualification results unchanged."
             exit 0
           fi
-          git commit -m "Refresh gevolution modal pilot metadata"
+          git commit -m "Refresh gevolution modal pilot qualification results"
           git push origin HEAD:dark-sector-stability-architecture
