@@ -10,6 +10,7 @@ if str(HERE) not in sys.path:
     sys.path.insert(0, str(HERE))
 
 from weak_field_tensors import (
+    scalar_weyl_shape_tensor,
     spectral_hessian_periodic,
     tensor_symmetry_residual,
     tensor_trace_residual,
@@ -55,6 +56,50 @@ def test_single_mode_scalar_field_recovers_analytic_tidal_tensor():
     np.testing.assert_allclose(tidal, expected, atol=ATOL, rtol=RTOL)
     assert tensor_symmetry_residual(tidal) < ATOL
     assert tensor_trace_residual(tidal) < ATOL
+
+
+def test_scalar_weyl_shape_reduces_to_legacy_tidal_when_slip_zero():
+    n = 16
+    boxsize = 8.0
+    x, y, _ = _grid(n, boxsize)
+    k = 2.0 * np.pi / boxsize
+    phi = np.cos(k * x) + 0.2 * np.sin(2.0 * k * y)
+    chi = np.zeros_like(phi)
+
+    legacy = weak_field_tidal_tensor(phi, boxsize)
+    scalar_weyl = scalar_weyl_shape_tensor(phi, chi, boxsize)
+
+    np.testing.assert_allclose(scalar_weyl, legacy, atol=ATOL, rtol=RTOL)
+
+
+def test_scalar_weyl_shape_uses_phi_minus_half_chi():
+    n = 16
+    boxsize = 8.0
+    x, _, _ = _grid(n, boxsize)
+    k = 2.0 * np.pi / boxsize
+
+    phi = 2.0 * np.cos(k * x)
+    chi = 0.6 * np.cos(k * x)
+    effective = (2.0 - 0.3) * np.cos(k * x)
+
+    scalar_weyl = scalar_weyl_shape_tensor(phi, chi, boxsize)
+    expected = weak_field_tidal_tensor(effective, boxsize)
+
+    np.testing.assert_allclose(scalar_weyl, expected, atol=ATOL, rtol=RTOL)
+    assert tensor_symmetry_residual(scalar_weyl) < ATOL
+    assert tensor_trace_residual(scalar_weyl) < ATOL
+
+
+def test_scalar_weyl_shape_refuses_mismatched_phi_chi_grids():
+    phi = np.zeros((8, 8, 8))
+    chi = np.zeros((4, 4, 4))
+
+    try:
+        scalar_weyl_shape_tensor(phi, chi, 10.0)
+    except ValueError as exc:
+        assert "matching" in str(exc)
+    else:
+        raise AssertionError("mismatched phi/chi grids were accepted")
 
 
 def test_one_dimensional_velocity_mode_recovers_analytic_shear_and_divergence():
