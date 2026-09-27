@@ -75,3 +75,31 @@ At ledger creation:
 These failures cannot count against PREG-MODAL-PA-1 or any cosmological hypothesis because the scientific computation never executed.
 
 They remain preserved because they establish the backend compatibility boundary and prevent repeated unchanged retries.
+
+
+## Failure family D - invalid 2x2 launch masked by shell pipeline
+
+Affected run:
+- 36350374092
+
+Observed behavior:
+- canonical CPU backend compiled successfully;
+- smoke command requested four MPI ranks on a runner exposing fewer slots;
+- Open MPI refused launch and printed the insufficient-slots diagnostic;
+- because the command was piped through `tee` without `pipefail`, the workflow step was incorrectly marked success;
+- downstream field verification correctly failed because no HDF5 fields existed.
+
+Classification:
+- root cause: infrastructure/process-layout launch plus shell exit-code masking;
+- scientific status: NOT_EXECUTED;
+- anomaly status: isolated workflow defect, now reproduced/explained;
+- evidence integrity: no simulation output was generated and no scientific claim was evaluated.
+
+Repair:
+- keep valid gevolution process grid `-n 2 -m 2`;
+- add `mpirun --oversubscribe -np 4` for the tiny hosted-runner qualification;
+- add `set -o pipefail` so MPI failure propagates through `tee`.
+
+Successor run:
+- 36350469640
+- head commit `8f620e1e7f15d22a8531fc87b9b693b515f599da`
