@@ -2,15 +2,15 @@
 
 **Project:** Cosmic Stability Architecture  
 **Branch:** `dark-sector-stability-architecture`  
-**Current stage:** P0-D / P0-Q Stage A foundation conglomeration  
-**Current scientific state:** Scalar, modal, and known conglomerate GR routes are partially reconstructed. No admitted route yet supplies the full pre-recombination CDM-like gravitational function. The full hypothesis remains open only at the nonperturbative/additional-architecture level; the partial late-time architecture remains independently open.
+**Current stage:** Stage A residual reconstruction complete for the full route; transitioning to partial-architecture preregistration construction  
+**Current scientific state:** The bounded nonperturbative/additional-architecture pass is complete. The full no-dark-substance route is UNSUPPORTED_AT_CURRENT_STAGE under the frozen literature rules, not falsified. The active branch is now the partial architecture; the full route remains open only in P0-D for genuinely new future candidates.
 
 ## Frozen objects
 
 - **PREG-LIT-COSMO-v1.0** frozen at GitHub commit `383747c6a713e6a518b913635b2ace423fafff0d`.
 - Literature adjudication semantics are frozen for the current controlled P0-Q pass.
 - P0-D exploration remains open by rule and is not bounded by refusal outcomes.
-- No PREG-S, PREG-M, PREG-C, or PREG-J confirmatory claim is activated yet.
+- No PREG-S, PREG-M, PREG-C, or PREG-J confirmatory claim is activated yet. Residual claim construction is now the next gate.
 
 ## Frozen hypothesis scope
 
@@ -44,6 +44,7 @@ Scalar, Vector/Modal, and Conglomerate/System are starting representations only.
 3. **Three-layer inheritance:** primordial organization is scalar, modal, and conglomerate/correlation based; (zeta/mathcal R) is one projection, not the whole architecture.
 4. **Direct modal narrowing:** ordinary linear GR does not supply an overlooked scalar replacement mode; nonlinear scalar/vector/tensor and Weyl couplings are real but have not demonstrated the required function.
 5. **Known conglomerate insufficiency:** nonlinear generated modes, covariant correlation sectors, averaging corrections, and memory kernels are real but no admitted construction demonstrates the complete pre-recombination CDM-like function.
+6. **Bounded full-route narrowing:** nonlocal, geon, edge-mode, field-self-interaction, exact-inhomogeneous, and additional-geometry candidates were examined. None satisfies the frozen full CMB-to-late standard-GR burden. The full route is therefore UNSUPPORTED_AT_CURRENT_STAGE, while the partial architecture becomes the active research branch.
 
 Detailed stop records: `WORKING_SCIENTIFIC_DEVELOPMENTS.md`.
 
@@ -61,6 +62,11 @@ Not supported:
 - one demonstrated architecture spanning recombination through late acceleration;
 - a direct elementary GR mode replacing the pre-recombination CDM function;
 - a licensed cosmological lower-case (chi) beyond previously published/model-specific scalar constructions.
+
+Stage-A disposition:
+- FULL_NO_DARK_SUBSTANCE: UNSUPPORTED_AT_CURRENT_STAGE;
+- PARTIAL_ARCHITECTURE: ACTIVE;
+- FULL_ROUTE_P0D_EXPLORATION: OPEN.
 
 ## Active exploration branches
 
@@ -86,18 +92,18 @@ See `LITERATURE_EXPLORATION_QUEUE.md`.
 
 ## Latest scientific development
 
-**Development 005:** known GR conglomerate mechanisms are insufficient for the full early CDM-like function under the current literature record. The full hypothesis remains open only through a bounded nonperturbative/additional-architecture route; the partial architecture remains open independently.
+**Development 006:** the bounded nonperturbative/additional-architecture pass is complete. No candidate satisfies the frozen full-route burden. The full no-dark-substance route is UNSUPPORTED_AT_CURRENT_STAGE; the partial architecture is now the active branch.
 
 ## Next exact action
 
-Resume with the **bounded nonperturbative/additional-architecture pass**:
+Construct the **partial-architecture residual preregistration candidate set**:
 
-1. search exact/nonperturbative GR correlation and Weyl constructions for genuinely collective degrees of freedom not reducible to known perturbative curvature corrections;
-2. search for covariant/nonlocal geometrical objects that persist from radiation domination through recombination;
-3. test whether any such object has an observable scalar projection capable of carrying the required non-acoustic gravitational function;
-4. keep any additional architecture component natively named unless it earns chi status separately;
-5. adjudicate under PREG-LIT-COSMO-v1.0 while preserving P0-D exploration;
-6. if no viable candidate survives the bounded pass, mark the full no-dark-substance branch UNSUPPORTED_AT_CURRENT_STAGE and narrow the active hypothesis to the partial architecture without closing future exploration.
+1. extract only unresolved/synthesis-derived late-time claims from the controlled adjudication matrix;
+2. separate PREG-S, PREG-M, PREG-C, and PREG-J candidates;
+3. define the strongest native comparator for each candidate;
+4. define explicit falsifiers, refusal conditions, uncertainty/indeterminate zones, and failure consequences;
+5. identify an untouched decisive evidence route for any claim intended to become P1;
+6. keep the full no-dark-substance route on P0-D watch rather than mixing it into partial-architecture confirmation.
 
 ## Resume pointers
 
@@ -108,3 +114,14 @@ Resume with the **bounded nonperturbative/additional-architecture pass**:
 - `LITERATURE_EXPLORATION_QUEUE.md`
 - `WORKING_SCIENTIFIC_DEVELOPMENTS.md`
 - `STAGE_A_PRIMORDIAL_MODAL_CONGLOMERATE_SYNTHESIS.md`
+
+
+## Active hypothesis branch after Stage A narrowing
+
+**PARTIAL_ARCHITECTURE**
+
+Working question:
+
+> Which late-time phenomena conventionally assigned to dark matter and dark energy are actually generated, reorganized, or conditioned by GR-native multiscale structure, modal organization, geometry, feedback, edge/boundary effects, and inheritance, and what does the scalar-modal-conglomerate joint architecture explain beyond the strongest native baseline?
+
+This does not presume that the early dark gravitational component is architectural or absent.
