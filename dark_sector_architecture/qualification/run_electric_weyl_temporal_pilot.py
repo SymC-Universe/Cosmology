@@ -28,8 +28,13 @@ if str(HERE) not in sys.path:
 
 from electric_weyl import (
     electric_weyl_conformal_sectors,
+    electric_weyl_conformal_sectors_latfield2,
     tensor_divergence_periodic,
     vector_divergence_periodic,
+)
+from latfield2_native_operators import (
+    lattice_tensor_diagnostics,
+    lattice_vector_diagnostics,
 )
 from latfield_hdf5 import (
     load_scalar_field,
@@ -159,7 +164,7 @@ def build_report(
     derivatives = nested_center_derivatives(b, h, tau)
     center = 2
 
-    sectors_inner = electric_weyl_conformal_sectors(
+    sectors_inner_continuum = electric_weyl_conformal_sectors(
         phi[center],
         chi[center],
         derivatives["b_prime_inner"],
@@ -167,7 +172,7 @@ def build_report(
         derivatives["h_second_inner"],
         coordinate_boxsize,
     )
-    sectors_outer = electric_weyl_conformal_sectors(
+    sectors_outer_continuum = electric_weyl_conformal_sectors(
         phi[center],
         chi[center],
         derivatives["b_prime_outer"],
@@ -175,6 +180,64 @@ def build_report(
         derivatives["h_second_outer"],
         coordinate_boxsize,
     )
+
+    sectors_inner = electric_weyl_conformal_sectors_latfield2(
+        phi[center],
+        chi[center],
+        derivatives["b_prime_inner"],
+        h[center],
+        derivatives["h_second_inner"],
+        coordinate_boxsize,
+    )
+    sectors_outer = electric_weyl_conformal_sectors_latfield2(
+        phi[center],
+        chi[center],
+        derivatives["b_prime_outer"],
+        h[center],
+        derivatives["h_second_outer"],
+        coordinate_boxsize,
+    )
+
+    native_postprocessing = []
+    for i in range(5):
+        native_postprocessing.append(
+            {
+                "index": i,
+                "B": lattice_vector_diagnostics(b[i], coordinate_boxsize),
+                "h": lattice_tensor_diagnostics(h[i], coordinate_boxsize),
+            }
+        )
+
+    native_logged = metadata.get("native_field_diagnostics")
+    native_log_reproduction = None
+    if native_logged is not None:
+        if len(native_logged) != 5:
+            raise ValueError("native_field_diagnostics must contain five entries")
+        native_log_reproduction = []
+        for i in range(5):
+            logged = native_logged[i]
+            post = native_postprocessing[i]
+            native_log_reproduction.append(
+                {
+                    "index": i,
+                    "B_divergence_abs_difference": abs(
+                        post["B"]["max_abs_divergence"]
+                        - float(logged["B_max_abs_divergence"])
+                    ),
+                    "h_divergence_abs_difference": abs(
+                        post["h"]["max_divergence_norm"]
+                        - float(logged["h_max_abs_divergence"])
+                    ),
+                    "h_trace_abs_difference": abs(
+                        post["h"]["max_abs_trace"]
+                        - float(logged["h_max_abs_trace"])
+                    ),
+                    "h_norm_abs_difference": abs(
+                        post["h"]["max_frobenius_norm"]
+                        - float(logged["h_max_norm"])
+                    ),
+                }
+            )
 
     b_divergence = [
         vector_divergence_periodic(b[i], coordinate_boxsize)
@@ -216,6 +279,15 @@ def build_report(
         for key in ("vector", "tensor", "total")
     }
 
+    continuum_sector_rms_inner = {
+        key: _tensor_frobenius_rms(sectors_inner_continuum[key])
+        for key in ("scalar", "vector", "tensor", "total")
+    }
+    continuum_sector_rms_outer = {
+        key: _tensor_frobenius_rms(sectors_outer_continuum[key])
+        for key in ("scalar", "vector", "tensor", "total")
+    }
+
     report = {
         "protocol": "P0-Q_ELECTRIC_WEYL_TEMPORAL_PILOT",
         "stage": "P0-Q",
@@ -238,6 +310,8 @@ def build_report(
                 "dynamically evolved hijFT inverse-transformed by qualification-only "
                 "snapshot patch compiled with TENSOR_EVOLUTION"
             ),
+            "primary_spatial_operator": "LATFIELD2_GEVOLUTION_NATIVE",
+            "continuum_spatial_operator_role": "COMPARATOR_ONLY",
         },
         "snapshots": [
             {
@@ -277,9 +351,11 @@ def build_report(
         "constraint_diagnostics": {
             "qualification_source": (
                 "gevolution native LATfield2 finite-difference diagnostics "
-                "when present in snapshot metadata"
+                "and independently reproduced native post-processing"
             ),
-            "native_gevolution": metadata.get("native_field_diagnostics"),
+            "native_gevolution_logged": native_logged,
+            "native_postprocessing": native_postprocessing,
+            "native_log_reproduction": native_log_reproduction,
             "continuum_fft_crosscheck": {
                 "status": "CROSSCHECK_ONLY_NOT_TRANSVERSALITY_GATE",
                 "reason": (
@@ -301,6 +377,7 @@ def build_report(
             "inner_relative_to_scalar": sector_relative_to_scalar,
         },
         "modal_diagnostics": {
+            "primary_spatial_operator": "LATFIELD2_GEVOLUTION_NATIVE",
             "inner_full_vs_scalar": _modal_comparison(
                 sectors_inner["scalar"], sectors_inner["total"]
             ),
@@ -311,13 +388,31 @@ def build_report(
                 sectors_inner["total"], sectors_outer["total"]
             ),
         },
+        "spatial_operator_comparison": {
+            "continuum_sector_frobenius_rms": {
+                "inner": continuum_sector_rms_inner,
+                "outer": continuum_sector_rms_outer,
+            },
+            "native_vs_continuum_scalar": _modal_comparison(
+                sectors_inner["scalar"], sectors_inner_continuum["scalar"]
+            ),
+            "native_vs_continuum_vector": _modal_comparison(
+                sectors_inner["vector"], sectors_inner_continuum["vector"]
+            ),
+            "native_vs_continuum_tensor": _modal_comparison(
+                sectors_inner["tensor"], sectors_inner_continuum["tensor"]
+            ),
+            "native_vs_continuum_total": _modal_comparison(
+                sectors_inner["total"], sectors_inner_continuum["total"]
+            ),
+        },
         "limitations": [
             "single early development epoch",
             "one N64 realization",
             "no scientific acceptance threshold frozen",
             "temporal inner/outer comparison is a discretization diagnostic, not P1 evidence",
             "magnetic Weyl tensor not reconstructed in this pilot",
-            "continuum FFT divergence diagnostics are not used for the native TT gate because gevolution uses a staggered LATfield2 lattice derivative",
+            "continuum FFT derivatives are retained only as a comparator because gevolution uses a staggered LATfield2 lattice derivative",
             "nonlinear observer dependence beyond first order is not tested here",
         ],
     }
@@ -327,11 +422,16 @@ def build_report(
         "b_prime_outer": derivatives["b_prime_outer"],
         "h_second_inner": derivatives["h_second_inner"],
         "h_second_outer": derivatives["h_second_outer"],
-        "E_scalar": sectors_inner["scalar"],
-        "E_vector_inner": sectors_inner["vector"],
-        "E_tensor_inner": sectors_inner["tensor"],
-        "E_total_inner": sectors_inner["total"],
-        "E_total_outer": sectors_outer["total"],
+        "E_scalar_native": sectors_inner["scalar"],
+        "E_vector_inner_native": sectors_inner["vector"],
+        "E_tensor_inner_native": sectors_inner["tensor"],
+        "E_total_inner_native": sectors_inner["total"],
+        "E_total_outer_native": sectors_outer["total"],
+        "E_scalar_continuum": sectors_inner_continuum["scalar"],
+        "E_vector_inner_continuum": sectors_inner_continuum["vector"],
+        "E_tensor_inner_continuum": sectors_inner_continuum["tensor"],
+        "E_total_inner_continuum": sectors_inner_continuum["total"],
+        "E_total_outer_continuum": sectors_outer_continuum["total"],
     }
     return report, arrays
 
