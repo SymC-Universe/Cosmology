@@ -46,6 +46,33 @@ Freeze before applying the adjudication rules to the remaining/unseen literature
 
 Previously viewed literature remains discovery/foundation material. Freezing PREG-LIT does not retroactively convert it into untouched evidence.
 
+## Exploration firewall
+
+PREG-LIT freezes the rules for **qualification and promotion**, not the boundary of scientific curiosity.
+
+The controlled P0-Q adjudication lane and the open P0-D discovery lane remain separate:
+
+[
+	ext{P0-D open exploration}
+;parallel;
+	ext{P0-Q controlled adjudication}.
+]
+
+P0-D remains free to:
+- search beyond the controlled corpus;
+- inspect failed or refused interpretations;
+- pursue anomalous or contradictory results;
+- test alternative representations;
+- explore additional scalar, vector/modal, conglomerate, or previously unrecognized architecture components;
+- revisit assumptions, gauges, scale partitions, and model classes;
+- generate new hypotheses from already-viewed evidence.
+
+A `REFUSED`, `INDETERMINATE`, `NOT_APPLICABLE`, failed gate, or negative result does **not** close exploration. It restricts only the frozen claim/use at its current epistemic level.
+
+If exploration after a failure generates a new component, coupling, mechanism, or claim, it is recorded as a post-result discovery under GOM 9.2. It may proceed through P0-D and P0-Q, but it cannot retroactively absorb or rescue the failure that generated it.
+
+The architecture must remain open to components beyond the current Scalar / Vector-Modal / Conglomerate-System starting basis. The three starting representations organize the search; they do not exhaust (Chi).
+
 ### PREG-S: scalar claim preregistration
 
 Used only for a material scalar claim.
@@ -89,7 +116,7 @@ The current cosmology confirmatory family is expected to contain at least four s
 | C | What coupled/conglomerate organization emerges from the full system? |
 | J | What do S, M, and C mean together, especially across inheritance and feedback? |
 
-Additional layers may be added only as post-result discoveries under the GOM and cannot retroactively absorb a failure.
+Additional layers may be explored at any time in P0-D when native science motivates them. If first proposed after an observed failure or result, they are recorded as post-result discoveries under the GOM and cannot retroactively absorb that failure. Exploration remains open even when promotion is refused.
 
 ## Minimum MFR-14 implementation
 
@@ -207,4 +234,4 @@ The exact S/M/C/J claim texts are frozen only after PREG-LIT adjudication identi
 - PREG-C: schema defined, claim not yet activated.
 - PREG-J: schema defined, claim not yet activated.
 
-The next action after freezing PREG-LIT is controlled adjudication of the literature corpus under the companion protocol.
+The next action after freezing PREG-LIT is controlled adjudication of the literature corpus under the companion protocol, while a parallel P0-D exploration lane remains open for new mechanisms, representations, anomalies, and literature discovered outside the controlled adjudication set.
