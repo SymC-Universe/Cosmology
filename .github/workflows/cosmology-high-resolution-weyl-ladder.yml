@@ -1,0 +1,266 @@
+name: Cosmology high-resolution scalar-Weyl ladder
+
+on:
+  push:
+    branches:
+      - dark-sector-stability-architecture
+    paths:
+      - 'dark_sector_architecture/qualification/run_qr2_resolution_pair.py'
+      - 'dark_sector_architecture/qualification/run_scalar_weyl_slip_probe.py'
+      - 'dark_sector_architecture/qualification/fourier_resolution.py'
+      - 'dark_sector_architecture/qualification/weak_field_tensors.py'
+      - 'dark_sector_architecture/qualification/gevolution_modal_pilot.ini'
+      - '.github/workflows/cosmology-high-resolution-weyl-ladder.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cosmology-high-resolution-weyl-ladder
+  cancel-in-progress: true
+
+jobs:
+  high-resolution-ladder:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    env:
+      GEVOLUTION_SHA: 0cca42e51a824002ae4fb602cbd79d671e8ffe60
+      LATFIELD2_SHA: 2d8c737ab6adc965a1d2718c209f5085af27b09c
+      TEMPLATE_BLOB: d4de9a5400ef58f6a0181fbe61f18056b233a425
+      BOXSIZE: 64.0
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          ref: dark-sector-stability-architecture
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            build-essential \
+            openmpi-bin \
+            libopenmpi-dev \
+            libfftw3-dev \
+            libgsl-dev \
+            libhdf5-dev
+          python -m pip install --upgrade pip
+          python -m pip install numpy h5py
+
+      - name: Fetch pinned sources
+        run: |
+          git clone https://github.com/gevolution-code/gevolution-1.3.git gevolution
+          git -C gevolution checkout "$GEVOLUTION_SHA"
+          git clone https://gitlab.uzh.ch/julian.adamek/LATfield2.git LATfield2
+          git -C LATfield2 checkout "$LATFIELD2_SHA"
+          curl -L --fail --silent --show-error \
+            https://raw.githubusercontent.com/gevolution-code/gevolution-1.2/df8a930732aae1bafa32fd839ee70728bb10773a/sc1_crystal.dat \
+            -o gevolution/highres_template.dat
+          test "$(git hash-object gevolution/highres_template.dat)" = "$TEMPLATE_BLOB"
+
+      - name: Compile gevolution
+        working-directory: gevolution
+        run: |
+          make clean
+          make -j2 \
+            INCLUDE="-I../LATfield2 -I/usr/include/hdf5/serial" \
+            LIB="-lfftw3 -lm -L/usr/lib/x86_64-linux-gnu/hdf5/serial -lhdf5 -lgsl -lgslcblas" \
+            DGEVOLUTION="-DPHINONLINEAR -DBENCHMARK -DEXACT_OUTPUT_REDSHIFTS -DVELOCITY"
+          test -x gevolution
+
+      - name: Build synchronized N32 N64 N128 settings
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          base = Path(
+              "dark_sector_architecture/qualification/gevolution_modal_pilot.ini"
+          ).read_text()
+
+          def settings(n, tiling, tag):
+              text = base
+              replacements = {
+                  "template file = pilot_template.dat": "template file = highres_template.dat",
+                  "tiling factor = 2": f"tiling factor = {tiling}",
+                  "Ngrid = 8": f"Ngrid = {n}",
+                  "time step limit = 0.04": "time step limit = 0.01",
+                  "snapshot outputs = phi, B, chi, hij, v": "snapshot outputs = phi, chi, v",
+                  "Pk outputs = phi, B, chi, hij": "Pk outputs = phi, chi",
+                  "output path = ../pilot_output/": f"output path = ../highres_{tag}_output/",
+                  "generic file base = modalpilot": f"generic file base = highres_{tag}",
+                  "snapshot file base = modalpilot_snap": f"snapshot file base = highres_{tag}_snap",
+                  "Pk file base = modalpilot_pk": f"Pk file base = highres_{tag}_pk",
+              }
+              for old, new in replacements.items():
+                  if old not in text:
+                      raise SystemExit(f"missing expected settings token: {old}")
+                  text = text.replace(old, new, 1)
+              return text
+
+          for n, tiling in ((32, 8), (64, 16), (128, 32)):
+              Path(f"gevolution/highres_n{n}.ini").write_text(
+                  settings(n, tiling, f"n{n}")
+              )
+          PY
+
+      - name: Run N32 member
+        run: |
+          set -o pipefail
+          mkdir -p highres_n32_output
+          cd gevolution
+          mpirun --oversubscribe -np 4 ./gevolution -n 2 -m 2 -s highres_n32.ini \
+            | tee ../highres_n32.log
+
+      - name: Run N64 member
+        run: |
+          set -o pipefail
+          mkdir -p highres_n64_output
+          cd gevolution
+          mpirun --oversubscribe -np 4 ./gevolution -n 2 -m 2 -s highres_n64.ini \
+            | tee ../highres_n64.log
+
+      - name: Run N128 member
+        run: |
+          set -o pipefail
+          mkdir -p highres_n128_output
+          cd gevolution
+          mpirun --oversubscribe -np 4 ./gevolution -n 2 -m 2 -s highres_n128.ini \
+            | tee ../highres_n128.log
+
+      - name: Verify shared epoch and required fields
+        run: |
+          python - <<'PY'
+          import re
+          from pathlib import Path
+
+          pattern = re.compile(r"writing snapshot at z = ([0-9eE+.-]+)")
+          epochs = {}
+          for n in (32, 64, 128):
+              tag = f"n{n}"
+              text = Path(f"highres_{tag}.log").read_text()
+              match = pattern.search(text)
+              if match is None:
+                  raise SystemExit(f"no snapshot epoch found for {tag}")
+              epochs[tag] = float(match.group(1))
+              for token in ("_phi.h5", "_chi.h5", "_v.h5"):
+                  if not list(Path(f"highres_{tag}_output").glob(f"*{token}")):
+                      raise SystemExit(f"missing {tag} {token}")
+          print("high-resolution epochs:", epochs)
+          if max(epochs.values()) - min(epochs.values()) > 1e-12:
+              raise SystemExit(f"high-resolution epochs do not match: {epochs}")
+          Path("highres_epoch.txt").write_text(f'{epochs["n32"]:.17g}\n')
+          PY
+
+      - name: Measure scalar slip at N32 N64 N128
+        run: |
+          for n in 32 64 128; do
+            phi="$(find highres_n$n"_output" -type f -name '*_phi.h5' | head -n 1)"
+            chi="$(find highres_n$n"_output" -type f -name '*_chi.h5' | head -n 1)"
+            python dark_sector_architecture/qualification/run_scalar_weyl_slip_probe.py \
+              --phi "$phi" --chi "$chi" --boxsize "$BOXSIZE" \
+              --output "dark_sector_architecture/qualification/results/highres_scalar_weyl_slip_n$n.json"
+          done
+
+      - name: Compare N32-N64 and N64-N128
+        run: |
+          compare_pair () {
+            low="$1"
+            high="$2"
+            low_phi="$(find highres_n$low"_output" -type f -name '*_phi.h5' | head -n 1)"
+            low_chi="$(find highres_n$low"_output" -type f -name '*_chi.h5' | head -n 1)"
+            low_v="$(find highres_n$low"_output" -type f -name '*_v.h5' | head -n 1)"
+            high_phi="$(find highres_n$high"_output" -type f -name '*_phi.h5' | head -n 1)"
+            high_chi="$(find highres_n$high"_output" -type f -name '*_chi.h5' | head -n 1)"
+            high_v="$(find highres_n$high"_output" -type f -name '*_v.h5' | head -n 1)"
+            python dark_sector_architecture/qualification/run_qr2_resolution_pair.py \
+              --low-phi "$low_phi" --low-chi "$low_chi" --low-velocity "$low_v" \
+              --high-phi "$high_phi" --high-chi "$high_chi" --high-velocity "$high_v" \
+              --boxsize "$BOXSIZE" \
+              --output "dark_sector_architecture/qualification/results/q_r2_highres_n$low"_n"$high.json"
+          }
+          compare_pair 32 64
+          compare_pair 64 128
+
+      - name: Add high-resolution provenance
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path("dark_sector_architecture/qualification/results")
+          provenance = {
+              "seed": 424242,
+              "template_source": "gevolution-code/gevolution-1.2/sc1_crystal.dat",
+              "template_blob": "d4de9a5400ef58f6a0181fbe61f18056b233a425",
+              "gevolution_sha": "0cca42e51a824002ae4fb602cbd79d671e8ffe60",
+              "latfield2_sha": "2d8c737ab6adc965a1d2718c209f5085af27b09c",
+              "boxsize_mpc_over_h": 64.0,
+              "time_step_limit": 0.01,
+              "actual_snapshot_redshift": float(Path("highres_epoch.txt").read_text()),
+              "grids": [32, 64, 128],
+              "tiling_factors": [8, 16, 32],
+              "particle_counts": [32768, 262144, 2097152],
+          }
+          paths = [
+              *(root / f"highres_scalar_weyl_slip_n{n}.json" for n in (32,64,128)),
+              root / "q_r2_highres_n32_n64.json",
+              root / "q_r2_highres_n64_n128.json",
+          ]
+          for path in paths:
+              data = json.loads(path.read_text())
+              data["high_resolution_provenance"] = provenance
+              path.write_text(json.dumps(data, indent=2, sort_keys=True) + "\n")
+          PY
+
+      - name: Upload high-resolution artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: cosmology-high-resolution-weyl-ladder
+          path: |
+            highres_epoch.txt
+            gevolution/highres_n32.ini
+            gevolution/highres_n64.ini
+            gevolution/highres_n128.ini
+            highres_n32.log
+            highres_n64.log
+            highres_n128.log
+            dark_sector_architecture/qualification/results/highres_scalar_weyl_slip_n32.json
+            dark_sector_architecture/qualification/results/highres_scalar_weyl_slip_n64.json
+            dark_sector_architecture/qualification/results/highres_scalar_weyl_slip_n128.json
+            dark_sector_architecture/qualification/results/q_r2_highres_n32_n64.json
+            dark_sector_architecture/qualification/results/q_r2_highres_n64_n128.json
+          if-no-files-found: error
+
+      - name: Persist high-resolution reports
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            dark_sector_architecture/qualification/results/highres_scalar_weyl_slip_n32.json \
+            dark_sector_architecture/qualification/results/highres_scalar_weyl_slip_n64.json \
+            dark_sector_architecture/qualification/results/highres_scalar_weyl_slip_n128.json \
+            dark_sector_architecture/qualification/results/q_r2_highres_n32_n64.json \
+            dark_sector_architecture/qualification/results/q_r2_highres_n64_n128.json
+          if git diff --cached --quiet; then
+            echo "High-resolution reports unchanged."
+            exit 0
+          fi
+          git commit -m "Persist high-resolution scalar-Weyl ladder"
+          for attempt in 1 2 3 4 5; do
+            git fetch origin dark-sector-stability-architecture
+            git rebase origin/dark-sector-stability-architecture
+            if git push origin HEAD:dark-sector-stability-architecture; then
+              exit 0
+            fi
+            echo "Push race on attempt $attempt; retrying."
+            sleep 2
+          done
+          exit 1
