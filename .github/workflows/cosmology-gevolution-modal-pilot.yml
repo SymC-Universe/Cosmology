@@ -82,7 +82,7 @@ jobs:
           mkdir -p pilot_output
           cp dark_sector_architecture/qualification/gevolution_modal_pilot.ini gevolution/pilot.ini
           cd gevolution
-          mpirun -np 1 ./gevolution -n 1 -m 1 -s pilot.ini | tee ../gevolution_modal_pilot.log
+          mpirun -np 4 ./gevolution -n 2 -m 2 -s pilot.ini | tee ../gevolution_modal_pilot.log
 
       - name: Verify required modal-source fields exist
         run: |
