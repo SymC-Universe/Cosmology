@@ -2,7 +2,7 @@
 
 **Project:** Cosmic Stability Architecture  
 **Branch:** `dark-sector-stability-architecture`  
-**Current stage:** Stage A residual reconstruction complete for the full route; transitioning to partial-architecture preregistration construction  
+**Current stage:** Partial-architecture preregistration construction; native modal representation selected; P0-Q modal qualification next  
 **Current scientific state:** The bounded nonperturbative/additional-architecture pass is complete. The full no-dark-substance route is UNSUPPORTED_AT_CURRENT_STAGE under the frozen literature rules, not falsified. The active branch is now the partial architecture; the full route remains open only in P0-D for genuinely new future candidates.
 
 ## Frozen objects
@@ -10,7 +10,7 @@
 - **PREG-LIT-COSMO-v1.0** frozen at GitHub commit `383747c6a713e6a518b913635b2ace423fafff0d`.
 - Literature adjudication semantics are frozen for the current controlled P0-Q pass.
 - P0-D exploration remains open by rule and is not bounded by refusal outcomes.
-- No PREG-S, PREG-M, PREG-C, or PREG-J confirmatory claim is activated yet. Residual claim construction is now the next gate.
+- No P1 claim is activated yet. PREG-SCALAR-PA-0 is explicitly NOT_ACTIVATED; modal/conglomerate/joint candidates are defined but remain unfrozen pending qualification.
 
 ## Frozen hypothesis scope
 
@@ -45,6 +45,7 @@ Scalar, Vector/Modal, and Conglomerate/System are starting representations only.
 4. **Direct modal narrowing:** ordinary linear GR does not supply an overlooked scalar replacement mode; nonlinear scalar/vector/tensor and Weyl couplings are real but have not demonstrated the required function.
 5. **Known conglomerate insufficiency:** nonlinear generated modes, covariant correlation sectors, averaging corrections, and memory kernels are real but no admitted construction demonstrates the complete pre-recombination CDM-like function.
 6. **Bounded full-route narrowing:** nonlocal, geon, edge-mode, field-self-interaction, exact-inhomogeneous, and additional-geometry candidates were examined. None satisfies the frozen full CMB-to-late standard-GR burden. The full route is therefore UNSUPPORTED_AT_CURRENT_STAGE, while the partial architecture becomes the active research branch.
+7. **Native modal basis identified:** relativistic shear/Weyl tensor eigenstructure is the primary modal representation; scalar invariants, modal eigenstructure, and conglomerate spatial organization can now be tested separately and jointly.
 
 Detailed stop records: `WORKING_SCIENTIFIC_DEVELOPMENTS.md`.
 
@@ -92,18 +93,18 @@ See `LITERATURE_EXPLORATION_QUEUE.md`.
 
 ## Latest scientific development
 
-**Development 006:** the bounded nonperturbative/additional-architecture pass is complete. No candidate satisfies the frozen full-route burden. The full no-dark-substance route is UNSUPPORTED_AT_CURRENT_STAGE; the partial architecture is now the active branch.
+**Development 007:** the native late-time modal object is now identified as shear/Weyl/tidal eigenstructure rather than an arbitrary data decomposition. This enables direct scalar-modal-conglomerate and inheritance tests.
 
 ## Next exact action
 
-Construct the **partial-architecture residual preregistration candidate set**:
+Implement the **modal known-truth qualification suite** before cosmological production:
 
-1. extract only unresolved/synthesis-derived late-time claims from the controlled adjudication matrix;
-2. separate PREG-S, PREG-M, PREG-C, and PREG-J candidates;
-3. define the strongest native comparator for each candidate;
-4. define explicit falsifiers, refusal conditions, uncertainty/indeterminate zones, and failure consequences;
-5. identify an untouched decisive evidence route for any claim intended to become P1;
-6. keep the full no-dark-substance route on P0-D watch rather than mixing it into partial-architecture confirmation.
+1. implement the shared tensor eigensystem/extraction code;
+2. execute KT-01 through KT-12;
+3. verify rotation covariance, degeneracy refusal, matched-scalar/modal-different cases, and known-bad rejection;
+4. estimate numerical conditioning and uncertainty behavior without inventing a threshold;
+5. use the qualification results to freeze modal tolerances and decide whether PREG-MODAL-PA-1 is fit to activate;
+6. only then proceed to cosmological pilot simulations.
 
 ## Resume pointers
 
@@ -125,3 +126,14 @@ Working question:
 > Which late-time phenomena conventionally assigned to dark matter and dark energy are actually generated, reorganized, or conditioned by GR-native multiscale structure, modal organization, geometry, feedback, edge/boundary effects, and inheritance, and what does the scalar-modal-conglomerate joint architecture explain beyond the strongest native baseline?
 
 This does not presume that the early dark gravitational component is architectural or absent.
+
+
+## Partial-architecture preregistration candidates
+
+- `PREG-SCALAR-PA-0`: NOT_ACTIVATED.
+- `PREG-MODAL-PA-1`: CANDIDATE, native shear/Weyl/tidal eigenstructure.
+- `PREG-CONGLOMERATE-PA-1`: CANDIDATE, single-rule late-time dual-function architecture.
+- `PREG-JOINT-PA-1`: CANDIDATE, scalar insufficiency conditioned by modal/conglomerate organization.
+- `PREG-JOINT-PA-2`: CANDIDATE, modal-to-conglomerate Stability Inheritance.
+
+See `PARTIAL_ARCHITECTURE_PREREG_CANDIDATES.md`.
