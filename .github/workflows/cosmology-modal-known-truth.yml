@@ -13,6 +13,8 @@ on:
       - 'dark_sector_architecture/qualification/run_weak_field_known_truth_suite.py'
       - 'dark_sector_architecture/qualification/latfield_hdf5.py'
       - 'dark_sector_architecture/qualification/test_latfield_hdf5.py'
+      - 'dark_sector_architecture/qualification/extract_gevolution_modal_pilot.py'
+      - 'dark_sector_architecture/qualification/test_extract_gevolution_modal_pilot.py'
       - '.github/workflows/cosmology-modal-known-truth.yml'
   workflow_dispatch:
 
