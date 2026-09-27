@@ -1,7 +1,7 @@
 {
   "boxsize_mpc_over_h": 64.0,
   "common_grid_comparison": {
-    "definition": "spectrally restrict high-grid phi/velocity onto low-grid non-Nyquist Fourier support; reconstruct both low and restricted high tensors with the identical low-grid operator",
+    "definition": "spectrally restrict high-grid fields onto low-grid non-Nyquist Fourier support; reconstruct both low and restricted-high tensors with the identical low-grid operator",
     "phi": {
       "absolute_error_quantiles": {
         "finite_count": 32768,
@@ -34,6 +34,7 @@
       },
       "rms_error": 2.9467391005775495e-08
     },
+    "scalar_weyl_shape": null,
     "shear": {
       "directional_error_over_reference_gap_quantiles_by_pair": [
         {
@@ -407,14 +408,16 @@
         },
         "rms_error": 1.0620277610080643e-05
       }
-    ]
+    ],
+    "weyl_potential": null
   },
   "high_grid": 64,
   "limitations": [
     "development pair only; no P1 claim",
     "same-seed phase compatibility is measured rather than assumed",
     "common-grid comparison removes high-only Fourier modes before tensor reconstruction",
-    "weak-field scalar tidal Hessian is not asserted to equal full electric Weyl curvature",
+    "weak-field Phi-only tidal Hessian is not asserted to equal full electric Weyl curvature",
+    "scalar_weyl_shape, when present, includes gevolution slip but still omits vector/tensor electric-Weyl sectors",
     "no universal resolution or directional threshold is inferred from this pair"
   ],
   "low_grid": 32,
