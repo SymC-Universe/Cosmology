@@ -2,7 +2,7 @@
 
 **Project:** Cosmic Stability Architecture  
 **Branch:** `dark-sector-stability-architecture`  
-**Current stage:** P0-Q modal representation/convergence qualification; gevolution real-field smoke and Q-R2/Q-R3 ladders complete; full electric-Weyl representation gate active  
+**Current stage:** P0-Q full electric-Weyl representation qualification; temporal gate passed mechanically but native-lattice spatial-derivative consistency remains open  
 **Current scientific state:** The bounded nonperturbative/additional-architecture pass is complete. The full no-dark-substance route is UNSUPPORTED_AT_CURRENT_STAGE under the frozen literature rules, not falsified. The active branch is now the partial architecture; the full route remains open only in P0-D for genuinely new future candidates.
 
 ## Frozen objects
@@ -93,50 +93,51 @@ See `LITERATURE_EXPLORATION_QUEUE.md`.
 
 ## Latest scientific development
 
-**Development 008: fixed-band convergence separates the scalar-Weyl and shear qualification states.**
+**Development 009: full electric-Weyl temporal pilot resolves a tiny early vector/tensor correction, but native lattice derivative consistency remains open.**
 
-The gevolution infrastructure gate is now passed with the canonical gevolution 1.3 / LATfield2 v1.1 CPU stack and the canonical historical `sc1_crystal.dat` particle template. Durable real-field HDF5 outputs and modal extraction summaries exist.
+A five-snapshot N64 gevolution pilot around \(z\simeq98.9952\) used dynamically evolved \(h_{ij}\), full-precision actual conformal times, and nested arbitrary-time derivative stencils.
 
-A synchronized high-resolution ladder at (N=32,64,128), common seed, common box, common epoch (z\simeq98.9976), and fixed physical Fourier support shows a representation-dependent convergence pattern:
+Temporal reconstruction is highly stable:
+- \(B'_i\) inner/outer relative RMS difference: \(1.54\times10^{-4}\);
+- \(h''_{ij}\) inner/outer relative RMS difference: \(3.25\times10^{-3}\);
+- full-Weyl inner/outer median relative tensor difference: \(2.09\times10^{-9}\);
+- inner/outer median eigenframe alignment: numerically 1.0.
 
-- (64\rightarrow128) potential RMS error / reference RMS: (5.93\times10^{-4});
-- scalar-Weyl-shape median relative tensor-operator error: (1.48\times10^{-2}), with q95 (3.15\times10^{-2});
-- scalar-Weyl eigenframe median diagonal alignments: (0.999978, 0.999952, 0.999979);
-- scalar-Weyl median tensor-error/eigengap direction diagnostics: approximately (0.0171) and (0.0170);
-- velocity-shear median relative tensor-operator error: (0.174), with q95 (0.351);
-- velocity-shear eigenframe median diagonal alignments: (0.9983, 0.9961, 0.9983), but q05 remains approximately (0.970, 0.931, 0.967);
-- velocity-shear median tensor-error/eigengap diagnostics remain approximately (0.201).
+At the central epoch:
+- vector-sector Frobenius RMS / scalar-sector RMS: \(8.00\times10^{-7}\);
+- tensor-sector Frobenius RMS / scalar-sector RMS: \(1.16\times10^{-6}\);
+- full-versus-scalar median relative tensor-operator difference: \(1.35\times10^{-6}\);
+- full-versus-scalar median error/eigengap diagnostics: approximately \(1.57\times10^{-6}\);
+- scalar and full eigenframes are essentially identical at this epoch.
 
-The gevolution scalar slip correction is tiny at this early development epoch:
-- `chi_gev_rms / phi_rms` is approximately (6.84\times10^{-6}) at (N=128);
-- replacing `phi` by the scalar Weyl/lensing potential changes the scalar-Weyl tensor by a median relative operator amount of approximately (1.41\times10^{-6});
-- corresponding eigenframes are essentially unchanged at this epoch.
+Thus the full vector/tensor correction is tiny in the tested early regime but resolved far above the demonstrated temporal-stencil uncertainty.
 
-Interpretation:
-- scalar potential convergence does not license a modal convergence claim;
-- the scalar-Weyl shape is numerically much better conditioned on the frozen high-resolution physical band than the velocity-shear modal object;
-- shear/modal convergence is improving materially with resolution but is not collapsed into a binary PASS threshold;
-- the scalar-slip result is epoch- and scalar-sector-specific and does not license calling the current object the full electric Weyl tensor;
-- the full vector/tensor (B_i,h_{ij}) electric-Weyl contribution and temporal derivative terms remain an open representation gate.
+However, the current post-processing divergence and spatial derivative diagnostics use continuum FFT derivatives, while gevolution constructs transverse vector and TT tensor sectors with its native discrete lattice kshift operator. Under the native-model-first rule, the representation gate remains:
 
-This is a scientific-development stop because the numerical qualification state differs materially by representation. It strengthens, rather than closes, the requirement to investigate scalar, modal, conglomerate, and their joint meaning separately.
+\[
+\boxed{\text{NEED\_MORE\_INFO}}
+\]
 
-Detailed stop record: `WORKING_SCIENTIFIC_DEVELOPMENTS.md`.
+rather than REPRESENTATION_QUALIFIED_P0Q.
+
+This is a scientific-development stop. The temporal problem is no longer the limiting issue; native lattice derivative consistency is.
+
+Detailed stop record: WORKING_SCIENTIFIC_DEVELOPMENTS.md.
 
 ## Next exact action
 
-Continue the **modal representation gate**, not another scalar-only ladder:
+Continue the **native-lattice electric-Weyl representation gate**:
 
-1. freeze the exact first-order convention map between gevolution `Phi`, `chi_gev = Phi-Psi`, `B_i`, `h_ij` and the covariant electric/magnetic Weyl variables;
-2. build a three-snapshot matched-epoch pilot so vector/tensor temporal derivatives can be reconstructed rather than assumed;
-3. qualify centered first- and second-time derivatives at two temporal spacings;
-4. reconstruct scalar + vector + tensor electric-Weyl contributions under the frozen convention, preserving scalar-only and full objects separately;
-5. quantify whether (B_i) and (h_{ij}) materially alter eigenvalues/eigenframes relative to the scalar-Weyl shape;
-6. keep the velocity-shear channel separate and continue its convergence accounting rather than using scalar-Weyl convergence as a proxy;
-7. only after the electric-Weyl representation gate and shear uncertainty route are qualified should `PREG-MODAL-PA-1` be considered for activation;
-8. after modal qualification, return to `PREG-CONGLOMERATE-PA-1` and `PREG-JOINT-PA-1/2` so the investigation does not collapse into a scalar-only result.
+1. implement gevolution's native discrete Fourier derivative based on its kshift operator;
+2. known-truth test that operator on lattice Fourier modes and transverse/TT synthetic fields;
+3. re-evaluate \(B_i\) divergence and \(h_{ij}\) trace/divergence from the persisted five-snapshot artifact using the native operator;
+4. reconstruct the vector and tensor spatial derivative pieces of the electric-Weyl tensor with the same operator;
+5. compare native-lattice and continuum reconstructions on the same central snapshot;
+6. adjudicate ELECTRIC_WEYL_TEMPORAL_QUALIFICATION_GATE.md as REPRESENTATION_QUALIFIED_P0Q, NEED_MORE_INFO, or REFUSED;
+7. if the full electric-Weyl representation qualifies, reassess PREG-MODAL-PA-1 while keeping velocity-shear uncertainty independent;
+8. then return to PREG-CONGLOMERATE-PA-1 and PREG-JOINT-PA-1/2 so scalar, modal, and system-level meaning remain jointly investigated.
 
-No universal numerical threshold is frozen by Development 008.
+No universal numerical threshold is frozen by Development 009.
 
 ## Resume pointers
 
@@ -234,3 +235,17 @@ Pending durable gevolution outputs:
 
 Latest observed high-resolution scalar-Weyl ladder workflow: run `36354573737`, PASS.
 Latest integrated modal known-truth workflow: run `36354573739`, PASS.
+
+
+## Electric-Weyl temporal qualification artifacts
+
+- ELECTRIC_WEYL_CONVENTION_MAP.md
+- ELECTRIC_WEYL_TEMPORAL_QUALIFICATION_GATE.md
+- qualification/results/electric_weyl_known_truth_report.json
+- qualification/results/temporal_derivative_known_truth_report.json
+- qualification/results/electric_weyl_temporal_snapshot_metadata.json
+- qualification/results/electric_weyl_temporal_pilot.json
+- temporal workflow run 36355936564: PASS
+- temporal workflow head dd710485ae9f3511cd606d46ab21f4271856bcf9
+
+Current temporal gate outcome: NEED_MORE_INFO pending native-lattice spatial derivative qualification.
