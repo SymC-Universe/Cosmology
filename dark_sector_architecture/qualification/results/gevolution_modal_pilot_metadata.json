@@ -16,6 +16,8 @@
     "modalpilot_snap000_phi.h5",
     "modalpilot_snap000_v.h5"
   ],
+  "particle_template_git_blob": "d4de9a5400ef58f6a0181fbe61f18056b233a425",
+  "particle_template_source": "gevolution-code/gevolution-1.2/sc1_crystal.dat",
   "pilot_grid": 8,
   "purpose": "gevolution infrastructure/modal-field smoke test",
   "required_outputs": [
