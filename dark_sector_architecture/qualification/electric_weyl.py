@@ -31,6 +31,11 @@ from __future__ import annotations
 import numpy as np
 
 from weak_field_tensors import scalar_weyl_shape_tensor
+from latfield2_native_operators import (
+    lattice_scalar_stf_hessian,
+    lattice_tensor_laplacian,
+    lattice_vector_symmetric_gradient,
+)
 
 
 def _validate_boxsize(boxsize: float) -> float:
@@ -229,5 +234,95 @@ def electric_weyl_physical_tensor(
     if not np.isfinite(a) or a <= 0.0:
         raise ValueError("scale_factor must be finite and positive")
     return electric_weyl_conformal_tensor(
+        phi, chi_gev, b_prime, h, h_second, boxsize
+    ) / (a * a)
+
+
+
+def electric_weyl_conformal_sectors_latfield2(
+    phi: np.ndarray,
+    chi_gev: np.ndarray,
+    b_prime: np.ndarray,
+    h: np.ndarray,
+    h_second: np.ndarray,
+    boxsize: float,
+) -> dict[str, np.ndarray]:
+    """Return the full first-order Weyl sectors using gevolution lattice operators.
+
+    This is the native-model-first representation for gevolution fields. Scalar,
+    vector, and tensor spatial derivatives all use the same LATfield2/gevolution
+    staggered lattice symbols. Temporal derivatives remain externally supplied
+    and must be qualified separately.
+    """
+    boxsize = _validate_boxsize(boxsize)
+
+    phi_arr = np.asarray(phi, dtype=float)
+    chi_arr = np.asarray(chi_gev, dtype=float)
+    if phi_arr.ndim != 3 or chi_arr.shape != phi_arr.shape:
+        raise ValueError("phi and chi_gev must be matching scalar grids")
+    if not np.all(np.isfinite(phi_arr)) or not np.all(np.isfinite(chi_arr)):
+        raise ValueError("phi and chi_gev entries must be finite")
+
+    b_p = _validate_vector(b_prime, "b_prime")
+    h_arr = _validate_tensor(h, "h")
+    h_dd = _validate_tensor(h_second, "h_second")
+
+    spatial_shape = tuple(phi_arr.shape)
+    if tuple(b_p.shape[1:]) != spatial_shape:
+        raise ValueError("b_prime grid must match scalar grid")
+    if tuple(h_arr.shape[:3]) != spatial_shape:
+        raise ValueError("h grid must match scalar grid")
+    if tuple(h_dd.shape[:3]) != spatial_shape:
+        raise ValueError("h_second grid must match scalar grid")
+
+    weyl_potential = phi_arr - 0.5 * chi_arr
+    scalar = lattice_scalar_stf_hessian(weyl_potential, boxsize)
+
+    b_symgrad = lattice_vector_symmetric_gradient(b_p, boxsize)
+    vector = -0.5 * b_symgrad
+    vector = symmetric_trace_free(vector)
+
+    h_laplacian = lattice_tensor_laplacian(h_arr, boxsize)
+    tensor = -0.25 * (h_dd + h_laplacian)
+    tensor = symmetric_trace_free(tensor)
+
+    total = symmetric_trace_free(scalar + vector + tensor)
+
+    return {
+        "scalar": scalar,
+        "vector": vector,
+        "tensor": tensor,
+        "total": total,
+        "h_laplacian": h_laplacian,
+        "spatial_operator": "LATFIELD2_GEVOLUTION_NATIVE",
+    }
+
+
+def electric_weyl_conformal_tensor_latfield2(
+    phi: np.ndarray,
+    chi_gev: np.ndarray,
+    b_prime: np.ndarray,
+    h: np.ndarray,
+    h_second: np.ndarray,
+    boxsize: float,
+) -> np.ndarray:
+    return electric_weyl_conformal_sectors_latfield2(
+        phi, chi_gev, b_prime, h, h_second, boxsize
+    )["total"]
+
+
+def electric_weyl_physical_tensor_latfield2(
+    phi: np.ndarray,
+    chi_gev: np.ndarray,
+    b_prime: np.ndarray,
+    h: np.ndarray,
+    h_second: np.ndarray,
+    boxsize: float,
+    scale_factor: float,
+) -> np.ndarray:
+    a = float(scale_factor)
+    if not np.isfinite(a) or a <= 0.0:
+        raise ValueError("scale_factor must be finite and positive")
+    return electric_weyl_conformal_tensor_latfield2(
         phi, chi_gev, b_prime, h, h_second, boxsize
     ) / (a * a)
