@@ -17,6 +17,8 @@ on:
       - 'dark_sector_architecture/qualification/test_extract_gevolution_modal_pilot.py'
       - 'dark_sector_architecture/qualification/modal_convergence.py'
       - 'dark_sector_architecture/qualification/test_modal_convergence.py'
+      - 'dark_sector_architecture/qualification/run_modal_extraction_convergence.py'
+      - 'dark_sector_architecture/qualification/test_modal_extraction_convergence.py'
       - '.github/workflows/cosmology-modal-known-truth.yml'
   workflow_dispatch:
 
@@ -44,14 +46,22 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install numpy pytest h5py
 
-      - name: Run known-truth tests
+      - name: Run complete known-truth and integration tests
         run: |
-          python -m pytest -q             dark_sector_architecture/qualification/test_modal_tensor_known_truth.py             dark_sector_architecture/qualification/test_weak_field_tensors.py             dark_sector_architecture/qualification/test_latfield_hdf5.py
+          python -m pytest -q \
+            dark_sector_architecture/qualification/test_modal_tensor_known_truth.py \
+            dark_sector_architecture/qualification/test_weak_field_tensors.py \
+            dark_sector_architecture/qualification/test_latfield_hdf5.py \
+            dark_sector_architecture/qualification/test_extract_gevolution_modal_pilot.py \
+            dark_sector_architecture/qualification/test_modal_convergence.py \
+            dark_sector_architecture/qualification/test_modal_extraction_convergence.py
 
       - name: Generate machine-readable qualification reports
         run: |
-          python dark_sector_architecture/qualification/run_modal_known_truth_suite.py             --output dark_sector_architecture/qualification/results/modal_known_truth_report.json
-          python dark_sector_architecture/qualification/run_weak_field_known_truth_suite.py             --output dark_sector_architecture/qualification/results/weak_field_known_truth_report.json
+          python dark_sector_architecture/qualification/run_modal_known_truth_suite.py \
+            --output dark_sector_architecture/qualification/results/modal_known_truth_report.json
+          python dark_sector_architecture/qualification/run_weak_field_known_truth_suite.py \
+            --output dark_sector_architecture/qualification/results/weak_field_known_truth_report.json
 
       - name: Upload qualification reports
         uses: actions/upload-artifact@v4
@@ -66,10 +76,14 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add             dark_sector_architecture/qualification/results/modal_known_truth_report.json             dark_sector_architecture/qualification/results/weak_field_known_truth_report.json
+          git add \
+            dark_sector_architecture/qualification/results/modal_known_truth_report.json \
+            dark_sector_architecture/qualification/results/weak_field_known_truth_report.json
           if git diff --cached --quiet; then
             echo "Qualification reports unchanged."
             exit 0
           fi
           git commit -m "Refresh modal qualification reports"
+          git fetch origin dark-sector-stability-architecture
+          git rebase origin/dark-sector-stability-architecture
           git push origin HEAD:dark-sector-stability-architecture
