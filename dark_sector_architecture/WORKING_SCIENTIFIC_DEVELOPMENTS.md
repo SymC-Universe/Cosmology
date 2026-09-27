@@ -309,3 +309,90 @@ For each candidate, preserve:
 - `STAGE_A_PRIMORDIAL_CARRIER_CONGLOMERATION.md`
 
 **Status:** Paused at scientific development. The next valid action is the modal/conglomerate source-sufficiency pass.
+
+
+---
+
+## Development 004 - Direct Modal Route Narrows; Conglomerate Route Remains Open
+
+**Date:** 2026-09-27  
+**GitHub checkpoint before entry:** `d6e57c46710a6e074713224226854bf9b5e8dd06`
+
+### Scientific development
+
+The controlled modal pass does not identify an overlooked independent linear gravitational mode in standard GR that can supply the persistent pre-recombination scalar gravitational function normally provided by pressureless CDM.
+
+This is a route-specific narrowing, not a closure of the architecture hypothesis.
+
+### Triggering evidence
+
+- Standard metric GR carries two independent propagating gravitational degrees of freedom, expressed as tensor polarizations.
+- Linear scalar cosmological potentials are constraint responses tied to stress-energy perturbations rather than an independent freely propagating scalar gravitational reservoir.
+- Linear vector perturbations normally decay without sustained sources.
+- Second-order GR permits scalar-to-tensor and tensor-to-scalar mode generation, demonstrating real nonlinear mode coupling, but the induced modes are sourced by existing lower-order perturbations.
+- Nonlinear post-Friedmann theory generates frame-dragging vector potentials and scalar-potential splitting from nonlinear matter currents, but does not identify a new free scalar collapse mode.
+- Electric/magnetic Weyl and gravitomagnetic sectors contain genuinely relativistic non-Newtonian structure, including gravitational-wave content, but the admitted literature does not establish a pre-recombination pressureless scalar gravitational function independent of matter/shear.
+
+### Consequence
+
+The following route is narrowed for the frozen function:
+
+[
+	ext{hidden ordinary linear GR mode}
+ightarrow
+	ext{REFUSED}.
+]
+
+The following remain open:
+
+[
+	ext{nonlinear modal coupling},
+quad
+	ext{Weyl/tidal organization},
+quad
+	ext{correlation/coarse-grained modes},
+quad
+	ext{nonlocal/history structure},
+quad
+	ext{additional architecture components}.
+]
+
+The full no-dark-substance hypothesis can therefore survive only if the missing gravitational function is an emergent **conglomerate/system-level** property or belongs to an additional architectural representation not captured by the direct linear modal basis.
+
+### Claim ceiling after development
+
+Supported:
+- cosmological modal organization is nontrivial and scale/time dependent;
+- nonlinear GR generates cross-sector scalar/vector/tensor coupling;
+- Weyl/gravitomagnetic structure contains genuinely relativistic information beyond the Newtonian scalar sector.
+
+Not supported:
+- an independent hidden scalar gravitational mode in ordinary linear GR;
+- a vector or tensor mode already shown to reproduce the required CMB scalar gravitational function;
+- nonlinear induced modes as a demonstrated replacement for the pre-recombination CDM-like function.
+
+Unresolved:
+- whether the required function emerges from conglomeration rather than an elementary mode;
+- whether correlation, averaging, nonlocality, or memory can generate a quantitatively sufficient collective branch;
+- whether an additional architecture component beyond the current three starting representations is needed.
+
+### Exact restart point
+
+Run the **conglomerate source-emergence pass** under the frozen PREG-LIT rules and open P0-D exploration firewall.
+
+Priority questions:
+
+1. Can covariant correlation tensors or averaged-GR closure generate a collective aperiodic/gravitational branch not present in the elementary linear spectrum?
+2. Can non-Markovian or coarse-grained dynamics produce a slow collective mode with the required pre-recombination scalar projection?
+3. Can nonlinear Weyl/shear/tidal organization generate a persistent inherited function across equality and recombination?
+4. If none survives, identify whether the remaining full-route hypothesis requires an additional architecture component outside the current Scalar / Vector-Modal / Conglomerate-System starting basis.
+5. Preserve the partial late-time architecture branch independently of the full-route result.
+
+### Linked artifacts
+
+- `PREG_LIT_COSMO_V1_FREEZE.md`
+- `LITERATURE_ADJUDICATION_MATRIX.md`
+- `LITERATURE_EXPLORATION_QUEUE.md`
+- `STAGE_A_PRIMORDIAL_MODAL_CONGLOMERATE_SYNTHESIS.md`
+
+**Status:** Paused at scientific development. Next valid action is conglomerate source emergence.
