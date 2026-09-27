@@ -477,3 +477,114 @@ If that bounded pass produces no viable candidate, the full no-dark-substance br
 - `WORKING_INVESTIGATION.md`
 
 **Status:** Paused at scientific development. Next valid action is the bounded nonperturbative/additional-architecture pass.
+
+
+---
+
+## Development 006 - Full No-Dark-Substance Route Unsupported at Current Stage
+
+**Date:** 2026-09-27  
+**GitHub checkpoint before entry:** `5cf899c75ad610839d5c29897691d172bd39cf00`
+
+### Scientific development
+
+The preregistered bounded nonperturbative/additional-architecture pass is complete.
+
+No admitted candidate satisfies the full frozen requirement:
+
+[
+	ext{standard GR}
++
+	ext{no new material component}
++
+	ext{pre-recombination persistent gravitational function}
++
+	ext{quantitative CMB/growth sufficiency}
++
+	ext{cross-epoch continuation}
++
+	ext{late architecture}.
+]
+
+This is the first Stage A result that changes the active hypothesis branch.
+
+### Candidate families tested
+
+- nonlocal/memory gravity;
+- covariant macroscopic-gravity correlations;
+- pure-GR gravitational-wave/geon self-organization;
+- nonlinear edge/boundary modes;
+- GR field self-interaction / gravito-magnetic proposals;
+- exact inhomogeneous GR;
+- topological/additional-geometry proposals.
+
+### Triggering evidence
+
+- Nonlocal/memory models can generate effective dark sources but do so by adding a nonlocal constitutive kernel or modified action, failing the frozen native-standard-GR gate.
+- Pure-GR GW effective stress behaves as radiation/null energy, not pressureless matter.
+- Pure-GR geon constructions are nonlinear geometric objects but do not have an established long-lived cosmological population and face stability objections.
+- Umeh's gravitational edge modes are a strong architecture-like late-time precedent inside GR but are currently demonstrated for nonlinear galaxy-scale dynamics, not the recombination-era CMB burden.
+- Deur's field-self-interaction framework addresses late structure and selected background/CMB scales but explicitly leaves detailed CMB/BAO treatment beyond scope and takes the early homogeneous limit toward no field-depletion effect.
+- Le Corre's gravitic-field program states that the required high field magnitude needs an extra/ad hoc assumption, that persistence in full GR remains open, and that deeper cosmological simulation is required.
+- Dodelson & Liguori provide direct counterevidence that enhanced post-recombination structure growth without dark matter does not occur in standard GR under the standard route.
+
+### Consequence
+
+Per the precommitted Stage A rule:
+
+[
+oxed{
+	ext{FULL NO-DARK-SUBSTANCE ROUTE}
+=
+	exttt{UNSUPPORTED_AT_CURRENT_STAGE}
+}
+]
+
+This is **not** `FALSIFIED`.
+
+It means the full route is not promoted into the active preregistered claim set on the current literature foundation.
+
+P0-D exploration remains open. A future genuinely new candidate can reopen the route under a new version without retroactively changing this outcome.
+
+### Active hypothesis after development
+
+The active research branch becomes the **partial architecture**:
+
+> Determine which late-time DM-like and DE-like functions are genuinely generated, reorganized, or conditioned by GR-native multiscale structure, geometry, feedback, modal organization, edge/boundary effects, and inheritance, while leaving the independently required early gravitational component unspecified.
+
+This branch is narrower but better supported.
+
+### Claim ceiling after development
+
+Supported:
+- primordial scalar/modal/conglomerate inheritance;
+- scale- and epoch-dependent modal reorganization;
+- nonlinear and multiscale GR coupling;
+- late structure-curvature-expansion feedback;
+- several limited DM-like and DE-like architectural effects;
+- a recent GR edge-mode route for flat galaxy rotation curves as a partial precedent.
+
+Unsupported at current stage:
+- complete removal of an early dark gravitational component;
+- one standard-GR architecture explaining the full CMB-to-late dark-sector burden;
+- identification of dark matter and dark energy as entirely architectural.
+
+### Exact restart point
+
+Construct the residual **partial-architecture preregistration candidate set**:
+
+- PREG-S: only any licensed scalar/local claims that survive Stage A;
+- PREG-M: modal reorganization and participation claims;
+- PREG-C: late multiscale/feedback/edge/curvature system claims;
+- PREG-J: scalar-modal-conglomerate inheritance and joint-meaning claims.
+
+Do not activate or freeze a P1 claim until its exact residual text, strongest comparator, falsifier, uncertainty/indeterminate zone, and untouched decisive evidence route are defined.
+
+### Linked artifacts
+
+- `STAGE_A_BOUNDED_NONPERTURBATIVE_PASS.md`
+- `LITERATURE_ADJUDICATION_MATRIX.md`
+- `LITERATURE_EXPLORATION_QUEUE.md`
+- `WORKING_INVESTIGATION.md`
+
+**Status:** Paused at scientific development. Next valid action is residual partial-architecture preregistration construction.
