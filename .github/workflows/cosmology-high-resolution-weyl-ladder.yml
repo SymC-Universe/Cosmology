@@ -10,6 +10,7 @@ on:
       - 'dark_sector_architecture/qualification/fourier_resolution.py'
       - 'dark_sector_architecture/qualification/weak_field_tensors.py'
       - 'dark_sector_architecture/qualification/gevolution_modal_pilot.ini'
+      - 'dark_sector_architecture/qualification/run_fixed_band_convergence.py'
       - '.github/workflows/cosmology-high-resolution-weyl-ladder.yml'
   workflow_dispatch:
 
@@ -189,6 +190,25 @@ jobs:
           compare_pair 32 64
           compare_pair 64 128
 
+      - name: Measure fixed N32 physical-band convergence
+        run: |
+          phi32="$(find highres_n32_output -type f -name '*_phi.h5' | head -n 1)"
+          chi32="$(find highres_n32_output -type f -name '*_chi.h5' | head -n 1)"
+          v32="$(find highres_n32_output -type f -name '*_v.h5' | head -n 1)"
+          phi64="$(find highres_n64_output -type f -name '*_phi.h5' | head -n 1)"
+          chi64="$(find highres_n64_output -type f -name '*_chi.h5' | head -n 1)"
+          v64="$(find highres_n64_output -type f -name '*_v.h5' | head -n 1)"
+          phi128="$(find highres_n128_output -type f -name '*_phi.h5' | head -n 1)"
+          chi128="$(find highres_n128_output -type f -name '*_chi.h5' | head -n 1)"
+          v128="$(find highres_n128_output -type f -name '*_v.h5' | head -n 1)"
+          python dark_sector_architecture/qualification/run_fixed_band_convergence.py \
+            --target-grid 32 \
+            --boxsize "$BOXSIZE" \
+            --member "$phi32" "$chi32" "$v32" \
+            --member "$phi64" "$chi64" "$v64" \
+            --member "$phi128" "$chi128" "$v128" \
+            --output dark_sector_architecture/qualification/results/q_r3_fixed_band_n32_n64_n128.json
+
       - name: Add high-resolution provenance
         run: |
           python - <<'PY'
@@ -213,6 +233,7 @@ jobs:
               *(root / f"highres_scalar_weyl_slip_n{n}.json" for n in (32,64,128)),
               root / "q_r2_highres_n32_n64.json",
               root / "q_r2_highres_n64_n128.json",
+              root / "q_r3_fixed_band_n32_n64_n128.json",
           ]
           for path in paths:
               data = json.loads(path.read_text())
@@ -237,6 +258,7 @@ jobs:
             dark_sector_architecture/qualification/results/highres_scalar_weyl_slip_n128.json
             dark_sector_architecture/qualification/results/q_r2_highres_n32_n64.json
             dark_sector_architecture/qualification/results/q_r2_highres_n64_n128.json
+            dark_sector_architecture/qualification/results/q_r3_fixed_band_n32_n64_n128.json
           if-no-files-found: error
 
       - name: Persist high-resolution reports
@@ -248,7 +270,8 @@ jobs:
             dark_sector_architecture/qualification/results/highres_scalar_weyl_slip_n64.json \
             dark_sector_architecture/qualification/results/highres_scalar_weyl_slip_n128.json \
             dark_sector_architecture/qualification/results/q_r2_highres_n32_n64.json \
-            dark_sector_architecture/qualification/results/q_r2_highres_n64_n128.json
+            dark_sector_architecture/qualification/results/q_r2_highres_n64_n128.json \
+            dark_sector_architecture/qualification/results/q_r3_fixed_band_n32_n64_n128.json
           if git diff --cached --quiet; then
             echo "High-resolution reports unchanged."
             exit 0
