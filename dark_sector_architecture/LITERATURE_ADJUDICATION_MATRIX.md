@@ -155,3 +155,60 @@ This refusal does not close P0-D exploration of:
 - additional architecture components;
 - previously unexamined modal/conglomerate representations;
 - or partial late-time architecture.
+
+
+## Batch 004 - Bounded nonperturbative / additional-architecture pass
+
+| ID | Source | Claim component under adjudication | Layer | Status | Primary reason / ceiling | Exploration disposition |
+|---|---|---|---|---|---|---|
+| LIT-037 | Hehl & Mashhoon 2009 [PhysRevD.79.064028] | Causal nonlocal constitutive kernel can mimic effective dark matter without particles | Additional / nonlocal | REFUSED | NATIVE_MODEL_MISMATCH for the frozen standard-GR route: the result is a nonlocal extension of GR, not an emergent solution of unmodified Einstein dynamics | P0D_OPEN |
+| LIT-038 | Atalebe 2025/2026 non-Markovian memory model | Covariant curvature-memory tensor can produce dark-sector-like phenomenology without new propagating DOFs | Additional / nonlocal history | REFUSED | MODIFIED_ACTION / NATIVE_MODEL_MISMATCH; useful comparator for the mathematical ingredient but not evidence that standard GR generates it | P0D_OPEN |
+| LIT-039 | Isaacson 1968 [PhysRev.166.1272] | High-frequency gravitational waves possess a gauge-invariant effective stress tensor | Modal / effective source | COUNTEREVIDENCE_ADMITTED | Effective source has null-radiation structure rather than pressureless CDM-like behavior | P0D_OPEN |
+| LIT-040 | Brill & Hartle 1964; Anderson & Brill 1997; Perry & Cooperstock 1998 | Pure-GR gravitational-wave geons provide nonlinear self-gravitating geometric objects | Additional / nonlinear object | PARTIAL_ADMISSION | Existence/self-consistency of approximate geon constructions admitted; long-lived stability and cosmological abundance remain unresolved/adverse, and a geon population is an object inventory rather than demonstrated system architecture | P0D_OPEN |
+| LIT-041 | Umeh 2026 [arXiv:2604.02775; PhysRevD.113.103551 companion framework] | Covariant spacetime-surgery / edge-mode backreaction can flatten galaxy rotation curves without dark-matter particles | Conglomerate / edge architecture | PARTIAL_ADMISSION | Strong late-time architecture-like precedent inside GR; demonstrated at nonlinear galaxy scale, not before recombination and not yet a CMB/early-growth replacement | P0D_OPEN |
+| LIT-042 | Deur 2019 [EPJC 79, 883] | GR field self-interaction / field trapping can mimic DM-like local strengthening and DE-like global weakening without new particles or modified field equations | Conglomerate / self-interaction | PARTIAL_ADMISSION | Late-time mechanism and background-distance construction admitted as a model proposal; detailed CMB/BAO and early modal burden were explicitly beyond scope, while the modeled depletion factor approaches unity in the early homogeneous universe | P0D_OPEN |
+| LIT-043 | Le Corre 2026 [Front.Astron.SpaceSci. 12:1664364] | Linearized GR gravitic fields can reproduce selected DM-like phenomenology without exotic matter | Modal / vector / additional | INDETERMINATE_NEED_MORE_INFO | Author states the required high gravitic-field magnitude needs an ad hoc hypothesis, persistence/magnitude in full GR remain open, and deeper cosmological simulations are required | QUALIFICATION_NEEDED |
+| LIT-044 | Dodelson & Liguori 2006 [PhysRevLett.97.231301] | In standard GR without dark matter, post-recombination perturbations do not receive the enhanced growth required for observed large-scale structure | Modal / functional burden | COUNTEREVIDENCE_ADMITTED | Direct limit on the full no-dark-substance standard-GR route; their escape route requires modified gravity | P0D_OPEN |
+| LIT-045 | Yoo, Nakao & Sasaki 2010 [JCAP 07 (2010) 012] | Exact LTB inhomogeneity can alter distance/CMB peak-position inference | Conglomerate / exact inhomogeneity | PARTIAL_ADMISSION | Exact-GR inhomogeneity affects observables, but the construction uses a dust background at decoupling and does not demonstrate replacement of the early pressureless gravitational function | P0D_OPEN |
+| LIT-046 | Topological / edge / quantum-gravity dark-sector proposals | Topology, quantum spacetime foam, or higher-dimensional/Einstein-Cartan sectors can generate effective dark contributions | Additional architecture | REFUSED | THEORY_CLASS_MISMATCH for the frozen standard-GR route; retained as adjacent P0-D comparators only | P0D_OPEN |
+
+### Batch 004 controlled conclusion
+
+The bounded pass found scientifically meaningful additional architecture candidates, but none satisfies the frozen full-route requirement within standard GR.
+
+The candidates separate into four classes:
+
+1. **Modified/nonlocal gravity:** can explicitly generate effective dark sources, but changes the native gravitational theory.
+2. **Pure-GR radiative/geon structure:** provides genuine nonlinear gravitational self-organization, but the effective radiative source is not pressureless and long-lived geon stability/abundance is not established.
+3. **Late nonlinear edge/self-interaction architecture:** provides promising galaxy/cluster/expansion phenomenology without particle dark matter, but is generated after significant structure formation and has not demonstrated the pre-recombination CMB function.
+4. **Pure-GR vector/gravitomagnetic proposals:** remain incompletely derived or cosmologically unqualified at the level needed for admission to the full route.
+
+No admitted candidate currently demonstrates
+
+[
+	ext{standard GR}
++
+	ext{no new material component}
++
+	ext{pre-recombination pressureless-like gravitational function}
++
+	ext{CMB sufficiency}
++
+	ext{later structure continuation}
++
+	ext{late DM/DE-like architecture}.
+]
+
+Accordingly, under the precommitted Stage A rule:
+
+[
+oxed{
+	ext{FULL NO-DARK-SUBSTANCE ROUTE}
+=
+	exttt{UNSUPPORTED_AT_CURRENT_STAGE}
+}
+]
+
+This is not `FALSIFIED`. P0-D exploration remains open and later evidence may generate a new versioned route.
+
+The **partial architecture** remains supported as an active research direction because multiple independent GR literatures continue to support late-time structure/geometry feedback, curvature/backreaction, edge-mode or self-interaction effects, and limited DM-like/DE-like functional behavior.
