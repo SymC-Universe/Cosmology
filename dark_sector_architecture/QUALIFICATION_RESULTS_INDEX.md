@@ -162,19 +162,69 @@ Native constraints at the center snapshot:
 
 ## Native versus continuum representation comparison
 
-Status:
-**SIGNIFICANT DEVELOPMENT / FIXED-BAND FOLLOW-UP REQUIRED**
+Full-grid N64 status from Development 010:
+**FINITE-RESOLUTION REPRESENTATION SPLIT OBSERVED**
 
-On the full N64 grid:
-- scalar native-versus-continuum median relative tensor difference: approximately (0.562);
-- full native-versus-continuum median relative tensor difference: approximately (0.562);
-- vector median relative tensor difference: approximately (0.488);
-- tensor median relative tensor difference: approximately (0.0168).
+On the unrestricted N64 grid:
+- scalar native-versus-continuum median relative tensor difference: approximately 0.562;
+- full native-versus-continuum median relative tensor difference: approximately 0.562;
+- vector median relative tensor difference: approximately 0.488;
+- tensor median relative tensor difference: approximately 0.0168.
+
+Development 011 resolves the required follow-up on the prospectively frozen common physical band:
+
+**SPLIT_COLLAPSES_ON_COMMON_BAND**
+
+At N32 -> N64 -> N128, native-versus-continuum median relative tensor error becomes:
+- scalar/full Weyl: 0.5803 -> 0.2817 -> 0.1397;
+- vector Weyl: 0.6912 -> 0.2526 -> 0.09610;
+- tensor Weyl: 0.03001 -> 0.006993 -> 0.001769;
+- shear: 0.4051 -> 0.2708 -> 0.1439.
+
+At N128 each split is no larger than the corresponding native N64->N128
+resolution uncertainty on the same band.
 
 Interpretation:
-- continuum and native lattice reconstructions are not interchangeable on the full grid;
-- the discrepancy has not yet been decomposed into UV/staggering versus persistent common-band representation effects;
-- a native-lattice fixed-physical-band (N=32,64,128) ladder is required before modal preregistration activation.
+- continuum and native lattice reconstructions are not interchangeable at finite full-grid resolution;
+- the split does not persist as a stable common-band separation;
+- the evidence is consistent with both representations approaching the same resolved-band limit;
+- native-model-first remains the primary representation rule.
+
+## Native fixed-band N32/N64/N128 qualification
+
+Frozen preregistration:
+`NATIVE_FIXED_BAND_WEYL_RESOLUTION_PREREG.md`
+
+Adjudication:
+`NATIVE_FIXED_BAND_WEYL_RESOLUTION_ADJUDICATION.md`
+
+Durable outputs:
+- `qualification/results/native_fixed_band_weyl_ladder.json`
+- `qualification/results/native_fixed_band_n32_metadata.json`
+- `qualification/results/native_fixed_band_n64_metadata.json`
+- `qualification/results/native_fixed_band_n128_metadata.json`
+
+Workflow:
+`36357943715` **SUCCESS**
+
+Outcome:
+**NATIVE_FIXED_BAND_QUALIFIED_P0Q**
+
+Median relative operator error improves from N32->N64 to N64->N128:
+- scalar Weyl: 0.3041 -> 0.1428;
+- vector Weyl: 0.7117 -> 0.4384;
+- tensor Weyl: 0.07594 -> 0.03101;
+- full Weyl: 0.3041 -> 0.1428;
+- native shear: 0.4987 -> 0.1925.
+
+The q95 error improves for all five families, and full-Weyl eigenframe and
+error/eigengap diagnostics improve in the same direction.
+
+The common-band temporal reconstruction floor remains about 2-3e-9 in median
+relative full-Weyl tensor difference, far below the cross-resolution effects.
+
+The three central epochs are exactly aligned in the recorded evolution
+coordinates.
 
 ## Pipeline source files
 
@@ -188,6 +238,7 @@ Comparator / supporting representation:
 - `qualification/weak_field_tensors.py`
 - `qualification/fourier_resolution.py`
 - `qualification/run_fixed_band_convergence.py`
+- `qualification/run_native_fixed_band_weyl_ladder.py`
 
 ## Qualification status
 
@@ -197,10 +248,10 @@ Qualified at P0-Q:
 - electric-Weyl sector algebra;
 - nonuniform temporal derivative machinery;
 - LATfield2/gevolution native spatial operators;
-- native full electric-Weyl representation at the tested early N64 epoch.
+- native full electric-Weyl representation at the tested early N64 epoch;
+- native N32/N64/N128 fixed-band Weyl/shear resolution convergence.
 
 Still held:
-- native fixed-band resolution convergence;
 - universal or later-epoch scalar-dominance statements;
 - `PREG-MODAL-PA-1` activation;
 - Conglomerate/System promotion;
