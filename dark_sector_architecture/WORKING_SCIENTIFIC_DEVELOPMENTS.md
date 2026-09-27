@@ -1069,3 +1069,150 @@ Freeze and run a **native-lattice fixed-physical-band resolution ladder**:
 - `WORKING_INVESTIGATION.md`
 
 **Status:** Paused at significant scientific/methodological development. Next valid experiment is the prospectively frozen native fixed-band resolution ladder.
+
+
+---
+
+## Development 011 - Native Fixed-Band Weyl/Shear Representation Qualifies and the Full-Grid Operator Split Collapses on the Common Band
+
+**Date:** 2026-09-27  
+**Frozen preregistration:** NATIVE_FIXED_BAND_WEYL_RESOLUTION_PREREG.md  
+**Frozen preregistration commit:** 8b570edd23896e6feb6418ba0bb01cbcbe7d7d28  
+**Decisive workflow:** run 36357943715, SUCCESS  
+**Adjudication:** NATIVE_FIXED_BAND_WEYL_RESOLUTION_ADJUDICATION.md
+
+### Scientific development
+
+The prospectively frozen (N=32,64,128) native fixed-physical-band resolution ladder is complete.
+
+The native gevolution/LATfield2 electric-Weyl representation satisfies the frozen P0-Q qualification logic:
+
+[
+oxed{	ext{NATIVE_FIXED_BAND_QUALIFIED_P0Q}}
+]
+
+All five frozen modal objects move in the convergent direction from
+(32ightarrow64) to (64ightarrow128):
+
+- scalar-Weyl median relative operator error: (0.3041ightarrow0.1428);
+- vector-Weyl: (0.7117ightarrow0.4384);
+- tensor-Weyl: (0.07594ightarrow0.03101);
+- full-Weyl: (0.3041ightarrow0.1428);
+- native velocity shear: (0.4987ightarrow0.1925).
+
+The q95 errors improve for all five families as well.
+
+Full-Weyl median eigenframe alignment improves from approximately
+((0.9915,0.9794,0.9913)) to ((0.9980,0.9954,0.9979)), with q05 alignment
+also improving strongly. Error/eigengap direction diagnostics improve in the
+same refinement direction.
+
+The three central snapshots are exactly aligned in the recorded evolution
+coordinates:
+(z=98.99516176429084) and (	au/L=14.141552190017416) for all three grids.
+
+The full-Weyl temporal inner/outer median relative differences remain only
+(2	ext{--}3	imes10^{-9}), far below the cross-resolution differences.
+
+Native vector/tensor constraints remain machine-small at all three
+resolutions.
+
+### Representation-split development
+
+The independent frozen native-versus-continuum classification is:
+
+[
+oxed{	ext{SPLIT_COLLAPSES_ON_COMMON_BAND}}
+]
+
+On the same frozen (K_{32}) support, median native-versus-continuum relative
+operator differences decrease monotonically:
+
+- scalar/full Weyl:
+  (0.5803ightarrow0.2817ightarrow0.1397);
+- vector Weyl:
+  (0.6912ightarrow0.2526ightarrow0.09610);
+- tensor Weyl:
+  (0.03001ightarrow0.006993ightarrow0.001769);
+- shear:
+  (0.4051ightarrow0.2708ightarrow0.1439).
+
+At (N=128), each of these differences is no larger than its corresponding
+native (64ightarrow128) resolution uncertainty, satisfying the frozen
+collapse rule.
+
+### Interpretation
+
+The large native-versus-continuum discrepancy observed on the unrestricted N64
+grid is not a stable common-band representation split.
+
+The result is consistent with the native and continuum constructions
+approaching the same resolved physical-band limit while differing substantially
+at finite resolution and near grid-dependent ultraviolet support.
+
+This does not make the continuum representation native. Native-model-first
+remains mandatory.
+
+The earlier continuum fixed-band chain is preserved and gains stronger status
+as comparator evidence for the same resolved-band limit.
+
+### Early-epoch modal limit
+
+On the frozen common band, vector and tensor electric-Weyl sectors remain tiny
+relative to the scalar sector:
+
+- N32: vector/scalar (2.35	imes10^{-6}), tensor/scalar
+  (1.72	imes10^{-6});
+- N64: (9.72	imes10^{-7}), (1.62	imes10^{-6});
+- N128: (8.25	imes10^{-7}), (1.59	imes10^{-6}).
+
+This remains an epoch-specific Function/Limit Map result only.
+
+### Consequence
+
+The native Weyl/shear modal representation has now passed the required P0-Q
+representation stack:
+
+1. algebraic known truth;
+2. temporal known truth;
+3. native lattice-operator known truth;
+4. real-field native constraint checks;
+5. full electric-Weyl temporal qualification;
+6. prospectively frozen fixed-band resolution qualification.
+
+Therefore the exact residual definition and activation assessment for
+PREG-MODAL-PA-1 is now scientifically licensed.
+
+PREG-MODAL-PA-1 is **not automatically activated** by this result.
+
+Before activation, freeze:
+- exact residual claim;
+- strongest native comparator;
+- acceptance/refusal/need-more-info logic;
+- falsifier;
+- indeterminate zone;
+- untouched decisive evidence route;
+- relationship to Conglomerate/System and joint Scalar + Modal + Conglomerate
+  gates.
+
+### Provenance correction
+
+The first workflow-generated JSON recorded the workflow head as the
+preregistration commit because the GitHub checkout was shallow. Repository path
+history independently verifies that the preregistration was frozen at commit
+8b570edd23896e6feb6418ba0bb01cbcbe7d7d28 before the decisive workflow was
+created. The durable branch JSON has been corrected with an explicit note and
+no scientific values were changed.
+
+### Linked artifacts
+
+- NATIVE_FIXED_BAND_WEYL_RESOLUTION_PREREG.md
+- NATIVE_FIXED_BAND_WEYL_RESOLUTION_ADJUDICATION.md
+- qualification/results/native_fixed_band_weyl_ladder.json
+- qualification/results/native_fixed_band_n32_metadata.json
+- qualification/results/native_fixed_band_n64_metadata.json
+- qualification/results/native_fixed_band_n128_metadata.json
+- WORKING_INVESTIGATION.md
+
+**Status:** Significant scientific/methodological development. Stop before
+PREG-MODAL-PA-1 activation and surface the result for scientific review.
