@@ -106,8 +106,11 @@ def test_temporal_pilot_end_to_end_on_synthetic_latfield_fields(tmp_path):
     assert report["actual_tau_over_boxsize"] == tau.tolist()
     assert report["cycles"] == [10, 13, 16, 19, 22]
 
-    assert report["constraint_diagnostics"]["B_divergence_rms_by_snapshot"][2] < 1e-18
-    assert report["constraint_diagnostics"]["h_trace_rms_by_snapshot"][2] < 1e-18
+    crosscheck = report["constraint_diagnostics"]["continuum_fft_crosscheck"]
+    assert crosscheck["status"] == "CROSSCHECK_ONLY_NOT_TRANSVERSALITY_GATE"
+    assert crosscheck["B_divergence_rms_by_snapshot"][2] < 1e-18
+    assert crosscheck["h_trace_rms_by_snapshot"][2] < 1e-18
+    assert report["constraint_diagnostics"]["native_gevolution"] is None
 
     assert report["sector_frobenius_rms"]["inner"]["scalar"] > 0.0
     assert report["sector_frobenius_rms"]["inner"]["vector"] > 0.0
