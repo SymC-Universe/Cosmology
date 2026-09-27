@@ -1,0 +1,800 @@
+{
+  "boxsize_mpc_over_h": 64.0,
+  "common_grid_comparison": {
+    "definition": "spectrally restrict high-grid fields onto low-grid non-Nyquist Fourier support; reconstruct both low and restricted-high tensors with the identical low-grid operator",
+    "phi": {
+      "absolute_error_quantiles": {
+        "finite_count": 32768,
+        "max": 1.316935545648063e-07,
+        "median": 1.9835409988671275e-08,
+        "min": 8.072062492031759e-13,
+        "q05": 1.8902213013088538e-09,
+        "q95": 5.803779463592769e-08,
+        "total_count": 32768
+      },
+      "pearson_correlation": 0.9999772057818573,
+      "reference_absolute_quantiles": {
+        "finite_count": 32768,
+        "max": 1.1486541673207392e-05,
+        "median": 3.3859422482868486e-06,
+        "min": 7.424766759100313e-11,
+        "q05": 3.2309227805061056e-07,
+        "q95": 7.856218324449137e-06,
+        "total_count": 32768
+      },
+      "reference_rms": 4.307851998343844e-06,
+      "relative_error_to_global_reference_rms_quantiles": {
+        "finite_count": 32768,
+        "max": 0.030570584740477608,
+        "median": 0.004604478054561068,
+        "min": 1.8738021861324547e-07,
+        "q05": 0.0004387851072960608,
+        "q95": 0.013472560027187643,
+        "total_count": 32768
+      },
+      "rms_error": 2.9467391005775495e-08
+    },
+    "scalar_weyl_shape": {
+      "directional_error_over_reference_gap_quantiles_by_pair": [
+        {
+          "finite_count": 32768,
+          "max": 72.90567749037518,
+          "median": 0.5246321784275427,
+          "min": 0.032201121221060953,
+          "q05": 0.1903245587702398,
+          "q95": 2.074325945808968,
+          "total_count": 32768
+        },
+        {
+          "finite_count": 32768,
+          "max": 60.98609285078662,
+          "median": 0.5197348274807997,
+          "min": 0.027400612634725603,
+          "q05": 0.18953500751940053,
+          "q95": 2.0576426077474483,
+          "total_count": 32768
+        }
+      ],
+      "eigenframe_diagonal_alignment_quantiles_by_order": [
+        {
+          "finite_count": 32768,
+          "max": 0.9999992175270401,
+          "median": 0.9786258205566045,
+          "min": 0.0004282213518699161,
+          "q05": 0.6008094045029899,
+          "q95": 0.9988599951745731,
+          "total_count": 32768
+        },
+        {
+          "finite_count": 32768,
+          "max": 0.9999987522985185,
+          "median": 0.9488316499754839,
+          "min": 1.5504881649862975e-05,
+          "q05": 0.3698361871108046,
+          "q95": 0.9972230353129768,
+          "total_count": 32768
+        },
+        {
+          "finite_count": 32768,
+          "max": 0.9999992405097649,
+          "median": 0.9786301235649459,
+          "min": 0.0012600311938264664,
+          "q05": 0.602078316825436,
+          "q95": 0.9988574557051977,
+          "total_count": 32768
+        }
+      ],
+      "eigengap_abs_error_quantiles_by_pair": [
+        {
+          "finite_count": 32768,
+          "max": 1.5915864704890124e-07,
+          "median": 2.4209449538521342e-08,
+          "min": 1.6160011074813173e-13,
+          "q05": 2.212334980823964e-09,
+          "q95": 7.246343701957047e-08,
+          "total_count": 32768
+        },
+        {
+          "finite_count": 32768,
+          "max": 1.6364002143576594e-07,
+          "median": 2.434575407411167e-08,
+          "min": 1.9591410603795325e-13,
+          "q05": 2.206641876104435e-09,
+          "q95": 7.262481786701536e-08,
+          "total_count": 32768
+        }
+      ],
+      "eigenvalue_abs_error_quantiles_by_order": [
+        {
+          "finite_count": 32768,
+          "max": 1.1134940655207509e-07,
+          "median": 1.5131137822072414e-08,
+          "min": 1.2887526464780508e-12,
+          "q05": 1.3734468159429198e-09,
+          "q95": 4.4969614218422766e-08,
+          "total_count": 32768
+        },
+        {
+          "finite_count": 32768,
+          "max": 8.524071834354997e-08,
+          "median": 1.362341973437315e-08,
+          "min": 9.787306476266461e-13,
+          "q05": 1.288335388191138e-09,
+          "q95": 4.0396544095761715e-08,
+          "total_count": 32768
+        },
+        {
+          "finite_count": 32768,
+          "max": 9.975050333572903e-08,
+          "median": 1.509670395044706e-08,
+          "min": 6.3047914605957235e-15,
+          "q05": 1.4117538163907739e-09,
+          "q95": 4.5162106458216884e-08,
+          "total_count": 32768
+        }
+      ],
+      "operator_error_quantiles": {
+        "finite_count": 32768,
+        "max": 1.2366549491470575e-07,
+        "median": 4.49280340343523e-08,
+        "min": 3.6733524016245437e-09,
+        "q05": 2.2603194113096292e-08,
+        "q95": 7.32502277379804e-08,
+        "total_count": 32768
+      },
+      "reference_exact_zero_gap_counts_by_pair": [
+        0,
+        0
+      ],
+      "relative_operator_error_quantiles": {
+        "finite_count": 32768,
+        "max": 4.928196010982309,
+        "median": 0.45020696208786626,
+        "min": 0.033274090194929475,
+        "q05": 0.1970798294710528,
+        "q95": 1.0271818322309814,
+        "total_count": 32768
+      }
+    },
+    "shear": {
+      "directional_error_over_reference_gap_quantiles_by_pair": [
+        {
+          "finite_count": 32768,
+          "max": 52.282473578253594,
+          "median": 0.6309557431670686,
+          "min": 0.0401272575005259,
+          "q05": 0.24218687989819523,
+          "q95": 2.4478406226659364,
+          "total_count": 32768
+        },
+        {
+          "finite_count": 32768,
+          "max": 73.50270518756089,
+          "median": 0.6260340920643759,
+          "min": 0.05405837824793756,
+          "q05": 0.23957893719039108,
+          "q95": 2.424734761397965,
+          "total_count": 32768
+        }
+      ],
+      "eigenframe_diagonal_alignment_quantiles_by_order": [
+        {
+          "finite_count": 32768,
+          "max": 0.9999997693428341,
+          "median": 0.9819123766689293,
+          "min": 0.003189381049496007,
+          "q05": 0.6559066318054073,
+          "q95": 0.9990493924253999,
+          "total_count": 32768
+        },
+        {
+          "finite_count": 32768,
+          "max": 0.9999982085804487,
+          "median": 0.9565535135144276,
+          "min": 0.0002928748071560058,
+          "q05": 0.4134515437337149,
+          "q95": 0.997711617745978,
+          "total_count": 32768
+        },
+        {
+          "finite_count": 32768,
+          "max": 0.9999998086048454,
+          "median": 0.9820769367310904,
+          "min": 0.00020124985612415532,
+          "q05": 0.6446115194423303,
+          "q95": 0.9990623671923462,
+          "total_count": 32768
+        }
+      ],
+      "eigengap_abs_error_quantiles_by_pair": [
+        {
+          "finite_count": 32768,
+          "max": 5.3697787571116956e-05,
+          "median": 7.946509902081151e-06,
+          "min": 9.296445987081142e-11,
+          "q05": 7.34217238101937e-07,
+          "q95": 2.3158896994406385e-05,
+          "total_count": 32768
+        },
+        {
+          "finite_count": 32768,
+          "max": 5.428109554922486e-05,
+          "median": 7.874114982292489e-06,
+          "min": 2.921228059660696e-10,
+          "q05": 7.537899777087444e-07,
+          "q95": 2.297355025888788e-05,
+          "total_count": 32768
+        }
+      ],
+      "eigenvalue_abs_error_quantiles_by_order": [
+        {
+          "finite_count": 32768,
+          "max": 3.419478043213898e-05,
+          "median": 6.7183278095438766e-06,
+          "min": 8.772164556772604e-10,
+          "q05": 6.726765647244762e-07,
+          "q95": 1.6531109168658693e-05,
+          "total_count": 32768
+        },
+        {
+          "finite_count": 32768,
+          "max": 2.4588923106212193e-05,
+          "median": 3.69267950704668e-06,
+          "min": 1.5381160525402833e-10,
+          "q05": 3.443856670907032e-07,
+          "q95": 1.0618409407313839e-05,
+          "total_count": 32768
+        },
+        {
+          "finite_count": 32768,
+          "max": 3.1294126102342065e-05,
+          "median": 6.715432214641453e-06,
+          "min": 1.814575947064746e-10,
+          "q05": 6.751222213379842e-07,
+          "q95": 1.6500554710066842e-05,
+          "total_count": 32768
+        }
+      ],
+      "operator_error_quantiles": {
+        "finite_count": 32768,
+        "max": 3.7492145159355726e-05,
+        "median": 1.3134612141414618e-05,
+        "min": 1.0776144067112076e-06,
+        "q05": 6.753275201720097e-06,
+        "q95": 2.1121668235601873e-05,
+        "total_count": 32768
+      },
+      "reference_exact_zero_gap_counts_by_pair": [
+        0,
+        0
+      ],
+      "relative_operator_error_quantiles": {
+        "finite_count": 32768,
+        "max": 5.524393073579156,
+        "median": 0.5450953910987272,
+        "min": 0.053935024425600095,
+        "q05": 0.2506467386506402,
+        "q95": 1.183419482229687,
+        "total_count": 32768
+      }
+    },
+    "theta": {
+      "absolute_error_quantiles": {
+        "finite_count": 32768,
+        "max": 9.890746613317776e-05,
+        "median": 1.516282370742109e-05,
+        "min": 1.0783598115886783e-10,
+        "q05": 1.3945836179410705e-06,
+        "q95": 4.4278851857456345e-05,
+        "total_count": 32768
+      },
+      "pearson_correlation": 0.9217316039246178,
+      "reference_absolute_quantiles": {
+        "finite_count": 32768,
+        "max": 0.00018655863056784845,
+        "median": 2.851171288472846e-05,
+        "min": 5.986219257498557e-10,
+        "q05": 2.5833843957648737e-06,
+        "q95": 8.09251468521145e-05,
+        "total_count": 32768
+      },
+      "reference_rms": 4.1608677149898625e-05,
+      "relative_error_to_global_reference_rms_quantiles": {
+        "finite_count": 32768,
+        "max": 2.3770874949197642,
+        "median": 0.3644149428926998,
+        "min": 2.591670501092356e-06,
+        "q05": 0.033516653579660084,
+        "q95": 1.0641735063563353,
+        "total_count": 32768
+      },
+      "rms_error": 2.25747551417869e-05
+    },
+    "tidal": {
+      "directional_error_over_reference_gap_quantiles_by_pair": [
+        {
+          "finite_count": 32768,
+          "max": 72.88945673019869,
+          "median": 0.5246316466730396,
+          "min": 0.032201133153383674,
+          "q05": 0.19032464109525135,
+          "q95": 2.0743089507955554,
+          "total_count": 32768
+        },
+        {
+          "finite_count": 32768,
+          "max": 60.99986206187004,
+          "median": 0.5197359127031864,
+          "min": 0.027400575280236327,
+          "q05": 0.18953503297665084,
+          "q95": 2.0576680444622664,
+          "total_count": 32768
+        }
+      ],
+      "eigenframe_diagonal_alignment_quantiles_by_order": [
+        {
+          "finite_count": 32768,
+          "max": 0.9999992174113638,
+          "median": 0.9786257614620673,
+          "min": 0.00042790540971241646,
+          "q05": 0.6008051236503066,
+          "q95": 0.9988599908159607,
+          "total_count": 32768
+        },
+        {
+          "finite_count": 32768,
+          "max": 0.9999987528033345,
+          "median": 0.9488320590092439,
+          "min": 1.6770346191599185e-05,
+          "q05": 0.36983266698998246,
+          "q95": 0.997223082111556,
+          "total_count": 32768
+        },
+        {
+          "finite_count": 32768,
+          "max": 0.9999992405482527,
+          "median": 0.9786302107386532,
+          "min": 0.0012640693432375237,
+          "q05": 0.602080262594331,
+          "q95": 0.998857460362961,
+          "total_count": 32768
+        }
+      ],
+      "eigengap_abs_error_quantiles_by_pair": [
+        {
+          "finite_count": 32768,
+          "max": 1.5915869799106237e-07,
+          "median": 2.420937399009779e-08,
+          "min": 2.3884580735982974e-13,
+          "q05": 2.2123969009583952e-09,
+          "q95": 7.246349402302525e-08,
+          "total_count": 32768
+        },
+        {
+          "finite_count": 32768,
+          "max": 1.636401202048066e-07,
+          "median": 2.43457158251134e-08,
+          "min": 1.2032771465032552e-13,
+          "q05": 2.206575003377821e-09,
+          "q95": 7.262461015040037e-08,
+          "total_count": 32768
+        }
+      ],
+      "eigenvalue_abs_error_quantiles_by_order": [
+        {
+          "finite_count": 32768,
+          "max": 1.1134944333606786e-07,
+          "median": 1.5131103970173738e-08,
+          "min": 1.296939005852156e-12,
+          "q05": 1.373432392732319e-09,
+          "q95": 4.496960754035746e-08,
+          "total_count": 32768
+        },
+        {
+          "finite_count": 32768,
+          "max": 8.524072380737521e-08,
+          "median": 1.3623407331013994e-08,
+          "min": 9.445473591241529e-13,
+          "q05": 1.288368366246429e-09,
+          "q95": 4.039655098626938e-08,
+          "total_count": 32768
+        },
+        {
+          "finite_count": 32768,
+          "max": 9.975050215652721e-08,
+          "median": 1.509659309370579e-08,
+          "min": 5.911416273231791e-14,
+          "q05": 1.4117855476026058e-09,
+          "q95": 4.5162026687625224e-08,
+          "total_count": 32768
+        }
+      ],
+      "operator_error_quantiles": {
+        "finite_count": 32768,
+        "max": 1.2366550445934027e-07,
+        "median": 4.492803151159958e-08,
+        "min": 3.6733371509675895e-09,
+        "q05": 2.2603181046053825e-08,
+        "q95": 7.325021181921029e-08,
+        "total_count": 32768
+      },
+      "reference_exact_zero_gap_counts_by_pair": [
+        0,
+        0
+      ],
+      "relative_operator_error_quantiles": {
+        "finite_count": 32768,
+        "max": 4.928248517092855,
+        "median": 0.4502073046066819,
+        "min": 0.0332739253874885,
+        "q05": 0.19707972422889233,
+        "q95": 1.0271780989695787,
+        "total_count": 32768
+      }
+    },
+    "velocity_components": [
+      {
+        "absolute_error_quantiles": {
+          "finite_count": 32768,
+          "max": 4.809854807733739e-05,
+          "median": 7.209207412386059e-06,
+          "min": 6.838313354108101e-10,
+          "q05": 6.560219378668557e-07,
+          "q95": 2.077671902805017e-05,
+          "total_count": 32768
+        },
+        "pearson_correlation": 0.9941505488976444,
+        "reference_absolute_quantiles": {
+          "finite_count": 32768,
+          "max": 0.00029181368207306093,
+          "median": 6.432377487404487e-05,
+          "min": 3.317697682353421e-09,
+          "q05": 6.255005649954856e-06,
+          "q95": 0.00017752962963937612,
+          "total_count": 32768
+        },
+        "reference_rms": 9.141354988249842e-05,
+        "relative_error_to_global_reference_rms_quantiles": {
+          "finite_count": 32768,
+          "max": 0.5261643174251797,
+          "median": 0.07886366322774538,
+          "min": 7.480634285505775e-06,
+          "q05": 0.007176419017860003,
+          "q95": 0.22728270649981588,
+          "total_count": 32768
+        },
+        "rms_error": 1.064868608413019e-05
+      },
+      {
+        "absolute_error_quantiles": {
+          "finite_count": 32768,
+          "max": 4.5807838566526267e-05,
+          "median": 7.147167183997235e-06,
+          "min": 5.0993704728665226e-11,
+          "q05": 6.768208559238399e-07,
+          "q95": 2.0900958117350123e-05,
+          "total_count": 32768
+        },
+        "pearson_correlation": 0.9971031863222235,
+        "reference_absolute_quantiles": {
+          "finite_count": 32768,
+          "max": 0.00037538975382806665,
+          "median": 9.92504495474088e-05,
+          "min": 5.1107982251991926e-09,
+          "q05": 1.0259367329390095e-05,
+          "q95": 0.0002508879970371858,
+          "total_count": 32768
+        },
+        "reference_rms": 0.0001334229757111132,
+        "relative_error_to_global_reference_rms_quantiles": {
+          "finite_count": 32768,
+          "max": 0.3433279637362397,
+          "median": 0.053567739333533135,
+          "min": 3.8219582839372847e-07,
+          "q05": 0.00507274592188147,
+          "q95": 0.15665186603696188,
+          "total_count": 32768
+        },
+        "rms_error": 1.0615494549906004e-05
+      },
+      {
+        "absolute_error_quantiles": {
+          "finite_count": 32768,
+          "max": 4.48078052299915e-05,
+          "median": 7.180901948617277e-06,
+          "min": 4.48492982200099e-10,
+          "q05": 6.471267354898091e-07,
+          "q95": 2.0768402485564918e-05,
+          "total_count": 32768
+        },
+        "pearson_correlation": 0.9928849904293202,
+        "reference_absolute_quantiles": {
+          "finite_count": 32768,
+          "max": 0.0002811986963252653,
+          "median": 5.55817105094377e-05,
+          "min": 4.353396883311183e-09,
+          "q05": 5.542847916175789e-06,
+          "q95": 0.0001561759353124076,
+          "total_count": 32768
+        },
+        "reference_rms": 8.032646545337798e-05,
+        "relative_error_to_global_reference_rms_quantiles": {
+          "finite_count": 32768,
+          "max": 0.5578211984940162,
+          "median": 0.08939646364478866,
+          "min": 5.583377529046232e-06,
+          "q05": 0.008056208272545065,
+          "q95": 0.25854993579443675,
+          "total_count": 32768
+        },
+        "rms_error": 1.0620277610080643e-05
+      }
+    ],
+    "weyl_potential": {
+      "absolute_error_quantiles": {
+        "finite_count": 32768,
+        "max": 1.3169340132247183e-07,
+        "median": 1.9835485653003617e-08,
+        "min": 8.408904396036927e-13,
+        "q05": 1.8902493104687614e-09,
+        "q95": 5.803778454138814e-08,
+        "total_count": 32768
+      },
+      "pearson_correlation": 0.9999772058175831,
+      "reference_absolute_quantiles": {
+        "finite_count": 32768,
+        "max": 1.148650690132798e-05,
+        "median": 3.3859371624862147e-06,
+        "min": 9.758515205618163e-11,
+        "q05": 3.230808794736809e-07,
+        "q95": 7.856262990237122e-06,
+        "total_count": 32768
+      },
+      "reference_rms": 4.3078554352114805e-06,
+      "relative_error_to_global_reference_rms_quantiles": {
+        "finite_count": 32768,
+        "max": 0.030570524778069014,
+        "median": 0.00460449194531289,
+        "min": 1.9519931721255912e-07,
+        "q05": 0.00043879125910732095,
+        "q95": 0.01347254693530331,
+        "total_count": 32768
+      },
+      "rms_error": 2.946738850607088e-08
+    }
+  },
+  "high_grid": 64,
+  "limitations": [
+    "development pair only; no P1 claim",
+    "same-seed phase compatibility is measured rather than assumed",
+    "common-grid comparison removes high-only Fourier modes before tensor reconstruction",
+    "weak-field Phi-only tidal Hessian is not asserted to equal full electric Weyl curvature",
+    "scalar_weyl_shape, when present, includes gevolution slip but still omits vector/tensor electric-Weyl sectors",
+    "no universal resolution or directional threshold is inferred from this pair"
+  ],
+  "low_grid": 32,
+  "phase_overlap": {
+    "chi_gev": {
+      "absolute_phase_difference_degrees": {
+        "max": 3.0659621086470374,
+        "median": 0.21902594107188628,
+        "min": 0.002439776285618238,
+        "q05": 0.015826301117387913,
+        "q95": 1.2094175908034634
+      },
+      "absolute_phase_difference_radians": {
+        "max": 0.05351113353727891,
+        "median": 0.003822723818983494,
+        "min": 4.2582129196115835e-05,
+        "q05": 0.00027622106291047663,
+        "q95": 0.021108318991057928
+      },
+      "amplitude_ratio_high_over_low": {
+        "max": 1.0194811238899846,
+        "median": 1.0019216855590574,
+        "min": 0.9813297250891957,
+        "q05": 0.9887446911002689,
+        "q95": 1.0119024570426012
+      },
+      "circular_phase_coherence": 0.9999422906946408,
+      "excluded_numeric_zero_mode_count": 13842,
+      "high_grid": 64,
+      "low_grid": 32,
+      "numeric_zero_floor": 2.2737367544323206e-13,
+      "selected_active_mode_count": 13996,
+      "valid_nonzero_mode_count": 154,
+      "weighted_complex_coherence": 0.9999797749497853
+    },
+    "phi": {
+      "absolute_phase_difference_degrees": {
+        "max": 68.85510428986436,
+        "median": 0.16744727677275706,
+        "min": 9.891605004522968e-07,
+        "q05": 0.004469114465466923,
+        "q95": 1.9778995481050814
+      },
+      "absolute_phase_difference_radians": {
+        "max": 1.2017482766622052,
+        "median": 0.0029225063031828352,
+        "min": 1.7264107563567438e-08,
+        "q05": 7.800076207090422e-05,
+        "q95": 0.03452085938814164
+      },
+      "amplitude_ratio_high_over_low": {
+        "max": 2.0671350839392226,
+        "median": 0.991616970949645,
+        "min": 0.7545093983227853,
+        "q05": 0.8441005717204692,
+        "q95": 1.0618686941983062
+      },
+      "circular_phase_coherence": 0.9996538442907941,
+      "excluded_numeric_zero_mode_count": 0,
+      "high_grid": 64,
+      "low_grid": 32,
+      "numeric_zero_floor": 2.2737367544323206e-13,
+      "selected_active_mode_count": 13996,
+      "valid_nonzero_mode_count": 13996,
+      "weighted_complex_coherence": 0.9999979011472274
+    },
+    "velocity_components": [
+      {
+        "absolute_phase_difference_degrees": {
+          "max": 177.02098609894114,
+          "median": 1.0636416481764703,
+          "min": 8.144071657687849e-05,
+          "q05": 0.032002741009720476,
+          "q95": 27.327335263402404
+        },
+        "absolute_phase_difference_radians": {
+          "max": 3.0895990525536354,
+          "median": 0.01856404882201855,
+          "min": 1.4214086494500553e-06,
+          "q05": 0.0005585532002826369,
+          "q95": 0.47695197614272383
+        },
+        "amplitude_ratio_high_over_low": {
+          "max": 79.17026859477836,
+          "median": 2.2759317401353685,
+          "min": 0.00845762963395647,
+          "q05": 1.0397050360290627,
+          "q95": 6.013091489563804
+        },
+        "circular_phase_coherence": 0.9654533761830364,
+        "excluded_numeric_zero_mode_count": 0,
+        "high_grid": 64,
+        "low_grid": 32,
+        "numeric_zero_floor": 2.2737367544323206e-13,
+        "selected_active_mode_count": 13996,
+        "valid_nonzero_mode_count": 13996,
+        "weighted_complex_coherence": 0.9958744574796072
+      },
+      {
+        "absolute_phase_difference_degrees": {
+          "max": 179.43723648284808,
+          "median": 1.2442323448050931,
+          "min": 0.0003451147568758607,
+          "q05": 0.03670457886136292,
+          "q95": 28.903367560440834
+        },
+        "absolute_phase_difference_radians": {
+          "max": 3.1317705773053883,
+          "median": 0.02171595107665824,
+          "min": 6.0233888047035086e-06,
+          "q05": 0.0006406157516886942,
+          "q95": 0.5044589288438137
+        },
+        "amplitude_ratio_high_over_low": {
+          "max": 61.98792310530185,
+          "median": 2.2813652579010126,
+          "min": 0.052008404250124485,
+          "q05": 1.0402404314765519,
+          "q95": 6.292343771062867
+        },
+        "circular_phase_coherence": 0.960824620070234,
+        "excluded_numeric_zero_mode_count": 0,
+        "high_grid": 64,
+        "low_grid": 32,
+        "numeric_zero_floor": 2.2737367544323206e-13,
+        "selected_active_mode_count": 13996,
+        "valid_nonzero_mode_count": 13996,
+        "weighted_complex_coherence": 0.9979429679484159
+      },
+      {
+        "absolute_phase_difference_degrees": {
+          "max": 179.8565925484857,
+          "median": 0.9906367077497624,
+          "min": 2.7638583059337104e-05,
+          "q05": 0.030546454822571827,
+          "q95": 24.91176648386986
+        },
+        "absolute_phase_difference_radians": {
+          "max": 3.1390897213889746,
+          "median": 0.01728987224135018,
+          "min": 4.823842749713598e-07,
+          "q05": 0.0005331362114655787,
+          "q95": 0.43479234763149993
+        },
+        "amplitude_ratio_high_over_low": {
+          "max": 43.88055831080089,
+          "median": 2.2827760750784885,
+          "min": 0.030230146524640546,
+          "q05": 1.0408560027813705,
+          "q95": 6.137588228967716
+        },
+        "circular_phase_coherence": 0.9643616408553018,
+        "excluded_numeric_zero_mode_count": 0,
+        "high_grid": 64,
+        "low_grid": 32,
+        "numeric_zero_floor": 2.2737367544323206e-13,
+        "selected_active_mode_count": 13996,
+        "valid_nonzero_mode_count": 13996,
+        "weighted_complex_coherence": 0.99503219524571
+      }
+    ],
+    "weyl_potential": {
+      "absolute_phase_difference_degrees": {
+        "max": 68.85431528250703,
+        "median": 0.167449990538493,
+        "min": 1.2060235783097123e-06,
+        "q05": 0.004468357581654666,
+        "q95": 1.9779414458181528
+      },
+      "absolute_phase_difference_radians": {
+        "max": 1.2017345058859974,
+        "median": 0.0029225536673300554,
+        "min": 2.1049082298188147e-08,
+        "q05": 7.79875519563253e-05,
+        "q95": 0.03452159064118379
+      },
+      "amplitude_ratio_high_over_low": {
+        "max": 2.0671571717740975,
+        "median": 0.9916170709534626,
+        "min": 0.7545101921089054,
+        "q05": 0.844100521261113,
+        "q95": 1.061868787435887
+      },
+      "circular_phase_coherence": 0.9996538415291321,
+      "excluded_numeric_zero_mode_count": 0,
+      "high_grid": 64,
+      "low_grid": 32,
+      "numeric_zero_floor": 2.2737367544323206e-13,
+      "selected_active_mode_count": 13996,
+      "valid_nonzero_mode_count": 13996,
+      "weighted_complex_coherence": 0.9999979011504652
+    }
+  },
+  "protocol": "Q-R2_PAIRED_SIMULATION_RESOLUTION",
+  "purpose": "test same-seed overlapping-mode compatibility and simulation resolution sensitivity on a common low-grid Fourier support",
+  "refinement_ratio": 2,
+  "scientific_claim_tested": false,
+  "scientific_thresholds_frozen": false,
+  "stage": "P0-Q",
+  "synchronized_ladder_provenance": {
+    "actual_snapshot_redshift": 98.0102,
+    "boxsize_mpc_over_h": 64.0,
+    "gevolution_sha": "0cca42e51a824002ae4fb602cbd79d671e8ffe60",
+    "grids": [
+      8,
+      16,
+      32,
+      64
+    ],
+    "latfield2_sha": "2d8c737ab6adc965a1d2718c209f5085af27b09c",
+    "particle_counts": [
+      512,
+      4096,
+      32768,
+      262144
+    ],
+    "seed": 424242,
+    "template_blob": "d4de9a5400ef58f6a0181fbe61f18056b233a425",
+    "template_source": "gevolution-code/gevolution-1.2/sc1_crystal.dat",
+    "tiling_factors": [
+      2,
+      4,
+      8,
+      16
+    ],
+    "time_step_limit": 0.02
+  }
+}

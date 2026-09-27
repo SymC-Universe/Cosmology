@@ -1,0 +1,153 @@
+{
+  "boxsize_mpc_over_h": 64.0,
+  "full_electric_weyl_claimed": false,
+  "grid_shape": [
+    8,
+    8,
+    8
+  ],
+  "limitations": [
+    "scalar sector only",
+    "physical a^-2 normalization omitted",
+    "B_i and h_ij electric-Weyl contributions not included",
+    "one early development epoch only"
+  ],
+  "potential_statistics": {
+    "chi_gev_rms": 2.741142427273677e-11,
+    "chi_rms_over_phi_rms": 6.280250986535341e-06,
+    "phi_effective_pearson_correlation": 0.999999999995323,
+    "phi_rms": 4.3647020368303744e-06,
+    "weyl_potential_minus_phi_rms": 1.3705712136367474e-11,
+    "weyl_potential_rms": 4.36470515050515e-06
+  },
+  "protocol": "P0-Q_SCALAR_WEYL_SLIP_PROBE",
+  "scientific_claim_tested": false,
+  "scientific_thresholds_frozen": false,
+  "stage": "P0-Q",
+  "synchronized_ladder_provenance": {
+    "actual_snapshot_redshift": 98.0102,
+    "boxsize_mpc_over_h": 64.0,
+    "gevolution_sha": "0cca42e51a824002ae4fb602cbd79d671e8ffe60",
+    "grids": [
+      8,
+      16,
+      32,
+      64
+    ],
+    "latfield2_sha": "2d8c737ab6adc965a1d2718c209f5085af27b09c",
+    "particle_counts": [
+      512,
+      4096,
+      32768,
+      262144
+    ],
+    "seed": 424242,
+    "template_blob": "d4de9a5400ef58f6a0181fbe61f18056b233a425",
+    "template_source": "gevolution-code/gevolution-1.2/sc1_crystal.dat",
+    "tiling_factors": [
+      2,
+      4,
+      8,
+      16
+    ],
+    "time_step_limit": 0.02
+  },
+  "tensor_difference": {
+    "eigenframe_diagonal_alignment_quantiles_by_order": [
+      {
+        "finite_count": 512,
+        "max": 0.9999999999999946,
+        "median": 0.9999999999988287,
+        "min": 0.9999999972923999,
+        "q05": 0.9999999999627135,
+        "q95": 0.999999999999943,
+        "total_count": 512
+      },
+      {
+        "finite_count": 512,
+        "max": 0.9999999999999996,
+        "median": 0.9999999999972512,
+        "min": 0.9999999972925684,
+        "q05": 0.9999999998966245,
+        "q95": 0.9999999999999106,
+        "total_count": 512
+      },
+      {
+        "finite_count": 512,
+        "max": 0.9999999999999983,
+        "median": 0.9999999999985301,
+        "min": 0.9999999991079411,
+        "q05": 0.9999999999694175,
+        "q95": 0.9999999999999251,
+        "total_count": 512
+      }
+    ],
+    "eigengap_abs_error_quantiles_by_pair": [
+      {
+        "finite_count": 512,
+        "max": 9.11521040259752e-13,
+        "median": 1.2575680163772414e-13,
+        "min": 5.4614484138527895e-18,
+        "q05": 1.1516170278039059e-14,
+        "q95": 4.072889324595261e-13,
+        "total_count": 512
+      },
+      {
+        "finite_count": 512,
+        "max": 7.744564958753656e-13,
+        "median": 1.2794338275305068e-13,
+        "min": 8.961707843624004e-17,
+        "q05": 1.3796568432062106e-14,
+        "q95": 3.7855181144024433e-13,
+        "total_count": 512
+      }
+    ],
+    "eigenvalue_abs_error_quantiles_by_order": [
+      {
+        "finite_count": 512,
+        "max": 5.82961489174461e-13,
+        "median": 9.957431824921486e-14,
+        "min": 1.2396749376051333e-16,
+        "q05": 1.1458726380759954e-14,
+        "q95": 2.614301600443504e-13,
+        "total_count": 512
+      },
+      {
+        "finite_count": 512,
+        "max": 5.545340091319261e-13,
+        "median": 6.04756200978531e-14,
+        "min": 1.7434194685922607e-16,
+        "q05": 4.6529220784142905e-15,
+        "q95": 2.1396389081286255e-13,
+        "total_count": 512
+      },
+      {
+        "finite_count": 512,
+        "max": 4.0526717422924936e-13,
+        "median": 1.0025939293995478e-13,
+        "min": 1.0236465959462124e-17,
+        "q05": 8.814443564946632e-15,
+        "q95": 2.477427100063698e-13,
+        "total_count": 512
+      }
+    ],
+    "operator_error_quantiles": {
+      "finite_count": 512,
+      "max": 7.264944112472713e-13,
+      "median": 1.9219926105220503e-13,
+      "min": 2.985972911689234e-14,
+      "q05": 7.914713420017482e-14,
+      "q95": 4.109560530254622e-13,
+      "total_count": 512
+    },
+    "relative_operator_error_quantiles": {
+      "finite_count": 512,
+      "max": 2.7159073958959032e-05,
+      "median": 4.784007926107379e-06,
+      "min": 4.883906671070135e-07,
+      "q05": 1.8779054244231478e-06,
+      "q95": 1.2752686801670724e-05,
+      "total_count": 512
+    }
+  }
+}
