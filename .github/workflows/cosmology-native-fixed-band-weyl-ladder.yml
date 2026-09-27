@@ -13,7 +13,6 @@ on:
       - 'dark_sector_architecture/qualification/temporal_derivatives.py'
       - 'dark_sector_architecture/qualification/latfield_hdf5.py'
       - 'dark_sector_architecture/qualification/gevolution_modal_pilot.ini'
-      - '.github/workflows/cosmology-native-fixed-band-weyl-ladder.yml'
   workflow_dispatch:
 
 permissions:
@@ -39,6 +38,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: dark-sector-stability-architecture
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
