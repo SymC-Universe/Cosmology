@@ -656,3 +656,119 @@ Thresholds/tolerances are not frozen until qualification behavior is observed.
 - `LITERATURE_ADJUDICATION_MATRIX.md`
 
 **Status:** Paused at scientific development. Next valid action is mechanical implementation of the modal known-truth suite.
+
+
+---
+
+## Development 008 - Fixed-Band Convergence Separates Scalar-Weyl and Shear Qualification
+
+**Date:** 2026-09-27  
+**GitHub checkpoint before entry:** `fe6c44d752ddf900e85ea94d617eb15558d7bb33`
+
+### Scientific development
+
+The gevolution modal P0-Q program now has a fully functional real-field pipeline and synchronized resolution ladders through (N=128). When the (N=32,64,128) fields are all projected onto one fixed physical Fourier band before tensor reconstruction, the scalar-Weyl and velocity-shear representations exhibit materially different numerical convergence states.
+
+For the adjacent (N=64\rightarrow128) comparison on the fixed (N=32) physical band:
+
+- potential RMS error / reference RMS (=5.93\times10^{-4});
+- scalar-Weyl-shape median relative tensor-operator error (=1.48\times10^{-2}), q95 (=3.15\times10^{-2});
+- scalar-Weyl eigenframe median diagonal alignments (=0.999978,0.999952,0.999979);
+- scalar-Weyl median tensor-error/eigengap direction diagnostics (\approx0.0171,0.0170);
+- velocity-shear median relative tensor-operator error (=0.174), q95 (=0.351);
+- velocity-shear eigenframe median diagonal alignments (=0.9983,0.9961,0.9983);
+- velocity-shear q05 diagonal alignments remain (\approx0.970,0.931,0.967);
+- velocity-shear median tensor-error/eigengap diagnostics remain (\approx0.201).
+
+The latest-over-previous adjacent error ratios are:
+- potential: (0.0862);
+- scalar-Weyl shape median operator error: (0.0352);
+- velocity shear median operator error: (0.4165).
+
+Thus all three improve, but not at the same rate.
+
+### Scalar-slip subfinding
+
+At the same early development epoch, gevolution's native gravitational slip variable is extremely small relative to the scalar potential:
+
+[
+\frac{\mathrm{RMS}(\chi_{\rm gev})}{\mathrm{RMS}(\Phi)}
+\approx 6.84\times10^{-6}
+]
+
+at (N=128).
+
+Replacing (\Phi) with the scalar Weyl/lensing potential
+[
+(\Phi+\Psi)/2 = \Phi-\chi_{\rm gev}/2
+]
+changes the reconstructed scalar-Weyl tensor by a median relative operator amount of only (\sim1.41\times10^{-6}), and the corresponding eigenframes are effectively unchanged at this epoch.
+
+This does **not** imply negligible slip at all epochs or in all regimes.
+
+### Consequence
+
+The numerical qualification state is representation dependent.
+
+A converged scalar potential, or even a well-converged scalar-Weyl shape, cannot be used as a surrogate proof that the shear/Weyl modal structure is converged.
+
+The current evidence supports the following distinction:
+
+[
+\boxed{
+\text{scalar-Weyl shape: strongly converging on the frozen band}
+}
+]
+
+while
+
+[
+\boxed{
+\text{velocity-shear modal structure: improving, but materially resolution-sensitive}
+}
+]
+
+No universal acceptance threshold is frozen from these development data.
+
+### GOM / joint-meaning consequence
+
+This result is a concrete demonstration of why the Scalar / Modal / Conglomerate starting representations must remain separately interrogated before their joint meaning is promoted.
+
+The scalar projection is numerically well behaved here, while a modal object carrying directional/eigenframe information retains substantially more sensitivity. Scalar agreement therefore does not exhaust the stability architecture.
+
+### Claim ceiling after development
+
+Supported:
+- the gevolution real-field extraction path is operational;
+- the scalar-Weyl shape is numerically stable on the tested high-resolution fixed band to a much stronger degree than earlier native-grid comparisons suggested;
+- velocity-shear modal structure shows genuine convergence improvement with increasing resolution;
+- scalar gravitational slip is negligible for the tested early development epoch and regime.
+
+Not yet supported:
+- a full electric-Weyl modal representation;
+- convergence of the vector/tensor Weyl sectors;
+- a universal modal numerical tolerance;
+- activation of `PREG-MODAL-PA-1`;
+- any conglomerate or joint added-value claim.
+
+### Exact restart point
+
+Move to the **Electric-Weyl Representation Gate**:
+
+1. freeze the gevolution-to-covariant convention map;
+2. generate matched three-snapshot outputs;
+3. qualify temporal derivatives at multiple time spacings;
+4. include (B_i) and (h_{ij}) contributions;
+5. compare scalar-only and full electric-Weyl eigenstructure;
+6. keep velocity-shear convergence as an independent modal uncertainty channel;
+7. return afterward to conglomerate and joint preregistration gates.
+
+### Linked artifacts
+
+- `WEYL_REPRESENTATION_GATE.md`
+- `MODAL_RESOLUTION_CONVERGENCE_PLAN.md`
+- `qualification/results/q_r3_fixed_band_n32_n64_n128.json`
+- `qualification/results/highres_scalar_weyl_slip_n128.json`
+- `WORKING_INVESTIGATION.md`
+
+**Status:** Paused at scientific development. Next valid action is the full electric-Weyl representation gate.
