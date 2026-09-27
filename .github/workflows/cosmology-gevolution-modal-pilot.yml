@@ -6,11 +6,12 @@ on:
       - dark-sector-stability-architecture
     paths:
       - 'dark_sector_architecture/qualification/gevolution_modal_pilot.ini'
+      - 'dark_sector_architecture/qualification/make_minimal_gadget_template.py'
       - '.github/workflows/cosmology-gevolution-modal-pilot.yml'
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   gevolution-modal-pilot:
@@ -24,6 +25,13 @@ jobs:
     steps:
       - name: Check out Cosmology repository
         uses: actions/checkout@v4
+        with:
+          ref: dark-sector-stability-architecture
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
 
       - name: Install build dependencies
         run: |
@@ -46,6 +54,12 @@ jobs:
             "$(git -C gevolution rev-parse HEAD)" \
             "$(git -C LATfield2 rev-parse HEAD)" \
             | tee upstream_revisions.txt
+
+      - name: Generate deterministic Gadget-2 template
+        run: |
+          python dark_sector_architecture/qualification/make_minimal_gadget_template.py \
+            --output gevolution/pilot_template.dat
+          test -s gevolution/pilot_template.dat
 
       - name: Compile gevolution with velocity output
         working-directory: gevolution
@@ -87,11 +101,19 @@ jobs:
               "scientific_claim_tested": False,
               "gevolution_sha": "0cca42e51a824002ae4fb602cbd79d671e8ffe60",
               "latfield2_sha": "b9dcddfc972ba12177e8a92f94394bd8058fde5b",
+              "pilot_grid": 8,
+              "initial_redshift": 100.0,
+              "final_redshift": 99.0,
               "required_outputs": ["phi", "B", "chi", "hij", "v"],
               "output_manifest": Path("pilot_output_manifest.txt").read_text().splitlines(),
           }
-          Path("gevolution_modal_pilot_metadata.json").write_text(
+          results = Path("dark_sector_architecture/qualification/results")
+          results.mkdir(parents=True, exist_ok=True)
+          (results / "gevolution_modal_pilot_metadata.json").write_text(
               json.dumps(payload, indent=2, sort_keys=True)
+          )
+          (results / "gevolution_modal_pilot_manifest.txt").write_text(
+              Path("pilot_output_manifest.txt").read_text()
           )
           PY
 
@@ -103,5 +125,20 @@ jobs:
             upstream_revisions.txt
             gevolution_modal_pilot.log
             pilot_output_manifest.txt
-            gevolution_modal_pilot_metadata.json
+            dark_sector_architecture/qualification/results/gevolution_modal_pilot_metadata.json
+            dark_sector_architecture/qualification/results/gevolution_modal_pilot_manifest.txt
           if-no-files-found: error
+
+      - name: Persist pilot metadata and manifest to branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            dark_sector_architecture/qualification/results/gevolution_modal_pilot_metadata.json \
+            dark_sector_architecture/qualification/results/gevolution_modal_pilot_manifest.txt
+          if git diff --cached --quiet; then
+            echo "Pilot metadata unchanged."
+            exit 0
+          fi
+          git commit -m "Refresh gevolution modal pilot metadata"
+          git push origin HEAD:dark-sector-stability-architecture
