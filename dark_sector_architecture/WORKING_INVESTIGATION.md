@@ -2,7 +2,7 @@
 
 **Project:** Cosmic Stability Architecture  
 **Branch:** `dark-sector-stability-architecture`  
-**Current stage:** P0-Q modal qualification implementation; known-truth/HDF5/extraction/convergence code qualified; gevolution real-field smoke chain active  
+**Current stage:** P0-Q modal representation/convergence qualification; gevolution real-field smoke and Q-R2/Q-R3 ladders complete; full electric-Weyl representation gate active  
 **Current scientific state:** The bounded nonperturbative/additional-architecture pass is complete. The full no-dark-substance route is UNSUPPORTED_AT_CURRENT_STAGE under the frozen literature rules, not falsified. The active branch is now the partial architecture; the full route remains open only in P0-D for genuinely new future candidates.
 
 ## Frozen objects
@@ -93,33 +93,50 @@ See `LITERATURE_EXPLORATION_QUEUE.md`.
 
 ## Latest scientific development
 
-**Development 007:** the native late-time modal object is now identified as shear/Weyl/tidal eigenstructure rather than an arbitrary data decomposition. This enables direct scalar-modal-conglomerate and inheritance tests.
+**Development 008: fixed-band convergence separates the scalar-Weyl and shear qualification states.**
 
-Mechanical qualification progress after Development 007:
-- production-facing tensor eigensystem extractor committed;
-- KT-01 through KT-12 test suite committed;
-- machine-readable qualification runner committed;
-- independent formula/logic validation reproduces all twelve expected behaviors;
-- no global eigengap refusal threshold was imposed;
-- exact degeneracy refuses unique directional interpretation;
-- direction sensitivity is carried continuously through perturbation-norm/eigengap diagnostics;
-- CI workflow exists but push-triggered run has not yet been independently observed through the connected status endpoint;
-- gevolution 1.3 pilot pinned to `0cca42e51a824002ae4fb602cbd79d671e8ffe60`;
-- LATfield2 pinned to `b9dcddfc972ba12177e8a92f94394bd8058fde5b`;
-- tiny (N=8), (z=100\rightarrow99) infrastructure smoke case committed;
-- smoke gate requires raw `phi`, `B`, `chi`, `hij`, and velocity `v` outputs.
+The gevolution infrastructure gate is now passed with the canonical gevolution 1.3 / LATfield2 v1.1 CPU stack and the canonical historical `sc1_crystal.dat` particle template. Durable real-field HDF5 outputs and modal extraction summaries exist.
+
+A synchronized high-resolution ladder at (N=32,64,128), common seed, common box, common epoch (z\simeq98.9976), and fixed physical Fourier support shows a representation-dependent convergence pattern:
+
+- (64\rightarrow128) potential RMS error / reference RMS: (5.93\times10^{-4});
+- scalar-Weyl-shape median relative tensor-operator error: (1.48\times10^{-2}), with q95 (3.15\times10^{-2});
+- scalar-Weyl eigenframe median diagonal alignments: (0.999978, 0.999952, 0.999979);
+- scalar-Weyl median tensor-error/eigengap direction diagnostics: approximately (0.0171) and (0.0170);
+- velocity-shear median relative tensor-operator error: (0.174), with q95 (0.351);
+- velocity-shear eigenframe median diagonal alignments: (0.9983, 0.9961, 0.9983), but q05 remains approximately (0.970, 0.931, 0.967);
+- velocity-shear median tensor-error/eigengap diagnostics remain approximately (0.201).
+
+The gevolution scalar slip correction is tiny at this early development epoch:
+- `chi_gev_rms / phi_rms` is approximately (6.84\times10^{-6}) at (N=128);
+- replacing `phi` by the scalar Weyl/lensing potential changes the scalar-Weyl tensor by a median relative operator amount of approximately (1.41\times10^{-6});
+- corresponding eigenframes are essentially unchanged at this epoch.
+
+Interpretation:
+- scalar potential convergence does not license a modal convergence claim;
+- the scalar-Weyl shape is numerically much better conditioned on the frozen high-resolution physical band than the velocity-shear modal object;
+- shear/modal convergence is improving materially with resolution but is not collapsed into a binary PASS threshold;
+- the scalar-slip result is epoch- and scalar-sector-specific and does not license calling the current object the full electric Weyl tensor;
+- the full vector/tensor (B_i,h_{ij}) electric-Weyl contribution and temporal derivative terms remain an open representation gate.
+
+This is a scientific-development stop because the numerical qualification state differs materially by representation. It strengthens, rather than closes, the requirement to investigate scalar, modal, conglomerate, and their joint meaning separately.
+
+Detailed stop record: `WORKING_SCIENTIFIC_DEVELOPMENTS.md`.
 
 ## Next exact action
 
-Complete the remaining **modal P0-Q infrastructure/convergence gates**:
+Continue the **modal representation gate**, not another scalar-only ladder:
 
-1. finish the active 512-particle gevolution smoke and require finite real `phi`, `B`, `chi`, `hij`, and `v` fields;
-2. persist and inspect the real-field modal extraction summary;
-3. if smoke passes, execute Q-R1 extraction-resolution qualification on the real development field using explicit common-scale coarse-graining;
-4. separate extraction uncertainty from simulation uncertainty;
-5. determine whether a phase-identical IC strategy is available before Q-R2 simulation-resolution comparison;
-6. carry directional uncertainty continuously through tensor-error/eigengap bounds;
-7. only then decide whether PREG-MODAL-PA-1 is fit to activate.
+1. freeze the exact first-order convention map between gevolution `Phi`, `chi_gev = Phi-Psi`, `B_i`, `h_ij` and the covariant electric/magnetic Weyl variables;
+2. build a three-snapshot matched-epoch pilot so vector/tensor temporal derivatives can be reconstructed rather than assumed;
+3. qualify centered first- and second-time derivatives at two temporal spacings;
+4. reconstruct scalar + vector + tensor electric-Weyl contributions under the frozen convention, preserving scalar-only and full objects separately;
+5. quantify whether (B_i) and (h_{ij}) materially alter eigenvalues/eigenframes relative to the scalar-Weyl shape;
+6. keep the velocity-shear channel separate and continue its convergence accounting rather than using scalar-Weyl convergence as a proxy;
+7. only after the electric-Weyl representation gate and shear uncertainty route are qualified should `PREG-MODAL-PA-1` be considered for activation;
+8. after modal qualification, return to `PREG-CONGLOMERATE-PA-1` and `PREG-JOINT-PA-1/2` so the investigation does not collapse into a scalar-only result.
+
+No universal numerical threshold is frozen by Development 008.
 
 ## Resume pointers
 
@@ -200,3 +217,20 @@ Pending durable gevolution outputs:
 - `qualification/results/gevolution_modal_pilot_metadata.json`;
 - `qualification/results/gevolution_modal_pilot_manifest.txt`;
 - `qualification/results/gevolution_modal_extraction_summary.json`.
+
+
+## Durable convergence outputs added after Development 007
+
+- `qualification/results/gevolution_modal_extraction_summary.json`
+- `qualification/results/q_r2_n8_n16_resolution_pair.json`
+- `qualification/results/q_r2_n16_n32_resolution_pair.json`
+- `qualification/results/q_r2_n32_n64_resolution_pair.json`
+- `qualification/results/q_r2_highres_n32_n64.json`
+- `qualification/results/q_r2_highres_n64_n128.json`
+- `qualification/results/q_r3_fixed_band_n32_n64_n128.json`
+- `qualification/results/highres_scalar_weyl_slip_n32.json`
+- `qualification/results/highres_scalar_weyl_slip_n64.json`
+- `qualification/results/highres_scalar_weyl_slip_n128.json`
+
+Latest observed high-resolution scalar-Weyl ladder workflow: run `36354573737`, PASS.
+Latest integrated modal known-truth workflow: run `36354573739`, PASS.
