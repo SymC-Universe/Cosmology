@@ -60,3 +60,23 @@ Entries here remain P0-D unless separately qualified. They cannot retroactively 
 **Status:** P0-D OPEN.  
 **Required classification:** physical propagating mode / constrained response / correlation mode / nonlinear emergent mode / effective rewriting / refused.  
 **Failure consequence:** narrows the full no-dark-substance branch but does not close exploration of additional architecture components.
+
+
+### EXP-010 - Conglomerate source emergence after direct modal refusal
+**Trigger:** LIT-027 to LIT-031 controlled adjudication  
+**Question:** Can a persistent pre-recombination gravitational function emerge only after coupling, averaging, correlation, nonlocal closure, or history dependence even though no independent ordinary linear scalar gravitational DOF carries it?  
+**Status:** P0-D OPEN.  
+**Priority:** HIGH.  
+**Interpretation rule:** success would be a conglomerate/emergent result, not retroactive validation of the refused hidden-linear-mode route.
+
+### EXP-011 - Nonlinear Weyl/tidal inheritance
+**Trigger:** LIT-028 to LIT-030  
+**Question:** Can electric/magnetic Weyl, shear, and nonlinear mode-coupling structures transmit an inherited modal organization across equality/recombination in a quantitatively relevant way?  
+**Status:** P0-D OPEN.  
+**Constraint:** distinguish tensor/vector gravitational response from the scalar gravitational function required by CMB peak structure and later growth.
+
+### EXP-012 - Additional architecture component search
+**Trigger:** direct modal route narrowing plus GOM openness requirement  
+**Question:** Is the missing function represented by an architecture object outside the current Scalar / Vector-Modal / Conglomerate-System starting basis?  
+**Status:** P0-D OPEN.  
+**Rule:** native naming first; any proposed new chi component is post-result and carries promotion debt.
