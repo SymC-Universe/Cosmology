@@ -2,7 +2,7 @@
 
 **Project:** Cosmic Stability Architecture  
 **Branch:** `dark-sector-stability-architecture`  
-**Current stage:** P0-Q native electric-Weyl representation qualified at the tested early epoch; native fixed-physical-band resolution qualification now required before modal preregistration activation  
+**Current stage:** P0-Q native fixed-physical-band resolution qualification ACTIVE under frozen preregistration; workflow run 36357943715 is executing N32/N64/N128  
 **Current scientific state:** The bounded nonperturbative/additional-architecture pass is complete. The full no-dark-substance route is UNSUPPORTED_AT_CURRENT_STAGE under the frozen literature rules, not falsified. The active branch is now the partial architecture; the full route remains open only in P0-D for genuinely new future candidates.
 
 ## Frozen objects
@@ -128,6 +128,8 @@ Detailed stop record: `WORKING_SCIENTIFIC_DEVELOPMENTS.md`.
 ## Next exact action
 
 Do **not** activate `PREG-MODAL-PA-1` yet.
+
+The native fixed-band design is now prospectively frozen in `NATIVE_FIXED_BAND_WEYL_RESOLUTION_PREREG.md` at commit `8b570edd23896e6feb6418ba0bb01cbcbe7d7d28`. The decisive workflow is run `36357943715` at head `3c13306f0eae1f09636ca06bc833a7190095bf05`.
 
 The next valid experiment is a prospectively frozen **native-lattice fixed-physical-band resolution ladder**:
 
