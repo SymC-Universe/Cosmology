@@ -83,7 +83,7 @@ def test_high_frequency_content_outside_fixed_band_is_removed(tmp_path):
         if n > 8:
             x = np.arange(n) * box / n
             xx, _, _ = np.meshgrid(x, x, x, indexing="ij")
-            high_mode = (n // 4) - 1
+            high_mode = (n // 4) + 1
             phi = phi + 0.7 * np.cos(
                 2.0 * np.pi * high_mode * xx / box + 0.12
             )
