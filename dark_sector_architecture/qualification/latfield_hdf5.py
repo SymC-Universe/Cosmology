@@ -113,3 +113,43 @@ def summarize_hdf5_field(
         "mean": float(np.mean(data)),
         "finite": bool(np.all(np.isfinite(data))),
     }
+
+
+LATFIELD2_SYMMETRIC_3X3_COMPONENT_ORDER = (
+    (0, 0),
+    (0, 1),
+    (0, 2),
+    (1, 1),
+    (1, 2),
+    (2, 2),
+)
+
+
+def load_symmetric_tensor_field(
+    path: str | pathlib.Path, dataset: str = DEFAULT_DATASET
+) -> np.ndarray:
+    """Return a 3x3 symmetric LATfield2 field.
+
+    LATfield2 stores a symmetric 3x3 field as six components in the order
+
+        xx, xy, xz, yy, yz, zz
+
+    following its symmetric component-index formula. The returned shape is
+    (Nx, Ny, Nz, 3, 3).
+
+    This loader restores both the reversed HDF5 spatial order and the matrix
+    semantics. It refuses any component count other than six.
+    """
+    components = load_component_field(
+        path, expected_components=6, dataset=dataset
+    )
+    spatial_shape = tuple(components.shape[1:])
+    tensor = np.zeros(spatial_shape + (3, 3), dtype=float)
+
+    for component, (i, j) in enumerate(
+        LATFIELD2_SYMMETRIC_3X3_COMPONENT_ORDER
+    ):
+        tensor[..., i, j] = components[component]
+        tensor[..., j, i] = components[component]
+
+    return tensor
