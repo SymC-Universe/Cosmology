@@ -1,0 +1,189 @@
+{
+  "case_count": 12,
+  "cases": [
+    {
+      "case_id": "KT-01",
+      "purpose": "isotropic expansion / exact directional degeneracy",
+      "status": "REFUSED_DIRECTIONAL_INTERPRETATION",
+      "tensor_result": {
+        "degenerate_pairs": [true, true],
+        "directional_condition_number": null,
+        "eigengaps": [0.0, 0.0],
+        "eigenvalues": [2.5, 2.5, 2.5],
+        "eigenvectors": [[0.0,0.0,1.0],[0.0,1.0,0.0],[1.0,0.0,0.0]],
+        "invariants": {
+          "determinant": 15.625000000000002,
+          "frobenius_norm": 4.330127018922194,
+          "trace": 7.5,
+          "trace_square": 18.75
+        },
+        "matrix": [[2.5,0.0,0.0],[0.0,2.5,0.0],[0.0,0.0,2.5]],
+        "normalized_eigengaps": [0.0,0.0],
+        "symmetry_residual": 0.0
+      }
+    },
+    {
+      "case_id": "KT-02",
+      "purpose": "one-axis collapse / rotation covariance",
+      "rotation_overlap": [[1.0,1.527074598043968e-16,1.6476156301433436e-16],[1.6592804045009687e-16,1.0000000000000002,2.063353481965404e-16],[6.548878873379475e-17,1.4182299516177396e-16,1.0]],
+      "status": "PASS",
+      "tensor_result": {
+        "degenerate_pairs": [false,false],
+        "directional_condition_number": 1.3333333333333337,
+        "eigengaps": [1.4999999999999993,1.5000000000000009],
+        "eigenvalues": [1.9999999999999998,0.5000000000000004,-1.0000000000000004],
+        "eigenvectors": [[0.7756217419911862,-0.48810997748966867,0.4001994043293833],[0.5571494414923803,0.8274013399932203,-0.07065070715960675],[-0.29664020832531535,0.27776909916774256,0.91370066999661]],
+        "invariants": {"determinant":-1.0,"frobenius_norm":2.29128784747792,"trace":1.4999999999999998,"trace_square":5.25},
+        "matrix": [[1.162144285135773,0.6906173869206911,-0.8936145884908673],[0.6906173869206911,0.958135966599678,-0.15107899188774868],[-0.8936145884908673,-0.15107899188774868,-0.6202802517354515]],
+        "normalized_eigengaps": [0.7499999999999998,0.7500000000000006],
+        "symmetry_residual": 0.0
+      }
+    },
+    {
+      "case_id": "KT-03",
+      "purpose": "two-axis collapse",
+      "status": "PASS",
+      "tensor_result": {
+        "degenerate_pairs": [false,false],
+        "directional_condition_number": 1.5,
+        "eigengaps": [1.2000000000000002,0.7999999999999999],
+        "eigenvalues": [0.8,-0.4,-1.2],
+        "eigenvectors": [[1.0,0.0,0.0],[0.0,1.0,0.0],[0.0,0.0,1.0]],
+        "invariants": {"determinant":0.38399999999999995,"frobenius_norm":1.4966629547095767,"trace":-0.7999999999999999,"trace_square":2.24},
+        "matrix": [[0.8,0.0,0.0],[0.0,-0.4,0.0],[0.0,0.0,-1.2]],
+        "normalized_eigengaps": [1.0000000000000002,0.6666666666666666],
+        "symmetry_residual": 0.0
+      }
+    },
+    {
+      "case_id": "KT-04",
+      "near_isotropic_condition_number": 1000003.0000822669,
+      "purpose": "three-axis collapse / near-isotropic conditioning contrast",
+      "reference_condition_number": 6.500000000000002,
+      "status": "PASS",
+      "tensor_result": {
+        "degenerate_pairs": [false,false],
+        "directional_condition_number": 1000003.0000822669,
+        "eigengaps": [9.999999999177334e-07,2.0000000000575113e-06],
+        "eigenvalues": [-1.0,-1.000001,-1.000003],
+        "eigenvectors": [[1.0,0.0,0.0],[0.0,1.0,0.0],[0.0,0.0,1.0]],
+        "invariants": {"determinant":-1.000004000003,"frobenius_norm":1.7320531169713012,"trace":-3.000004,"trace_square":3.00000800001},
+        "matrix": [[-1.0,0.0,0.0],[0.0,-1.000001,0.0],[0.0,0.0,-1.000003]],
+        "normalized_eigengaps": [9.999969999267336e-07,1.999994000075511e-06],
+        "symmetry_residual": 0.0
+      }
+    },
+    {
+      "case_id": "KT-05",
+      "comparison_tensor_result": {
+        "degenerate_pairs": [false,false],
+        "directional_condition_number": 1.0,
+        "eigengaps": [1.7320508075688772,1.7320508075688772],
+        "eigenvalues": [1.7320508075688772,0.0,-1.7320508075688772],
+        "eigenvectors": [[1.0,0.0,0.0],[0.0,1.0,0.0],[0.0,0.0,1.0]],
+        "invariants": {"determinant":0.0,"frobenius_norm":2.449489742783178,"trace":0.0,"trace_square":5.999999999999999},
+        "matrix": [[1.7320508075688772,0.0,0.0],[0.0,0.0,0.0],[0.0,0.0,-1.7320508075688772]],
+        "normalized_eigengaps": [1.0,1.0],
+        "symmetry_residual": 0.0
+      },
+      "different_modal_fields": ["eigenvalues","determinant"],
+      "matched_scalar_fields": ["trace","trace_square","frobenius_norm"],
+      "purpose": "matched scalar subset / different modal spectra",
+      "status": "PASS_SCALAR_INFORMATION_LOSS_DEMONSTRATED",
+      "tensor_result": {
+        "degenerate_pairs": [false,true],
+        "directional_condition_number": null,
+        "eigengaps": [3.0,0.0],
+        "eigenvalues": [2.0,-1.0,-1.0],
+        "eigenvectors": [[1.0,0.0,0.0],[0.0,0.0,1.0],[0.0,1.0,0.0]],
+        "invariants": {"determinant":2.0,"frobenius_norm":2.449489742783178,"trace":0.0,"trace_square":6.0},
+        "matrix": [[2.0,0.0,0.0],[0.0,-1.0,0.0],[0.0,0.0,-1.0]],
+        "normalized_eigengaps": [1.5,0.0],
+        "symmetry_residual": 0.0
+      }
+    },
+    {
+      "case_id": "KT-06",
+      "purpose": "global coordinate rotation covariance",
+      "reference_invariants": {"determinant":-0.8399999999999999,"frobenius_norm":2.4596747752497685,"trace":0.8999999999999999,"trace_square":6.05},
+      "rotation_overlap": [[1.0000000000000002,7.497719846136405e-17,5.2827702573253236e-17],[5.61816624219457e-17,0.9999999999999999,6.523251238152489e-17],[1.1693831488324547e-16,9.95500275382542e-17,0.9999999999999996]],
+      "status": "PASS",
+      "tensor_result": {
+        "degenerate_pairs": [false,false],
+        "directional_condition_number": 1.1764705882352942,
+        "eigengaps": [1.7,1.7],
+        "eigenvalues": [2.0,0.3,-1.4],
+        "eigenvectors": [[0.9042461862588805,-0.3281339142565499,0.27325257354862176],[0.02172171028496772,0.6744370332801937,0.7380127745794827],[0.42645867553441313,0.6614097235865873,-0.6169847450355218]],
+        "invariants": {"determinant":-0.8400000000000003,"frobenius_norm":2.459674775249769,"trace":0.9000000000000002,"trace_square":6.050000000000001},
+        "matrix": [[1.5630901339017347,-0.30943759767838075,0.9421677106293456],[-0.30943759767838075,-0.6251247386661645,0.7898302601040951],[0.9421677106293456,0.7898302601040952,-0.03796539523556996]],
+        "normalized_eigengaps": [0.85,0.85],
+        "symmetry_residual": 1.5700924586837752e-16
+      }
+    },
+    {
+      "case_id": "KT-07",
+      "gap_sweep": [
+        {"condition_number":199.99999999999983,"degenerate_pairs":[false,false],"input_gap":0.01,"measured_eigengaps":[0.010000000000000009,2.99],"normalized_eigengaps":[0.0050000000000000044,1.495]},
+        {"condition_number":20000.0000000022,"degenerate_pairs":[false,false],"input_gap":0.0001,"measured_eigengaps":[9.999999999998899e-05,2.9999000000000002],"normalized_eigengaps":[4.999999999999449e-05,1.4999500000000001]},
+        {"condition_number":1999999.9999424887,"degenerate_pairs":[false,false],"input_gap":1e-06,"measured_eigengaps":[1.0000000000287557e-06,2.999999],"normalized_eigengaps":[5.000000000143778e-07,1.4999995]},
+        {"condition_number":199999998.99504814,"degenerate_pairs":[false,false],"input_gap":1e-08,"measured_eigengaps":[1.0000000050247593e-08,2.99999999],"normalized_eigengaps":[5.000000025123796e-09,1.499999995]},
+        {"condition_number":19999998345.19272,"degenerate_pairs":[false,false],"input_gap":1e-10,"measured_eigengaps":[1.000000082740371e-10,2.9999999999],"normalized_eigengaps":[5.000000413701855e-11,1.49999999995]},
+        {"condition_number":2000044244419.0056,"degenerate_pairs":[false,false],"input_gap":1e-12,"measured_eigengaps":[9.999778782798785e-13,2.999999999999],"normalized_eigengaps":[4.999889391399392e-13,1.4999999999995]}
+      ],
+      "purpose": "near-degenerate sweep; no scientific refusal threshold pre-imposed",
+      "status": "MEASURED_NO_THRESHOLD_FROZEN"
+    },
+    {
+      "case_id": "KT-08",
+      "purpose": "exact pair degeneracy",
+      "status": "REFUSED_UNIQUE_AXIS_IN_DEGENERATE_SUBSPACE",
+      "tensor_result": {
+        "degenerate_pairs": [true,false],
+        "directional_condition_number": null,
+        "eigengaps": [0.0,3.0],
+        "eigenvalues": [1.0,1.0,-2.0],
+        "eigenvectors": [[1.0,0.0,0.0],[0.0,1.0,0.0],[0.0,0.0,1.0]],
+        "invariants": {"determinant":-2.0,"frobenius_norm":2.449489742783178,"trace":0.0,"trace_square":6.0},
+        "matrix": [[1.0,0.0,0.0],[0.0,1.0,0.0],[0.0,0.0,-2.0]],
+        "normalized_eigengaps": [0.0,1.5],
+        "symmetry_residual": 0.0
+      }
+    },
+    {
+      "alignment_matrix": [[1.0,0.0,0.0],[0.0,1.0,0.0],[0.0,0.0,1.0]],
+      "case_id": "KT-09",
+      "purpose": "known shear-Weyl alignment",
+      "status": "PASS"
+    },
+    {
+      "alignment_after": [[0.9210609940028852,0.3894183423086505,3.0124030611772034e-17],[0.3894183423086505,0.921060994002885,1.634177420263381e-16],[2.767307425279919e-16,1.2529892220002911e-16,1.0]],
+      "alignment_before": [[0.9210609940028851,0.3894183423086505,0.0],[0.3894183423086505,0.9210609940028851,0.0],[0.0,0.0,1.0]],
+      "case_id": "KT-10",
+      "purpose": "misalignment invariant under global coordinate rotation",
+      "status": "PASS"
+    },
+    {
+      "case_id": "KT-11",
+      "noise_sweep": [
+        {"direction_bound_proxy":1.25e-05,"input_gap":0.8},
+        {"direction_bound_proxy":0.00010000000000000003,"input_gap":0.1},
+        {"direction_bound_proxy":0.0009999999999999992,"input_gap":0.01},
+        {"direction_bound_proxy":0.009999999999999992,"input_gap":0.001},
+        {"direction_bound_proxy":0.10000000000001102,"input_gap":0.0001}
+      ],
+      "perturbation_operator_norm": 1e-05,
+      "purpose": "continuous direction-sensitivity proxy versus eigengap",
+      "status": "MEASURED_NO_THRESHOLD_FROZEN"
+    },
+    {
+      "case_id": "KT-12",
+      "message": "tensor must be symmetric within numerical identity tolerance; residual=2.828427e-01",
+      "purpose": "known-bad nonsymmetric tensor refusal",
+      "status": "PASS_KNOWN_BAD_REFUSED"
+    }
+  ],
+  "primary_object": "symmetric shear/Weyl/tidal tensor eigenstructure",
+  "protocol": "MODAL_KNOWN_TRUTH_QUALIFICATION_SUITE",
+  "scientific_thresholds_frozen": false,
+  "stage": "P0-Q"
+}
