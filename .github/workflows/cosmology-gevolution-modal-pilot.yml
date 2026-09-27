@@ -6,7 +6,6 @@ on:
       - dark-sector-stability-architecture
     paths:
       - 'dark_sector_architecture/qualification/gevolution_modal_pilot.ini'
-      - 'dark_sector_architecture/qualification/make_minimal_gadget_template.py'
       - 'dark_sector_architecture/qualification/latfield_hdf5.py'
       - 'dark_sector_architecture/qualification/weak_field_tensors.py'
       - 'dark_sector_architecture/qualification/extract_gevolution_modal_pilot.py'
@@ -64,11 +63,30 @@ jobs:
             "$(git -C LATfield2 rev-parse HEAD)" \
             | tee upstream_revisions.txt
 
-      - name: Generate deterministic Gadget-2 template
+      - name: Fetch canonical homogeneous particle template
         run: |
-          python dark_sector_architecture/qualification/make_minimal_gadget_template.py \
-            --output gevolution/pilot_template.dat
+          curl -L --fail --silent --show-error \
+            https://raw.githubusercontent.com/gevolution-code/gevolution-1.2/df8a930732aae1bafa32fd839ee70728bb10773a/sc1_crystal.dat \
+            -o gevolution/pilot_template.dat
           test -s gevolution/pilot_template.dat
+          template_blob="$(git hash-object gevolution/pilot_template.dat)"
+          echo "canonical_template_blob=$template_blob"
+          test "$template_blob" = "d4de9a5400ef58f6a0181fbe61f18056b233a425"
+          python - <<'PY'
+          import struct
+          from pathlib import Path
+
+          data = Path("gevolution/pilot_template.dat").read_bytes()
+          if len(data) < 264:
+              raise SystemExit("canonical template is too short")
+          (block_open,) = struct.unpack_from("<i", data, 0)
+          if block_open != 256:
+              raise SystemExit(f"unexpected Gadget-2 header marker: {block_open}")
+          npart = struct.unpack_from("<6I", data, 4)
+          print("canonical template npart =", npart, "total =", sum(npart))
+          if npart[1] <= 1:
+              raise SystemExit("canonical template does not contain a multi-particle CDM crystal")
+          PY
 
       - name: Compile gevolution with velocity output
         working-directory: gevolution
@@ -124,6 +142,8 @@ jobs:
               "scientific_claim_tested": False,
               "gevolution_sha": "0cca42e51a824002ae4fb602cbd79d671e8ffe60",
               "latfield2_sha": "2d8c737ab6adc965a1d2718c209f5085af27b09c",
+              "particle_template_source": "gevolution-code/gevolution-1.2/sc1_crystal.dat",
+              "particle_template_git_blob": "d4de9a5400ef58f6a0181fbe61f18056b233a425",
               "pilot_grid": 8,
               "initial_redshift": 100.0,
               "final_redshift": 99.0,
