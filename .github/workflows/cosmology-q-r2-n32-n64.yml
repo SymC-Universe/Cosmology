@@ -1,0 +1,232 @@
+name: Cosmology Q-R2 N32-N64 resolution rung
+
+on:
+  push:
+    branches:
+      - dark-sector-stability-architecture
+    paths:
+      - 'dark_sector_architecture/qualification/fourier_resolution.py'
+      - 'dark_sector_architecture/qualification/run_qr2_resolution_pair.py'
+      - 'dark_sector_architecture/qualification/gevolution_modal_pilot.ini'
+      - '.github/workflows/cosmology-q-r2-n32-n64.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cosmology-q-r2-n32-n64
+  cancel-in-progress: true
+
+jobs:
+  q-r2-n32-n64:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    env:
+      GEVOLUTION_SHA: 0cca42e51a824002ae4fb602cbd79d671e8ffe60
+      LATFIELD2_SHA: 2d8c737ab6adc965a1d2718c209f5085af27b09c
+      TEMPLATE_BLOB: d4de9a5400ef58f6a0181fbe61f18056b233a425
+      BOXSIZE: 64.0
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          ref: dark-sector-stability-architecture
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install build and analysis dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            build-essential \
+            openmpi-bin \
+            libopenmpi-dev \
+            libfftw3-dev \
+            libgsl-dev \
+            libhdf5-dev
+          python -m pip install --upgrade pip
+          python -m pip install numpy h5py
+
+      - name: Fetch pinned gevolution and canonical CPU LATfield2
+        run: |
+          git clone https://github.com/gevolution-code/gevolution-1.3.git gevolution
+          git -C gevolution checkout "$GEVOLUTION_SHA"
+          git clone https://gitlab.uzh.ch/julian.adamek/LATfield2.git LATfield2
+          git -C LATfield2 checkout "$LATFIELD2_SHA"
+          printf 'gevolution=%s\nLATfield2=%s\n' \
+            "$(git -C gevolution rev-parse HEAD)" \
+            "$(git -C LATfield2 rev-parse HEAD)" \
+            | tee qr2_n32_n64_upstream_revisions.txt
+
+      - name: Fetch and verify canonical sc1 particle template
+        run: |
+          curl -L --fail --silent --show-error \
+            https://raw.githubusercontent.com/gevolution-code/gevolution-1.2/df8a930732aae1bafa32fd839ee70728bb10773a/sc1_crystal.dat \
+            -o gevolution/qr2_template.dat
+          test "$(git hash-object gevolution/qr2_template.dat)" = "$TEMPLATE_BLOB"
+
+      - name: Compile gevolution with velocity output
+        working-directory: gevolution
+        run: |
+          make clean
+          make -j2 \
+            INCLUDE="-I../LATfield2 -I/usr/include/hdf5/serial" \
+            LIB="-lfftw3 -lm -L/usr/lib/x86_64-linux-gnu/hdf5/serial -lhdf5 -lgsl -lgslcblas" \
+            DGEVOLUTION="-DPHINONLINEAR -DBENCHMARK -DEXACT_OUTPUT_REDSHIFTS -DVELOCITY"
+          test -x gevolution
+
+      - name: Build matched N32 and N64 settings
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          base = Path(
+              "dark_sector_architecture/qualification/gevolution_modal_pilot.ini"
+          ).read_text()
+
+          def settings(n, tiling, tag):
+              text = base
+              replacements = {
+                  "template file = pilot_template.dat": "template file = qr2_template.dat",
+                  "tiling factor = 2": f"tiling factor = {tiling}",
+                  "Ngrid = 8": f"Ngrid = {n}",
+                  "output path = ../pilot_output/": f"output path = ../qr2_{tag}_output/",
+                  "generic file base = modalpilot": f"generic file base = qr2_{tag}",
+                  "snapshot file base = modalpilot_snap": f"snapshot file base = qr2_{tag}_snap",
+                  "Pk file base = modalpilot_pk": f"Pk file base = qr2_{tag}_pk",
+              }
+              for old, new in replacements.items():
+                  if old not in text:
+                      raise SystemExit(f"missing expected settings token: {old}")
+                  text = text.replace(old, new, 1)
+              return text
+
+          Path("gevolution/qr2_n32.ini").write_text(settings(32, 8, "n32"))
+          Path("gevolution/qr2_n64.ini").write_text(settings(64, 16, "n64"))
+          PY
+
+      - name: Run matched N32 member
+        run: |
+          set -o pipefail
+          rm -rf qr2_n32_output
+          mkdir -p qr2_n32_output
+          cd gevolution
+          mpirun --oversubscribe -np 4 ./gevolution -n 2 -m 2 -s qr2_n32.ini \
+            | tee ../qr2_n32.log
+
+      - name: Run matched N64 member
+        run: |
+          set -o pipefail
+          rm -rf qr2_n64_output
+          mkdir -p qr2_n64_output
+          cd gevolution
+          mpirun --oversubscribe -np 4 ./gevolution -n 2 -m 2 -s qr2_n64.ini \
+            | tee ../qr2_n64.log
+
+      - name: Verify matched output epochs and required fields
+        run: |
+          python - <<'PY'
+          import re
+          from pathlib import Path
+
+          pattern = re.compile(r"writing snapshot at z = ([0-9eE+.-]+)")
+          values = {}
+          for tag in ("n32", "n64"):
+              text = Path(f"qr2_{tag}.log").read_text()
+              match = pattern.search(text)
+              if match is None:
+                  raise SystemExit(f"no snapshot redshift found for {tag}")
+              values[tag] = float(match.group(1))
+              for token in ("_phi.h5", "_v.h5"):
+                  files = list(Path(f"qr2_{tag}_output").glob(f"*{token}"))
+                  if not files:
+                      raise SystemExit(f"missing {tag} {token}")
+          print("snapshot redshifts:", values)
+          if abs(values["n32"] - values["n64"]) > 1e-12:
+              raise SystemExit(f"output epochs do not match: {values}")
+          Path("qr2_n32_n64_output_epoch.txt").write_text(
+              f'{values["n32"]:.17g}\n'
+          )
+          PY
+
+      - name: Measure N32-N64 phase compatibility and resolution difference
+        run: |
+          low_phi="$(find qr2_n32_output -type f -name '*_phi.h5' | head -n 1)"
+          low_v="$(find qr2_n32_output -type f -name '*_v.h5' | head -n 1)"
+          high_phi="$(find qr2_n64_output -type f -name '*_phi.h5' | head -n 1)"
+          high_v="$(find qr2_n64_output -type f -name '*_v.h5' | head -n 1)"
+          python dark_sector_architecture/qualification/run_qr2_resolution_pair.py \
+            --low-phi "$low_phi" \
+            --low-velocity "$low_v" \
+            --high-phi "$high_phi" \
+            --high-velocity "$high_v" \
+            --boxsize "$BOXSIZE" \
+            --output dark_sector_architecture/qualification/results/q_r2_n32_n64_resolution_pair.json
+
+      - name: Add run provenance
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path(
+              "dark_sector_architecture/qualification/results/q_r2_n32_n64_resolution_pair.json"
+          )
+          data = json.loads(path.read_text())
+          data["pair_definition"] = {
+              "seed": 424242,
+              "template_source": "gevolution-code/gevolution-1.2/sc1_crystal.dat",
+              "template_blob": "d4de9a5400ef58f6a0181fbe61f18056b233a425",
+              "gevolution_sha": "0cca42e51a824002ae4fb602cbd79d671e8ffe60",
+              "latfield2_sha": "2d8c737ab6adc965a1d2718c209f5085af27b09c",
+              "low_grid": 32,
+              "high_grid": 64,
+              "low_tiling": 8,
+              "high_tiling": 16,
+              "low_particles": 32768,
+              "high_particles": 262144,
+              "requested_snapshot_redshift": 99.0,
+              "actual_snapshot_redshift": float(
+                  Path("qr2_n32_n64_output_epoch.txt").read_text()
+              ),
+          }
+          path.write_text(json.dumps(data, indent=2, sort_keys=True) + "\n")
+          PY
+
+      - name: Upload N32-N64 artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: cosmology-q-r2-n32-n64
+          path: |
+            qr2_n32_n64_upstream_revisions.txt
+            gevolution/qr2_n32.ini
+            gevolution/qr2_n64.ini
+            qr2_n32.log
+            qr2_n64.log
+            qr2_n32_n64_output_epoch.txt
+            qr2_n32_output/*_phi.h5
+            qr2_n32_output/*_v.h5
+            qr2_n64_output/*_phi.h5
+            qr2_n64_output/*_v.h5
+            dark_sector_architecture/qualification/results/q_r2_n32_n64_resolution_pair.json
+          if-no-files-found: error
+
+      - name: Persist N32-N64 report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add dark_sector_architecture/qualification/results/q_r2_n32_n64_resolution_pair.json
+          if git diff --cached --quiet; then
+            echo "N32-N64 report unchanged."
+            exit 0
+          fi
+          git commit -m "Persist Q-R2 N32-N64 resolution pair"
+          git fetch origin dark-sector-stability-architecture
+          git rebase origin/dark-sector-stability-architecture
+          git push origin HEAD:dark-sector-stability-architecture
