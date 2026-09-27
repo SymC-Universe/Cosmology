@@ -79,27 +79,30 @@ jobs:
 
           path = Path("gevolution/main.cpp")
           text = path.read_text()
-          marker = """		// snapshot output
-		if (snapcount < sim.num_snapshot && 1. / a < sim.z_snapshot[snapcount] + 1.)
-"""
+          marker = (
+              "\t\t// snapshot output\n"
+              "\t\tif (snapcount < sim.num_snapshot && "
+              "1. / a < sim.z_snapshot[snapcount] + 1.)\n"
+          )
           if marker not in text:
               raise SystemExit("snapshot marker not found in pinned gevolution source")
 
-          replacement = """		// snapshot output
-#ifdef TENSOR_EVOLUTION
-		// Qualification-only patch: write the dynamically evolved hijFT field
-		// into the existing real-space Sij buffer before snapshot HDF5 output.
-		if ((sim.out_snapshot & MASK_HIJ) &&
-		    snapcount < sim.num_snapshot &&
-		    1. / a < sim.z_snapshot[snapcount] + 1.)
-		{
-			plan_hij.execute(FFT_BACKWARD);
-			Sij.updateHalo();
-			done_hij = 1;
-		}
-#endif
-		if (snapcount < sim.num_snapshot && 1. / a < sim.z_snapshot[snapcount] + 1.)
-"""
+          replacement = (
+              "\t\t// snapshot output\n"
+              "#ifdef TENSOR_EVOLUTION\n"
+              "\t\t// Qualification-only patch: write dynamically evolved hijFT.\n"
+              "\t\tif ((sim.out_snapshot & MASK_HIJ) &&\n"
+              "\t\t    snapcount < sim.num_snapshot &&\n"
+              "\t\t    1. / a < sim.z_snapshot[snapcount] + 1.)\n"
+              "\t\t{\n"
+              "\t\t\tplan_hij.execute(FFT_BACKWARD);\n"
+              "\t\t\tSij.updateHalo();\n"
+              "\t\t\tdone_hij = 1;\n"
+              "\t\t}\n"
+              "#endif\n"
+              "\t\tif (snapcount < sim.num_snapshot && "
+              "1. / a < sim.z_snapshot[snapcount] + 1.)\n"
+          )
           text = text.replace(marker, replacement, 1)
           path.write_text(text)
           PY
