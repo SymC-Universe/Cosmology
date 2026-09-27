@@ -322,7 +322,48 @@ a^{-2}E^{\rm conf}_{ij}.
 Reserved for cross-epoch physical eigenvalue comparisons after the scale-factor
 and temporal reconstruction are qualified.
 
-## 10. Refusal conditions
+## 10. Coordinate-unit convention for gevolution derivatives
+
+gevolution evolves the lattice in dimensionless box coordinates:
+
+\[
+\bar x^i = x^i/L,
+\qquad
+\bar\tau = \tau/L,
+\]
+
+where \(L\) is the simulation box length in the comoving length convention used
+by the code. The runtime log labels the stored evolution coordinate
+\(\tau/\mathrm{boxsize}\).
+
+Therefore scalar, vector, and tensor derivatives must first be combined in one
+common coordinate system:
+
+\[
+\partial_{\bar i}=L\,\partial_i,
+\qquad
+\partial_{\bar\tau}=L\,\partial_\tau.
+\]
+
+The temporal qualification uses the logged \(\bar\tau\) values directly and
+sets the spatial derivative box length to unity. The resulting
+\(\mathcal E^{\rm conf}_{ij}\) is in inverse-box-coordinate-squared units.
+
+For a box of comoving length \(L\), the corresponding physical orthonormal
+normalization is
+
+\[
+E_{\hat i\hat j}
+=
+\frac{1}{a^2 L^2}
+\mathcal E^{\rm conf,box}_{ij}.
+\]
+
+At a single epoch the positive common factor \(1/(a^2L^2)\) does not change
+eigenvectors or relative scalar/vector/tensor sector participation. It must be
+restored for cross-epoch or dimensional eigenvalue comparisons.
+
+## 11. Refusal conditions
 
 REFUSE full electric-Weyl interpretation if any of the following holds:
 
@@ -336,7 +377,7 @@ REFUSE full electric-Weyl interpretation if any of the following holds:
 - the full result is materially sensitive to the temporal stencil without an
   admissible uncertainty treatment.
 
-## 11. Next qualification gate
+## 12. Next qualification gate
 
 1. implement the frozen algebra with derivative arrays supplied explicitly;
 2. known-truth test scalar, pure-vector, pure-tensor, and mixed cases;
