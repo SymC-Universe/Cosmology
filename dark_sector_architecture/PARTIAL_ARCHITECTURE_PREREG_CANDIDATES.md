@@ -38,6 +38,8 @@ A later scalar claim may be activated only if P0-D discovers a genuinely residua
 
 # PREG-MODAL-PA-1
 
+**Qualification status:** P0-Q REPRESENTATION STACK QUALIFIED through Development 011; exact residual/falsifier/untouched-evidence freeze still pending. NOT ACTIVATED.
+
 ## Candidate title
 **Late-time modal reorganization after nonlinear embedding**
 
@@ -587,11 +589,11 @@ Simulation confirmation must never be relabeled as empirical confirmation about 
 
 ## Current recommendation
 
-Proceed first with **PREG-MODAL-PA-1 qualification**, because M1 determines whether the modal representation is sufficiently identifiable and robust to support either joint claim.
+The P0-Q representation qualification for **PREG-MODAL-PA-1** is now complete through the native fixed-band N32/N64/N128 ladder. The next step is to freeze the exact residual modal claim, comparator, falsifier, ACCEPT / REFUSE / NEED_MORE_INFO logic, indeterminate zone, and untouched decisive evidence route before any P1-M output is opened.
 
-In parallel, build the extraction engine for **PREG-CONGLOMERATE-PA-1** but do not inspect candidate confirmation volumes.
+In parallel, the extraction design for **PREG-CONGLOMERATE-PA-1** may continue, but candidate confirmation volumes remain unopened.
 
-No P1 freeze should occur until the decision thresholds/tolerances are earned from qualification rather than invented.
+No P1 claim is activated by representation qualification alone.
 
 
 ## Qualification amendment PA-QM1
