@@ -110,7 +110,9 @@ def test_temporal_pilot_end_to_end_on_synthetic_latfield_fields(tmp_path):
     assert crosscheck["status"] == "CROSSCHECK_ONLY_NOT_TRANSVERSALITY_GATE"
     assert crosscheck["B_divergence_rms_by_snapshot"][2] < 1e-18
     assert crosscheck["h_trace_rms_by_snapshot"][2] < 1e-18
-    assert report["constraint_diagnostics"]["native_gevolution"] is None
+    assert report["constraint_diagnostics"]["native_gevolution_logged"] is None
+    assert len(report["constraint_diagnostics"]["native_postprocessing"]) == 5
+    assert report["modal_diagnostics"]["primary_spatial_operator"] == "LATFIELD2_GEVOLUTION_NATIVE"
 
     assert report["sector_frobenius_rms"]["inner"]["scalar"] > 0.0
     assert report["sector_frobenius_rms"]["inner"]["vector"] > 0.0
@@ -119,7 +121,7 @@ def test_temporal_pilot_end_to_end_on_synthetic_latfield_fields(tmp_path):
     for value in arrays.values():
         assert np.all(np.isfinite(value))
 
-    total = arrays["E_total_inner"]
+    total = arrays["E_total_inner_native"]
     np.testing.assert_allclose(
         np.trace(total, axis1=-2, axis2=-1),
         0.0,
