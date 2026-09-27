@@ -1,0 +1,40 @@
+{
+  "case_count": 4,
+  "cases": [
+    {
+      "case_id": "EW-01",
+      "max_abs_error": 5.551115123125783e-17,
+      "purpose": "scalar limit matches frozen scalar Weyl shape",
+      "status": "PASS"
+    },
+    {
+      "case_id": "EW-02",
+      "max_diagonal_abs": 0.0,
+      "max_xy_error": 3.608224830031759e-16,
+      "purpose": "pure transverse-vector analytic coefficient and sign",
+      "status": "PASS"
+    },
+    {
+      "case_id": "EW-03",
+      "max_abs_error": 1.1379786002407855e-15,
+      "purpose": "pure TT vacuum wave reduces to minus one-half h second derivative",
+      "status": "PASS"
+    },
+    {
+      "case_id": "EW-04",
+      "max_abs_error": 2.7755575615628914e-17,
+      "max_symmetry_residual": 0.0,
+      "max_trace_abs": 1.3877787807814457e-17,
+      "purpose": "mixed scalar-vector-tensor linear superposition",
+      "status": "PASS"
+    }
+  ],
+  "full_electric_weyl_real_data_claimed": false,
+  "next_gate": "qualify B_i prime and h_ij second conformal-time derivatives from nested centered snapshot stencils",
+  "project_riemann_convention": "R^rho_{sigma mu nu}=d_mu Gamma^rho_{nu sigma}-d_nu Gamma^rho_{mu sigma}+...",
+  "protocol": "ELECTRIC_WEYL_SECTOR_KNOWN_TRUTH_SUITE",
+  "real_snapshot_temporal_derivatives_qualified": false,
+  "scientific_claim_tested": false,
+  "scientific_thresholds_frozen": false,
+  "stage": "P0-Q"
+}
