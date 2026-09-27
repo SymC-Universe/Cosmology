@@ -23,7 +23,7 @@ jobs:
 
     env:
       GEVOLUTION_SHA: 0cca42e51a824002ae4fb602cbd79d671e8ffe60
-      LATFIELD2_SHA: a785c4fbe45d763e2076e0bda2dfea0ff8afd557
+      LATFIELD2_SHA: 5545833bec153f5a056d67b011c250a450192587
 
     steps:
       - name: Check out Cosmology repository
@@ -118,7 +118,7 @@ jobs:
               "purpose": "gevolution infrastructure/modal-field smoke test",
               "scientific_claim_tested": False,
               "gevolution_sha": "0cca42e51a824002ae4fb602cbd79d671e8ffe60",
-              "latfield2_sha": "a785c4fbe45d763e2076e0bda2dfea0ff8afd557",
+              "latfield2_sha": "5545833bec153f5a056d67b011c250a450192587",
               "pilot_grid": 8,
               "initial_redshift": 100.0,
               "final_redshift": 99.0,
