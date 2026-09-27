@@ -925,3 +925,147 @@ regimes is open.
 - qualification/results/electric_weyl_temporal_pilot.json
 
 **Status:** Paused at scientific development. Next valid action is native-lattice derivative qualification.
+
+
+---
+
+## Development 010 - Native Electric-Weyl Qualification Exposes a Full-Grid Representation Split
+
+**Date:** 2026-09-27  
+**Triggering workflow:** run `36357082516`, SUCCESS  
+**Native operator report:** `qualification/results/latfield2_native_operator_known_truth_report.json`  
+**Real-field report:** `qualification/results/electric_weyl_temporal_pilot.json`
+
+### Scientific development
+
+The unresolved native-operator hold from Development 009 is closed for the tested early (N=64) epoch.
+
+The gevolution/LATfield2 native differential operators were reconstructed directly from the source `kshift`, `gridk2`, vector-divergence, tensor-divergence, scalar-projection, and tensor-evolution conventions. Independent known-truth cases NL-01 through NL-04 reproduce the corresponding direct periodic finite-difference formulas to floating-point accuracy.
+
+Applying those operators to the real five-snapshot temporal pilot independently reproduces gevolution's native transversality/TT diagnostics at machine-small residuals. At the central snapshot:
+- gevolution (B) divergence/curl ratio is approximately (1.20\times10^{-14});
+- gevolution (h) divergence/norm ratio is approximately (3.00\times10^{-14});
+- gevolution (h) trace/norm ratio is approximately (5.23\times10^{-16}).
+
+The frozen temporal qualification gate is therefore adjudicated:
+
+[
+oxed{	ext{REPRESENTATION_QUALIFIED_P0Q}}
+]
+
+for this tested early epoch.
+
+This is a representation qualification only. It does not activate `PREG-MODAL-PA-1` and does not establish a cosmological dark-sector claim.
+
+### Native early-epoch Weyl result
+
+Using the native LATfield2/gevolution spatial operators:
+
+[
+rac{|E^{(V)}|}{|E^{(S)}|}
+approx 8.66	imes10^{-7},
+]
+
+[
+rac{|E^{(T)}|}{|E^{(S)}|}
+approx 1.31	imes10^{-6}.
+]
+
+The full-versus-scalar median relative tensor-operator difference is
+
+[
+1.50	imes10^{-6},
+]
+
+while the inner-versus-outer temporal-stencil median relative tensor difference is
+
+[
+2.37	imes10^{-9}.
+]
+
+Thus the full correction is approximately (632) times larger than the demonstrated median temporal-stencil difference, while remaining only at the ppm level relative to the scalar sector.
+
+The full-versus-scalar median eigenframe diagonal alignments remain above (0.9999999999994).
+
+Interpretation:
+
+[
+oxed{
+E_{m full}approx E_{m scalar}
+quad	ext{at the tested early epoch}
+}
+]
+
+within a quantitatively resolved native representation.
+
+This is an epoch-specific Function/Limit Map result, not a universal scalar-dominance result.
+
+### Second development: native versus continuum representation split
+
+The same real N64 fields were also reconstructed with the earlier continuum FFT derivative representation.
+
+On the full native grid, the two spatial representations are not close.
+
+For the scalar sector:
+- median native-versus-continuum relative tensor-operator difference: approximately (0.562);
+- median eigenframe diagonal alignments: approximately (0.967, 0.922, 0.967).
+
+For the vector sector:
+- median relative tensor-operator difference: approximately (0.488).
+
+For the tensor sector:
+- median relative tensor-operator difference: approximately (0.0168).
+
+The full tensor inherits the scalar-dominated discrepancy, with median relative tensor error again approximately (0.562).
+
+### Consequence
+
+The continuum FFT reconstruction is not an interchangeable surrogate for the gevolution/LATfield2-native modal object on the full N64 grid.
+
+Therefore:
+- the prior continuum scalar-Weyl and modal calculations remain preserved as comparator-representation evidence;
+- the earlier fixed-band convergence behavior is not discarded;
+- but those results cannot be promoted as native-gevolution Weyl convergence without repeating the resolution ladder with native lattice operators;
+- the large full-grid difference must not yet be attributed solely to ultraviolet modes, staggering, or physical disagreement because those possibilities have not been separated.
+
+This is a direct example of the GOM native-model-first rule changing claim interpretation while preserving prior evidence.
+
+### Claim ceiling after development
+
+Supported:
+- the first-order native electric-Weyl representation is operational and P0-Q qualified at the tested early N64 epoch;
+- vector/tensor corrections are tiny but temporally resolved at that epoch;
+- gevolution-native B and h fields satisfy their native transversality/TT constraints to machine-small residuals;
+- continuum and native lattice modal reconstructions differ materially on the full grid.
+
+Not yet supported:
+- native fixed-band resolution convergence;
+- a claim that the full-grid discrepancy is caused specifically by ultraviolet modes or staggering;
+- universal early-to-late scalar dominance;
+- activation of `PREG-MODAL-PA-1`;
+- any Conglomerate/System or joint added-value claim.
+
+### Exact restart point
+
+Freeze and run a **native-lattice fixed-physical-band resolution ladder**:
+
+1. one common physical Fourier band for (N=32,64,128), frozen before result inspection;
+2. native scalar, vector, tensor, and full electric-Weyl reconstruction at each resolution;
+3. adjacent (32\rightarrow64) and (64\rightarrow128) convergence on the identical band;
+4. continuum reconstruction on that same band as a comparator;
+5. explicit decomposition of whether the full-grid representation split collapses on the common physical band or persists;
+6. retain velocity-shear as an independent modal uncertainty channel;
+7. only after native fixed-band qualification reassess `PREG-MODAL-PA-1`;
+8. then return to Conglomerate and joint gates.
+
+### Linked artifacts
+
+- `ELECTRIC_WEYL_CONVENTION_MAP.md`
+- `ELECTRIC_WEYL_TEMPORAL_QUALIFICATION_GATE.md`
+- `qualification/latfield2_native_operators.py`
+- `qualification/electric_weyl.py`
+- `qualification/results/latfield2_native_operator_known_truth_report.json`
+- `qualification/results/electric_weyl_temporal_pilot.json`
+- `WORKING_INVESTIGATION.md`
+
+**Status:** Paused at significant scientific/methodological development. Next valid experiment is the prospectively frozen native fixed-band resolution ladder.
