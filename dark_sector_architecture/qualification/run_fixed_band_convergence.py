@@ -40,12 +40,28 @@ from weak_field_tensors import (
 )
 
 
+def _project_native_target_band(field: np.ndarray) -> np.ndarray:
+    """Remove target-grid Nyquist planes without changing grid size."""
+    arr = np.asarray(field, dtype=float)
+    if arr.ndim != 3 or len(set(arr.shape)) != 1:
+        raise ValueError("field must be a cubic 3D scalar grid")
+    n = arr.shape[0]
+    if n % 2 != 0:
+        raise ValueError("target grid must be even")
+    spectrum = np.fft.fftn(arr)
+    nyquist = n // 2
+    spectrum[nyquist, :, :] = 0.0
+    spectrum[:, nyquist, :] = 0.0
+    spectrum[:, :, nyquist] = 0.0
+    return np.fft.ifftn(spectrum).real
+
+
 def _restrict_scalar(field: np.ndarray, target_n: int) -> np.ndarray:
     n = field.shape[0]
     if field.shape != (n, n, n):
         raise ValueError("scalar field must be cubic")
     if n == target_n:
-        return np.asarray(field, dtype=float)
+        return _project_native_target_band(field)
     return spectral_restrict_to_grid(field, target_n)
 
 
@@ -56,7 +72,10 @@ def _restrict_vector(field: np.ndarray, target_n: int) -> np.ndarray:
     if field.shape != (3, n, n, n):
         raise ValueError("vector field must be cubic")
     if n == target_n:
-        return np.asarray(field, dtype=float)
+        return np.stack(
+            [_project_native_target_band(field[i]) for i in range(3)],
+            axis=0,
+        )
     return spectral_restrict_vector_to_grid(field, target_n)
 
 
