@@ -275,12 +275,25 @@ def build_report(
             "h_second_outer_rms": _rms(derivatives["h_second_outer"]),
         },
         "constraint_diagnostics": {
-            "B_divergence_rms_by_snapshot": [_rms(x) for x in b_divergence],
-            "B_field_rms_by_snapshot": [_rms(x) for x in b],
-            "h_divergence_rms_by_snapshot": [_rms(x) for x in h_divergence],
-            "h_field_rms_by_snapshot": [_rms(x) for x in h],
-            "h_trace_rms_by_snapshot": [_rms(x) for x in h_trace],
-            "h_symmetry_residual_rms_by_snapshot": [_rms(x) for x in h_symmetry],
+            "qualification_source": (
+                "gevolution native LATfield2 finite-difference diagnostics "
+                "when present in snapshot metadata"
+            ),
+            "native_gevolution": metadata.get("native_field_diagnostics"),
+            "continuum_fft_crosscheck": {
+                "status": "CROSSCHECK_ONLY_NOT_TRANSVERSALITY_GATE",
+                "reason": (
+                    "continuum spectral derivatives do not reproduce the "
+                    "staggered/discrete LATfield2 derivative used by "
+                    "gevolution's native spin-1/spin-2 projections"
+                ),
+                "B_divergence_rms_by_snapshot": [_rms(x) for x in b_divergence],
+                "B_field_rms_by_snapshot": [_rms(x) for x in b],
+                "h_divergence_rms_by_snapshot": [_rms(x) for x in h_divergence],
+                "h_field_rms_by_snapshot": [_rms(x) for x in h],
+                "h_trace_rms_by_snapshot": [_rms(x) for x in h_trace],
+                "h_symmetry_residual_rms_by_snapshot": [_rms(x) for x in h_symmetry],
+            },
         },
         "sector_frobenius_rms": {
             "inner": sector_rms_inner,
@@ -304,6 +317,7 @@ def build_report(
             "no scientific acceptance threshold frozen",
             "temporal inner/outer comparison is a discretization diagnostic, not P1 evidence",
             "magnetic Weyl tensor not reconstructed in this pilot",
+            "continuum FFT divergence diagnostics are not used for the native TT gate because gevolution uses a staggered LATfield2 lattice derivative",
             "nonlinear observer dependence beyond first order is not tested here",
         ],
     }
