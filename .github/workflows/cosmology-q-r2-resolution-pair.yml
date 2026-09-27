@@ -1,4 +1,4 @@
-name: Cosmology Q-R2 paired resolution probe
+name: Cosmology Q-R2 resolution ladder
 
 on:
   push:
@@ -17,7 +17,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: cosmology-q-r2-n8-n16
+  group: cosmology-q-r2-resolution-ladder
   cancel-in-progress: true
 
 jobs:
@@ -112,9 +112,11 @@ jobs:
 
           Path("gevolution/qr2_n8.ini").write_text(settings(8, 2, "n8"))
           Path("gevolution/qr2_n16.ini").write_text(settings(16, 4, "n16"))
+          Path("gevolution/qr2_n32.ini").write_text(settings(32, 8, "n32"))
           PY
           cat gevolution/qr2_n8.ini
           cat gevolution/qr2_n16.ini
+          cat gevolution/qr2_n32.ini
 
       - name: Run matched N8 development member
         run: |
@@ -134,6 +136,15 @@ jobs:
           mpirun --oversubscribe -np 4 ./gevolution -n 2 -m 2 -s qr2_n16.ini \
             | tee ../qr2_n16.log
 
+      - name: Run matched N32 development member
+        run: |
+          set -o pipefail
+          rm -rf qr2_n32_output
+          mkdir -p qr2_n32_output
+          cd gevolution
+          mpirun --oversubscribe -np 4 ./gevolution -n 2 -m 2 -s qr2_n32.ini \
+            | tee ../qr2_n32.log
+
       - name: Verify matched output epochs and required fields
         run: |
           python - <<'PY'
@@ -142,7 +153,7 @@ jobs:
 
           pattern = re.compile(r"writing snapshot at z = ([0-9eE+.-]+)")
           values = {}
-          for tag in ("n8", "n16"):
+          for tag in ("n8", "n16", "n32"):
               text = Path(f"qr2_{tag}.log").read_text()
               match = pattern.search(text)
               if match is None:
@@ -153,14 +164,14 @@ jobs:
                   if not files:
                       raise SystemExit(f"missing {tag} {token}")
           print("snapshot redshifts:", values)
-          if abs(values["n8"] - values["n16"]) > 1e-12:
+          if max(values.values()) - min(values.values()) > 1e-12:
               raise SystemExit(f"output epochs do not match: {values}")
           Path("qr2_output_epoch.txt").write_text(
               f'{values["n8"]:.17g}\n'
           )
           PY
 
-      - name: Measure phase compatibility and common-grid resolution difference
+      - name: Measure N8-N16 phase compatibility and resolution difference
         run: |
           low_phi="$(find qr2_n8_output -type f -name '*_phi.h5' | head -n 1)"
           low_v="$(find qr2_n8_output -type f -name '*_v.h5' | head -n 1)"
@@ -174,58 +185,88 @@ jobs:
             --boxsize "$BOXSIZE" \
             --output dark_sector_architecture/qualification/results/q_r2_n8_n16_resolution_pair.json
 
+      - name: Measure N16-N32 phase compatibility and resolution difference
+        run: |
+          low_phi="$(find qr2_n16_output -type f -name '*_phi.h5' | head -n 1)"
+          low_v="$(find qr2_n16_output -type f -name '*_v.h5' | head -n 1)"
+          high_phi="$(find qr2_n32_output -type f -name '*_phi.h5' | head -n 1)"
+          high_v="$(find qr2_n32_output -type f -name '*_v.h5' | head -n 1)"
+          python dark_sector_architecture/qualification/run_qr2_resolution_pair.py \
+            --low-phi "$low_phi" \
+            --low-velocity "$low_v" \
+            --high-phi "$high_phi" \
+            --high-velocity "$high_v" \
+            --boxsize "$BOXSIZE" \
+            --output dark_sector_architecture/qualification/results/q_r2_n16_n32_resolution_pair.json
+
       - name: Add run provenance
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
 
-          path = Path("dark_sector_architecture/qualification/results/q_r2_n8_n16_resolution_pair.json")
-          data = json.loads(path.read_text())
-          data["pair_definition"] = {
-              "seed": 424242,
-              "template_source": "gevolution-code/gevolution-1.2/sc1_crystal.dat",
-              "template_blob": "d4de9a5400ef58f6a0181fbe61f18056b233a425",
-              "gevolution_sha": "0cca42e51a824002ae4fb602cbd79d671e8ffe60",
-              "latfield2_sha": "2d8c737ab6adc965a1d2718c209f5085af27b09c",
-              "n8_tiling": 2,
-              "n16_tiling": 4,
-              "n8_particles": 512,
-              "n16_particles": 4096,
-              "requested_snapshot_redshift": 99.0,
-              "actual_snapshot_redshift": float(Path("qr2_output_epoch.txt").read_text()),
-          }
-          path.write_text(json.dumps(data, indent=2, sort_keys=True) + "\n")
+          epoch = float(Path("qr2_output_epoch.txt").read_text())
+          pairs = [
+              ("q_r2_n8_n16_resolution_pair.json", 8, 16, 2, 4, 512, 4096),
+              ("q_r2_n16_n32_resolution_pair.json", 16, 32, 4, 8, 4096, 32768),
+          ]
+          root = Path("dark_sector_architecture/qualification/results")
+          for filename, low_n, high_n, low_tiling, high_tiling, low_p, high_p in pairs:
+              path = root / filename
+              data = json.loads(path.read_text())
+              data["pair_definition"] = {
+                  "seed": 424242,
+                  "template_source": "gevolution-code/gevolution-1.2/sc1_crystal.dat",
+                  "template_blob": "d4de9a5400ef58f6a0181fbe61f18056b233a425",
+                  "gevolution_sha": "0cca42e51a824002ae4fb602cbd79d671e8ffe60",
+                  "latfield2_sha": "2d8c737ab6adc965a1d2718c209f5085af27b09c",
+                  "low_grid": low_n,
+                  "high_grid": high_n,
+                  "low_tiling": low_tiling,
+                  "high_tiling": high_tiling,
+                  "low_particles": low_p,
+                  "high_particles": high_p,
+                  "requested_snapshot_redshift": 99.0,
+                  "actual_snapshot_redshift": epoch,
+              }
+              path.write_text(json.dumps(data, indent=2, sort_keys=True) + "\n")
           PY
 
       - name: Upload paired-resolution artifact
         uses: actions/upload-artifact@v4
         with:
-          name: cosmology-q-r2-n8-n16
+          name: cosmology-q-r2-resolution-ladder
           path: |
             qr2_upstream_revisions.txt
             gevolution/qr2_n8.ini
             gevolution/qr2_n16.ini
+            gevolution/qr2_n32.ini
             qr2_n8.log
             qr2_n16.log
+            qr2_n32.log
             qr2_output_epoch.txt
             qr2_n8_output/*_phi.h5
             qr2_n8_output/*_v.h5
             qr2_n16_output/*_phi.h5
             qr2_n16_output/*_v.h5
+            qr2_n32_output/*_phi.h5
+            qr2_n32_output/*_v.h5
             dark_sector_architecture/qualification/results/q_r2_n8_n16_resolution_pair.json
+            dark_sector_architecture/qualification/results/q_r2_n16_n32_resolution_pair.json
           if-no-files-found: error
 
       - name: Persist paired-resolution report
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add dark_sector_architecture/qualification/results/q_r2_n8_n16_resolution_pair.json
+          git add \
+            dark_sector_architecture/qualification/results/q_r2_n8_n16_resolution_pair.json \
+            dark_sector_architecture/qualification/results/q_r2_n16_n32_resolution_pair.json
           if git diff --cached --quiet; then
             echo "Q-R2 report unchanged."
             exit 0
           fi
-          git commit -m "Persist Q-R2 N8-N16 resolution pair"
+          git commit -m "Persist Q-R2 resolution ladder"
           git fetch origin dark-sector-stability-architecture
           git rebase origin/dark-sector-stability-architecture
           git push origin HEAD:dark-sector-stability-architecture
