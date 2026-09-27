@@ -102,6 +102,16 @@ jobs:
               "#endif\n"
               "\t\tif (snapcount < sim.num_snapshot && "
               "1. / a < sim.z_snapshot[snapcount] + 1.)\n"
+              "\t\t{\n"
+              "\t\t\tchar ew_temporal_meta[256];\n"
+              "\t\t\tsprintf(ew_temporal_meta, "
+              "\"EW_TEMPORAL_META index=%d cycle=%d a=%.17g z=%.17g "
+              "tau_over_boxsize=%.17g\", snapcount, cycle, a, "
+              "(1. / a) - 1., tau);\n"
+              "\t\t\tCOUT << ew_temporal_meta << endl;\n"
+              "\t\t}\n"
+              "\t\tif (snapcount < sim.num_snapshot && "
+              "1. / a < sim.z_snapshot[snapcount] + 1.)\n"
           )
           text = text.replace(marker, replacement, 1)
           path.write_text(text)
@@ -196,19 +206,24 @@ jobs:
           requested = json.loads(Path("ew_temporal_requested.json").read_text())
           text = Path("ew_temporal.log").read_text()
           pattern = re.compile(
-              r"writing snapshot at z = ([0-9eE+.-]+) "
-              r"\(cycle ([0-9]+)\), tau/boxsize = ([0-9eE+.-]+)"
+              r"EW_TEMPORAL_META index=([0-9]+) cycle=([0-9]+) "
+              r"a=([0-9eE+.-]+) z=([0-9eE+.-]+) "
+              r"tau_over_boxsize=([0-9eE+.-]+)"
           )
           matches = pattern.findall(text)
           if len(matches) != 5:
-              raise SystemExit(f"expected five snapshot log entries, found {matches}")
+              raise SystemExit(f"expected five precise snapshot metadata entries, found {matches}")
 
           snapshots = []
-          for index, (z, cycle, tau) in enumerate(matches):
+          for index_text, cycle, scale_factor, z, tau in matches:
+              index = int(index_text)
+              if index != len(snapshots):
+                  raise SystemExit(f"unexpected snapshot index sequence: {matches}")
               snapshots.append(
                   {
                       "index": index,
                       "requested_redshift": requested["requested_redshifts"][index],
+                      "actual_scale_factor": float(scale_factor),
                       "actual_redshift": float(z),
                       "cycle": int(cycle),
                       "tau_over_boxsize": float(tau),
