@@ -2,7 +2,7 @@
 
 **Project:** Cosmic Stability Architecture  
 **Protocol ID:** PREG-LIT  
-**Status:** Working protocol to be frozen before controlled adjudication
+**Status:** FROZEN under PREG-LIT-COSMO-v1.0
 
 ## Governing principle
 
