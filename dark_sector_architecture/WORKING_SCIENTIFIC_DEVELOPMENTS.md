@@ -396,3 +396,84 @@ Priority questions:
 - `STAGE_A_PRIMORDIAL_MODAL_CONGLOMERATE_SYNTHESIS.md`
 
 **Status:** Paused at scientific development. Next valid action is conglomerate source emergence.
+
+
+---
+
+## Development 005 - Known Conglomerate GR Mechanisms Do Not Yet Supply the Early CDM-Like Function
+
+**Date:** 2026-09-27  
+**GitHub checkpoint before entry:** `0911b8d041df4b0794184eddcc249b280e913ec5`
+
+### Scientific development
+
+The Stage A conglomerate source-emergence pass finds that the major known higher-level mechanisms inside standard GR are real but presently insufficient for the full pre-recombination dark-matter-like gravitational burden.
+
+Three architecture classes are supported:
+
+1. nonlinear mode generation from existing perturbations;
+2. correlation/averaging corrections to large-scale geometry;
+3. non-Markovian history dependence after coarse graining.
+
+None of the admitted literature establishes a collective mode or system-level branch that is simultaneously active before recombination, persistently non-acoustic in the required scalar observables, quantitatively sufficient for the CMB gravitational potential, standard-GR native, and free of a new material component.
+
+### Triggering evidence
+
+- Paranjape's covariant macroscopic-gravity treatment is gauge-robust in its perturbative construction, but the tested backreaction remains negligible well into matter domination.
+- Exact homogeneous/isotropic macroscopic-gravity solutions yield a correlation sector with spatial-curvature-like behavior rather than a pressureless source.
+- Mori-Zwanzig coarse graining of Buchert dynamics produces an explicit memory kernel in the Hubble evolution, proving history dependence but not a recombination-era scalar gravitational source.
+- Radiation-era second-order perturbation theory produces scalar/vector/tensor responses through nonlinear coupling, but the source remains the lower-order perturbations plus stress-energy.
+- Standard backreaction mechanisms become relevant primarily after significant structure development and therefore do not automatically satisfy the early CMB burden.
+
+### Consequence
+
+The following promotion-level route is currently refused:
+
+[
+	ext{known GR conglomerate mechanisms}
+ightarrow
+	ext{full pre-recombination CDM-like function}.
+]
+
+This is not a global refusal of architectural emergence.
+
+The full no-dark-substance hypothesis can remain open only through:
+- a not-yet-admitted nonperturbative/correlation architecture;
+- a new closure derived from native GR;
+- an additional architecture component beyond the current starting basis;
+- or another scientifically justified route not already exhausted.
+
+The partial late-time architecture remains independently viable as an exploratory branch.
+
+### Claim ceiling after development
+
+Supported:
+- higher-order and coarse-grained GR produce genuine system-level structure;
+- nonlinear modes, correlations, and memory are real architectural objects;
+- late-time structure/geometry feedback remains scientifically live.
+
+Not supported:
+- any currently admitted conglomerate object as a complete pre-recombination CDM-like replacement;
+- memory alone as a gravitational source;
+- known averaging correlations as quantitatively sufficient for the CMB burden;
+- second-order mode generation as an independent pressureless source.
+
+### Exact restart point
+
+Run one bounded **nonperturbative/additional-architecture pass** before narrowing the full hypothesis.
+
+Search specifically for:
+- exact/nonperturbative GR constructions in which gravitational correlation or Weyl structure carries an independent collective degree of freedom;
+- covariant closures not reducible to curvature-like or tiny perturbative corrections;
+- conserved or slowly varying nonlocal geometrical objects spanning radiation through recombination;
+- additional architecture components outside the current Scalar / Vector-Modal / Conglomerate-System starting basis.
+
+If that bounded pass produces no viable candidate, the full no-dark-substance branch should be marked `UNSUPPORTED_AT_CURRENT_STAGE` and the active hypothesis narrowed to the partial architecture without closing P0-D exploration.
+
+### Linked artifacts
+
+- `LITERATURE_ADJUDICATION_MATRIX.md`
+- `LITERATURE_EXPLORATION_QUEUE.md`
+- `WORKING_INVESTIGATION.md`
+
+**Status:** Paused at scientific development. Next valid action is the bounded nonperturbative/additional-architecture pass.
