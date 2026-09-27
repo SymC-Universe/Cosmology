@@ -212,3 +212,30 @@ Accordingly, under the precommitted Stage A rule:
 This is not `FALSIFIED`. P0-D exploration remains open and later evidence may generate a new versioned route.
 
 The **partial architecture** remains supported as an active research direction because multiple independent GR literatures continue to support late-time structure/geometry feedback, curvature/backreaction, edge-mode or self-interaction effects, and limited DM-like/DE-like functional behavior.
+
+
+## Batch 005 - Native late-time modal object qualification
+
+| ID | Source | Claim component under adjudication | Layer | Status | Primary reason / ceiling | Exploration disposition |
+|---|---|---|---|---|---|---|
+| LIT-047 | Novello et al. 1995 [PhysRevD.51.450] | Electric Weyl curvature and shear form a minimal closed observable set for scalar cosmological perturbations | Modal / covariant | ADMITTED | Native covariant modal pair; directly relevant to relativistic scalar-sector dynamics | P0D_OPEN |
+| LIT-048 | Novello et al. 1995 [PhysRevD.52.730] | Vorticity+shear and electric+magnetic Weyl pairs close vector and tensor perturbation sectors | Modal / covariant | ADMITTED | Native relativistic sector structure admitted; does not imply all sectors are dynamically important in the target regime | P0D_OPEN |
+| LIT-049 | Matarrese, Pantano & Saez 1994 | Nonlinear relativistic evolution couples density, expansion, shear, electric Weyl and dynamically generated magnetic Weyl structure | Modal / conglomerate | ADMITTED | Establishes nonlinear relativistic modal/coupling structure and nonlocal magnetic-Weyl information | P0D_OPEN |
+| LIT-050 | Hoffman et al. 2012 and cosmic-web shear/tidal literature | Velocity-shear and tidal eigenvalues/eigenvectors encode principal collapse/expansion directions and cosmic-web morphology | Modal / weak-field structure | PARTIAL_ADMISSION | Continuous eigenstructure admitted; thresholded web labels require separately frozen threshold and are not primary modal evidence | P0D_OPEN |
+| LIT-051 | Bolejko 2017 silent-universe numerical cosmology | Relativistic shear/Weyl evolution can generate substantial late spatial-curvature organization from initially near-FLRW conditions | Modal / conglomerate | PARTIAL_ADMISSION | Useful nonlinear GR precedent under silent-universe constraints; dust/Lambda and vanishing magnetic-Weyl restrictions retained | P0D_OPEN |
+
+### Batch 005 controlled conclusion
+
+The primary late-time modal object is now qualified at the literature level as native tensor eigenstructure rather than a convenience decomposition.
+
+Primary objects:
+- relativistic shear tensor;
+- electric Weyl/tidal tensor;
+- magnetic Weyl where dynamically generated and relevant;
+- ordered eigenvalues/eigenframes and their alignments.
+
+Linear Einstein-Boltzmann generator eigenmodes remain the baseline transfer comparator.
+
+PCA/DMD-style modes remain exploratory proxies only.
+
+A standalone new scalar preregistration is not activated merely to preserve symmetry among the representation layers.
