@@ -2,7 +2,7 @@
 
 **Project:** Cosmic Stability Architecture  
 **Branch:** `dark-sector-stability-architecture`  
-**Current stage:** Partial-architecture preregistration construction; native modal representation selected; P0-Q modal qualification next  
+**Current stage:** P0-Q modal qualification implementation; known-truth extractor/tests committed; pinned gevolution infrastructure pilot queued  
 **Current scientific state:** The bounded nonperturbative/additional-architecture pass is complete. The full no-dark-substance route is UNSUPPORTED_AT_CURRENT_STAGE under the frozen literature rules, not falsified. The active branch is now the partial architecture; the full route remains open only in P0-D for genuinely new future candidates.
 
 ## Frozen objects
@@ -95,16 +95,31 @@ See `LITERATURE_EXPLORATION_QUEUE.md`.
 
 **Development 007:** the native late-time modal object is now identified as shear/Weyl/tidal eigenstructure rather than an arbitrary data decomposition. This enables direct scalar-modal-conglomerate and inheritance tests.
 
+Mechanical qualification progress after Development 007:
+- production-facing tensor eigensystem extractor committed;
+- KT-01 through KT-12 test suite committed;
+- machine-readable qualification runner committed;
+- independent formula/logic validation reproduces all twelve expected behaviors;
+- no global eigengap refusal threshold was imposed;
+- exact degeneracy refuses unique directional interpretation;
+- direction sensitivity is carried continuously through perturbation-norm/eigengap diagnostics;
+- CI workflow exists but push-triggered run has not yet been independently observed through the connected status endpoint;
+- gevolution 1.3 pilot pinned to `0cca42e51a824002ae4fb602cbd79d671e8ffe60`;
+- LATfield2 pinned to `b9dcddfc972ba12177e8a92f94394bd8058fde5b`;
+- tiny (N=8), (z=100\rightarrow99) infrastructure smoke case committed;
+- smoke gate requires raw `phi`, `B`, `chi`, `hij`, and velocity `v` outputs.
+
 ## Next exact action
 
-Implement the **modal known-truth qualification suite** before cosmological production:
+Complete the **modal P0-Q infrastructure gates**:
 
-1. implement the shared tensor eigensystem/extraction code;
-2. execute KT-01 through KT-12;
-3. verify rotation covariance, degeneracy refusal, matched-scalar/modal-different cases, and known-bad rejection;
-4. estimate numerical conditioning and uncertainty behavior without inventing a threshold;
-5. use the qualification results to freeze modal tolerances and decide whether PREG-MODAL-PA-1 is fit to activate;
-6. only then proceed to cosmological pilot simulations.
+1. independently observe the GitHub Actions KT-01 through KT-12 result/artifact;
+2. inspect the pinned gevolution smoke workflow and repair only mechanical build/runtime defects;
+3. verify raw `phi`, `B`, `chi`, `hij`, and `v` outputs from the (z=100\rightarrow99) pilot;
+4. qualify the weak-field tidal/velocity-shear reconstruction against the same tensor extractor;
+5. estimate numerical tensor uncertainty from resolution/convergence evidence;
+6. carry directional uncertainty continuously through eigengap-sensitive perturbation bounds rather than inventing a universal eigengap cutoff;
+7. decide whether PREG-MODAL-PA-1 is fit to activate only after these P0-Q gates pass.
 
 ## Resume pointers
 
@@ -137,3 +152,14 @@ This does not presume that the early dark gravitational component is architectur
 - `PREG-JOINT-PA-2`: CANDIDATE, modal-to-conglomerate Stability Inheritance.
 
 See `PARTIAL_ARCHITECTURE_PREREG_CANDIDATES.md`.
+
+
+## Current modal P0-Q implementation commits
+
+- tensor extractor: `11b815a202cb67019ae52c920fb80506c49d7301`
+- known-truth tests: `aa2f20cb600f4688b5d8fb6400bc5dad16bfc18b`
+- machine-readable runner: `ca7003616b2d96fc1c9d0b4ee8fc12d6aad8b3ae`
+- known-truth workflow: `42c06d232259bf3166df29feabbdf8c5c6e8cbdd`
+- independent validation checkpoint: `3974ad5c1fb453db10d57a6a3c7e6b4cd10b0c9f`
+- frozen gevolution pilot settings: `721ef700df28d5f778bdaf2d05759ef1aef05230`
+- pinned gevolution pilot workflow: `4b3902c6cb327a6743aace71289a3e2de7e05f98`
