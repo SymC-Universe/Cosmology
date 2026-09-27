@@ -1,0 +1,517 @@
+{
+  "actual_redshifts": [
+    99.4963250028215,
+    99.24543019804999,
+    98.99516176429084,
+    98.74551813778912,
+    98.49649775869368
+  ],
+  "actual_tau_over_boxsize": [
+    14.100284461432516,
+    14.120905062350372,
+    14.141552190017416,
+    14.162225876764067,
+    14.182926154961931
+  ],
+  "constraint_diagnostics": {
+    "B_divergence_rms_by_snapshot": [
+      1.6347426289318826e-09,
+      1.6297342454936381e-09,
+      1.624771353554328e-09,
+      1.6198533780696726e-09,
+      1.614980072639337e-09
+    ],
+    "B_field_rms_by_snapshot": [
+      4.371553842371808e-10,
+      4.377668366548227e-10,
+      4.3838095381606906e-10,
+      4.3899719065078525e-10,
+      4.396154426877867e-10
+    ],
+    "h_divergence_rms_by_snapshot": [
+      3.2925977337132397e-12,
+      3.3268809671427473e-12,
+      3.3643361754071316e-12,
+      3.400847367211212e-12,
+      3.4345613341183332e-12
+    ],
+    "h_field_rms_by_snapshot": [
+      1.4469178305092822e-11,
+      1.454988089010355e-11,
+      1.4722066890548757e-11,
+      1.5039839510761453e-11,
+      1.5565887812857025e-11
+    ],
+    "h_symmetry_residual_rms_by_snapshot": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "h_trace_rms_by_snapshot": [
+      9.6174899779119e-27,
+      9.604568292851143e-27,
+      9.556755560890081e-27,
+      9.803395581857069e-27,
+      1.014394371539904e-26
+    ]
+  },
+  "cycles": [
+    10,
+    15,
+    20,
+    25,
+    30
+  ],
+  "full_electric_weyl_p1_claimed": false,
+  "limitations": [
+    "single early development epoch",
+    "one N64 realization",
+    "no scientific acceptance threshold frozen",
+    "temporal inner/outer comparison is a discretization diagnostic, not P1 evidence",
+    "magnetic Weyl tensor not reconstructed in this pilot",
+    "nonlinear observer dependence beyond first order is not tested here"
+  ],
+  "modal_diagnostics": {
+    "inner_full_vs_scalar": {
+      "directional_error_over_reference_gap_quantiles_by_pair": [
+        {
+          "finite_count": 262144,
+          "max": 0.0007510815331373029,
+          "median": 1.571156131252404e-06,
+          "min": 5.059012474917787e-08,
+          "q05": 5.693513124917224e-07,
+          "q95": 6.272605735765019e-06,
+          "total_count": 262144
+        },
+        {
+          "finite_count": 262144,
+          "max": 0.0020992934160857808,
+          "median": 1.569187824031544e-06,
+          "min": 4.1793217030399565e-08,
+          "q05": 5.791246788247041e-07,
+          "q95": 6.268714010910854e-06,
+          "total_count": 262144
+        }
+      ],
+      "eigenframe_diagonal_alignment_quantiles_by_order": [
+        {
+          "finite_count": 262144,
+          "max": 1.0000000000000009,
+          "median": 0.9999999999998254,
+          "min": 0.9999998968507925,
+          "q05": 0.999999999996605,
+          "q95": 0.9999999999999911,
+          "total_count": 262144
+        },
+        {
+          "finite_count": 262144,
+          "max": 1.0000000000000004,
+          "median": 0.9999999999995881,
+          "min": 0.9999992634747902,
+          "q05": 0.9999999999931893,
+          "q95": 0.9999999999999781,
+          "total_count": 262144
+        },
+        {
+          "finite_count": 262144,
+          "max": 1.0000000000000009,
+          "median": 0.9999999999998288,
+          "min": 0.9999992634747946,
+          "q05": 0.9999999999967849,
+          "q95": 0.999999999999991,
+          "total_count": 262144
+        }
+      ],
+      "eigenvalue_abs_error_quantiles_by_order": [
+        {
+          "finite_count": 262144,
+          "max": 2.287496919098006e-09,
+          "median": 2.590243982573525e-10,
+          "min": 5.687616176641708e-15,
+          "q05": 2.3784242945360663e-11,
+          "q95": 8.39195711581581e-10,
+          "total_count": 262144
+        },
+        {
+          "finite_count": 262144,
+          "max": 2.892807839896972e-09,
+          "median": 2.629880066193672e-10,
+          "min": 3.723529731075592e-15,
+          "q05": 2.4199293489343213e-11,
+          "q95": 8.086581576886503e-10,
+          "total_count": 262144
+        },
+        {
+          "finite_count": 262144,
+          "max": 3.566572775179702e-09,
+          "median": 2.620470570136729e-10,
+          "min": 3.845448265371587e-15,
+          "q05": 2.436132506659916e-11,
+          "q95": 7.96575396410596e-10,
+          "total_count": 262144
+        }
+      ],
+      "tensor_error": {
+        "absolute": {
+          "finite_count": 262144,
+          "max": 3.658294506627197e-09,
+          "median": 7.277975678496495e-10,
+          "min": 3.805757501343891e-11,
+          "q05": 3.5299365189002463e-10,
+          "q95": 1.3294350013220703e-09,
+          "total_count": 262144
+        },
+        "relative_to_reference": {
+          "finite_count": 262144,
+          "max": 2.0538984844883127e-05,
+          "median": 1.3485873198174136e-06,
+          "min": 5.980464804146065e-08,
+          "q05": 5.949690332150053e-07,
+          "q95": 3.0972198493847135e-06,
+          "total_count": 262144
+        }
+      }
+    },
+    "inner_vs_outer_full": {
+      "directional_error_over_reference_gap_quantiles_by_pair": [
+        {
+          "finite_count": 262144,
+          "max": 2.148605004319812e-06,
+          "median": 2.431940506937304e-09,
+          "min": 8.896956353747525e-11,
+          "q05": 8.649391183594685e-10,
+          "q95": 9.86951185894985e-09,
+          "total_count": 262144
+        },
+        {
+          "finite_count": 262144,
+          "max": 3.42849417875088e-06,
+          "median": 2.443896492331998e-09,
+          "min": 7.907899221916851e-11,
+          "q05": 8.711634254443559e-10,
+          "q95": 9.784272267013661e-09,
+          "total_count": 262144
+        }
+      ],
+      "eigenframe_diagonal_alignment_quantiles_by_order": [
+        {
+          "finite_count": 262144,
+          "max": 1.0000000000000016,
+          "median": 1.0,
+          "min": 0.9999999999996971,
+          "q05": 0.9999999999999996,
+          "q95": 1.0000000000000004,
+          "total_count": 262144
+        },
+        {
+          "finite_count": 262144,
+          "max": 1.0000000000000016,
+          "median": 1.0,
+          "min": 0.9999999999996971,
+          "q05": 0.9999999999999996,
+          "q95": 1.0000000000000004,
+          "total_count": 262144
+        },
+        {
+          "finite_count": 262144,
+          "max": 1.0000000000000018,
+          "median": 1.0,
+          "min": 0.9999999999997188,
+          "q05": 0.9999999999999996,
+          "q95": 1.0000000000000004,
+          "total_count": 262144
+        }
+      ],
+      "eigenvalue_abs_error_quantiles_by_order": [
+        {
+          "finite_count": 262144,
+          "max": 5.102642050211492e-12,
+          "median": 4.10178401660799e-13,
+          "min": 2.0599841277224584e-18,
+          "q05": 3.722285880133209e-14,
+          "q95": 1.3050461075301758e-12,
+          "total_count": 262144
+        },
+        {
+          "finite_count": 262144,
+          "max": 4.752683340739257e-12,
+          "median": 3.900694396934308e-13,
+          "min": 2.2768245622195593e-18,
+          "q05": 3.556937594939233e-14,
+          "q95": 1.2082254614709237e-12,
+          "total_count": 262144
+        },
+        {
+          "finite_count": 262144,
+          "max": 4.768159825307983e-12,
+          "median": 4.0770391349000817e-13,
+          "min": 5.204170427930421e-18,
+          "q05": 3.716005096948e-14,
+          "q95": 1.2889095200212586e-12,
+          "total_count": 262144
+        }
+      ],
+      "tensor_error": {
+        "absolute": {
+          "finite_count": 262144,
+          "max": 5.585105545706035e-12,
+          "median": 1.1289517633898985e-12,
+          "min": 5.760107247249484e-14,
+          "q05": 5.436712980657542e-13,
+          "q95": 2.0634560685589893e-12,
+          "total_count": 262144
+        },
+        "relative_to_reference": {
+          "finite_count": 262144,
+          "max": 4.427093530253367e-08,
+          "median": 2.092370082977337e-09,
+          "min": 8.212211001363214e-11,
+          "q05": 8.951470654028917e-10,
+          "q95": 4.8794641905198676e-09,
+          "total_count": 262144
+        }
+      }
+    },
+    "outer_full_vs_scalar": {
+      "directional_error_over_reference_gap_quantiles_by_pair": [
+        {
+          "finite_count": 262144,
+          "max": 0.0007503446483619733,
+          "median": 1.5710729947146787e-06,
+          "min": 4.9949236472658144e-08,
+          "q05": 5.693538492628616e-07,
+          "q95": 6.272448698089493e-06,
+          "total_count": 262144
+        },
+        {
+          "finite_count": 262144,
+          "max": 0.002097787284529812,
+          "median": 1.5691638020354216e-06,
+          "min": 4.1711384192120445e-08,
+          "q05": 5.791736735075325e-07,
+          "q95": 6.2674400072443015e-06,
+          "total_count": 262144
+        }
+      ],
+      "eigenframe_diagonal_alignment_quantiles_by_order": [
+        {
+          "finite_count": 262144,
+          "max": 1.0000000000000007,
+          "median": 0.9999999999998254,
+          "min": 0.9999998966902567,
+          "q05": 0.9999999999966049,
+          "q95": 0.9999999999999911,
+          "total_count": 262144
+        },
+        {
+          "finite_count": 262144,
+          "max": 1.0000000000000004,
+          "median": 0.9999999999995881,
+          "min": 0.9999992640786692,
+          "q05": 0.9999999999931877,
+          "q95": 0.9999999999999781,
+          "total_count": 262144
+        },
+        {
+          "finite_count": 262144,
+          "max": 1.0000000000000007,
+          "median": 0.9999999999998288,
+          "min": 0.9999992640786738,
+          "q05": 0.999999999996786,
+          "q95": 0.999999999999991,
+          "total_count": 262144
+        }
+      ],
+      "eigenvalue_abs_error_quantiles_by_order": [
+        {
+          "finite_count": 262144,
+          "max": 2.287146113775715e-09,
+          "median": 2.5904818681853417e-10,
+          "min": 1.700029006457271e-15,
+          "q05": 2.3753475198611854e-11,
+          "q95": 8.391768854842155e-10,
+          "total_count": 262144
+        },
+        {
+          "finite_count": 262144,
+          "max": 2.8892216687691208e-09,
+          "median": 2.6299149265122425e-10,
+          "min": 1.8585122590203396e-15,
+          "q05": 2.42448068065285e-11,
+          "q95": 8.087766164779092e-10,
+          "total_count": 262144
+        },
+        {
+          "finite_count": 262144,
+          "max": 3.5651778447845506e-09,
+          "median": 2.620241818928216e-10,
+          "min": 1.85940672581264e-16,
+          "q05": 2.433807013888477e-11,
+          "q95": 7.965009326545793e-10,
+          "total_count": 262144
+        }
+      ],
+      "tensor_error": {
+        "absolute": {
+          "finite_count": 262144,
+          "max": 3.6570649554208265e-09,
+          "median": 7.278298967943754e-10,
+          "min": 3.7983056715909796e-11,
+          "q05": 3.529783160041603e-10,
+          "q95": 1.3293920275318153e-09,
+          "total_count": 262144
+        },
+        "relative_to_reference": {
+          "finite_count": 262144,
+          "max": 2.0551858020581993e-05,
+          "median": 1.3485381913932567e-06,
+          "min": 5.968754808028856e-08,
+          "q05": 5.95049120354049e-07,
+          "q95": 3.0975273401642626e-06,
+          "total_count": 262144
+        }
+      }
+    }
+  },
+  "protocol": "P0-Q_ELECTRIC_WEYL_TEMPORAL_PILOT",
+  "representation": {
+    "box_coordinate_to_physical_E_factor_h2_per_Mpc2": 2.4411700137369854,
+    "boxsize_mpc_over_h": 64.0,
+    "central_scale_factor": 0.010000483846980573,
+    "coordinate_boxsize": 1.0,
+    "coordinate_system": "dimensionless gevolution x/L and tau/L for derivative combination",
+    "hij_source": "dynamically evolved hijFT inverse-transformed by qualification-only snapshot patch compiled with TENSOR_EVOLUTION",
+    "project_riemann_convention": "R^rho_{sigma mu nu}=d_mu Gamma^rho_{nu sigma}-d_nu Gamma^rho_{mu sigma}+..."
+  },
+  "requested_redshifts": [
+    99.50251256281406,
+    99.25062656641605,
+    99.0,
+    98.75062344139651,
+    98.50248756218906
+  ],
+  "scientific_claim_tested": false,
+  "scientific_thresholds_frozen": false,
+  "sector_frobenius_rms": {
+    "inner": {
+      "scalar": 0.0007659850211453947,
+      "tensor": 8.865252052074877e-10,
+      "total": 0.000765985044113797,
+      "vector": 6.127231722360866e-10
+    },
+    "inner_relative_to_scalar": {
+      "tensor": 1.1573662418122048e-06,
+      "total": 1.0000000299854457,
+      "vector": 7.999153447150543e-07
+    },
+    "outer": {
+      "scalar": 0.0007659850211453947,
+      "tensor": 8.86500420327021e-10,
+      "total": 0.0007659850441141788,
+      "vector": 6.127043182216853e-10
+    }
+  },
+  "snapshots": [
+    {
+      "actual_redshift": 99.4963250028215,
+      "actual_scale_factor": 0.009950612621624964,
+      "cycle": 10,
+      "files": {
+        "B": "ew_temporal_output/ewt_snap000_B.h5",
+        "chi": "ew_temporal_output/ewt_snap000_chi.h5",
+        "hij": "ew_temporal_output/ewt_snap000_hij.h5",
+        "phi": "ew_temporal_output/ewt_snap000_phi.h5"
+      },
+      "index": 0,
+      "requested_redshift": 99.50251256281406,
+      "tau_over_boxsize": 14.100284461432516
+    },
+    {
+      "actual_redshift": 99.24543019804999,
+      "actual_scale_factor": 0.009975517068701775,
+      "cycle": 15,
+      "files": {
+        "B": "ew_temporal_output/ewt_snap001_B.h5",
+        "chi": "ew_temporal_output/ewt_snap001_chi.h5",
+        "hij": "ew_temporal_output/ewt_snap001_hij.h5",
+        "phi": "ew_temporal_output/ewt_snap001_phi.h5"
+      },
+      "index": 1,
+      "requested_redshift": 99.25062656641605,
+      "tau_over_boxsize": 14.120905062350372
+    },
+    {
+      "actual_redshift": 98.99516176429084,
+      "actual_scale_factor": 0.010000483846980573,
+      "cycle": 20,
+      "files": {
+        "B": "ew_temporal_output/ewt_snap002_B.h5",
+        "chi": "ew_temporal_output/ewt_snap002_chi.h5",
+        "hij": "ew_temporal_output/ewt_snap002_hij.h5",
+        "phi": "ew_temporal_output/ewt_snap002_phi.h5"
+      },
+      "index": 2,
+      "requested_redshift": 99.0,
+      "tau_over_boxsize": 14.141552190017416
+    },
+    {
+      "actual_redshift": 98.74551813778912,
+      "actual_scale_factor": 0.010025513112464796,
+      "cycle": 25,
+      "files": {
+        "B": "ew_temporal_output/ewt_snap003_B.h5",
+        "chi": "ew_temporal_output/ewt_snap003_chi.h5",
+        "hij": "ew_temporal_output/ewt_snap003_hij.h5",
+        "phi": "ew_temporal_output/ewt_snap003_phi.h5"
+      },
+      "index": 3,
+      "requested_redshift": 98.75062344139651,
+      "tau_over_boxsize": 14.162225876764067
+    },
+    {
+      "actual_redshift": 98.49649775869368,
+      "actual_scale_factor": 0.010050605021548342,
+      "cycle": 30,
+      "files": {
+        "B": "ew_temporal_output/ewt_snap004_B.h5",
+        "chi": "ew_temporal_output/ewt_snap004_chi.h5",
+        "hij": "ew_temporal_output/ewt_snap004_hij.h5",
+        "phi": "ew_temporal_output/ewt_snap004_phi.h5"
+      },
+      "index": 4,
+      "requested_redshift": 98.50248756218906,
+      "tau_over_boxsize": 14.182926154961931
+    }
+  ],
+  "stage": "P0-Q",
+  "temporal_derivatives": {
+    "b_inner_weights": [
+      -24.232008664575215,
+      0.062220779279150484,
+      24.169787885296063
+    ],
+    "b_outer_weights": [
+      -12.13158004974157,
+      0.06222078308836931,
+      12.069359266653201
+    ],
+    "b_prime_inner_outer_relative_rms_difference": 0.0001539915992782909,
+    "b_prime_inner_rms": 5.206121142778932e-11,
+    "b_prime_outer_rms": 5.2056292466529126e-11,
+    "h_inner_weights": [
+      2344.236803191437,
+      -4685.462011371401,
+      2341.225208179964
+    ],
+    "h_outer_weights": [
+      586.435458434337,
+      -1171.3651204496734,
+      584.9296620153365
+    ],
+    "h_second_inner_outer_relative_rms_difference": 0.003251140405392169,
+    "h_second_inner_rms": 6.883532317509105e-10,
+    "h_second_outer_rms": 6.882827316679045e-10
+  }
+}
