@@ -89,3 +89,53 @@ def test_qr2_identical_continuous_modes_are_phase_and_common_grid_identical(tmp_
         report["common_grid_comparison"]["shear"]["operator_error_quantiles"]["max"]
         < 1e-12
     )
+
+
+def test_qr2_slip_corrected_scalar_weyl_is_identical_for_same_continuous_modes(tmp_path):
+    box = 64.0
+    low_phi, low_v = _field(8, box)
+    high_phi, high_v = _field(16, box)
+    low_chi = 0.2 * low_phi
+    high_chi = 0.2 * high_phi
+
+    paths = {
+        "low_phi": tmp_path / "low_phi_slip.h5",
+        "low_v": tmp_path / "low_v_slip.h5",
+        "low_chi": tmp_path / "low_chi.h5",
+        "high_phi": tmp_path / "high_phi_slip.h5",
+        "high_v": tmp_path / "high_v_slip.h5",
+        "high_chi": tmp_path / "high_chi.h5",
+    }
+    _write_scalar(paths["low_phi"], low_phi)
+    _write_vector(paths["low_v"], low_v)
+    _write_scalar(paths["low_chi"], low_chi)
+    _write_scalar(paths["high_phi"], high_phi)
+    _write_vector(paths["high_v"], high_v)
+    _write_scalar(paths["high_chi"], high_chi)
+
+    report = build_report(
+        paths["low_phi"],
+        paths["low_v"],
+        paths["high_phi"],
+        paths["high_v"],
+        box,
+        paths["low_chi"],
+        paths["high_chi"],
+    )
+
+    assert "chi_gev" in report["phase_overlap"]
+    assert "weyl_potential" in report["phase_overlap"]
+    assert (
+        report["phase_overlap"]["weyl_potential"]["circular_phase_coherence"]
+        > 1 - 1e-12
+    )
+    assert (
+        report["common_grid_comparison"]["weyl_potential"]["rms_error"]
+        < 1e-12
+    )
+    assert (
+        report["common_grid_comparison"]["scalar_weyl_shape"][
+            "operator_error_quantiles"
+        ]["max"]
+        < 1e-12
+    )
