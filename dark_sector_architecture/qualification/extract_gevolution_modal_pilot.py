@@ -128,6 +128,10 @@ def extract(phi_path: pathlib.Path, velocity_path: pathlib.Path, boxsize: float)
     }
 
     arrays = {
+        "phi": phi,
+        "velocity": velocity,
+        "tidal_tensor": tidal,
+        "shear_tensor": shear,
         "theta": theta,
         "tidal_eigenvalues": tidal_values,
         "shear_eigenvalues": shear_values,
