@@ -2,7 +2,7 @@
 
 **Project:** Cosmic Stability Architecture  
 **Branch:** `dark-sector-stability-architecture`  
-**Current stage:** P0-Q native fixed-physical-band resolution qualification ACTIVE under frozen preregistration; workflow run 36357943715 is executing N32/N64/N128  
+**Current stage:** P0-Q native Weyl/shear modal representation QUALIFIED through frozen N32/N64/N128 fixed-band resolution; stopped before PREG-MODAL-PA-1 activation  
 **Current scientific state:** The bounded nonperturbative/additional-architecture pass is complete. The full no-dark-substance route is UNSUPPORTED_AT_CURRENT_STAGE under the frozen literature rules, not falsified. The active branch is now the partial architecture; the full route remains open only in P0-D for genuinely new future candidates.
 
 ## Frozen objects
@@ -46,6 +46,7 @@ Scalar, Vector/Modal, and Conglomerate/System are starting representations only.
 5. **Known conglomerate insufficiency:** nonlinear generated modes, covariant correlation sectors, averaging corrections, and memory kernels are real but no admitted construction demonstrates the complete pre-recombination CDM-like function.
 6. **Bounded full-route narrowing:** nonlocal, geon, edge-mode, field-self-interaction, exact-inhomogeneous, and additional-geometry candidates were examined. None satisfies the frozen full CMB-to-late standard-GR burden. The full route is therefore UNSUPPORTED_AT_CURRENT_STAGE, while the partial architecture becomes the active research branch.
 7. **Native modal basis identified:** relativistic shear/Weyl tensor eigenstructure is the primary modal representation; scalar invariants, modal eigenstructure, and conglomerate spatial organization can now be tested separately and jointly.
+8. **Native fixed-band modal qualification:** native scalar/vector/tensor/full Weyl and native shear all improve from N32->N64 to N64->N128 on the prospectively frozen common band; the native-versus-continuum full-grid split collapses toward the same resolved-band limit.
 
 Detailed stop records: `WORKING_SCIENTIFIC_DEVELOPMENTS.md`.
 
@@ -93,57 +94,56 @@ See `LITERATURE_EXPLORATION_QUEUE.md`.
 
 ## Latest scientific development
 
-**Development 010: the native electric-Weyl representation qualifies at the tested early epoch, while the continuum-FFT representation diverges materially on the full N64 grid.**
+**Development 011: the native Weyl/shear modal representation qualifies on the prospectively frozen N32/N64/N128 physical band, and the native-versus-continuum split collapses on that common band.**
 
-The frozen `ELECTRIC_WEYL_TEMPORAL_QUALIFICATION_GATE.md` is now adjudicated **REPRESENTATION_QUALIFIED_P0Q** for the tested early (N=64), (z\simeq98.9952) regime.
+The frozen `NATIVE_FIXED_BAND_WEYL_RESOLUTION_PREREG.md` is adjudicated:
 
-Why the gate now passes:
-- the native LATfield2/gevolution operator suite NL-01 through NL-04 passes against literal gevolution finite-difference formulas;
-- the five snapshots occupy distinct cycles with strictly increasing full-precision conformal times;
-- gevolution's native vector and tensor diagnostics remain machine-small: at the central snapshot, (\max|\nabla\!\cdot B|/\max|\nabla\times B|\approx1.20\times10^{-14}), (\max|\nabla\!\cdot h|/\max|h|\approx3.00\times10^{-14}), and (\max|\mathrm{tr}\,h|/\max|h|\approx5.23\times10^{-16});
-- independent Python post-processing using the native lattice operators reproduces those diagnostics at the same machine-small scale;
-- the inner/outer full-Weyl temporal-stencil median relative tensor difference is (2.37\times10^{-9});
-- the native full-versus-scalar median relative tensor difference is (1.50\times10^{-6}), approximately 632 times larger than the demonstrated median temporal-stencil difference;
-- native full-versus-scalar median eigenframe alignments remain (>0.9999999999994).
+\[
+\boxed{\text{NATIVE\_FIXED\_BAND\_QUALIFIED\_P0Q}}
+\]
 
-At this early epoch, the native vector and tensor sectors remain tiny relative to the native scalar sector:
-- vector/scalar Frobenius RMS (=8.66\times10^{-7});
-- tensor/scalar Frobenius RMS (=1.31\times10^{-6}).
+with independent representation classification:
 
-This supports an epoch-specific limit-map statement only: the full first-order electric-Weyl tensor is extremely close to its scalar projection in the tested early regime. It does not establish universal scalar dominance.
+\[
+\boxed{\text{SPLIT\_COLLAPSES\_ON\_COMMON\_BAND}}.
+\]
 
-A separate and significant representation result appears when the same N64 fields are reconstructed with continuum FFT derivatives rather than gevolution's native LATfield2 operators. On the full native grid:
-- native-versus-continuum scalar median relative tensor-operator error is (0.562);
-- native-versus-continuum total median relative tensor-operator error is also approximately (0.562);
-- native-versus-continuum scalar median eigenframe diagonal alignments are approximately (0.967,0.922,0.967);
-- the vector representation is similarly sensitive, with median relative tensor error approximately (0.488);
-- the tensor sector is much less sensitive, with median relative tensor error approximately (0.0168).
+All five frozen objects improve from N32->N64 to N64->N128 in both median and q95 relative operator error:
 
-Therefore the earlier continuum-FFT scalar-Weyl and modal reconstructions are retained as valid **comparator-representation** evidence, but they cannot be treated as native-gevolution Weyl qualification. The fixed-band resolution findings are not discarded. Their convergence claim remains representation-specific until repeated with the native lattice operator on one common physical band.
+- scalar Weyl: median 0.3041 -> 0.1428;
+- vector Weyl: 0.7117 -> 0.4384;
+- tensor Weyl: 0.07594 -> 0.03101;
+- full Weyl: 0.3041 -> 0.1428;
+- native shear: 0.4987 -> 0.1925.
 
-This is a significant scientific/methodological development because the native-model-first requirement changes the interpretation of the earlier convergence chain without erasing it.
+The full-Weyl median eigenframe alignment improves from approximately (0.9915, 0.9794, 0.9913) to (0.9980, 0.9954, 0.9979), with q05 and error/eigengap diagnostics improving in the same direction.
 
-Detailed stop record: `WORKING_SCIENTIFIC_DEVELOPMENTS.md`.
+The central snapshots are exactly aligned across all three resolutions at z = 98.99516176429084 and tau/L = 14.141552190017416. Native constraints remain machine-small. The common-band temporal-stencil median full-Weyl uncertainty is only about 2-3e-9, far below the measured resolution differences.
 
+The native-versus-continuum median discrepancy decreases monotonically on the same frozen band. For scalar/full Weyl it falls 0.5803 -> 0.2817 -> 0.1397. By N128, every frozen family is no more discrepant from its continuum comparator than the native N64->N128 resolution uncertainty, satisfying the frozen collapse rule.
+
+Therefore the large unrestricted N64 native/continuum split from Development 010 does not persist as a stable common-band representation separation. The evidence is consistent with both constructions approaching the same resolved physical-band limit while remaining different finite-resolution representations.
+
+The early Function/Limit Map remains scalar-dominated in amplitude only: on the common band, vector/scalar falls from 2.35e-6 at N32 to 8.25e-7 at N128, while tensor/scalar remains about 1.6e-6. These modal sectors remain explicitly preserved and this is not a universal scalar-dominance claim.
+
+Detailed adjudication: `NATIVE_FIXED_BAND_WEYL_RESOLUTION_ADJUDICATION.md`.
 ## Next exact action
 
-Do **not** activate `PREG-MODAL-PA-1` yet.
+Stop before activating `PREG-MODAL-PA-1`.
 
-The native fixed-band design is now prospectively frozen in `NATIVE_FIXED_BAND_WEYL_RESOLUTION_PREREG.md` at commit `8b570edd23896e6feb6418ba0bb01cbcbe7d7d28`. The decisive workflow is run `36357943715` at head `3c13306f0eae1f09636ca06bc833a7190095bf05`.
+The representation is now qualified strongly enough that the next scientific decision is no longer another resolution repair. It is to freeze the **exact residual modal preregistration**.
 
-The next valid experiment is a prospectively frozen **native-lattice fixed-physical-band resolution ladder**:
+Required before activation:
 
-1. define one common physical Fourier support shared by (N=32,64,128) before inspecting the native-lattice result;
-2. reconstruct scalar, vector, tensor, and full electric-Weyl objects with the LATfield2/gevolution native operators at each resolution;
-3. compare (32\rightarrow64) and (64\rightarrow128) on that identical physical support;
-4. run the continuum comparator on the same frozen band so the native-versus-continuum discrepancy can be decomposed into UV/staggering sensitivity versus persistent physical-band representation difference;
-5. preserve scalar, vector, tensor, velocity-shear, and full-Weyl convergence separately;
-6. do not invent a universal numerical threshold from the present N64 result;
-7. if native fixed-band modal convergence qualifies, reassess `PREG-MODAL-PA-1`;
-8. after the modal gate, return to `PREG-CONGLOMERATE-PA-1` and `PREG-JOINT-PA-1/2`.
+1. define the residual claim in terms of native Weyl/shear eigenstructure, not generic modes;
+2. specify the strongest native comparator and what scalar information it already contains;
+3. define ACCEPT / REFUSE / NEED_MORE_INFO logic before untouched decisive evidence is inspected;
+4. freeze the falsifier and indeterminate zone;
+5. identify the untouched decisive evidence route so the qualification data are not reused as confirmation;
+6. keep Conglomerate/System and joint Scalar + Modal + Conglomerate gates independent and open;
+7. preserve P0-D exploration even if the modal claim later refuses.
 
-The current stop is scientific, not mechanical. No new ladder should be interpreted until its common-band design is frozen prospectively.
-
+After that freeze, the modal decisive test may begin. Only afterward should the program move to `PREG-CONGLOMERATE-PA-1` and `PREG-JOINT-PA-1/2`.
 ## Resume pointers
 
 - `PREG_LIT_COSMO_V1_FREEZE.md`
@@ -253,7 +253,7 @@ Latest integrated modal known-truth workflow: run `36354573739`, PASS.
 - temporal workflow run 36355936564: PASS
 - temporal workflow head dd710485ae9f3511cd606d46ab21f4271856bcf9
 
-Current temporal gate outcome: REPRESENTATION_QUALIFIED_P0Q for the tested early N64 epoch. Modal preregistration remains held pending native fixed-band resolution convergence.
+Current temporal gate outcome: REPRESENTATION_QUALIFIED_P0Q for the tested early N64 epoch. Native fixed-band resolution is also QUALIFIED_P0Q. Modal preregistration remains held only for exact residual/falsifier/untouched-evidence freeze.
 
 
 ## Native electric-Weyl qualification added after Development 009
@@ -263,3 +263,15 @@ Current temporal gate outcome: REPRESENTATION_QUALIFIED_P0Q for the tested early
 - workflow run `36357082516`: SUCCESS.
 - native early-epoch gate: `REPRESENTATION_QUALIFIED_P0Q`.
 - continuum FFT representation: comparator only until native fixed-band convergence is established.
+
+
+## Native fixed-band qualification added after Development 010
+
+- `NATIVE_FIXED_BAND_WEYL_RESOLUTION_PREREG.md`: frozen before decisive run at commit `8b570edd23896e6feb6418ba0bb01cbcbe7d7d28`.
+- `NATIVE_FIXED_BAND_WEYL_RESOLUTION_ADJUDICATION.md`: outcome record.
+- `qualification/results/native_fixed_band_weyl_ladder.json`: GENERATED / durable.
+- member metadata: N32, N64, N128 GENERATED / durable.
+- workflow run `36357943715`: SUCCESS.
+- native fixed-band gate: `NATIVE_FIXED_BAND_QUALIFIED_P0Q`.
+- native/continuum classification: `SPLIT_COLLAPSES_ON_COMMON_BAND`.
+- `PREG-MODAL-PA-1`: still CANDIDATE, not activated.
