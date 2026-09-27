@@ -95,7 +95,8 @@ jobs:
               replacements = {
                   "template file = pilot_template.dat": "template file = qr2_template.dat",
                   "tiling factor = 2": f"tiling factor = {tiling}",
-                  "Ngrid = 8": f"Ngrid = {n}",\n                  "time step limit = 0.04": "time step limit = 0.02",
+                  "Ngrid = 8": f"Ngrid = {n}",
+                  "time step limit = 0.04": "time step limit = 0.02",
                   "output path = ../pilot_output/": f"output path = ../qr2_{tag}_output/",
                   "generic file base = modalpilot": f"generic file base = qr2_{tag}",
                   "snapshot file base = modalpilot_snap": f"snapshot file base = qr2_{tag}_snap",
