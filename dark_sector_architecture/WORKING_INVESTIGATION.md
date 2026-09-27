@@ -2,7 +2,7 @@
 
 **Project:** Cosmic Stability Architecture  
 **Branch:** `dark-sector-stability-architecture`  
-**Current stage:** P0-Q full electric-Weyl representation qualification; temporal gate passed mechanically but native-lattice spatial-derivative consistency remains open  
+**Current stage:** P0-Q native electric-Weyl representation qualified at the tested early epoch; native fixed-physical-band resolution qualification now required before modal preregistration activation  
 **Current scientific state:** The bounded nonperturbative/additional-architecture pass is complete. The full no-dark-substance route is UNSUPPORTED_AT_CURRENT_STAGE under the frozen literature rules, not falsified. The active branch is now the partial architecture; the full route remains open only in P0-D for genuinely new future candidates.
 
 ## Frozen objects
@@ -93,51 +93,54 @@ See `LITERATURE_EXPLORATION_QUEUE.md`.
 
 ## Latest scientific development
 
-**Development 009: full electric-Weyl temporal pilot resolves a tiny early vector/tensor correction, but native lattice derivative consistency remains open.**
+**Development 010: the native electric-Weyl representation qualifies at the tested early epoch, while the continuum-FFT representation diverges materially on the full N64 grid.**
 
-A five-snapshot N64 gevolution pilot around \(z\simeq98.9952\) used dynamically evolved \(h_{ij}\), full-precision actual conformal times, and nested arbitrary-time derivative stencils.
+The frozen `ELECTRIC_WEYL_TEMPORAL_QUALIFICATION_GATE.md` is now adjudicated **REPRESENTATION_QUALIFIED_P0Q** for the tested early (N=64), (z\simeq98.9952) regime.
 
-Temporal reconstruction is highly stable:
-- \(B'_i\) inner/outer relative RMS difference: \(1.54\times10^{-4}\);
-- \(h''_{ij}\) inner/outer relative RMS difference: \(3.25\times10^{-3}\);
-- full-Weyl inner/outer median relative tensor difference: \(2.09\times10^{-9}\);
-- inner/outer median eigenframe alignment: numerically 1.0.
+Why the gate now passes:
+- the native LATfield2/gevolution operator suite NL-01 through NL-04 passes against literal gevolution finite-difference formulas;
+- the five snapshots occupy distinct cycles with strictly increasing full-precision conformal times;
+- gevolution's native vector and tensor diagnostics remain machine-small: at the central snapshot, (\max|\nabla\!\cdot B|/\max|\nabla\times B|\approx1.20\times10^{-14}), (\max|\nabla\!\cdot h|/\max|h|\approx3.00\times10^{-14}), and (\max|\mathrm{tr}\,h|/\max|h|\approx5.23\times10^{-16});
+- independent Python post-processing using the native lattice operators reproduces those diagnostics at the same machine-small scale;
+- the inner/outer full-Weyl temporal-stencil median relative tensor difference is (2.37\times10^{-9});
+- the native full-versus-scalar median relative tensor difference is (1.50\times10^{-6}), approximately 632 times larger than the demonstrated median temporal-stencil difference;
+- native full-versus-scalar median eigenframe alignments remain (>0.9999999999994).
 
-At the central epoch:
-- vector-sector Frobenius RMS / scalar-sector RMS: \(8.00\times10^{-7}\);
-- tensor-sector Frobenius RMS / scalar-sector RMS: \(1.16\times10^{-6}\);
-- full-versus-scalar median relative tensor-operator difference: \(1.35\times10^{-6}\);
-- full-versus-scalar median error/eigengap diagnostics: approximately \(1.57\times10^{-6}\);
-- scalar and full eigenframes are essentially identical at this epoch.
+At this early epoch, the native vector and tensor sectors remain tiny relative to the native scalar sector:
+- vector/scalar Frobenius RMS (=8.66\times10^{-7});
+- tensor/scalar Frobenius RMS (=1.31\times10^{-6}).
 
-Thus the full vector/tensor correction is tiny in the tested early regime but resolved far above the demonstrated temporal-stencil uncertainty.
+This supports an epoch-specific limit-map statement only: the full first-order electric-Weyl tensor is extremely close to its scalar projection in the tested early regime. It does not establish universal scalar dominance.
 
-However, the current post-processing divergence and spatial derivative diagnostics use continuum FFT derivatives, while gevolution constructs transverse vector and TT tensor sectors with its native discrete lattice kshift operator. Under the native-model-first rule, the representation gate remains:
+A separate and significant representation result appears when the same N64 fields are reconstructed with continuum FFT derivatives rather than gevolution's native LATfield2 operators. On the full native grid:
+- native-versus-continuum scalar median relative tensor-operator error is (0.562);
+- native-versus-continuum total median relative tensor-operator error is also approximately (0.562);
+- native-versus-continuum scalar median eigenframe diagonal alignments are approximately (0.967,0.922,0.967);
+- the vector representation is similarly sensitive, with median relative tensor error approximately (0.488);
+- the tensor sector is much less sensitive, with median relative tensor error approximately (0.0168).
 
-\[
-\boxed{\text{NEED\_MORE\_INFO}}
-\]
+Therefore the earlier continuum-FFT scalar-Weyl and modal reconstructions are retained as valid **comparator-representation** evidence, but they cannot be treated as native-gevolution Weyl qualification. The fixed-band resolution findings are not discarded. Their convergence claim remains representation-specific until repeated with the native lattice operator on one common physical band.
 
-rather than REPRESENTATION_QUALIFIED_P0Q.
+This is a significant scientific/methodological development because the native-model-first requirement changes the interpretation of the earlier convergence chain without erasing it.
 
-This is a scientific-development stop. The temporal problem is no longer the limiting issue; native lattice derivative consistency is.
-
-Detailed stop record: WORKING_SCIENTIFIC_DEVELOPMENTS.md.
+Detailed stop record: `WORKING_SCIENTIFIC_DEVELOPMENTS.md`.
 
 ## Next exact action
 
-Continue the **native-lattice electric-Weyl representation gate**:
+Do **not** activate `PREG-MODAL-PA-1` yet.
 
-1. implement gevolution's native discrete Fourier derivative based on its kshift operator;
-2. known-truth test that operator on lattice Fourier modes and transverse/TT synthetic fields;
-3. re-evaluate \(B_i\) divergence and \(h_{ij}\) trace/divergence from the persisted five-snapshot artifact using the native operator;
-4. reconstruct the vector and tensor spatial derivative pieces of the electric-Weyl tensor with the same operator;
-5. compare native-lattice and continuum reconstructions on the same central snapshot;
-6. adjudicate ELECTRIC_WEYL_TEMPORAL_QUALIFICATION_GATE.md as REPRESENTATION_QUALIFIED_P0Q, NEED_MORE_INFO, or REFUSED;
-7. if the full electric-Weyl representation qualifies, reassess PREG-MODAL-PA-1 while keeping velocity-shear uncertainty independent;
-8. then return to PREG-CONGLOMERATE-PA-1 and PREG-JOINT-PA-1/2 so scalar, modal, and system-level meaning remain jointly investigated.
+The next valid experiment is a prospectively frozen **native-lattice fixed-physical-band resolution ladder**:
 
-No universal numerical threshold is frozen by Development 009.
+1. define one common physical Fourier support shared by (N=32,64,128) before inspecting the native-lattice result;
+2. reconstruct scalar, vector, tensor, and full electric-Weyl objects with the LATfield2/gevolution native operators at each resolution;
+3. compare (32\rightarrow64) and (64\rightarrow128) on that identical physical support;
+4. run the continuum comparator on the same frozen band so the native-versus-continuum discrepancy can be decomposed into UV/staggering sensitivity versus persistent physical-band representation difference;
+5. preserve scalar, vector, tensor, velocity-shear, and full-Weyl convergence separately;
+6. do not invent a universal numerical threshold from the present N64 result;
+7. if native fixed-band modal convergence qualifies, reassess `PREG-MODAL-PA-1`;
+8. after the modal gate, return to `PREG-CONGLOMERATE-PA-1` and `PREG-JOINT-PA-1/2`.
+
+The current stop is scientific, not mechanical. No new ladder should be interpreted until its common-band design is frozen prospectively.
 
 ## Resume pointers
 
@@ -248,4 +251,13 @@ Latest integrated modal known-truth workflow: run `36354573739`, PASS.
 - temporal workflow run 36355936564: PASS
 - temporal workflow head dd710485ae9f3511cd606d46ab21f4271856bcf9
 
-Current temporal gate outcome: NEED_MORE_INFO pending native-lattice spatial derivative qualification.
+Current temporal gate outcome: REPRESENTATION_QUALIFIED_P0Q for the tested early N64 epoch. Modal preregistration remains held pending native fixed-band resolution convergence.
+
+
+## Native electric-Weyl qualification added after Development 009
+
+- `qualification/results/latfield2_native_operator_known_truth_report.json`: NL-01 through NL-04 PASS.
+- `qualification/results/electric_weyl_temporal_pilot.json`: native LATfield2/gevolution spatial operator is primary.
+- workflow run `36357082516`: SUCCESS.
+- native early-epoch gate: `REPRESENTATION_QUALIFIED_P0Q`.
+- continuum FFT representation: comparator only until native fixed-band convergence is established.
