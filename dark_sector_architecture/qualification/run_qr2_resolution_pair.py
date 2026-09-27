@@ -37,7 +37,7 @@ from modal_convergence import (
     quantile_summary,
     tensor_operator_error,
 )
-from weak_field_tensors import velocity_shear_tensor, weak_field_tidal_tensor
+from weak_field_tensors import (\n    scalar_weyl_shape_tensor,\n    velocity_shear_tensor,\n    weak_field_tidal_tensor,\n)
 
 
 def _field_difference(reference: np.ndarray, candidate: np.ndarray) -> dict:
@@ -120,6 +120,10 @@ def build_report(
     low_velocity = load_vector_field(low_velocity_path)
     high_phi = load_scalar_field(high_phi_path)
     high_velocity = load_vector_field(high_velocity_path)
+    low_chi = load_scalar_field(low_chi_path) if low_chi_path is not None else None
+    high_chi = load_scalar_field(high_chi_path) if high_chi_path is not None else None
+    if (low_chi is None) != (high_chi is None):
+        raise ValueError("low_chi_path and high_chi_path must be provided together")
 
     low_n = low_phi.shape[0]
     high_n = high_phi.shape[0]
@@ -131,6 +135,10 @@ def build_report(
         raise ValueError("low velocity shape mismatch")
     if high_velocity.shape != (3, high_n, high_n, high_n):
         raise ValueError("high velocity shape mismatch")
+    if low_chi is not None and low_chi.shape != low_phi.shape:
+        raise ValueError("low chi shape mismatch")
+    if high_chi is not None and high_chi.shape != high_phi.shape:
+        raise ValueError("high chi shape mismatch")
     if high_n <= low_n or high_n % low_n != 0:
         raise ValueError("high grid must be integer refinement of low grid")
 
@@ -146,6 +154,11 @@ def build_report(
     high_velocity_restricted = spectral_restrict_vector_to_grid(
         high_velocity, low_n
     )
+    high_chi_restricted = (
+        spectral_restrict_to_grid(high_chi, low_n)
+        if high_chi is not None
+        else None
+    )
 
     low_tidal = weak_field_tidal_tensor(low_phi, boxsize)
     high_tidal_common = weak_field_tidal_tensor(high_phi_restricted, boxsize)
@@ -154,6 +167,29 @@ def build_report(
     high_shear_common, high_theta_common = velocity_shear_tensor(
         high_velocity_restricted, boxsize
     )
+
+    scalar_weyl_comparison = None
+    weyl_potential_comparison = None
+    if low_chi is not None and high_chi_restricted is not None:
+        low_weyl_potential = low_phi - 0.5 * low_chi
+        high_weyl_potential_common = (
+            high_phi_restricted - 0.5 * high_chi_restricted
+        )
+        low_scalar_weyl = scalar_weyl_shape_tensor(low_phi, low_chi, boxsize)
+        high_scalar_weyl_common = scalar_weyl_shape_tensor(
+            high_phi_restricted, high_chi_restricted, boxsize
+        )
+        weyl_potential_comparison = _field_difference(
+            low_weyl_potential, high_weyl_potential_common
+        )
+        scalar_weyl_comparison = _tensor_difference(
+            low_scalar_weyl, high_scalar_weyl_common
+        )
+        phase["chi_gev"] = phase_overlap_report(low_chi, high_chi)
+        phase["weyl_potential"] = phase_overlap_report(
+            low_weyl_potential,
+            high_phi - 0.5 * high_chi,
+        )
 
     return {
         "protocol": "Q-R2_PAIRED_SIMULATION_RESOLUTION",
@@ -185,12 +221,14 @@ def build_report(
             "tidal": _tensor_difference(low_tidal, high_tidal_common),
             "shear": _tensor_difference(low_shear, high_shear_common),
             "theta": _field_difference(low_theta, high_theta_common),
+            "weyl_potential": weyl_potential_comparison,
+            "scalar_weyl_shape": scalar_weyl_comparison,
         },
         "limitations": [
             "development pair only; no P1 claim",
             "same-seed phase compatibility is measured rather than assumed",
             "common-grid comparison removes high-only Fourier modes before tensor reconstruction",
-            "weak-field scalar tidal Hessian is not asserted to equal full electric Weyl curvature",
+            "weak-field scalar tidal Hessian is not asserted to equal full electric Weyl curvature",\n            "scalar_weyl_shape, when present, includes gevolution slip but still omits vector/tensor electric-Weyl sectors",
             "no universal resolution or directional threshold is inferred from this pair",
         ],
     }
@@ -212,6 +250,8 @@ def main() -> None:
         pathlib.Path(args.high_phi),
         pathlib.Path(args.high_velocity),
         args.boxsize,
+        pathlib.Path(args.low_chi) if args.low_chi else None,
+        pathlib.Path(args.high_chi) if args.high_chi else None,
     )
     path = pathlib.Path(args.output)
     path.parent.mkdir(parents=True, exist_ok=True)
