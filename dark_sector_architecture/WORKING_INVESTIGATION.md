@@ -3,7 +3,7 @@
 **Project:** Cosmic Stability Architecture  
 **Branch:** `dark-sector-stability-architecture`  
 **Current stage:** P0-D / P0-Q Stage A foundation conglomeration  
-**Current scientific state:** Direct scalar and modal routes are partially reconstructed; the full hypothesis remains open at the conglomerate/system and additional-architecture levels.
+**Current scientific state:** Scalar, modal, and known conglomerate GR routes are partially reconstructed. No admitted route yet supplies the full pre-recombination CDM-like gravitational function. The full hypothesis remains open only at the nonperturbative/additional-architecture level; the partial late-time architecture remains independently open.
 
 ## Frozen objects
 
@@ -43,6 +43,7 @@ Scalar, Vector/Modal, and Conglomerate/System are starting representations only.
 2. **Primordial carrier:** conserved curvature variables provide a real scalar inheritance carrier but not an independent gravitational source.
 3. **Three-layer inheritance:** primordial organization is scalar, modal, and conglomerate/correlation based; (zeta/mathcal R) is one projection, not the whole architecture.
 4. **Direct modal narrowing:** ordinary linear GR does not supply an overlooked scalar replacement mode; nonlinear scalar/vector/tensor and Weyl couplings are real but have not demonstrated the required function.
+5. **Known conglomerate insufficiency:** nonlinear generated modes, covariant correlation sectors, averaging corrections, and memory kernels are real but no admitted construction demonstrates the complete pre-recombination CDM-like function.
 
 Detailed stop records: `WORKING_SCIENTIFIC_DEVELOPMENTS.md`.
 
@@ -85,19 +86,18 @@ See `LITERATURE_EXPLORATION_QUEUE.md`.
 
 ## Latest scientific development
 
-**Development 004:** the direct hidden-linear-mode route is narrowed. The full hypothesis remains open only through conglomerate/emergent, correlation/coarse-grained, nonlocal/history, nonlinear inherited organization, or an additional architecture component.
+**Development 005:** known GR conglomerate mechanisms are insufficient for the full early CDM-like function under the current literature record. The full hypothesis remains open only through a bounded nonperturbative/additional-architecture route; the partial architecture remains open independently.
 
 ## Next exact action
 
-Resume with **conglomerate source emergence**:
+Resume with the **bounded nonperturbative/additional-architecture pass**:
 
-1. inspect covariant correlation and macroscopic-gravity sectors for collective eigenmodes or slow/aperiodic branches;
-2. inspect Mori-Zwanzig/coarse-grained dynamics for emergent poles or memory modes rather than scalar-only kernels;
-3. inspect nonlinear Weyl/shear/tidal inheritance across equality/recombination;
-4. determine whether any candidate projects onto the required pre-recombination scalar gravitational observables;
-5. adjudicate each candidate under PREG-LIT-COSMO-v1.0;
-6. preserve any refusal as a promotion limit while opening scientifically justified P0-D follow-up;
-7. stop only on a new material scientific development or a decision requiring user intervention.
+1. search exact/nonperturbative GR correlation and Weyl constructions for genuinely collective degrees of freedom not reducible to known perturbative curvature corrections;
+2. search for covariant/nonlocal geometrical objects that persist from radiation domination through recombination;
+3. test whether any such object has an observable scalar projection capable of carrying the required non-acoustic gravitational function;
+4. keep any additional architecture component natively named unless it earns chi status separately;
+5. adjudicate under PREG-LIT-COSMO-v1.0 while preserving P0-D exploration;
+6. if no viable candidate survives the bounded pass, mark the full no-dark-substance branch UNSUPPORTED_AT_CURRENT_STAGE and narrow the active hypothesis to the partial architecture without closing future exploration.
 
 ## Resume pointers
 
