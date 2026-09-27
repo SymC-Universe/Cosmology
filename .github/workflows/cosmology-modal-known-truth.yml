@@ -11,6 +11,8 @@ on:
       - 'dark_sector_architecture/qualification/weak_field_tensors.py'
       - 'dark_sector_architecture/qualification/test_weak_field_tensors.py'
       - 'dark_sector_architecture/qualification/run_weak_field_known_truth_suite.py'
+      - 'dark_sector_architecture/qualification/latfield_hdf5.py'
+      - 'dark_sector_architecture/qualification/test_latfield_hdf5.py'
       - '.github/workflows/cosmology-modal-known-truth.yml'
   workflow_dispatch:
 
@@ -36,11 +38,11 @@ jobs:
       - name: Install qualification dependencies
         run: |
           python -m pip install --upgrade pip
-          python -m pip install numpy pytest
+          python -m pip install numpy pytest h5py
 
       - name: Run known-truth tests
         run: |
-          python -m pytest -q             dark_sector_architecture/qualification/test_modal_tensor_known_truth.py             dark_sector_architecture/qualification/test_weak_field_tensors.py
+          python -m pytest -q             dark_sector_architecture/qualification/test_modal_tensor_known_truth.py             dark_sector_architecture/qualification/test_weak_field_tensors.py             dark_sector_architecture/qualification/test_latfield_hdf5.py
 
       - name: Generate machine-readable qualification reports
         run: |
