@@ -23,7 +23,7 @@ jobs:
 
     env:
       GEVOLUTION_SHA: 0cca42e51a824002ae4fb602cbd79d671e8ffe60
-      LATFIELD2_SHA: 5545833bec153f5a056d67b011c250a450192587
+      LATFIELD2_SHA: 2d8c737ab6adc965a1d2718c209f5085af27b09c
 
     steps:
       - name: Check out Cosmology repository
@@ -53,7 +53,7 @@ jobs:
         run: |
           git clone https://github.com/gevolution-code/gevolution-1.3.git gevolution
           git -C gevolution checkout "$GEVOLUTION_SHA"
-          git clone https://github.com/gevolution-code/LATfield2.git LATfield2
+          git clone https://gitlab.uzh.ch/julian.adamek/LATfield2.git LATfield2
           git -C LATfield2 checkout "$LATFIELD2_SHA"
           printf 'gevolution=%s\nLATfield2=%s\n' \
             "$(git -C gevolution rev-parse HEAD)" \
@@ -118,7 +118,7 @@ jobs:
               "purpose": "gevolution infrastructure/modal-field smoke test",
               "scientific_claim_tested": False,
               "gevolution_sha": "0cca42e51a824002ae4fb602cbd79d671e8ffe60",
-              "latfield2_sha": "5545833bec153f5a056d67b011c250a450192587",
+              "latfield2_sha": "2d8c737ab6adc965a1d2718c209f5085af27b09c",
               "pilot_grid": 8,
               "initial_redshift": 100.0,
               "final_redshift": 99.0,
