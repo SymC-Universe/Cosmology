@@ -1,0 +1,43 @@
+{
+  "case_count": 4,
+  "cases": [
+    {
+      "case_id": "WF-01",
+      "max_hessian_abs": 0.0,
+      "max_tidal_abs": 0.0,
+      "purpose": "constant field zero Hessian/tidal",
+      "status": "PASS"
+    },
+    {
+      "case_id": "WF-02",
+      "max_abs_error": 6.217248937900877e-15,
+      "purpose": "single Fourier mode analytic tidal recovery",
+      "status": "PASS",
+      "symmetry_residual": 0.0,
+      "trace_residual": 2.220446049250313e-16
+    },
+    {
+      "case_id": "WF-03",
+      "max_shear_error": 1.9984014443252818e-15,
+      "max_theta_error": 3.1086244689504383e-15,
+      "purpose": "longitudinal velocity mode analytic shear/divergence recovery",
+      "status": "PASS",
+      "symmetry_residual": 0.0,
+      "trace_residual": 2.220446049250313e-16
+    },
+    {
+      "case_id": "WF-04",
+      "max_theta_abs": 0.0,
+      "max_xy_error": 7.216449660063518e-16,
+      "max_yx_error": 7.216449660063518e-16,
+      "purpose": "off-diagonal shear recovery",
+      "status": "PASS",
+      "symmetry_residual": 0.0,
+      "trace_residual": 0.0
+    }
+  ],
+  "full_weyl_equivalence_claimed": false,
+  "protocol": "WEAK_FIELD_TENSOR_KNOWN_TRUTH_SUITE",
+  "scientific_claim_tested": false,
+  "stage": "P0-Q"
+}
