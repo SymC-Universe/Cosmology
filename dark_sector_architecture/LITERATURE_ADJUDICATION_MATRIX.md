@@ -101,3 +101,57 @@ What remains open is not "no additional architecture exists." The remaining admi
 ]
 
 The literature currently supports nonlinear mode generation and relativistic gravitoelectric/gravitomagnetic structure, but does not establish an independent non-material pre-recombination mode with the same scalar gravitational function supplied by pressureless CDM in the standard model.
+
+
+## Batch 003 - Conglomerate source-emergence candidates
+
+| ID | Source | Claim component under adjudication | Layer | Status | Primary reason / ceiling | Exploration disposition |
+|---|---|---|---|---|---|---|
+| LIT-032 | Paranjape 2008 [PhysRevD.78.063522] | Covariant macroscopic-gravity correlation terms can modify the averaged background without gauge ambiguity in the perturbative construction | Conglomerate / correlation | PARTIAL_ADMISSION | Covariant correlation sector admitted; tested magnitude remains negligible well into matter domination and no pre-recombination CDM-like branch is established | P0D_OPEN |
+| LIT-033 | Coley, Pelavas & Zalaletdinov 2005 [PhysRevLett.95.151102] | Exact macroscopic-gravity correlation tensor in homogeneous/isotropic cosmology behaves as spatial curvature | Conglomerate / correlation | COUNTEREVIDENCE_ADMITTED | Correlation sector is not pressureless-matter-like in the exact cosmological solution considered | P0D_OPEN |
+| LIT-034 | te Vrugt, Hossenfelder & Wittkowski 2021 [PhysRevLett.127.231101] | Mori-Zwanzig projection of averaged GR produces non-Markovian Hubble evolution with a memory kernel | Conglomerate / history | PARTIAL_ADMISSION | Genuine history dependence admitted; no demonstrated mode/kernel producing the required recombination-era scalar gravitational function | P0D_OPEN |
+| LIT-035 | Wang & Zhang 2018/2019 [PhysRevD.98.123019; PhysRevD.99.123008] | First-order perturbations generate second-order scalar/vector/tensor responses during radiation domination | Modal / conglomerate coupling | PARTIAL_ADMISSION | Nonlinear cross-sector coupling admitted; generated modes are sourced by lower-order perturbations plus stress-energy and do not constitute an independently demonstrated pressureless gravitational reservoir | P0D_OPEN |
+| LIT-036 | Buchert/backreaction late-time literature | Noncommuting averaging/evolution can change averaged expansion, curvature, and light propagation after structure develops | Conglomerate / feedback | PARTIAL_ADMISSION | Late-time architectural effect admitted; wrong epoch and insufficient demonstrated magnitude for the full pre-recombination DM-like burden | P0D_OPEN |
+
+### Batch 003 controlled conclusion
+
+The currently admitted conglomerate mechanisms do not supply an established pre-recombination replacement for the standard pressureless gravitational mode.
+
+The literature supports three distinct kinds of higher-level architecture:
+
+1. **generated nonlinear responses** from existing lower-order modes;
+2. **correlation/averaging corrections** to the large-scale geometry;
+3. **history-dependent coarse-grained evolution** through memory kernels.
+
+None of the admitted sources demonstrates all of the following together:
+
+[
+	ext{pre-recombination activity}
++
+	ext{persistent non-acoustic scalar projection}
++
+	ext{quantitative CMB sufficiency}
++
+	ext{no new material component}
++
+	ext{standard GR}
++
+	ext{cross-epoch continuation}.
+]
+
+Therefore the specific candidate route
+
+[
+	ext{known GR conglomerate mechanisms}
+ightarrow
+	ext{full early CDM-like function}
+]
+
+is currently `REFUSED` at the promotion level.
+
+This refusal does not close P0-D exploration of:
+- new correlation closures;
+- nonperturbative geometry;
+- additional architecture components;
+- previously unexamined modal/conglomerate representations;
+- or partial late-time architecture.
