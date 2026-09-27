@@ -27,6 +27,9 @@ on:
       - 'dark_sector_architecture/qualification/test_scalar_weyl_slip_probe.py'
       - 'dark_sector_architecture/qualification/run_fixed_band_convergence.py'
       - 'dark_sector_architecture/qualification/test_fixed_band_convergence.py'
+      - 'dark_sector_architecture/qualification/electric_weyl.py'
+      - 'dark_sector_architecture/qualification/test_electric_weyl.py'
+      - 'dark_sector_architecture/qualification/run_electric_weyl_known_truth_suite.py'
       - '.github/workflows/cosmology-modal-known-truth.yml'
   workflow_dispatch:
 
@@ -66,7 +69,8 @@ jobs:
             dark_sector_architecture/qualification/test_fourier_resolution.py \
             dark_sector_architecture/qualification/test_qr2_resolution_pair.py \
             dark_sector_architecture/qualification/test_scalar_weyl_slip_probe.py \
-            dark_sector_architecture/qualification/test_fixed_band_convergence.py
+            dark_sector_architecture/qualification/test_fixed_band_convergence.py \
+            dark_sector_architecture/qualification/test_electric_weyl.py
 
       - name: Generate machine-readable qualification reports
         run: |
@@ -74,6 +78,8 @@ jobs:
             --output dark_sector_architecture/qualification/results/modal_known_truth_report.json
           python dark_sector_architecture/qualification/run_weak_field_known_truth_suite.py \
             --output dark_sector_architecture/qualification/results/weak_field_known_truth_report.json
+          python dark_sector_architecture/qualification/run_electric_weyl_known_truth_suite.py \
+            --output dark_sector_architecture/qualification/results/electric_weyl_known_truth_report.json
 
       - name: Upload qualification reports
         uses: actions/upload-artifact@v4
@@ -82,6 +88,7 @@ jobs:
           path: |
             dark_sector_architecture/qualification/results/modal_known_truth_report.json
             dark_sector_architecture/qualification/results/weak_field_known_truth_report.json
+            dark_sector_architecture/qualification/results/electric_weyl_known_truth_report.json
           if-no-files-found: error
 
       - name: Persist qualification reports to branch
@@ -90,7 +97,8 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add \
             dark_sector_architecture/qualification/results/modal_known_truth_report.json \
-            dark_sector_architecture/qualification/results/weak_field_known_truth_report.json
+            dark_sector_architecture/qualification/results/weak_field_known_truth_report.json \
+            dark_sector_architecture/qualification/results/electric_weyl_known_truth_report.json
           if git diff --cached --quiet; then
             echo "Qualification reports unchanged."
             exit 0
