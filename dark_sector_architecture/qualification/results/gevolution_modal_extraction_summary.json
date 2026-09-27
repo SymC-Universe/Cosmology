@@ -1,0 +1,165 @@
+{
+  "boxsize_mpc_over_h": 64.0,
+  "full_weyl_equivalence_claimed": false,
+  "grid_shape": [
+    8,
+    8,
+    8
+  ],
+  "limitations": [
+    "weak-field tidal Hessian is not relabeled as full electric Weyl curvature",
+    "vector B and tensor hij are presence-checked by the smoke workflow but not yet incorporated in this scalar-potential/velocity extraction",
+    "no modal refusal threshold is applied in this infrastructure extraction"
+  ],
+  "phi_source": {
+    "dataset": "data",
+    "dtype": "float64",
+    "finite": true,
+    "max": 1.1125183470022048e-05,
+    "mean": 2.873585013416585e-10,
+    "min": -9.147740796161981e-06,
+    "path": "pilot_output/modalpilot_snap000_phi.h5",
+    "stored_shape": [
+      8,
+      8,
+      8
+    ]
+  },
+  "purpose": "gevolution weak-field modal extraction smoke test",
+  "scientific_claim_tested": false,
+  "scientific_thresholds_frozen": false,
+  "shear": {
+    "eigengap_quantiles_by_pair": [
+      {
+        "max": 3.4920878656266965e-05,
+        "median": 9.053696716431214e-06,
+        "min": 8.027524462641816e-07,
+        "q05": 2.5446500086575605e-06,
+        "q95": 1.9659694751693505e-05
+      },
+      {
+        "max": 2.5781007814655603e-05,
+        "median": 8.746779152186896e-06,
+        "min": 7.334259555303496e-07,
+        "q05": 2.1915158866022946e-06,
+        "q95": 1.893563068127809e-05
+      }
+    ],
+    "eigenvalue_quantiles_by_order": [
+      {
+        "max": 2.3878970107769327e-05,
+        "median": 9.06030614546986e-06,
+        "min": 1.6099020352684268e-06,
+        "q05": 4.302970325296655e-06,
+        "q95": 1.6554991714900783e-05
+      },
+      {
+        "max": 7.349867400748063e-06,
+        "median": -1.056081038802597e-07,
+        "min": -1.1041908548497635e-05,
+        "q05": -4.2465891947475105e-06,
+        "q95": 4.022670766564468e-06
+      },
+      {
+        "max": -1.916782292297671e-06,
+        "median": -8.994167720725426e-06,
+        "min": -2.006070417270666e-05,
+        "q05": -1.6270059011512292e-05,
+        "q95": -4.453739179700696e-06
+      }
+    ],
+    "symmetry_residual": 0.0,
+    "theta_quantiles": {
+      "max": 5.70227007377348e-05,
+      "median": -8.723763391554298e-07,
+      "min": -4.960883550017434e-05,
+      "q05": -2.8787423504983124e-05,
+      "q95": 3.0719583992332515e-05
+    },
+    "trace_residual": 6.776263578034403e-21
+  },
+  "shear_tidal_alignment": {
+    "diagonal_alignment_quantiles_by_order": [
+      {
+        "max": 0.2742556418165552,
+        "median": 0.041107923279073255,
+        "min": 1.2808983663836662e-05,
+        "q05": 0.004380398472080173,
+        "q95": 0.1324137192364684
+      },
+      {
+        "max": 0.9999862771894344,
+        "median": 0.9876196372982495,
+        "min": 0.0791660368383565,
+        "q05": 0.832638416044863,
+        "q95": 0.9992950984924598
+      },
+      {
+        "max": 0.29375935626521454,
+        "median": 0.03989183234811115,
+        "min": 1.6360938821418114e-05,
+        "q05": 0.004510921039706695,
+        "q95": 0.1386651919978303
+      }
+    ]
+  },
+  "stage": "P0-Q",
+  "tidal": {
+    "eigengap_quantiles_by_pair": [
+      {
+        "max": 1.0005433279066321e-07,
+        "median": 3.496641179633536e-08,
+        "min": 1.199738146117713e-09,
+        "q05": 9.079806502989405e-09,
+        "q95": 7.506119454544899e-08
+      },
+      {
+        "max": 1.2832883456316393e-07,
+        "median": 3.4953102628948395e-08,
+        "min": 1.7823819995477423e-09,
+        "q05": 1.1281369876710807e-08,
+        "q95": 7.602000181417657e-08
+      }
+    ],
+    "eigenvalue_quantiles_by_order": [
+      {
+        "max": 7.852631607734502e-08,
+        "median": 3.7118681987494426e-08,
+        "min": 7.79425486813457e-09,
+        "q05": 1.755146219434411e-08,
+        "q95": 6.47468548946153e-08
+      },
+      {
+        "max": 3.489865283544134e-08,
+        "median": 5.888302530602524e-11,
+        "min": -3.0170162391852136e-08,
+        "q05": -1.6772185295303534e-08,
+        "q95": 1.6137275336513226e-08
+      },
+      {
+        "max": -1.0535668489672831e-08,
+        "median": -3.692473026977659e-08,
+        "min": -9.343018172772258e-08,
+        "q05": -6.432905003623049e-08,
+        "q95": -1.8269507098635388e-08
+      }
+    ],
+    "symmetry_residual": 0.0,
+    "trace_residual": 3.970466940254533e-23
+  },
+  "velocity_source": {
+    "dataset": "data",
+    "dtype": "float64",
+    "finite": true,
+    "max": 0.0002498864499276864,
+    "mean": 3.984237842304575e-10,
+    "min": -0.0002551800324864827,
+    "path": "pilot_output/modalpilot_snap000_v.h5",
+    "stored_shape": [
+      8,
+      8,
+      8,
+      3
+    ]
+  }
+}
