@@ -230,6 +230,47 @@ jobs:
                   }
               )
 
+          b_pattern = re.compile(
+              r"B diagnostics: max \|divB\| = ([0-9eE+.-]+), "
+              r"max \|curlB\| = ([0-9eE+.-]+)"
+          )
+          h_pattern = re.compile(
+              r"GW diagnostics: max \|divh\| = ([0-9eE+.-]+), "
+              r"max \|traceh\| = ([0-9eE+.-]+), "
+              r"max \|h\| = ([0-9eE+.-]+)"
+          )
+          b_matches = b_pattern.findall(text)
+          h_matches = h_pattern.findall(text)
+          if len(b_matches) != 5 or len(h_matches) != 5:
+              raise SystemExit(
+                  f"expected five native field diagnostics, "
+                  f"B={b_matches}, h={h_matches}"
+              )
+
+          native_field_diagnostics = []
+          for index in range(5):
+              div_b, curl_b = map(float, b_matches[index])
+              div_h, trace_h, norm_h = map(float, h_matches[index])
+              native_field_diagnostics.append(
+                  {
+                      "index": index,
+                      "B_max_abs_divergence": div_b,
+                      "B_max_abs_curl": curl_b,
+                      "B_divergence_over_curl": (
+                          div_b / curl_b if curl_b > 0.0 else None
+                      ),
+                      "h_max_abs_divergence": div_h,
+                      "h_max_abs_trace": trace_h,
+                      "h_max_norm": norm_h,
+                      "h_divergence_over_norm": (
+                          div_h / norm_h if norm_h > 0.0 else None
+                      ),
+                      "h_trace_over_norm": (
+                          trace_h / norm_h if norm_h > 0.0 else None
+                      ),
+                  }
+              )
+
           taus = [item["tau_over_boxsize"] for item in snapshots]
           cycles = [item["cycle"] for item in snapshots]
           if any(b <= a for a, b in zip(taus, taus[1:])):
@@ -256,6 +297,11 @@ jobs:
               "grid": 64,
               "boxsize_mpc_over_h": 64.0,
               "seed": 424242,
+              "native_diagnostic_operator": (
+                  "gevolution tools.hpp computeVectorDiagnostics and "
+                  "computeTensorDiagnostics using LATfield2 lattice differences"
+              ),
+              "native_field_diagnostics": native_field_diagnostics,
               "snapshots": snapshots,
           }
           out = Path("dark_sector_architecture/qualification/results")
