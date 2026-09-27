@@ -55,19 +55,45 @@ def spectral_hessian_periodic(field: np.ndarray, boxsize: float) -> np.ndarray:
     return hessian
 
 
-def weak_field_tidal_tensor(phi: np.ndarray, boxsize: float) -> np.ndarray:
-    """Return the symmetric trace-free Hessian of the scalar potential.
-
-    This is the weak-field scalar tidal tensor used for development. It is not
-    asserted to equal the full electric Weyl tensor once vector/tensor metric
-    sectors become material.
-    """
-    hessian = spectral_hessian_periodic(phi, boxsize)
+def _trace_free_hessian(field: np.ndarray, boxsize: float) -> np.ndarray:
+    hessian = spectral_hessian_periodic(field, boxsize)
     trace = np.trace(hessian, axis1=-2, axis2=-1)
-    tidal = np.array(hessian, copy=True)
+    tensor = np.array(hessian, copy=True)
     for i in range(3):
-        tidal[..., i, i] -= trace / 3.0
-    return tidal
+        tensor[..., i, i] -= trace / 3.0
+    return tensor
+
+
+def weak_field_tidal_tensor(phi: np.ndarray, boxsize: float) -> np.ndarray:
+    """Return STF Hessian of gevolution Phi.
+
+    This is the legacy Newtonian/negligible-slip scalar tidal development
+    object. It must not be relabeled as the full electric Weyl tensor.
+    """
+    return _trace_free_hessian(phi, boxsize)
+
+
+def scalar_weyl_shape_tensor(
+    phi: np.ndarray, chi_gev: np.ndarray, boxsize: float
+) -> np.ndarray:
+    """Return first-order scalar electric-Weyl spatial shape.
+
+    gevolution defines chi_gev = Phi - Psi, so the scalar Weyl/lensing
+    potential is
+
+        (Phi + Psi) / 2 = Phi - chi_gev / 2.
+
+    This function returns the symmetric trace-free Hessian of that potential.
+    It intentionally omits the epoch-dependent physical a^-2 normalization and
+    does not include vector B_i or tensor h_ij sectors. Therefore it is a
+    scalar-sector shape tensor, not the full electric Weyl tensor.
+    """
+    phi_arr = _validate_scalar_field(phi)
+    chi_arr = _validate_scalar_field(chi_gev)
+    if phi_arr.shape != chi_arr.shape:
+        raise ValueError("phi and chi_gev must have matching grid shapes")
+    weyl_potential = phi_arr - 0.5 * chi_arr
+    return _trace_free_hessian(weyl_potential, boxsize)
 
 
 def spectral_velocity_gradient_periodic(
