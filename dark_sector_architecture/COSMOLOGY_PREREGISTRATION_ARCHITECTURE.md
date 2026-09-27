@@ -1,7 +1,7 @@
 # Cosmology Preregistration Architecture
 
 **Project:** Cosmic Stability Architecture  
-**Status:** Working protocol to be frozen before controlled literature adjudication and before any P1 confirmation  
+**Status:** FROZEN for PREG-LIT-COSMO-v1.0; S/M/C/J claim records remain unactivated until residual-question reconstruction  
 **GOM basis:** v0.8.7
 
 ## Purpose
@@ -228,7 +228,7 @@ The exact S/M/C/J claim texts are frozen only after PREG-LIT adjudication identi
 
 ## Current preregistration status
 
-- PREG-LIT schema: READY TO FREEZE.
+- PREG-LIT schema: FROZEN under PREG-LIT-COSMO-v1.0.
 - PREG-S: schema defined, claim not yet activated.
 - PREG-M: schema defined, claim not yet activated.
 - PREG-C: schema defined, claim not yet activated.
