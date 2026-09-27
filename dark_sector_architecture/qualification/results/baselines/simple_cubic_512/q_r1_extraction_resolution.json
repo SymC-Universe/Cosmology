@@ -1,0 +1,671 @@
+{
+  "boxsize_mpc_over_h": 64.0,
+  "comparison_definition": {
+    "candidate_path": "block-average underlying field then reconstruct tensor",
+    "directional_diagnostic": "local operator tensor error divided by reference adjacent eigengap",
+    "reference_path": "fine-grid tensor reconstruction then block average"
+  },
+  "fine_grid_shape": [
+    8,
+    8,
+    8
+  ],
+  "input_artifact_digest": "sha256:106920f81c6dce5560f2ce843fcd3205793ab80ec0590bed8402d017ffa4fb92",
+  "input_artifact_id": 10941723946,
+  "input_head_sha": "fe0269cf5241a523e439eaad81fb575af2b804ce",
+  "input_npz": "run12_artifact/gevolution_modal_extraction_arrays.npz",
+  "input_persistence_commit": "0603f4ba22a4b29731b0b40f59617eb1c2f6979d",
+  "input_run_id": 36350705742,
+  "levels": [
+    {
+      "coarse_cell_size_mpc_over_h": 16.0,
+      "coarse_factor": 2,
+      "coarse_grid_shape": [
+        4,
+        4,
+        4
+      ],
+      "fine_cell_size_mpc_over_h": 8.0,
+      "shear": {
+        "candidate_tensor_norm_quantiles": {
+          "finite_count": 64,
+          "max": 1.8321240315853266e-05,
+          "median": 1.0207244885412555e-05,
+          "min": 4.851283208990505e-06,
+          "q05": 6.127223123882025e-06,
+          "q95": 1.7164181003852447e-05,
+          "total_count": 64
+        },
+        "directional_error_over_reference_gap_quantiles_by_pair": [
+          {
+            "finite_count": 64,
+            "max": 4.19376082111761,
+            "median": 0.45483483927791385,
+            "min": 0.10577146169823609,
+            "q05": 0.19579946210887492,
+            "q95": 2.177782153116358,
+            "total_count": 64
+          },
+          {
+            "finite_count": 64,
+            "max": 4.694381278077623,
+            "median": 0.5422204961120793,
+            "min": 0.10742190621803789,
+            "q05": 0.13757477246219996,
+            "q95": 2.6458718638787433,
+            "total_count": 64
+          }
+        ],
+        "eigenframe_diagonal_alignment_quantiles_by_order": [
+          {
+            "finite_count": 64,
+            "max": 0.999828798448778,
+            "median": 0.9855535939991451,
+            "min": 0.07436515243628315,
+            "q05": 0.6639613711792112,
+            "q95": 0.9993836438204774,
+            "total_count": 64
+          },
+          {
+            "finite_count": 64,
+            "max": 0.9997206694571161,
+            "median": 0.9442921433860554,
+            "min": 0.015600780700447485,
+            "q05": 0.19443374190404344,
+            "q95": 0.9970712708251593,
+            "total_count": 64
+          },
+          {
+            "finite_count": 64,
+            "max": 0.9999325822341961,
+            "median": 0.9777705257664074,
+            "min": 0.039578708124546655,
+            "q05": 0.5379883236465263,
+            "q95": 0.9994189506088286,
+            "total_count": 64
+          }
+        ],
+        "eigengap_abs_error_quantiles_by_pair": [
+          {
+            "finite_count": 64,
+            "max": 1.2058772288748584e-05,
+            "median": 1.9912841282248723e-06,
+            "min": 1.1421772565688626e-08,
+            "q05": 1.616288609576139e-07,
+            "q95": 8.132829877818547e-06,
+            "total_count": 64
+          },
+          {
+            "finite_count": 64,
+            "max": 1.0769317895385252e-05,
+            "median": 2.4823403613054173e-06,
+            "min": 3.2115087184981606e-07,
+            "q05": 4.872208497731745e-07,
+            "q95": 6.851307951391568e-06,
+            "total_count": 64
+          }
+        ],
+        "eigenvalue_abs_error_quantiles_by_order": [
+          {
+            "finite_count": 64,
+            "max": 7.575283718974517e-06,
+            "median": 1.6867560789841407e-06,
+            "min": 1.260936409838374e-07,
+            "q05": 2.3335675023305538e-07,
+            "q95": 5.023875097654032e-06,
+            "total_count": 64
+          },
+          {
+            "finite_count": 64,
+            "max": 6.058743758827473e-06,
+            "median": 1.1430105611874789e-06,
+            "min": 7.93081692051172e-10,
+            "q05": 1.7749892191764804e-07,
+            "q95": 3.5198412504835767e-06,
+            "total_count": 64
+          },
+          {
+            "finite_count": 64,
+            "max": 5.590093093460694e-06,
+            "median": 1.4314059971734169e-06,
+            "min": 4.306295245502941e-08,
+            "q05": 1.257023330499377e-07,
+            "q95": 4.549587293269105e-06,
+            "total_count": 64
+          }
+        ],
+        "frobenius_error_quantiles": {
+          "finite_count": 64,
+          "max": 9.524635802331787e-06,
+          "median": 5.299373607445139e-06,
+          "min": 1.3144371716837186e-06,
+          "q05": 2.32868109944502e-06,
+          "q95": 8.128487148403316e-06,
+          "total_count": 64
+        },
+        "operator_error_quantiles": {
+          "finite_count": 64,
+          "max": 7.705452297652461e-06,
+          "median": 3.970967038069833e-06,
+          "min": 1.072815947554931e-06,
+          "q05": 1.8063540639978572e-06,
+          "q95": 6.133785051548819e-06,
+          "total_count": 64
+        },
+        "reference_cell_count": 64,
+        "reference_exact_zero_gap_counts_by_pair": [
+          0,
+          0
+        ],
+        "reference_tensor_norm_quantiles": {
+          "finite_count": 64,
+          "max": 2.434480345635527e-05,
+          "median": 1.1338888368163106e-05,
+          "min": 3.8293948901188125e-06,
+          "q05": 6.25483331671034e-06,
+          "q95": 1.868918338842727e-05,
+          "total_count": 64
+        },
+        "relative_operator_error_quantiles": {
+          "finite_count": 64,
+          "max": 1.1890584898880068,
+          "median": 0.45100405479309513,
+          "min": 0.10714779206438979,
+          "q05": 0.17591860461919323,
+          "q95": 1.044302190965739,
+          "total_count": 64
+        }
+      },
+      "theta_abs_error_quantiles": {
+        "finite_count": 64,
+        "max": 1.412658882766021e-05,
+        "median": 5.134293249575202e-06,
+        "min": 6.83648911785561e-08,
+        "q05": 3.686263769991169e-07,
+        "q95": 1.2116361645017568e-05,
+        "total_count": 64
+      },
+      "tidal": {
+        "candidate_tensor_norm_quantiles": {
+          "finite_count": 64,
+          "max": 8.815837698054955e-08,
+          "median": 3.989090033449015e-08,
+          "min": 1.221901826988304e-08,
+          "q05": 1.7035337065457768e-08,
+          "q95": 6.565981399063778e-08,
+          "total_count": 64
+        },
+        "directional_error_over_reference_gap_quantiles_by_pair": [
+          {
+            "finite_count": 64,
+            "max": 2.0826122714689816,
+            "median": 0.40318884045134673,
+            "min": 0.1181724727418931,
+            "q05": 0.17339866956473435,
+            "q95": 1.3795288152478253,
+            "total_count": 64
+          },
+          {
+            "finite_count": 64,
+            "max": 21.133561008969693,
+            "median": 0.38623855916080263,
+            "min": 0.10572639259801646,
+            "q05": 0.12120472443538999,
+            "q95": 2.502233283657626,
+            "total_count": 64
+          }
+        ],
+        "eigenframe_diagonal_alignment_quantiles_by_order": [
+          {
+            "finite_count": 64,
+            "max": 0.9997620274251933,
+            "median": 0.9749355065539163,
+            "min": 0.062229786374975886,
+            "q05": 0.673121278879338,
+            "q95": 0.9982358687411799,
+            "total_count": 64
+          },
+          {
+            "finite_count": 64,
+            "max": 0.999751217062553,
+            "median": 0.9571253473951618,
+            "min": 0.06813269860431544,
+            "q05": 0.5851078774649707,
+            "q95": 0.9990984917146958,
+            "total_count": 64
+          },
+          {
+            "finite_count": 64,
+            "max": 0.9999709712510685,
+            "median": 0.9835481061168766,
+            "min": 0.5677286796812668,
+            "q05": 0.6789025552100721,
+            "q95": 0.9979679116706466,
+            "total_count": 64
+          }
+        ],
+        "eigengap_abs_error_quantiles_by_pair": [
+          {
+            "finite_count": 64,
+            "max": 2.7817350642236318e-08,
+            "median": 7.567887152200084e-09,
+            "min": 1.539191396144686e-11,
+            "q05": 4.716028624457377e-10,
+            "q95": 1.8652629943951346e-08,
+            "total_count": 64
+          },
+          {
+            "finite_count": 64,
+            "max": 2.028174506927493e-08,
+            "median": 4.449885478884821e-09,
+            "min": 1.0490421264250856e-10,
+            "q05": 2.885001690153726e-10,
+            "q95": 1.693755515127179e-08,
+            "total_count": 64
+          }
+        ],
+        "eigenvalue_abs_error_quantiles_by_order": [
+          {
+            "finite_count": 64,
+            "max": 2.1107599919166585e-08,
+            "median": 2.9867763810943623e-09,
+            "min": 7.992097011060547e-11,
+            "q05": 3.402671123441776e-10,
+            "q95": 1.1436557557559379e-08,
+            "total_count": 64
+          },
+          {
+            "finite_count": 64,
+            "max": 1.2142241494601182e-08,
+            "median": 3.7172667565499123e-09,
+            "min": 9.531288407205233e-11,
+            "q05": 4.252309767079751e-10,
+            "q95": 9.130309533976089e-09,
+            "total_count": 64
+          },
+          {
+            "finite_count": 64,
+            "max": 1.4397849196096871e-08,
+            "median": 3.0358021086428856e-09,
+            "min": 2.213508059513049e-11,
+            "q05": 1.8424999375643196e-10,
+            "q95": 8.93200110402086e-09,
+            "total_count": 64
+          }
+        ],
+        "frobenius_error_quantiles": {
+          "finite_count": 64,
+          "max": 3.4910464878559754e-08,
+          "median": 1.5663648856385284e-08,
+          "min": 4.163868800048144e-09,
+          "q05": 7.606749038094866e-09,
+          "q95": 2.6675470024730778e-08,
+          "total_count": 64
+        },
+        "operator_error_quantiles": {
+          "finite_count": 64,
+          "max": 2.701769215439412e-08,
+          "median": 1.2170693117052687e-08,
+          "min": 2.961289668063858e-09,
+          "q05": 6.1263792127632064e-09,
+          "q95": 2.033696252331854e-08,
+          "total_count": 64
+        },
+        "reference_cell_count": 64,
+        "reference_exact_zero_gap_counts_by_pair": [
+          0,
+          0
+        ],
+        "reference_tensor_norm_quantiles": {
+          "finite_count": 64,
+          "max": 9.162935001232799e-08,
+          "median": 4.2107008210768185e-08,
+          "min": 1.5803596010851376e-08,
+          "q05": 2.275229215938303e-08,
+          "q95": 7.151558379397012e-08,
+          "total_count": 64
+        },
+        "relative_operator_error_quantiles": {
+          "finite_count": 64,
+          "max": 1.1429291269027526,
+          "median": 0.3757216107763901,
+          "min": 0.12186724999374905,
+          "q05": 0.14042832526176235,
+          "q95": 0.9883898786522248,
+          "total_count": 64
+        }
+      }
+    },
+    {
+      "coarse_cell_size_mpc_over_h": 32.0,
+      "coarse_factor": 4,
+      "coarse_grid_shape": [
+        2,
+        2,
+        2
+      ],
+      "fine_cell_size_mpc_over_h": 8.0,
+      "shear": {
+        "candidate_tensor_norm_quantiles": {
+          "finite_count": 8,
+          "max": 0.0,
+          "median": 0.0,
+          "min": 0.0,
+          "q05": 0.0,
+          "q95": 0.0,
+          "total_count": 8
+        },
+        "directional_error_over_reference_gap_quantiles_by_pair": [
+          {
+            "finite_count": 8,
+            "max": 2.6478782589506937,
+            "median": 1.0308525467949503,
+            "min": 0.6988876027812515,
+            "q05": 0.7395020551331984,
+            "q95": 2.278748118088502,
+            "total_count": 8
+          },
+          {
+            "finite_count": 8,
+            "max": 7.230160335253763,
+            "median": 0.9861591202198284,
+            "min": 0.7626778608166132,
+            "q05": 0.7908078557472454,
+            "q95": 5.340866923229581,
+            "total_count": 8
+          }
+        ],
+        "eigenframe_diagonal_alignment_quantiles_by_order": [
+          {
+            "finite_count": 8,
+            "max": 0.9684938352154085,
+            "median": 0.26309013557739025,
+            "min": 0.1593715470734017,
+            "q05": 0.16072560501216612,
+            "q95": 0.9607687474163528,
+            "total_count": 8
+          },
+          {
+            "finite_count": 8,
+            "max": 0.491020394862661,
+            "median": 0.2646204937767418,
+            "min": 0.06718329280416123,
+            "q05": 0.09422609875739835,
+            "q95": 0.4387603445438266,
+            "total_count": 8
+          },
+          {
+            "finite_count": 8,
+            "max": 0.9778762696852328,
+            "median": 0.30206581193246085,
+            "min": 0.012554926004888542,
+            "q05": 0.04138161019916578,
+            "q95": 0.9668033877010241,
+            "total_count": 8
+          }
+        ],
+        "eigengap_abs_error_quantiles_by_pair": [
+          {
+            "finite_count": 8,
+            "max": 8.93458022259933e-06,
+            "median": 6.311659360278124e-06,
+            "min": 2.070856645334013e-06,
+            "q05": 2.8357796067466095e-06,
+            "q95": 8.861173121125407e-06,
+            "total_count": 8
+          },
+          {
+            "finite_count": 8,
+            "max": 8.600835138516346e-06,
+            "median": 6.143153552030054e-06,
+            "min": 8.433680826008931e-07,
+            "q05": 1.8359944342879438e-06,
+            "q95": 8.457123376313383e-06,
+            "total_count": 8
+          }
+        ],
+        "eigenvalue_abs_error_quantiles_by_order": [
+          {
+            "finite_count": 8,
+            "max": 8.33962961298351e-06,
+            "median": 5.858495727775395e-06,
+            "min": 3.777116466958758e-06,
+            "q05": 4.04754174457882e-06,
+            "q95": 8.260150516695957e-06,
+            "total_count": 8
+          },
+          {
+            "finite_count": 8,
+            "max": 2.627159188119552e-06,
+            "median": 9.40206581542895e-07,
+            "min": 1.6728175530668688e-09,
+            "q05": 8.653784652151616e-08,
+            "q95": 2.3048444098463693e-06,
+            "total_count": 8
+          },
+          {
+            "finite_count": 8,
+            "max": 8.356690809624854e-06,
+            "median": 5.34689885293899e-06,
+            "min": 3.4705272707204452e-06,
+            "q05": 3.918892552731176e-06,
+            "q95": 8.142486677434846e-06,
+            "total_count": 8
+          }
+        ],
+        "frobenius_error_quantiles": {
+          "finite_count": 8,
+          "max": 1.1649347541517402e-05,
+          "median": 8.074302769462976e-06,
+          "min": 6.651518331259486e-06,
+          "q05": 6.67580864574575e-06,
+          "q95": 1.1560900483729367e-05,
+          "total_count": 8
+        },
+        "operator_error_quantiles": {
+          "finite_count": 8,
+          "max": 8.356690809624852e-06,
+          "median": 6.419542960146816e-06,
+          "min": 4.753243751161315e-06,
+          "q05": 4.784717733086611e-06,
+          "q95": 8.350719390800382e-06,
+          "total_count": 8
+        },
+        "reference_cell_count": 8,
+        "reference_exact_zero_gap_counts_by_pair": [
+          0,
+          0
+        ],
+        "reference_tensor_norm_quantiles": {
+          "finite_count": 8,
+          "max": 1.1649347541517402e-05,
+          "median": 8.074302769462976e-06,
+          "min": 6.651518331259486e-06,
+          "q05": 6.67580864574575e-06,
+          "q95": 1.1560900483729367e-05,
+          "total_count": 8
+        },
+        "relative_operator_error_quantiles": {
+          "finite_count": 8,
+          "max": 1.0,
+          "median": 1.0,
+          "min": 1.0,
+          "q05": 1.0,
+          "q95": 1.0,
+          "total_count": 8
+        }
+      },
+      "theta_abs_error_quantiles": {
+        "finite_count": 8,
+        "max": 1.935530135818181e-05,
+        "median": 8.345154544298839e-06,
+        "min": 1.0362926174359822e-06,
+        "q05": 1.209094271306639e-06,
+        "q95": 1.804613346835114e-05,
+        "total_count": 8
+      },
+      "tidal": {
+        "candidate_tensor_norm_quantiles": {
+          "finite_count": 8,
+          "max": 3.801816050733556e-08,
+          "median": 2.6385416802129466e-08,
+          "min": 1.991068042466582e-08,
+          "q05": 2.021800179328539e-08,
+          "q95": 3.7707250813822925e-08,
+          "total_count": 8
+        },
+        "directional_error_over_reference_gap_quantiles_by_pair": [
+          {
+            "finite_count": 8,
+            "max": 2.7523216912650517,
+            "median": 0.4556039150509602,
+            "min": 0.22561154134313574,
+            "q05": 0.2536355935010336,
+            "q95": 2.013927546449686,
+            "total_count": 8
+          },
+          {
+            "finite_count": 8,
+            "max": 0.8768157978919785,
+            "median": 0.4932031351939,
+            "min": 0.2151616062837409,
+            "q05": 0.24158640282038835,
+            "q95": 0.7988092273327767,
+            "total_count": 8
+          }
+        ],
+        "eigenframe_diagonal_alignment_quantiles_by_order": [
+          {
+            "finite_count": 8,
+            "max": 0.998034121479678,
+            "median": 0.9657171535169949,
+            "min": 0.8872434920933943,
+            "q05": 0.8945750305972116,
+            "q95": 0.9962506623926806,
+            "total_count": 8
+          },
+          {
+            "finite_count": 8,
+            "max": 0.9798839082602006,
+            "median": 0.9167220239881794,
+            "min": 0.8143168889095276,
+            "q05": 0.8146807390035284,
+            "q95": 0.9765066771220732,
+            "total_count": 8
+          },
+          {
+            "finite_count": 8,
+            "max": 0.9941294928713714,
+            "median": 0.9542465450227909,
+            "min": 0.8171863534804008,
+            "q05": 0.8507666923740937,
+            "q95": 0.9916436073652467,
+            "total_count": 8
+          }
+        ],
+        "eigengap_abs_error_quantiles_by_pair": [
+          {
+            "finite_count": 8,
+            "max": 5.484417630759613e-09,
+            "median": 1.5606645339439095e-09,
+            "min": 1.4095803181322169e-10,
+            "q05": 1.8723379726482642e-10,
+            "q95": 5.107228706171339e-09,
+            "total_count": 8
+          },
+          {
+            "finite_count": 8,
+            "max": 5.142615232083092e-09,
+            "median": 2.253905670743652e-09,
+            "min": 1.0390065658447123e-10,
+            "q05": 2.042710455032017e-10,
+            "q95": 4.990111349870785e-09,
+            "total_count": 8
+          }
+        ],
+        "eigenvalue_abs_error_quantiles_by_order": [
+          {
+            "finite_count": 8,
+            "max": 3.3729883871727856e-09,
+            "median": 1.4606102665946936e-09,
+            "min": 5.1891937570639064e-11,
+            "q05": 2.0836922584081747e-10,
+            "q95": 2.7863173628889702e-09,
+            "total_count": 8
+          },
+          {
+            "finite_count": 8,
+            "max": 2.7628999109244362e-09,
+            "median": 1.7668060603799094e-09,
+            "min": 2.2128256696145124e-10,
+            "q05": 2.493360166371768e-10,
+            "q95": 2.663697467842521e-09,
+            "total_count": 8
+          },
+          {
+            "finite_count": 8,
+            "max": 3.381424144117655e-09,
+            "median": 1.1487708574973399e-09,
+            "min": 1.6939062939082086e-10,
+            "q05": 1.792410274117021e-10,
+            "q95": 3.2249897812152176e-09,
+            "total_count": 8
+          }
+        ],
+        "frobenius_error_quantiles": {
+          "finite_count": 8,
+          "max": 1.4956060359650587e-08,
+          "median": 1.1571026772545399e-08,
+          "min": 6.667873185415602e-09,
+          "q05": 6.873130327717788e-09,
+          "q95": 1.485964537892046e-08,
+          "total_count": 8
+        },
+        "operator_error_quantiles": {
+          "finite_count": 8,
+          "max": 1.1758150292525313e-08,
+          "median": 8.86313035348369e-09,
+          "min": 5.340811685999939e-09,
+          "q05": 5.514830455550566e-09,
+          "q95": 1.1605332236018798e-08,
+          "total_count": 8
+        },
+        "reference_cell_count": 8,
+        "reference_exact_zero_gap_counts_by_pair": [
+          0,
+          0
+        ],
+        "reference_tensor_norm_quantiles": {
+          "finite_count": 8,
+          "max": 3.910486201877731e-08,
+          "median": 2.6641558714220947e-08,
+          "min": 2.2508932612489072e-08,
+          "q05": 2.2671559755729017e-08,
+          "q95": 3.865129129365999e-08,
+          "total_count": 8
+        },
+        "relative_operator_error_quantiles": {
+          "finite_count": 8,
+          "max": 0.7054292906361415,
+          "median": 0.3809539070407693,
+          "min": 0.2666060518066552,
+          "q05": 0.2743138764809732,
+          "q95": 0.6553357022390288,
+          "total_count": 8
+        }
+      }
+    }
+  ],
+  "limitations": [
+    "development field is a single Ngrid=8 smoke realization",
+    "Q-R1 measures extraction/coarse-graining sensitivity, not simulation convergence",
+    "no acceptance threshold is inferred from this field",
+    "weak-field scalar tidal Hessian is not asserted to equal full electric Weyl curvature"
+  ],
+  "protocol": "Q-R1_MODAL_EXTRACTION_RESOLUTION",
+  "purpose": "measure finite-grid extraction/coarse-graining sensitivity on one fixed real gevolution development realization",
+  "scientific_claim_tested": false,
+  "scientific_thresholds_frozen": false,
+  "simulation_resolution_tested": false,
+  "stage": "P0-Q"
+}
