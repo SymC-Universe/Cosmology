@@ -10,6 +10,8 @@ The unit of adjudication is a **paper-specific claim component**, not an entire 
 
 Supportive and contradictory evidence are equally eligible for admission.
 
+The protocol governs whether a claim component may enter the **current qualified foundation and promotion path**. It does not determine what may be explored.
+
 ## Frozen literature questions
 
 Each admitted result is tested against one or more of the following questions:
@@ -76,6 +78,19 @@ Refusal reason codes include:
 
 Refusal applies to the interpretation or use, not to the existence of the paper.
 
+A refusal never means "do not investigate further." It means only that the proposed use is not admissible for the frozen question under the current evidence and representation.
+
+Every refused record may carry an independent exploration disposition:
+- `NO_FOLLOWUP_REQUIRED`;
+- `P0D_OPEN`;
+- `POST_RESULT_DISCOVERY`;
+- `NEW_COMPONENT_CANDIDATE`;
+- `ALTERNATIVE_REPRESENTATION_CANDIDATE`;
+- `NATIVE_MODEL_REVIEW`;
+- `QUALIFICATION_NEEDED`.
+
+The exploration disposition does not change the refusal status.
+
 ### NOT_APPLICABLE
 The paper may be scientifically sound but does not bear on the frozen question or layer.
 
@@ -104,7 +119,10 @@ Every literature claim component receives:
 - adjudication status;
 - reason code;
 - information needed if indeterminate;
-- downstream claim(s) affected.
+- downstream claim(s) affected;
+- exploration_disposition;
+- exploratory question generated, if any;
+- post-result/promotion-debt status where applicable.
 
 ## Admission gates
 
@@ -122,6 +140,8 @@ A component may be ADMITTED only when all applicable gates pass:
 10. **Friction gate:** a serious contrary interpretation is preserved where one exists.
 
 Failure of a required gate yields REFUSED or INDETERMINATE, not forced admission.
+
+Gate failure restricts qualification only. It may simultaneously generate a P0-D question about why the gate failed, whether another representation is required, whether a boundary has been found, or whether an additional architecture component exists.
 
 ## Need-more-info test
 
@@ -181,7 +201,22 @@ Connections between admitted components receive one of:
 
 A SYNTHESIS_DERIVED connection is a new hypothesis candidate, not an established literature fact.
 
-## Stop rule for Stage A literature adjudication
+## Exploration-preservation rule
+
+Controlled adjudication and open exploration are intentionally asymmetric.
+
+The P0-Q literature pass asks whether the current evidence is admissible for a frozen question. P0-D is allowed to ask new questions that arise from any outcome, including refusal, contradiction, anomaly, or failed reduction.
+
+A new exploratory branch:
+- must preserve the original adjudication outcome;
+- must state the trigger that opened the branch;
+- is labeled post-result when generated after inspecting the relevant result;
+- may introduce a new representation or architecture component when native science supports doing so;
+- cannot be counted as evidence that the original frozen claim survived.
+
+This ensures that the gate on **promotion** can close while the gate on **exploration** remains open.
+
+## Stop rule for the controlled Stage A literature adjudication lane
 
 Stop expanding the literature corpus when all three conditions hold:
 
@@ -189,7 +224,16 @@ Stop expanding the literature corpus when all three conditions hold:
 2. two successive bounded search passes add no new claim class, mechanism class, or material contradiction;
 3. remaining NEED_MORE_INFO records cannot plausibly change the residual claim family without new primary evidence.
 
-The stopping condition is about saturation of the scientific architecture, not a fixed paper count.
+The stopping condition is about saturation of the **current controlled adjudication question**, not a fixed paper count and not closure of the scientific architecture.
+
+Meeting the stop rule ends that P0-Q pass only. It does not:
+- prohibit new literature searches;
+- prohibit revisiting refused or indeterminate records;
+- prohibit new scalar/modal/conglomerate/additional components;
+- declare the field saturated permanently;
+- or prevent a new PREG-LIT version when a scientifically material discovery changes the residual-question architecture.
+
+Literature found after the controlled stop enters P0-D first. If it materially changes the qualified residual question, a new controlled adjudication version is frozen rather than silently editing the completed one.
 
 ## Residual-question output
 
@@ -205,7 +249,9 @@ After adjudication, classify every material working statement as:
 - UNRESOLVED;
 - NOT_APPLICABLE.
 
-Only UNRESOLVED or properly scoped synthesis-derived relationships can become new PREG-S, PREG-M, PREG-C, or PREG-J claim candidates.
+Only UNRESOLVED or properly scoped synthesis-derived relationships from the controlled lane can become immediate new PREG-S, PREG-M, PREG-C, or PREG-J claim candidates.
+
+Any adjudication outcome, including REFUSED, COUNTEREVIDENCE_ADMITTED, INDETERMINATE, or NOT_APPLICABLE, may still generate a separate P0-D exploratory hypothesis. Such a hypothesis must enter through its own provenance and promotion path and cannot inherit confirmatory status from the record that generated it.
 
 ## Literature adjudication is not confirmation
 
