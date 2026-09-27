@@ -1,0 +1,30 @@
+{
+  "final_redshift": 99.0,
+  "gevolution_sha": "0cca42e51a824002ae4fb602cbd79d671e8ffe60",
+  "initial_redshift": 100.0,
+  "latfield2_sha": "2d8c737ab6adc965a1d2718c209f5085af27b09c",
+  "output_manifest": [
+    "modalpilot_background.dat",
+    "modalpilot_pk000_B.dat",
+    "modalpilot_pk000_chi.dat",
+    "modalpilot_pk000_hij.dat",
+    "modalpilot_pk000_phi.dat",
+    "modalpilot_settings_used.ini",
+    "modalpilot_snap000_B.h5",
+    "modalpilot_snap000_chi.h5",
+    "modalpilot_snap000_hij.h5",
+    "modalpilot_snap000_phi.h5",
+    "modalpilot_snap000_v.h5"
+  ],
+  "pilot_grid": 8,
+  "purpose": "gevolution infrastructure/modal-field smoke test",
+  "required_outputs": [
+    "phi",
+    "B",
+    "chi",
+    "hij",
+    "v"
+  ],
+  "scientific_claim_tested": false,
+  "stage": "P0-Q"
+}
