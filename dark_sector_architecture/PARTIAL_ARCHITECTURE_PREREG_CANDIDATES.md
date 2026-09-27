@@ -63,8 +63,8 @@ Promotion debt applies because the residual was sharpened after inspecting prior
 ### MFR-03 - Target native object
 
 Primary objects:
-- mode/eigenspace participation;
-- invariant or gauge-controlled subspace angles;
+- shear/Weyl/tidal eigenvalue spectra and eigenframes;
+- invariant or gauge-controlled alignment/subspace measures;
 - transfer-matrix singular/eigen structure where well conditioned;
 - metric scalar/vector/tensor participation where the decomposition is licensed;
 - growth/lensing projection of those modes.
@@ -74,12 +74,16 @@ No modal (chi) is presumed.
 ### MFR-04 - Representation and validity regime
 
 Primary qualification representation:
-- relativistic weak-field N-body evolution using public gevolution;
-- Poisson-gauge outputs;
+- native tidal and velocity-shear eigenstructure from relativistic weak-field N-body evolution using public gevolution;
+- Poisson-gauge metric outputs where needed;
 - matched initial conditions and fixed conventional cosmological parameters.
 
+Primary full-GR modal target:
+- shear and electric-Weyl eigenstructure;
+- magnetic-Weyl/tensor structure where applicable.
+
 Robustness representation:
-- full numerical-relativity cosmology using Einstein Toolkit where an equivalent test is technically feasible.
+- full numerical-relativity cosmology using Einstein Toolkit or another qualified covariant/full-GR implementation where an equivalent test is technically feasible.
 
 Refuse interpretation when:
 - modal decomposition is non-identifiable;
@@ -110,7 +114,7 @@ The comparison asks whether modal organization adds information beyond the stand
 
 Candidate expectation:
 
-Domains with materially different nonlinear organization but matched background/scalar state will show reproducible differences in modal participation or subspace organization that persist under the frozen gauge/robustness checks.
+Domains with materially different nonlinear organization but matched scalar invariants will show reproducible differences in shear/Weyl/tidal eigenvalue spectra, eigenframes, or their evolution/alignment that persist under the frozen gauge/robustness checks.
 
 No direction-specific numerical threshold is frozen yet.
 
@@ -588,3 +592,18 @@ Proceed first with **PREG-MODAL-PA-1 qualification**, because M1 determines whet
 In parallel, build the extraction engine for **PREG-CONGLOMERATE-PA-1** but do not inspect candidate confirmation volumes.
 
 No P1 freeze should occur until the decision thresholds/tolerances are earned from qualification rather than invented.
+
+
+## Qualification amendment PA-QM1
+
+The native modal object has now been narrowed prospectively before P1 activation.
+
+Primary modal basis:
+- relativistic shear tensor;
+- electric Weyl/tidal tensor;
+- magnetic Weyl where applicable;
+- their eigenvalues, eigenframes, alignments, and evolution.
+
+This amendment does not activate PREG-MODAL-PA-1. It removes arbitrary modal decompositions from the primary route and records them as exploratory proxies only.
+
+See `MODAL_OBJECT_QUALIFICATION.md`.
