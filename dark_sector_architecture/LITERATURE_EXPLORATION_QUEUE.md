@@ -9,15 +9,16 @@ Entries here remain P0-D unless separately qualified. They cannot retroactively 
 
 ### EXP-001 - Primordial modal basis qualification
 **Trigger:** LIT-023 INDETERMINATE_NEED_MORE_INFO  
-**Question:** What is the exact regular primordial mode basis, correlation structure, and transfer map under the frozen cosmology conventions?  
-**Needed:** full-text equation/context extraction; conventions; mode normalization; species assumptions.  
-**Potential consequence:** ADMITTED modal/conglomerate foundation or narrower partial admission.
+**Status:** QUALIFICATION_RESOLVED  
+**Outcome:** The regular five-mode scalar basis and matrix-valued auto/cross-correlation structure are admitted under the stated photons+baryons+neutrinos+CDM linear model.  
+**Open exploration inherited from result:** determine how the admissible modal basis and transfer structure change when the CDM material degree of freedom is not assumed.
 
 ### EXP-002 - Recombination eigenmode qualification
 **Trigger:** LIT-024 INDETERMINATE_NEED_MORE_INFO  
-**Question:** Does the pre-recombination eigenmode decomposition reveal any non-acoustic gravitational branch not reducible to material CDM participation?  
-**Needed:** full-text eigenproblem, state variables, eigenvectors, parameter regime, participation factors.  
-**Potential consequence:** sharpen source-sufficiency residual.
+**Status:** PARTIALLY_RESOLVED  
+**Outcome:** Nelson's simplified equilibrium model contains a strongly acoustic baryon-radiation branch and a distinct CDM-dominated gravitational-collapse branch.  
+**Limit:** the result is not a complete Einstein-Boltzmann closure and does not establish uniqueness of the CDM realization.  
+**Open exploration inherited from result:** search for an alternative non-material realization of the persistent non-acoustic gravitational function.
 
 ### EXP-003 - Nonlinear collective gravitational mode
 **Trigger:** early-universe counterevidence LIT-015 to LIT-018  
@@ -51,3 +52,11 @@ Entries here remain P0-D unless separately qualified. They cannot retroactively 
 **Trigger:** early source insufficiency  
 **Question:** If the primordial DM-like modal function remains unavailable, what late-time subset of DM-like/DE-like phenomenology is still explainable by the admitted architecture?  
 **Status:** P0-D OPEN, not preferred over the full branch until the modal/conglomerate source search is exhausted.
+
+
+### EXP-009 - No-CDM primordial modal architecture
+**Trigger:** resolved LIT-023/LIT-024 plus GOM exploration firewall  
+**Question:** In standard GR with photons, baryons, neutrinos, and metric degrees of freedom but without a material CDM component, what regular physical modes remain before recombination, and does any scalar, vector, tensor, Weyl/tidal, constraint-induced, or collective mode reproduce the persistent non-acoustic gravitational function required by the CMB?  
+**Status:** P0-D OPEN.  
+**Required classification:** physical propagating mode / constrained response / correlation mode / nonlinear emergent mode / effective rewriting / refused.  
+**Failure consequence:** narrows the full no-dark-substance branch but does not close exploration of additional architecture components.
