@@ -5,9 +5,7 @@
 **Stage:** P0-Q modal/representation qualification  
 **Updated:** 2026-09-27
 
-## Durable generated results
-
-### Modal eigensystem known-truth suite
+## Modal eigensystem known-truth suite
 
 Path:
 `dark_sector_architecture/qualification/results/modal_known_truth_report.json`
@@ -26,7 +24,7 @@ Interpretation:
 - known-bad nonsymmetric tensor is refused;
 - no scientific eigengap threshold is frozen.
 
-### Weak-field tensor reconstruction suite
+## Weak-field comparator reconstruction suite
 
 Path:
 `dark_sector_architecture/qualification/results/weak_field_known_truth_report.json`
@@ -38,54 +36,175 @@ Cases:
 WF-01 through WF-04.
 
 Interpretation:
-- periodic spectral Hessian recovery passes;
-- trace-free tidal construction passes;
+- periodic continuum spectral Hessian recovery passes;
+- trace-free scalar tidal construction passes;
 - velocity divergence/shear recovery passes;
 - off-diagonal shear recovery passes;
-- this does not assert equivalence to the full electric Weyl tensor.
+- these objects are retained as comparator representations and are not relabeled as the native LATfield2 electric-Weyl tensor.
 
-## Pending durable results
+## gevolution real-field extraction
 
-The following files are created only after the pinned gevolution smoke workflow itself passes:
+Durable outputs:
+- `qualification/results/gevolution_modal_pilot_metadata.json`
+- `qualification/results/gevolution_modal_pilot_manifest.txt`
+- `qualification/results/gevolution_modal_extraction_summary.json`
 
-- `dark_sector_architecture/qualification/results/gevolution_modal_pilot_metadata.json`
-- `dark_sector_architecture/qualification/results/gevolution_modal_pilot_manifest.txt`
-- `dark_sector_architecture/qualification/results/gevolution_modal_extraction_summary.json`
+Status:
+**GENERATED / DURABLE**
 
-Current status:
-**PENDING GEVOlution SMOKE EXECUTION**
+The canonical CPU pairing is:
+- gevolution `0cca42e51a824002ae4fb602cbd79d671e8ffe60`;
+- LATfield2 `2d8c737ab6adc965a1d2718c209f5085af27b09c`.
 
-The workflow is required to:
-1. build exact pinned gevolution/LATfield2 revisions;
-2. generate the deterministic Gadget-2 template;
-3. run the frozen (8^3), (z=100	o99) smoke case;
-4. verify `phi`, `B`, `chi`, `hij`, and `v` HDF5 outputs;
-5. load real LATfield2 HDF5 `phi` and `v`;
-6. reconstruct weak-field tidal/shear tensors;
-7. diagonalize and summarize modal eigenstructure;
-8. upload raw small artifacts;
-9. commit metadata, manifest, and extraction summary back to this branch.
+The canonical historical `sc1_crystal.dat` particle template is used for real-field qualification.
+
+## Continuum fixed-band resolution chain
+
+Durable outputs include:
+- `qualification/results/q_r2_n8_n16_resolution_pair.json`
+- `qualification/results/q_r2_n16_n32_resolution_pair.json`
+- `qualification/results/q_r2_n32_n64_resolution_pair.json`
+- `qualification/results/q_r2_highres_n32_n64.json`
+- `qualification/results/q_r2_highres_n64_n128.json`
+- `qualification/results/q_r3_fixed_band_n32_n64_n128.json`
+- `qualification/results/highres_scalar_weyl_slip_n32.json`
+- `qualification/results/highres_scalar_weyl_slip_n64.json`
+- `qualification/results/highres_scalar_weyl_slip_n128.json`
+
+Status:
+**GENERATED / DURABLE / COMPARATOR-REPRESENTATION**
+
+Interpretation:
+- fixed physical support sharply improves scalar-Weyl convergence with resolution;
+- velocity-shear converges more slowly;
+- Development 010 shows that continuum FFT and native LATfield2 Weyl reconstructions differ materially on the full N64 grid;
+- therefore these continuum resolution results remain valid within their representation but do not by themselves qualify the native gevolution Weyl representation.
+
+## Electric-Weyl sector algebra
+
+Path:
+`qualification/results/electric_weyl_known_truth_report.json`
+
+Status:
+**GENERATED / DURABLE**
+
+Cases:
+EW-01 through EW-04.
+
+Interpretation:
+- scalar limit passes;
+- transverse vector coefficient/sign passes;
+- pure TT vacuum-wave coefficient/sign passes;
+- mixed scalar/vector/tensor linear superposition passes;
+- this qualifies the frozen algebra, not real-snapshot temporal derivatives by itself.
+
+## Temporal derivative known truth
+
+Path:
+`qualification/results/temporal_derivative_known_truth_report.json`
+
+Status:
+**GENERATED / DURABLE**
+
+Cases:
+TD-01 through TD-04.
+
+Interpretation:
+- arbitrary nonuniform conformal-time derivative weights pass;
+- nested inner/outer centered stencils pass;
+- no equal-spacing assumption is required;
+- the real temporal pilot uses full-precision actual `tau/boxsize`.
+
+## LATfield2/gevolution native operator known truth
+
+Path:
+`qualification/results/latfield2_native_operator_known_truth_report.json`
+
+Status:
+**GENERATED / DURABLE**
+
+Cases:
+NL-01 through NL-04.
+
+Interpretation:
+- native backward/forward derivatives reproduce direct periodic finite differences;
+- native lattice Laplacian reproduces the gevolution `gridk2` operator;
+- vector divergence and staggered symmetric gradient reproduce gevolution conventions;
+- tensor divergence and Laplacian reproduce gevolution staggering;
+- scalar native STF Hessian reproduces the gradient-then-staggered-gradient construction.
+
+## Real five-snapshot native electric-Weyl temporal pilot
+
+Paths:
+- `qualification/results/electric_weyl_temporal_snapshot_metadata.json`
+- `qualification/results/electric_weyl_temporal_pilot.json`
+
+Workflow:
+`36357082516` **SUCCESS**
+
+Frozen gate:
+`ELECTRIC_WEYL_TEMPORAL_QUALIFICATION_GATE.md`
+
+Current outcome:
+**REPRESENTATION_QUALIFIED_P0Q for the tested early N64 epoch**
+
+Key native result at (z\simeq98.9952):
+- vector/scalar Frobenius RMS: (8.66\times10^{-7});
+- tensor/scalar Frobenius RMS: (1.31\times10^{-6});
+- full-versus-scalar median relative tensor difference: (1.50\times10^{-6});
+- inner-versus-outer temporal-stencil median relative tensor difference: (2.37\times10^{-9});
+- native full-versus-scalar eigenframes are effectively identical at this epoch.
+
+Native constraints at the center snapshot:
+- (\max|\nabla\cdot B|/\max|\nabla\times B|\approx1.20\times10^{-14});
+- (\max|\nabla\cdot h|/\max|h|\approx3.00\times10^{-14});
+- (\max|\mathrm{tr}\,h|/\max|h|\approx5.23\times10^{-16}).
+
+## Native versus continuum representation comparison
+
+Status:
+**SIGNIFICANT DEVELOPMENT / FIXED-BAND FOLLOW-UP REQUIRED**
+
+On the full N64 grid:
+- scalar native-versus-continuum median relative tensor difference: approximately (0.562);
+- full native-versus-continuum median relative tensor difference: approximately (0.562);
+- vector median relative tensor difference: approximately (0.488);
+- tensor median relative tensor difference: approximately (0.0168).
+
+Interpretation:
+- continuum and native lattice reconstructions are not interchangeable on the full grid;
+- the discrepancy has not yet been decomposed into UV/staggering versus persistent common-band representation effects;
+- a native-lattice fixed-physical-band (N=32,64,128) ladder is required before modal preregistration activation.
 
 ## Pipeline source files
 
-- `qualification/modal_tensor.py`
+Primary native representation:
+- `qualification/latfield2_native_operators.py`
+- `qualification/electric_weyl.py`
+- `qualification/temporal_derivatives.py`
+- `qualification/run_electric_weyl_temporal_pilot.py`
+
+Comparator / supporting representation:
 - `qualification/weak_field_tensors.py`
-- `qualification/latfield_hdf5.py`
-- `qualification/extract_gevolution_modal_pilot.py`
-- `qualification/make_minimal_gadget_template.py`
+- `qualification/fourier_resolution.py`
+- `qualification/run_fixed_band_convergence.py`
 
-## Qualification tests
+## Qualification status
 
-- `test_modal_tensor_known_truth.py`
-- `test_weak_field_tensors.py`
-- `test_latfield_hdf5.py`
-- `test_extract_gevolution_modal_pilot.py`
+Qualified at P0-Q:
+- modal eigensystem machinery;
+- LATfield2 HDF5 semantics;
+- electric-Weyl sector algebra;
+- nonuniform temporal derivative machinery;
+- LATfield2/gevolution native spatial operators;
+- native full electric-Weyl representation at the tested early N64 epoch.
 
-## Workflow state
-
-- `.github/workflows/cosmology-modal-known-truth.yml`
-  - persists modal and weak-field JSON reports to the branch.
-- `.github/workflows/cosmology-gevolution-modal-pilot.yml`
-  - persists gevolution metadata/manifest/extraction summary to the branch.
+Still held:
+- native fixed-band resolution convergence;
+- universal or later-epoch scalar-dominance statements;
+- `PREG-MODAL-PA-1` activation;
+- Conglomerate/System promotion;
+- joint Scalar + Modal + Conglomerate promotion;
+- any P1 dark-sector claim.
 
 No P1 claim is activated by any result in this index.
