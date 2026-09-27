@@ -23,6 +23,8 @@ on:
       - 'dark_sector_architecture/qualification/test_fourier_resolution.py'
       - 'dark_sector_architecture/qualification/run_qr2_resolution_pair.py'
       - 'dark_sector_architecture/qualification/test_qr2_resolution_pair.py'
+      - 'dark_sector_architecture/qualification/run_scalar_weyl_slip_probe.py'
+      - 'dark_sector_architecture/qualification/test_scalar_weyl_slip_probe.py'
       - '.github/workflows/cosmology-modal-known-truth.yml'
   workflow_dispatch:
 
@@ -60,7 +62,8 @@ jobs:
             dark_sector_architecture/qualification/test_modal_convergence.py \
             dark_sector_architecture/qualification/test_modal_extraction_convergence.py \
             dark_sector_architecture/qualification/test_fourier_resolution.py \
-            dark_sector_architecture/qualification/test_qr2_resolution_pair.py
+            dark_sector_architecture/qualification/test_qr2_resolution_pair.py \
+            dark_sector_architecture/qualification/test_scalar_weyl_slip_probe.py
 
       - name: Generate machine-readable qualification reports
         run: |
