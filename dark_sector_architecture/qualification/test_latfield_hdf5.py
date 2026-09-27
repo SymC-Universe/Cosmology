@@ -14,6 +14,7 @@ if str(HERE) not in sys.path:
 from latfield_hdf5 import (
     dataset_names,
     load_scalar_field,
+    load_symmetric_tensor_field,
     load_vector_field,
     summarize_hdf5_field,
 )
@@ -106,3 +107,56 @@ def test_nonfinite_data_is_refused(tmp_path):
 
     with pytest.raises(ValueError, match="non-finite"):
         load_scalar_field(path)
+
+
+
+def test_symmetric_tensor_component_order_is_restored(tmp_path):
+    nx, ny, nz = 4, 3, 2
+    logical = np.zeros((nx, ny, nz, 3, 3), dtype=float)
+
+    logical[..., 0, 0] = 11.0
+    logical[..., 0, 1] = 12.0
+    logical[..., 1, 0] = 12.0
+    logical[..., 0, 2] = 13.0
+    logical[..., 2, 0] = 13.0
+    logical[..., 1, 1] = 22.0
+    logical[..., 1, 2] = 23.0
+    logical[..., 2, 1] = 23.0
+    logical[..., 2, 2] = 33.0
+
+    components = np.stack(
+        [
+            logical[..., 0, 0],
+            logical[..., 0, 1],
+            logical[..., 0, 2],
+            logical[..., 1, 1],
+            logical[..., 1, 2],
+            logical[..., 2, 2],
+        ],
+        axis=-1,
+    )
+    stored = np.transpose(components, (2, 1, 0, 3))
+
+    path = tmp_path / "tensor.h5"
+    tensor_dtype = np.dtype((np.float64, (6,)))
+    with h5py.File(path, "w") as handle:
+        dataset = handle.create_dataset(
+            "data", shape=(nz, ny, nx), dtype=tensor_dtype
+        )
+        dataset[...] = stored
+
+    restored = load_symmetric_tensor_field(path)
+    np.testing.assert_array_equal(restored, logical)
+
+
+def test_wrong_symmetric_tensor_component_count_is_refused(tmp_path):
+    path = tmp_path / "bad_tensor.h5"
+    tensor_dtype = np.dtype((np.float64, (5,)))
+    with h5py.File(path, "w") as handle:
+        dataset = handle.create_dataset(
+            "data", shape=(2, 2, 2), dtype=tensor_dtype
+        )
+        dataset[...] = np.zeros((2, 2, 2, 5))
+
+    with pytest.raises(ValueError, match="expected 6 components"):
+        load_symmetric_tensor_field(path)
