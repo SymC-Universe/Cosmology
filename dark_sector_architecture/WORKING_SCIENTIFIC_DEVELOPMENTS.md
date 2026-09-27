@@ -180,3 +180,132 @@ If all viable candidates remain constrained, tiny, radiation-like, curvature-lik
 - forthcoming `STAGE_A_PRIMORDIAL_CARRIER_CONGLOMERATION.md`
 
 **Status:** Paused at scientific development. Next valid action is the source-sufficiency pass.
+
+
+---
+
+## Development 003 - Inheritance Extends Across Scalar, Modal, and Conglomerate Layers
+
+**Date:** 2026-09-27  
+**GitHub checkpoint before entry:** `7d79d66494fa630d1dba7a6b34301a8c46b93797`
+
+### Scientific development
+
+The scalar-only interpretation of Development 002 was incomplete.
+
+The literature shows that primordial inheritance can be represented at all three currently admitted SymC starting layers:
+
+1. **Scalar:** gauge-invariant curvature variables such as (zeta) and (mathcal R) carry compressed adiabatic large-scale information.
+2. **Vector/Modal:** the primordial perturbation state has a regular mode basis containing adiabatic and isocurvature directions. These modes are propagated through the Einstein-Boltzmann system by scale- and time-dependent transfer dynamics.
+3. **Conglomerate/System:** the realized primordial state is described not only by individual mode amplitudes but by their auto- and cross-correlations. The matrix-valued primordial power spectrum is transported into later observables through the mode transfer functions.
+
+Therefore cosmological inheritance is not adequately represented by one conserved scalar.
+
+### Triggering evidence
+
+- Bucher, Moodley & Turok derive the regular primordial scalar-mode basis: adiabatic, baryon-isocurvature, CDM-isocurvature, neutrino-density-isocurvature, and neutrino-velocity-isocurvature modes.
+- The most general Gaussian primordial scalar state is represented by a symmetric matrix-valued power spectrum (P_{ij}(k)) containing modal auto- and cross-correlations.
+- CMB observables are obtained by applying mode-specific transfer functions to the primordial mode organization. Schematically,
+  [
+  mathbf x(k,a_2)=mathbf T(k;a_2,a_1)mathbf x(k,a_1),
+  ]
+  and, for the modal covariance,
+  [
+  mathbf P(k,a_2)
+  =
+  mathbf T(k),
+  mathbf P(k,a_1),
+  mathbf T^dagger(k)
+  ]
+  where the linear state representation and conventions make this expression applicable.
+- Planck polarization strongly constrains the observed primordial organization toward the adiabatic subspace, with percent-level upper limits on several non-adiabatic contributions.
+- Nadkarni-Ghosh & Refregier show that the Einstein-Boltzmann generator itself changes eigenstructure over the (k-a) plane, so the inherited state is dynamically reorganized rather than carried as a single fixed scalar.
+- A direct primordial-medium eigenmode analysis identifies a strongly acoustic baryon-radiation mode and a distinct gravitational-collapse mode dominated by the pressureless component in the standard matter content.
+
+### Joint-meaning consequence
+
+The appropriate Stage A picture is now
+
+[
+oxed{
+	ext{scalar projection}
+leftrightarrow
+	ext{modal organization}
+leftrightarrow
+	ext{conglomerate transfer/correlation structure}
+}
+]
+
+rather than
+
+[
+	ext{scalar carrier}
+ightarrow
+	ext{everything else}.
+]
+
+Within the adiabatic regime, (zeta/mathcal R) can be understood as a compressed scalar description of one organized direction of the primordial state. The later realized behavior depends on the full modal participation and conglomerate coupling.
+
+This is a direct example of the GOM requirement that scalar properties can survive while changing meaning after coupling.
+
+### Reframing of the pre-recombination residual
+
+The early dark-matter problem is more accurately a **modal-function problem**.
+
+The standard primordial system contains:
+- oscillatory/acoustic photon-baryon modes;
+- free-streaming neutrino response;
+- and, when a pressureless CDM component is present, a comparatively non-acoustic gravitational-growth/collapse mode.
+
+The residual is therefore not merely whether a scalar metric potential can be maintained.
+
+It is:
+
+> Can the native GR architecture realize the required persistent non-acoustic gravitational mode through modal or conglomerate organization without tying that function to a material cold-dark-matter degree of freedom?
+
+### Claim ceiling after development
+
+Supported:
+- primordial inheritance has a scalar representation;
+- primordial inheritance has a modal representation;
+- primordial inheritance has a conglomerate/correlation representation;
+- linear transfer dynamics supply an explicit transformation law connecting early modal organization to later observables;
+- the observed primordial conglomerate is strongly adiabatic-dominated;
+- modal reorganization across (k) and (a) is established.
+
+Not supported:
+- that the pressureless gravitational mode is realizable without a material CDM degree of freedom;
+- that scalar, modal, or conglomerate inheritance alone replaces the dark-matter function;
+- that the three current starting representations exhaust cosmological (Chi);
+- that any primordial scalar or modal object qualifies as lower-case (chi) without a licensed stability-coordinate derivation.
+
+### Exact restart point
+
+Continue Stage A with a **modal/conglomerate source-sufficiency pass**, not a scalar-only pass.
+
+Test whether a persistent non-acoustic gravitational branch can arise from:
+- nonlinear scalar-mode coupling;
+- Weyl/shear/tidal organization;
+- covariant macroscopic-gravity correlation modes;
+- non-Markovian/coarse-grained collective modes;
+- scalar-vector-tensor coupling beyond linear order;
+- constraint-induced collective modes;
+- or an additional architecture component not represented by the current scalar/modal/conglomerate starting basis.
+
+For each candidate, preserve:
+- native degrees of freedom;
+- modal spectrum/subspace;
+- participation structure;
+- relation to scalar observables;
+- conglomerate coupling;
+- transfer across equality/recombination;
+- observational signature;
+- and whether the candidate is a physical mode, constrained response, effective rewriting, or genuinely new system function.
+
+### Linked artifacts
+
+- `STAGE_A_THREE_REPRESENTATION_CONGLOMERATION.md`
+- `STAGE_A_PRIMORDIAL_MODAL_CONGLOMERATE_SYNTHESIS.md`
+- `STAGE_A_PRIMORDIAL_CARRIER_CONGLOMERATION.md`
+
+**Status:** Paused at scientific development. The next valid action is the modal/conglomerate source-sufficiency pass.
