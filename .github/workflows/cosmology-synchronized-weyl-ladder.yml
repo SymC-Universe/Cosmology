@@ -305,6 +305,14 @@ jobs:
             exit 0
           fi
           git commit -m "Persist synchronized scalar-Weyl resolution ladder"
-          git fetch origin dark-sector-stability-architecture
-          git rebase origin/dark-sector-stability-architecture
-          git push origin HEAD:dark-sector-stability-architecture
+          for attempt in 1 2 3 4 5; do
+            git fetch origin dark-sector-stability-architecture
+            git rebase origin/dark-sector-stability-architecture
+            if git push origin HEAD:dark-sector-stability-architecture; then
+              exit 0
+            fi
+            echo "Push race on attempt $attempt; retrying."
+            sleep 2
+          done
+          echo "Unable to persist synchronized reports after retries." >&2
+          exit 1
