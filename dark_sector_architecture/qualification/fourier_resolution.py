@@ -192,3 +192,88 @@ def spectral_restrict_vector_to_grid(
         [spectral_restrict_to_grid(vel[i], target_n) for i in range(3)],
         axis=0,
     )
+
+
+
+def spectral_project_scalar_to_modes(
+    field: np.ndarray,
+    target_n: int,
+    modes: list[tuple[int, int, int]],
+    keep_zero: bool = True,
+) -> np.ndarray:
+    """Project a cubic scalar field onto an explicit signed-mode set.
+
+    Supports source_n == target_n or integer refinement. Coefficients are
+    normalized before transfer so equal continuous Fourier modes remain
+    comparable across grid sizes.
+    """
+    source = np.asarray(field, dtype=float)
+    if source.ndim != 3 or len(set(source.shape)) != 1:
+        raise ValueError("source must be a cubic 3D scalar grid")
+    if not np.all(np.isfinite(source)):
+        raise ValueError("source must be finite")
+    source_n = source.shape[0]
+    if target_n > source_n or source_n % target_n != 0:
+        raise ValueError("target_n must equal source_n or be an integer divisor")
+    if target_n % 2 != 0:
+        raise ValueError("target_n must be even")
+
+    source_ft = normalized_fft(source)
+    target_ft = np.zeros((target_n, target_n, target_n), dtype=complex)
+    if keep_zero:
+        target_ft[0, 0, 0] = coefficient_at(source_ft, (0, 0, 0))
+
+    for mode in modes:
+        if mode == (0, 0, 0):
+            continue
+        target_ft[
+            _mode_index(target_n, mode[0]),
+            _mode_index(target_n, mode[1]),
+            _mode_index(target_n, mode[2]),
+        ] = coefficient_at(source_ft, mode)
+
+    return np.fft.ifftn(target_ft * (target_n ** 3)).real
+
+
+def spectral_project_vector_to_modes(
+    vector: np.ndarray,
+    target_n: int,
+    modes: list[tuple[int, int, int]],
+    keep_zero: bool = True,
+) -> np.ndarray:
+    vec = np.asarray(vector, dtype=float)
+    if vec.ndim != 4 or vec.shape[0] != 3:
+        raise ValueError("vector must have shape (3,N,N,N)")
+    return np.stack(
+        [
+            spectral_project_scalar_to_modes(
+                vec[i], target_n, modes, keep_zero=keep_zero
+            )
+            for i in range(3)
+        ],
+        axis=0,
+    )
+
+
+def spectral_project_tensor_to_modes(
+    tensor: np.ndarray,
+    target_n: int,
+    modes: list[tuple[int, int, int]],
+    keep_zero: bool = True,
+) -> np.ndarray:
+    arr = np.asarray(tensor, dtype=float)
+    if arr.ndim != 5 or arr.shape[-2:] != (3, 3):
+        raise ValueError("tensor must have shape (N,N,N,3,3)")
+    n = arr.shape[0]
+    if arr.shape[:3] != (n, n, n):
+        raise ValueError("tensor spatial grid must be cubic")
+    out = np.empty((target_n, target_n, target_n, 3, 3), dtype=float)
+    for i in range(3):
+        for j in range(3):
+            out[..., i, j] = spectral_project_scalar_to_modes(
+                arr[..., i, j],
+                target_n,
+                modes,
+                keep_zero=keep_zero,
+            )
+    return out
