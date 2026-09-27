@@ -3,9 +3,11 @@
 This script assumes two gevolution runs with the same box, cosmology, seed,
 template family, and output epoch, but different Ngrid. It first measures
 Fourier phase compatibility on modes actively initialized by the low grid.
-It then spectrally restricts the high-grid phi and velocity fields to the
-low-grid Fourier support and applies the same low-grid extraction operator to
-both fields.
+It then spectrally restricts the high-grid fields to the low-grid Fourier
+support and applies the same low-grid extraction operator to both fields.
+
+When gevolution chi = Phi - Psi is supplied, the report also compares the
+first-order scalar Weyl/lensing potential Phi - chi/2 and its STF Hessian.
 
 No scientific pass/fail threshold is imposed.
 """
@@ -37,7 +39,11 @@ from modal_convergence import (
     quantile_summary,
     tensor_operator_error,
 )
-from weak_field_tensors import (\n    scalar_weyl_shape_tensor,\n    velocity_shear_tensor,\n    weak_field_tidal_tensor,\n)
+from weak_field_tensors import (
+    scalar_weyl_shape_tensor,
+    velocity_shear_tensor,
+    weak_field_tidal_tensor,
+)
 
 
 def _field_difference(reference: np.ndarray, candidate: np.ndarray) -> dict:
@@ -115,15 +121,28 @@ def build_report(
     high_phi_path: pathlib.Path,
     high_velocity_path: pathlib.Path,
     boxsize: float,
+    low_chi_path: pathlib.Path | None = None,
+    high_chi_path: pathlib.Path | None = None,
 ) -> dict:
     low_phi = load_scalar_field(low_phi_path)
     low_velocity = load_vector_field(low_velocity_path)
     high_phi = load_scalar_field(high_phi_path)
     high_velocity = load_vector_field(high_velocity_path)
-    low_chi = load_scalar_field(low_chi_path) if low_chi_path is not None else None
-    high_chi = load_scalar_field(high_chi_path) if high_chi_path is not None else None
+
+    low_chi = (
+        load_scalar_field(low_chi_path)
+        if low_chi_path is not None
+        else None
+    )
+    high_chi = (
+        load_scalar_field(high_chi_path)
+        if high_chi_path is not None
+        else None
+    )
     if (low_chi is None) != (high_chi is None):
-        raise ValueError("low_chi_path and high_chi_path must be provided together")
+        raise ValueError(
+            "low_chi_path and high_chi_path must be provided together"
+        )
 
     low_n = low_phi.shape[0]
     high_n = high_phi.shape[0]
@@ -161,7 +180,9 @@ def build_report(
     )
 
     low_tidal = weak_field_tidal_tensor(low_phi, boxsize)
-    high_tidal_common = weak_field_tidal_tensor(high_phi_restricted, boxsize)
+    high_tidal_common = weak_field_tidal_tensor(
+        high_phi_restricted, boxsize
+    )
 
     low_shear, low_theta = velocity_shear_tensor(low_velocity, boxsize)
     high_shear_common, high_theta_common = velocity_shear_tensor(
@@ -175,7 +196,9 @@ def build_report(
         high_weyl_potential_common = (
             high_phi_restricted - 0.5 * high_chi_restricted
         )
-        low_scalar_weyl = scalar_weyl_shape_tensor(low_phi, low_chi, boxsize)
+        low_scalar_weyl = scalar_weyl_shape_tensor(
+            low_phi, low_chi, boxsize
+        )
         high_scalar_weyl_common = scalar_weyl_shape_tensor(
             high_phi_restricted, high_chi_restricted, boxsize
         )
@@ -185,6 +208,7 @@ def build_report(
         scalar_weyl_comparison = _tensor_difference(
             low_scalar_weyl, high_scalar_weyl_common
         )
+
         phase["chi_gev"] = phase_overlap_report(low_chi, high_chi)
         phase["weyl_potential"] = phase_overlap_report(
             low_weyl_potential,
@@ -207,9 +231,9 @@ def build_report(
         "phase_overlap": phase,
         "common_grid_comparison": {
             "definition": (
-                "spectrally restrict high-grid phi/velocity onto low-grid "
-                "non-Nyquist Fourier support; reconstruct both low and restricted "
-                "high tensors with the identical low-grid operator"
+                "spectrally restrict high-grid fields onto low-grid "
+                "non-Nyquist Fourier support; reconstruct both low and "
+                "restricted-high tensors with the identical low-grid operator"
             ),
             "phi": _field_difference(low_phi, high_phi_restricted),
             "velocity_components": [
@@ -228,7 +252,8 @@ def build_report(
             "development pair only; no P1 claim",
             "same-seed phase compatibility is measured rather than assumed",
             "common-grid comparison removes high-only Fourier modes before tensor reconstruction",
-            "weak-field scalar tidal Hessian is not asserted to equal full electric Weyl curvature",\n            "scalar_weyl_shape, when present, includes gevolution slip but still omits vector/tensor electric-Weyl sectors",
+            "weak-field Phi-only tidal Hessian is not asserted to equal full electric Weyl curvature",
+            "scalar_weyl_shape, when present, includes gevolution slip but still omits vector/tensor electric-Weyl sectors",
             "no universal resolution or directional threshold is inferred from this pair",
         ],
     }
@@ -240,6 +265,8 @@ def main() -> None:
     parser.add_argument("--low-velocity", required=True)
     parser.add_argument("--high-phi", required=True)
     parser.add_argument("--high-velocity", required=True)
+    parser.add_argument("--low-chi")
+    parser.add_argument("--high-chi")
     parser.add_argument("--boxsize", type=float, required=True)
     parser.add_argument("--output", required=True)
     args = parser.parse_args()
@@ -255,7 +282,9 @@ def main() -> None:
     )
     path = pathlib.Path(args.output)
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(report, indent=2, sort_keys=True) + "\n")
+    path.write_text(
+        json.dumps(report, indent=2, sort_keys=True) + "\n"
+    )
     print(
         json.dumps(
             {
