@@ -772,3 +772,156 @@ Move to the **Electric-Weyl Representation Gate**:
 - `WORKING_INVESTIGATION.md`
 
 **Status:** Paused at scientific development. Next valid action is the full electric-Weyl representation gate.
+
+
+---
+
+## Development 009 - Full Electric-Weyl Temporal Pilot Resolves a Tiny Early Vector/Tensor Correction, but Native Lattice Derivative Consistency Remains Open
+
+**Date:** 2026-09-27  
+**Triggering workflow:** run 36355936564, PASS  
+**Frozen gate:** ELECTRIC_WEYL_TEMPORAL_QUALIFICATION_GATE.md
+
+### Scientific development
+
+The first real five-snapshot scalar + vector + tensor electric-Weyl temporal
+pilot completed successfully at \(N=64\), box \(64\,\mathrm{Mpc}/h\), seed
+424242, around \(z\simeq98.9952\).
+
+The pilot used:
+- gevolution 1.3 with the canonical CPU LATfield2 v1.1 backend;
+- the canonical gevolution crystal particle template;
+- TENSOR_EVOLUTION;
+- a qualification-only snapshot patch that writes the dynamically evolved
+  \(h_{ij}\), not the ordinary instantaneous TT source projection;
+- five distinct cycles 10, 15, 20, 25, 30;
+- full-precision actual conformal times \(\tau/L\);
+- nested arbitrary-node temporal stencils.
+
+Actual snapshot redshifts were:
+
+\[
+99.4963,\ 99.2454,\ 98.9952,\ 98.7455,\ 98.4965.
+\]
+
+### Temporal derivative result
+
+The inner and outer derivative estimates are highly consistent:
+
+- \(B'_i\) inner/outer relative RMS difference:
+  \(1.54\times10^{-4}\);
+- \(h''_{ij}\) inner/outer relative RMS difference:
+  \(3.25\times10^{-3}\);
+- full-electric-Weyl inner/outer median relative tensor difference:
+  \(2.09\times10^{-9}\);
+- full-electric-Weyl inner/outer median error/eigengap diagnostics:
+  approximately \(2.43\times10^{-9}\) and \(2.44\times10^{-9}\);
+- inner/outer eigenframe median diagonal alignment is numerically 1.0.
+
+Thus temporal discretization is not the limiting uncertainty in this early
+pilot.
+
+### Scalar versus full electric-Weyl result
+
+At the central epoch, relative Frobenius amplitudes are:
+
+\[
+\frac{\|E^{(V)}\|}{\|E^{(S)}\|}
+\approx 8.00\times10^{-7},
+\]
+
+\[
+\frac{\|E^{(T)}\|}{\|E^{(S)}\|}
+\approx 1.16\times10^{-6}.
+\]
+
+The full-versus-scalar median relative tensor-operator difference is
+
+\[
+1.35\times10^{-6}.
+\]
+
+The corresponding median error/eigengap diagnostics are approximately
+
+\[
+1.57\times10^{-6}
+\]
+
+for both adjacent eigenvalue pairs, while the eigenframes remain essentially
+identical:
+median diagonal alignments exceed \(0.9999999999995\).
+
+The vector/tensor correction is therefore tiny at this early epoch but is
+resolved far above the demonstrated inner/outer temporal-stencil uncertainty.
+
+### Important unresolved native-operator issue
+
+The current post-processing divergence checks use continuum FFT derivatives.
+gevolution constructs and projects its transverse vector and TT tensor sectors
+with a discrete lattice derivative defined by its native Fourier kshift
+operator.
+
+Therefore the raw continuum-derivative divergence residuals cannot yet be used
+to adjudicate whether the stored \(B_i\) and \(h_{ij}\) satisfy the native
+transversality/TT gate.
+
+This is also relevant to strict native-model-first reconstruction of the vector
+and tensor spatial derivative terms in the electric-Weyl tensor.
+
+### Current gate outcome
+
+\[
+\boxed{\text{NEED\_MORE\_INFO}}
+\]
+
+not REFUSED and not yet REPRESENTATION_QUALIFIED_P0Q.
+
+Reason:
+- temporal qualification is strong;
+- the vector/tensor correction is finite and temporally stable;
+- but the spatial derivative operator must be made consistent with gevolution's
+  native lattice representation before the full electric-Weyl representation
+  is promoted.
+
+### Consequence
+
+This result does **not** collapse the investigation to the scalar sector.
+
+Instead it establishes an early-epoch limit-map result:
+
+\[
+E_{\rm full}
+\approx
+E_{\rm scalar}
+\]
+
+to roughly the \(10^{-6}\) level in the tested regime, while preserving the
+modal vector/tensor sectors explicitly.
+
+Whether those sectors remain negligible at later epochs or in more nonlinear
+regimes is open.
+
+### Exact restart point
+
+1. implement the gevolution/LATfield2 native lattice derivative operator;
+2. validate it against analytic lattice modes and gevolution's own transverse
+   projection convention;
+3. re-evaluate \(B_i\) divergence and \(h_{ij}\) TT residuals from the persisted
+   five-snapshot fields;
+4. reconstruct the vector/tensor electric-Weyl spatial derivatives with the
+   same native operator;
+5. compare native-lattice and continuum reconstructions;
+6. adjudicate the frozen temporal qualification gate;
+7. if P0-Q qualified, return to modal preregistration activation assessment
+   while keeping shear and Conglomerate/Joint gates separate.
+
+### Linked artifacts
+
+- ELECTRIC_WEYL_CONVENTION_MAP.md
+- ELECTRIC_WEYL_TEMPORAL_QUALIFICATION_GATE.md
+- qualification/results/electric_weyl_known_truth_report.json
+- qualification/results/temporal_derivative_known_truth_report.json
+- qualification/results/electric_weyl_temporal_snapshot_metadata.json
+- qualification/results/electric_weyl_temporal_pilot.json
+
+**Status:** Paused at scientific development. Next valid action is native-lattice derivative qualification.
