@@ -89,44 +89,26 @@ jobs:
           python - <<'PY'
           from pathlib import Path
 
-          common = """IC generator = basic
-template file = qr2_template.dat
-Tk file = class_tk.dat
-baryon treatment = ignore
-seed = 424242
-correct displacement = yes
-k-domain = sphere
-
-k_pivot = 0.05
-A_s = 2.215e-9
-n_s = 0.9619
-
-h = 0.67556
-omega_b = 0.022032
-omega_cdm = 0.12038
-T_cmb = 2.7255
-N_ur = 3.046
-
-initial redshift = 100.0
-boxsize = 64.0
-Courant factor = 12.0
-time step limit = 0.04
-gravity theory = GR
-vector method = parabolic
-
-snapshot redshifts = 99
-snapshot outputs = phi, v
-"""
+          base = Path(
+              "dark_sector_architecture/qualification/gevolution_modal_pilot.ini"
+          ).read_text()
 
           def settings(n, tiling, tag):
-              return (
-                  common
-                  + f"tiling factor = {tiling}\n"
-                  + f"Ngrid = {n}\n"
-                  + f"output path = ../qr2_{tag}_output/\n"
-                  + f"generic file base = qr2_{tag}\n"
-                  + f"snapshot file base = qr2_{tag}_snap\n"
-              )
+              text = base
+              replacements = {
+                  "template file = pilot_template.dat": "template file = qr2_template.dat",
+                  "tiling factor = 2": f"tiling factor = {tiling}",
+                  "Ngrid = 8": f"Ngrid = {n}",
+                  "output path = ../pilot_output/": f"output path = ../qr2_{tag}_output/",
+                  "generic file base = modalpilot": f"generic file base = qr2_{tag}",
+                  "snapshot file base = modalpilot_snap": f"snapshot file base = qr2_{tag}_snap",
+                  "Pk file base = modalpilot_pk": f"Pk file base = qr2_{tag}_pk",
+              }
+              for old, new in replacements.items():
+                  if old not in text:
+                      raise SystemExit(f"missing expected settings token: {old}")
+                  text = text.replace(old, new, 1)
+              return text
 
           Path("gevolution/qr2_n8.ini").write_text(settings(8, 2, "n8"))
           Path("gevolution/qr2_n16.ini").write_text(settings(16, 4, "n16"))
