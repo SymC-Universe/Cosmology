@@ -2,7 +2,7 @@
 
 **Project:** Cosmic Stability Architecture  
 **Branch:** `dark-sector-stability-architecture`  
-**Current stage:** P0-Q local electric-Weyl eigensystem requalification after tensor co-location QUALIFIED; co-located N32/N64/N128 fixed-band workflow 36365508065 active; P1 unopened  
+**Current stage:** P0-Q material-patch / grid-to-particle interpolation qualification after local electric-Weyl eigensystem requalification; P1 unopened  
 **Current scientific state:** The bounded nonperturbative/additional-architecture pass is complete. The full no-dark-substance route is UNSUPPORTED_AT_CURRENT_STAGE under the frozen literature rules, not falsified. The active branch is now the partial architecture; the full route remains open only in P0-D for genuinely new future candidates.
 
 ## Frozen objects
@@ -23,15 +23,16 @@ Scalar, Vector/Modal, and Conglomerate/System are starting representations only.
 
 ## Active Plan / APQ state
 
-- **Active Plan:** Development 015 local-Weyl representation repair.
-- **Co-location gate:** `TENSOR_COLOCATION_QUALIFIED_P0Q`; TC-01 through TC-08 pass under frozen `TENSOR_COLOCATION_QUALIFICATION_PLAN_v0.1.md`.
-- **Co-location freeze commit:** `c32931c3f2ae7c51b5a82811a2c83a34ef8d3a72`.
-- **Focused local-Weyl plan:** `COLOCATED_WEYL_FIXED_BAND_REQUALIFICATION_PLAN_v0.1.md`, freeze commit `6acc0d4868d0574c4041eeaec53426efdfe3f290`.
-- **Active workflow:** `36365508065`, N32/N64/N128 early fixed-band requalification.
-- **Representation hold:** `WEYL_COMPONENT_FIELDS_P0Q = QUALIFIED`; `LOCAL_WEYL_EIGENSYSTEM_P0Q = NEED_MORE_INFO` until workflow adjudication.
+- **Development 016 outcome:** `LOCAL_WEYL_EIGENSYSTEM_P0Q = QUALIFIED` after frozen tensor co-location and N32/N64/N128 fixed-band requalification.
+- **Co-location gate:** `TENSOR_COLOCATION_QUALIFIED_P0Q`; TC-01 through TC-08 pass.
+- **Co-located Weyl gate:** `COLOCATED_LOCAL_WEYL_QUALIFIED_P0Q`; decisive workflow `36365508065` SUCCESS.
+- **Preserved exception:** tiny tensor-sector native-versus-continuum comparison remains `NEED_MORE_INFO`; it is not hidden inside the total.
 - **Velocity-shear state:** corrected centered gevolution velocity shear is vertex-centered and `QUALIFIED_P0Q` after Development 013.
+- **Particle lineage:** stable particle-ID lineage is already qualified after Development 014.
+- **Active dependency:** qualify deterministic interpolation of co-located E and corrected centered sigma from the vertex grid to identical tracked particle/material locations, then qualify non-overlapping material-patch aggregation/eigensystems.
+- **Primary development domain after qualification:** Band L `0<|n|<4`, preferred first window `z~2 -> z~1 -> z~0.5`.
 - **APQ lineage:** `PREG_MODAL_PA1_APQ3_PLAN_PACKET.md` and `PREG_MODAL_PA1_APQ3_ADJUDICATION.md` remain authoritative upstream records.
-- **P1 exposure:** none; prohibited until local Weyl eigensystems requalify and downstream preregistration freezes complete.
+- **P1 exposure:** none; prohibited until material-patch development and final modal preregistration freeze are complete.
 ## Current Stage A literature state
 
 ### Admitted foundations
@@ -106,41 +107,39 @@ See `LITERATURE_EXPLORATION_QUEUE.md`.
 
 ## Latest scientific development
 
-**Development 015: gevolution's native tensor components are staggered and must be co-located before a local electric-Weyl eigensystem is physically meaningful.**
+**Development 016: tensor co-location repairs and requalifies the local electric-Weyl eigensystem.**
 
-Source inspection confirms diagonal tensor components live on the vertex lattice while off-diagonal components live at ij-plaquette centers offset by half a cell in the two corresponding directions. The native scalar Hessian, vector symmetric-gradient, and h_ij tensor sector share this tensor staggering consistently.
-
-Therefore the componentwise electric-Weyl equations remain native and valid, but a raw six-component array entry is not yet a co-located local 3x3 tensor. Finite-resolution eigenvalues, eigenframes, eigengaps, local matrix norms, and the planned E-sigma commutator/eigenframe relation must be requalified after co-location.
-
-Current status:
+The frozen vertex co-location operator passes TC-01 through TC-08 and the focused N32/N64/N128 co-located Weyl ladder passes the frozen local-eigensystem gate.
 
 \[
-\boxed{\text{WEYL\_COMPONENT\_FIELDS\_P0Q = QUALIFIED}}
+\boxed{\text{TENSOR\_COLOCATION\_QUALIFIED\_P0Q}}
 \]
 
 and
 
 \[
-\boxed{\text{LOCAL\_WEYL\_EIGENSYSTEM\_P0Q = NEED\_MORE\_INFO}}.
+\boxed{\text{LOCAL\_WEYL\_EIGENSYSTEM\_P0Q = QUALIFIED}}.
 \]
 
-The corrected centered velocity-shear tensor is already vertex-centered and remains qualified.
+For full Weyl, median relative resolution error improves from 0.2740 to 0.07671 and q95 from 0.5798 to 0.1504. Median eigenframe alignment improves to approximately (0.999669, 0.999277, 0.999671) at N64->N128, with q05 approximately (0.99424, 0.98855, 0.99465).
 
-No late-time E-sigma predictive outcome has been exposed.
+Native-versus-continuum full/scalar median discrepancy collapses 0.42873 -> 0.11027 -> 0.027578 on the frozen common band. The tensor sector remains a preserved comparator-specific NEED_MORE_INFO exception: its N128 native/continuum discrepancy 0.02629 remains above its native N64->N128 resolution error 0.01737.
 
-Detailed stop record: `WORKING_SCIENTIFIC_DEVELOPMENTS.md`.
+Pre-co-location raw-index local eigensystem interpretations are superseded. Componentwise native Weyl field results remain qualified.
+
+Detailed record: `COLOCATED_WEYL_FIXED_BAND_REQUALIFICATION_ADJUDICATION.md` and Development 016 in `WORKING_SCIENTIFIC_DEVELOPMENTS.md`.
 ## Next exact action
 
-Resume exactly from Development 015. Do not return to the already-completed broad APQ residual search as the active blocker.
+Proceed to the material-patch / interpolation dependency without exposing P1.
 
-1. verify no existing tensor-co-location preregistration or implementation already supersedes this checkpoint;
-2. freeze the co-location qualification plan before inspecting co-located outcomes;
-3. implement vertex co-location for native staggered tensor fields: diagonal components pass through, off-diagonal `T_ij` use the four-point periodic average over `(x, x-e_i, x-e_j, x-e_i-e_j)`;
-4. qualify the operator analytically, including periodic boundaries, symmetry preservation, Fourier stagger-phase removal, expected `cos(k_i Delta/2) cos(k_j Delta/2)` attenuation, second-order recovery on smooth known truths, and explicit near-Nyquist filtering rather than inversion;
-5. rerun the focused N32/N64/N128 fixed-physical-band Weyl qualification using co-located local tensors before any eigensystem, matrix norm, or E-sigma relational calculation;
-6. re-evaluate native-versus-continuum modal agreement after both representations are co-located to the same physical lattice;
-7. if the local Weyl eigensystem requalifies, proceed to material-patch interpolation with stable particle lineage in the Development 014 Band L / z~2 -> 1 -> 0.5 development window;
-8. keep P1 closed throughout this repair and preserve Conglomerate/System, joint, inheritance, and P0-D exploration gates regardless of outcome.
+1. verify no existing material-patch interpolation plan or implementation already supersedes this checkpoint;
+2. freeze the grid-to-particle and material-patch qualification plan before inspecting real late-time E-sigma patch outcomes;
+3. qualify periodic trilinear interpolation of vertex-centered tensor fields to particle positions on analytic known truths, including boundary wrapping, symmetry, linearity, and convergence;
+4. use stable particle IDs to define reproducible non-overlapping material patches without outcome-dependent regrouping;
+5. qualify patch tensor aggregation and patch eigensystem recovery on known truths, including near-degenerate refusal/subspace handling;
+6. only after those gates pass, apply co-located E and corrected centered sigma to the same tracked particles/patches in Development 014 Band L `0<|n|<4`;
+7. use the preferred first development window `z~2 -> z~1 -> z~0.5` and seed 424242 only as P0-Q development evidence;
+8. do not open untouched P1 realizations until the parent APQ-3 claim/comparator/falsifier/decision rules are finally frozen.
 ## Resume pointers
 
 - `PREG_LIT_COSMO_V1_FREEZE.md`
