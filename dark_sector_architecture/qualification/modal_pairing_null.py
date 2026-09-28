@@ -27,7 +27,7 @@ def wasserstein_1d(x: np.ndarray, y: np.ndarray) -> float:
     qb = np.linspace(0.0, 1.0, len(b), endpoint=True)
     ai = np.interp(q, qa, a)
     bi = np.interp(q, qb, b)
-    return float(np.trapz(np.abs(ai - bi), q))
+    return float(np.trapezoid(np.abs(ai - bi), q))
 
 
 def normalized_commutator_field(
