@@ -2087,3 +2087,108 @@ P1 remains unopened.
 - `WORKING_INVESTIGATION.md`
 
 **Status:** Representation repair complete. Continue to material-patch/interpolation P0-Q qualification without exposing P1.
+
+
+---
+
+## Development 017 - Material-Patch Tensor Interpolation and Frozen Particle Membership Qualify
+
+**Date:** 2026-09-27  
+**Frozen plan:** `MATERIAL_PATCH_INTERPOLATION_QUALIFICATION_PLAN_v0.1.md`  
+**Frozen plan commit:** `bf515b294f3f3b725a361c59177fbb083e201c21`  
+**First integrated run:** `36365910881`, FAILURE at MP-02 test harness  
+**Decisive repaired run:** `36366019003`, SUCCESS  
+**Adjudication:** `MATERIAL_PATCH_INTERPOLATION_QUALIFICATION_ADJUDICATION.md`
+
+### Scientific / methodological development
+
+The deterministic machinery required to put co-located electric-Weyl and corrected centered velocity-shear tensors onto the same tracked material locations has passed P0-Q known-truth qualification.
+
+[
+oxed{	ext{MATERIAL_PATCH_INTERPOLATION_QUALIFIED_P0Q}}
+]
+
+The qualified chain is now:
+
+[
+	ext{vertex tensor field}
+ightarrow
+	ext{periodic trilinear component interpolation}
+ightarrow
+	ext{stable particle-ID join}
+ightarrow
+	ext{ID-frozen material membership}
+ightarrow
+	ext{equal-mass patch tensor mean}
+ightarrow
+	ext{patch eigensystem}.
+]
+
+### Preserved first-run failure
+
+Run `36365910881` failed MP-02 because the test harness supplied an expected constant tensor with shape ((1,3,3)) against the correct interpolated output shape ((200,3,3)).
+
+The values in the failing output already matched the intended constant tensor.
+
+Root-cause class:
+- mechanical test-harness shape mismatch;
+- not an interpolation failure;
+- not a scientific failure.
+
+The repair changed only the test's expected shape using an explicit broadcast. The frozen method, code under test, tolerance, and claim semantics were unchanged.
+
+The repaired integrated run `36366019003` is SUCCESS.
+
+### Known-truth results
+
+All MP-01 through MP-12 pass.
+
+Notable diagnostics:
+- vertex exactness: zero error;
+- constant-field interpolation: (4.44	imes10^{-16}) max error;
+- periodic wrapping: (8.33	imes10^{-17});
+- linearity: (8.88	imes10^{-16});
+- symmetry residual: zero;
+- trace-free residual: (4.44	imes10^{-16});
+- smooth interpolation refinement ratios: (3.902) and (4.050), consistent with second-order convergence;
+- ID reorder invariance: zero difference;
+- patch mean reorder invariance: zero difference;
+- nondegenerate patch eigensystem recovered exactly to floating-point scale;
+- degenerate control correctly retains modal degeneracy status;
+- duplicate IDs, changed ID set, invalid patch shape, nonfinite positions, and nonsymmetric tensors fail closed.
+
+### Qualified semantics
+
+Particle positions are periodic dimensionless box coordinates.
+
+Modal tensors are interpolated componentwise; eigenvalues/eigenvectors are never interpolated directly.
+
+Material patch membership is Lagrangian and frozen by particle ID from a reference snapshot.
+
+For the equal-mass CDM development particles, the primary patch tensor is the arithmetic particle mean. It is a material-mass-weighted patch descriptor, not a volume average.
+
+No patch scale or reference epoch has been selected by this infrastructure gate.
+
+### Consequence
+
+The generic material representation dependency is now closed.
+
+The next unresolved scientific dependency is the APQ/freeze of the **late-time Band-L material relational development design**, including reference epoch, patch scale family, relational features, later modal endpoint, persistence comparator, and stopping rule.
+
+Development seed 424242 remains development-only.
+
+No real late-time E-sigma patch outcome has been opened during this qualification.
+
+P1 remains unopened.
+
+### Linked artifacts
+
+- `MATERIAL_PATCH_INTERPOLATION_QUALIFICATION_PLAN_v0.1.md`
+- `qualification/material_patch.py`
+- `qualification/test_material_patch.py`
+- `qualification/run_material_patch_known_truth_suite.py`
+- `qualification/results/material_patch_known_truth_report.json`
+- `MATERIAL_PATCH_INTERPOLATION_QUALIFICATION_ADJUDICATION.md`
+- `WORKING_INVESTIGATION.md`
+
+**Status:** Material-patch representation qualified. Proceed to APQ/freeze of the late-time development experiment before any E-sigma material-patch outcome exposure.
