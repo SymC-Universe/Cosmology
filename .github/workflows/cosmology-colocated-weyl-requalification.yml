@@ -14,6 +14,7 @@ on:
       - 'dark_sector_architecture/qualification/temporal_derivatives.py'
       - 'dark_sector_architecture/qualification/latfield_hdf5.py'
       - 'dark_sector_architecture/qualification/gevolution_modal_pilot.ini'
+      - '.github/workflows/cosmology-colocated-weyl-requalification.yml'
   workflow_dispatch:
 
 permissions:
