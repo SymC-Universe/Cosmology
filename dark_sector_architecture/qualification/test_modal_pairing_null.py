@@ -26,20 +26,25 @@ def test_mp01_aligned_field_has_zero_commutator():
 
 
 def test_mp02_same_marginal_spectra_different_pairing_changes_relation():
-    e = []
-    s = []
     base_e = np.diag([3.0, 0.4, -2.1])
     base_s = np.diag([1.7, 0.2, -1.0])
-    for angle in np.linspace(0.05, 0.65, 12):
-        e.append(base_e)
-        s.append(rotate_tensor(base_s, rotation_matrix(np.array([0, 0, 1.0]), angle)))
-    e = np.stack(e)
-    s = np.stack(s)
+    angles = np.linspace(0.05, 0.65, 12)
+    e = np.stack([
+        rotate_tensor(base_e, rotation_matrix(np.array([0, 0, 1.0]), angle))
+        for angle in angles
+    ])
+    # Observed pairs have a fixed small relative rotation.
+    s = np.stack([
+        rotate_tensor(base_s, rotation_matrix(np.array([0, 0, 1.0]), angle + 0.04))
+        for angle in angles
+    ])
 
     observed = normalized_commutator_field(e, s)
     perm = np.arange(len(e))[::-1]
     shuffled = normalized_commutator_field(e, s[perm])
 
+    # Marginal E and S spectra are unchanged by the re-pairing, but relative
+    # geometry is not, so the relational distribution must change.
     assert wasserstein_1d(observed, shuffled) > 0.0
 
 
