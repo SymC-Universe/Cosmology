@@ -207,8 +207,10 @@ Durable outputs:
 Workflow:
 `36357943715` **SUCCESS**
 
-Outcome:
-**NATIVE_FIXED_BAND_QUALIFIED_P0Q**
+Outcome after Development 012 correction:
+**NATIVE_FIXED_BAND_WEYL_QUALIFIED_P0Q**
+
+Velocity-shear status: **NEED_MORE_INFO** pending centered-velocity-operator requalification.
 
 Median relative operator error improves from N32->N64 to N64->N128:
 - scalar Weyl: 0.3041 -> 0.1428;
@@ -249,7 +251,7 @@ Qualified at P0-Q:
 - nonuniform temporal derivative machinery;
 - LATfield2/gevolution native spatial operators;
 - native full electric-Weyl representation at the tested early N64 epoch;
-- native N32/N64/N128 fixed-band Weyl/shear resolution convergence.
+- native N32/N64/N128 fixed-band electric-Weyl resolution convergence.
 
 Still held:
 - universal or later-epoch scalar-dominance statements;
@@ -259,3 +261,8 @@ Still held:
 - any P1 dark-sector claim.
 
 No P1 claim is activated by any result in this index.
+
+
+## Development 012 velocity-shear correction
+
+Source audit shows gevolution's exported velocity field is differentiated natively with the centered lattice symbol (N\sin(2\pi n/N)) in `projectFTtheta` and `projectFTomega`. The earlier fixed-band shear line used the staggered metric-vector operator. Those values are preserved as a non-native comparator representation. Electric-Weyl qualification is unaffected. Corrected native velocity shear is pending.
