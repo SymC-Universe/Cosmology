@@ -1,0 +1,597 @@
+{
+  "case_count": 7,
+  "cases": [
+    {
+      "case_id": "MR-01",
+      "purpose": "aligned distinct spectra yield zero commutator",
+      "result": {
+        "alignment_matrix_abs": [
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "commutator": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "commutator_axial_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "commutator_frobenius_norm": 0.0,
+        "first": {
+          "degenerate_pairs": [
+            false,
+            false
+          ],
+          "directional_condition_number": 1.2,
+          "eigengaps": [
+            2.6,
+            2.5
+          ],
+          "eigenvalues": [
+            3.0,
+            0.4,
+            -2.1
+          ],
+          "eigenvectors": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "invariants": {
+            "determinant": -2.5200000000000005,
+            "frobenius_norm": 3.6837480912787726,
+            "trace": 1.2999999999999998,
+            "trace_square": 13.57
+          },
+          "matrix": [
+            [
+              3.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.4,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              -2.1
+            ]
+          ],
+          "normalized_eigengaps": [
+            0.8666666666666667,
+            0.8333333333333334
+          ],
+          "symmetry_residual": 0.0
+        },
+        "normalized_commutator_frobenius": 0.0,
+        "second": {
+          "degenerate_pairs": [
+            false,
+            false
+          ],
+          "directional_condition_number": 1.4166666666666667,
+          "eigengaps": [
+            1.5,
+            1.2
+          ],
+          "eigenvalues": [
+            1.7,
+            0.2,
+            -1.0
+          ],
+          "eigenvectors": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "invariants": {
+            "determinant": -0.3400000000000001,
+            "frobenius_norm": 1.982422760159901,
+            "trace": 0.8999999999999999,
+            "trace_square": 3.9299999999999997
+          },
+          "matrix": [
+            [
+              1.7,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.2,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          ],
+          "normalized_eigengaps": [
+            0.8823529411764706,
+            0.7058823529411765
+          ],
+          "symmetry_residual": 0.0
+        },
+        "unique_axis_interpretation_licensed": true
+      },
+      "status": "PASS"
+    },
+    {
+      "aligned_normalized_commutator": 0.0,
+      "case_id": "MR-02",
+      "purpose": "same separate spectra/invariants but different relative eigenframe",
+      "rotated_alignment_matrix_abs": [
+        [
+          0.9089657496748851,
+          0.41687080242921076,
+          0.0
+        ],
+        [
+          0.41687080242921076,
+          0.9089657496748851,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "rotated_normalized_commutator": 0.2861820584763345,
+      "same_second_eigenvalues": true,
+      "status": "PASS_RELATIONAL_INFORMATION_NOT_REDUCED_TO_SEPARATE_SPECTRA"
+    },
+    {
+      "alignment_max_abs_error": 3.1108679402239887e-16,
+      "axial_rotation_max_abs_error": 4.440892098500626e-16,
+      "case_id": "MR-03",
+      "commutator_norm_abs_error": 8.881784197001252e-16,
+      "normalized_commutator_abs_error": 5.551115123125783e-17,
+      "purpose": "common coordinate rotation covariance",
+      "status": "PASS"
+    },
+    {
+      "case_id": "MR-04",
+      "purpose": "exact degenerate subspace refuses unique-axis interpretation",
+      "result": {
+        "alignment_matrix_abs": [
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "commutator": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "commutator_axial_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "commutator_frobenius_norm": 0.0,
+        "first": {
+          "degenerate_pairs": [
+            true,
+            false
+          ],
+          "directional_condition_number": null,
+          "eigengaps": [
+            0.0,
+            3.0
+          ],
+          "eigenvalues": [
+            1.0,
+            1.0,
+            -2.0
+          ],
+          "eigenvectors": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "invariants": {
+            "determinant": -2.0,
+            "frobenius_norm": 2.449489742783178,
+            "trace": 0.0,
+            "trace_square": 6.0
+          },
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              -2.0
+            ]
+          ],
+          "normalized_eigengaps": [
+            0.0,
+            1.5
+          ],
+          "symmetry_residual": 0.0
+        },
+        "normalized_commutator_frobenius": 0.0,
+        "second": {
+          "degenerate_pairs": [
+            true,
+            false
+          ],
+          "directional_condition_number": null,
+          "eigengaps": [
+            2.220446049250313e-16,
+            6.0
+          ],
+          "eigenvalues": [
+            2.0,
+            1.9999999999999998,
+            -4.0
+          ],
+          "eigenvectors": [
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "invariants": {
+            "determinant": -15.999999999999991,
+            "frobenius_norm": 4.898979485566356,
+            "trace": 0.0,
+            "trace_square": 24.0
+          },
+          "matrix": [
+            [
+              1.9999999999999998,
+              1.6001504319236644e-17,
+              0.0
+            ],
+            [
+              1.6001504319236644e-17,
+              2.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              -4.0
+            ]
+          ],
+          "normalized_eigengaps": [
+            5.551115123125783e-17,
+            1.5
+          ],
+          "symmetry_residual": 0.0
+        },
+        "unique_axis_interpretation_licensed": false
+      },
+      "status": "REFUSED_UNIQUE_AXIS_RELATION_BUT_TENSOR_RELATION_RETAINED"
+    },
+    {
+      "case_id": "MR-05",
+      "purpose": "zero-norm tensor refuses normalized commutator",
+      "result": {
+        "alignment_matrix_abs": [
+          [
+            0.0,
+            0.0,
+            1.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "commutator": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "commutator_axial_vector": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "commutator_frobenius_norm": 0.0,
+        "first": {
+          "degenerate_pairs": [
+            true,
+            true
+          ],
+          "directional_condition_number": null,
+          "eigengaps": [
+            0.0,
+            0.0
+          ],
+          "eigenvalues": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "eigenvectors": [
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "invariants": {
+            "determinant": 0.0,
+            "frobenius_norm": 0.0,
+            "trace": 0.0,
+            "trace_square": 0.0
+          },
+          "matrix": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "normalized_eigengaps": [
+            0.0,
+            0.0
+          ],
+          "symmetry_residual": 0.0
+        },
+        "normalized_commutator_frobenius": null,
+        "second": {
+          "degenerate_pairs": [
+            false,
+            false
+          ],
+          "directional_condition_number": 1.0,
+          "eigengaps": [
+            1.0,
+            1.0
+          ],
+          "eigenvalues": [
+            1.0,
+            0.0,
+            -1.0
+          ],
+          "eigenvectors": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "invariants": {
+            "determinant": 0.0,
+            "frobenius_norm": 1.4142135623730951,
+            "trace": 0.0,
+            "trace_square": 2.0
+          },
+          "matrix": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          ],
+          "normalized_eigengaps": [
+            1.0,
+            1.0
+          ],
+          "symmetry_residual": 0.0
+        },
+        "unique_axis_interpretation_licensed": false
+      },
+      "status": "REFUSED_NORMALIZED_SCALAR_SUMMARY"
+    },
+    {
+      "antisymmetry_residual": 7.850462293418876e-17,
+      "case_id": "MR-06",
+      "purpose": "symmetric-tensor commutator is antisymmetric",
+      "status": "PASS"
+    },
+    {
+      "case_id": "MR-07",
+      "purpose": "relative rotation produces continuous relational response",
+      "rotation_sweep": [
+        {
+          "angle_radians": 0.0,
+          "commutator_frobenius_norm": 0.0,
+          "normalized_commutator_frobenius": 0.0
+        },
+        {
+          "angle_radians": 0.1,
+          "commutator_frobenius_norm": 0.45656140081168883,
+          "normalized_commutator_frobenius": 0.07522615334558443
+        },
+        {
+          "angle_radians": 0.2,
+          "commutator_frobenius_norm": 0.8949211393358306,
+          "normalized_commutator_frobenius": 0.14745327734713481
+        },
+        {
+          "angle_radians": 0.3,
+          "commutator_frobenius_norm": 1.297603196121616,
+          "normalized_commutator_frobenius": 0.21380190449657932
+        }
+      ],
+      "status": "MEASURED_NO_SCIENTIFIC_THRESHOLD_FROZEN"
+    }
+  ],
+  "next_gate": "APQ-3 residual/adjudication before any late-time outcome exposure",
+  "primary_object": "full relation between two symmetric modal tensors",
+  "protocol": "MODAL_RELATIONAL_KNOWN_TRUTH_SUITE",
+  "relational_objects": [
+    "absolute eigenframe overlap matrix",
+    "tensor commutator",
+    "commutator axial vector",
+    "commutator norm summaries"
+  ],
+  "scientific_claim_tested": false,
+  "scientific_thresholds_frozen": false,
+  "stage": "P0-Q"
+}
