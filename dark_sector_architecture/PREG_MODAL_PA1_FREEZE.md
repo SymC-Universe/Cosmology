@@ -1,3 +1,7 @@
+# SUPERSEDED RECOVERY BRANCH - DO NOT ACTIVATE
+
+This file was drafted during timeout recovery from stale context before the authoritative live record was reloaded. It is superseded by `PREG_MODAL_PA1_APQ3_PLAN_PACKET.md`, `PREG_MODAL_PA1_APQ3_ADJUDICATION.md`, and `LATE_TIME_MATERIAL_RELATIONAL_APQ2_PLAN_PACKET_v0.1.md`. It remains preserved as an exploratory branch and must not be used to activate P1-M.
+
 # PREG-MODAL-PA-1 FREEZE
 
 **Project:** Cosmic Stability Architecture
