@@ -38,7 +38,7 @@ A later scalar claim may be activated only if P0-D discovers a genuinely residua
 
 # PREG-MODAL-PA-1
 
-**Qualification status:** P0-Q REPRESENTATION STACK QUALIFIED through Development 011; exact residual/falsifier/untouched-evidence freeze still pending. NOT ACTIVATED.
+**Qualification status:** electric-Weyl P0-Q representation stack QUALIFIED through Development 011; coarse-grained velocity-shear returned to NEED_MORE_INFO in Development 012 pending centered-operator requalification. Exact residual/falsifier/untouched-evidence freeze still pending. NOT ACTIVATED.
 
 ## Candidate title
 **Late-time modal reorganization after nonlinear embedding**
