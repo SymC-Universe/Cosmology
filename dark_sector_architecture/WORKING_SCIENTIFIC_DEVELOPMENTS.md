@@ -1541,3 +1541,207 @@ No untouched P1 seed may be generated or opened.
 
 **Status:** Significant methodological repair completed. Late-time P0-Q modal
 development is licensed; P1 remains unopened.
+
+
+---
+
+## Development 014 - Late-Time Velocity Validity Map Separates a Robust Large-Scale Modal Band from a Rotational/Resolution-Sensitive Small-Scale Regime
+
+**Date:** 2026-09-27  
+**Frozen plan:** LATE_TIME_VELOCITY_VALIDITY_MAP_PLAN.md  
+**Frozen plan commit:** a0073988e92f350e8af044ea9d86715fac12a118  
+**Decisive development workflow:** run 36363519598, SUCCESS  
+**Workflow head:** 6671a8b849eba85035e59c8a48de42332bf41de5  
+**Outcome:** VALIDITY_MAP_COMPLETE
+
+### Scientific development
+
+The preregistered late-time coarse-grained velocity validity map is complete for
+development seed 424242 at N32 and N64 across requested redshifts
+
+[
+z={5,2,1,0.5,0.1}.
+]
+
+All five particle snapshots retain unique and identical CDM particle-ID sets at
+each resolution:
+- N32: 32,768 particles;
+- N64: 262,144 particles.
+
+Material lineage is therefore operational across the entire development
+trajectory.
+
+The map shows a strong physical-scale separation in the corrected centered
+velocity-shear representation.
+
+### Frozen low band L: robust large-scale regime
+
+For
+
+[
+0<|mathbf n|<4
+]
+
+((klesssim0.393,h/mathrm{Mpc}) in the 64 Mpc/h box), N32-versus-N64 median
+relative shear tensor error remains:
+
+- z~5: 0.0815;
+- z~2: 0.0828;
+- z~1: 0.0831;
+- z~0.5: 0.0941;
+- z~0.1: 0.1104.
+
+q95 remains approximately 0.145 to 0.206.
+
+Median eigenframe diagonal alignments remain above approximately 0.9987 across
+all five epochs, and divergence-field correlation remains above 0.9978.
+
+Thus the large-scale coarse-grained shear field remains comparatively
+resolution robust across the tested late-time trajectory.
+
+### Intermediate band M: materially less resolved
+
+For
+
+[
+4le|mathbf n|<8,
+]
+
+median relative shear error is approximately 0.446 to 0.562 across the five
+epochs.
+
+Median eigenframe alignments remain high, but the tensor amplitudes and
+directional error/eigengap diagnostics are materially more resolution
+sensitive than Band L.
+
+This band is retained for development/robustness work but is not the preferred
+primary P1 band.
+
+### High band H: rotational and resolution-sensitive regime
+
+For
+
+[
+8le|mathbf n|<15,
+]
+
+median N32-versus-N64 shear tensor error remains approximately 1.52 to 1.99.
+
+At N64 the vorticity/shear RMS ratio increases strongly with time:
+
+- z~5: 0.113;
+- z~2: 0.249;
+- z~1: 0.487;
+- z~0.5: 0.684;
+- z~0.1: 0.833.
+
+This is a clear late-time transition toward a strongly rotational /
+multistream-sensitive coarse-grained regime at the smaller resolved scales.
+
+It is not treated as a failure. It is a **Limit Map** showing where the
+velocity field no longer carries a predominantly potential/shear-like
+interpretation.
+
+### Large-scale vorticity remains a conditioning variable, not zero
+
+At N64 in Band L, vorticity/shear RMS increases:
+
+- z~5: 0.00750;
+- z~2: 0.0118;
+- z~1: 0.0236;
+- z~0.5: 0.0359;
+- z~0.1: 0.0524.
+
+Thus even the most stable large-scale band develops increasing rotational
+content toward the present, but it remains far below the corresponding shear
+amplitude throughout the tested trajectory.
+
+This supports treating vorticity as an explicit conditioning/validity
+diagnostic rather than assuming irrotational dust at late time.
+
+### Epoch-alignment limitation
+
+The N32 and N64 snapshots are not exactly time matched in this broad trajectory
+run. The actual redshift differences are approximately:
+
+- z~5: 0.0125;
+- z~2: 0.00747;
+- z~1: 0.00272;
+- z~0.5: 0.00201;
+- z~0.1: 0.00580.
+
+These mismatches are small enough for the present validity map but prevent this
+run from serving as a final late-time resolution qualification.
+
+Any P1-domain resolution check must use tighter/synchronized epochs.
+
+### Consequence for PREG-MODAL-PA-1 development
+
+The primary development domain is narrowed on representation-validity grounds,
+not predictive outcome:
+
+[
+oxed{
+0<|mathbf n|<4
+}
+]
+
+as the primary large-scale modal band.
+
+The z~2 -> z~1 -> z~0.5 interval is the preferred first material-lineage
+development window because:
+- the low band is numerically robust there;
+- vorticity is present but remains a small conditioning contribution;
+- substantial nonlinear evolution occurs across the interval;
+- the window avoids using the most rotational near-present regime as the first
+  test bed.
+
+The z~0.1 state remains a stress/limit-map endpoint and is not discarded.
+
+No E-sigma predictive result has been computed.
+
+### Claim ceiling after development
+
+Supported:
+- stable CDM particle lineage across the late-time development trajectory;
+- a comparatively robust large-scale centered velocity-shear band;
+- a scale- and time-dependent growth of rotational/multistream-sensitive
+  velocity structure;
+- a clear distinction between primary large-scale modal interpretation and
+  high-k limit behavior.
+
+Not yet supported:
+- E-sigma relational predictive added value;
+- a universal vorticity threshold;
+- final material-patch scale;
+- final P1 redshift horizon;
+- N64/N128 late-time resolution qualification;
+- observer-independent/full-GR modal claims.
+
+### Exact restart point
+
+Freeze and qualify the material-patch + grid-tensor interpolation machinery on
+the primary Band L development window.
+
+Before any predictive E-sigma test:
+1. define non-overlapping t0 material patches from particle IDs/positions;
+2. follow identical IDs to later epochs;
+3. qualify periodic tensor interpolation to particle positions;
+4. qualify patch tensor averaging and eigenstructure recovery;
+5. test patch-scale family for numerical identifiability only;
+6. perform a focused synchronized N64/N128 late-time check on the selected
+   primary band/window;
+7. then freeze the P0-Q relational predictor development design.
+
+### Linked artifacts
+
+- `LATE_TIME_VELOCITY_VALIDITY_MAP_PLAN.md`
+- `qualification/results/late_time_velocity_validity_map.json`
+- `qualification/results/late_velocity_validity_n32_metadata.json`
+- `qualification/results/late_velocity_validity_n64_metadata.json`
+- `qualification/gevolution_particle_lineage.py`
+- `qualification/gevolution_velocity_operators.py`
+- `PREG_MODAL_PA1_APQ3_ADJUDICATION.md`
+
+**Status:** Significant Function/Limit Map development. Material-patch and
+interpolation qualification is the next valid step; P1 remains closed.
