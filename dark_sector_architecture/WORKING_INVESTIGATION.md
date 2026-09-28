@@ -2,7 +2,7 @@
 
 **Project:** Cosmic Stability Architecture  
 **Branch:** `dark-sector-stability-architecture`  
-**Current stage:** P0-Q modal preregistration APQ-3; electric-Weyl and corrected centered native velocity-shear representations QUALIFIED; late-time development licensed, P1 unopened  
+**Current stage:** P0-Q modal preregistration APQ-3; late-time velocity Function/Limit Map complete; primary development band narrowed to |n|<4; material-patch/interpolation qualification next; P1 unopened  
 **Current scientific state:** The bounded nonperturbative/additional-architecture pass is complete. The full no-dark-substance route is UNSUPPORTED_AT_CURRENT_STAGE under the frozen literature rules, not falsified. The active branch is now the partial architecture; the full route remains open only in P0-D for genuinely new future candidates.
 
 ## Frozen objects
@@ -94,42 +94,40 @@ See `LITERATURE_EXPLORATION_QUEUE.md`.
 
 ## Latest scientific development
 
-**Development 013: corrected centered gevolution velocity shear qualifies on the frozen N32/N64/N128 common band.**
+**Development 014: the late-time coarse-grained velocity map separates a robust large-scale modal band from a rotational/resolution-sensitive high-k regime.**
 
-Development 012 identified the prior shear derivative as semantically wrong for exported `vi`. The corrected operator reproduces gevolution's centered `projectFTtheta` / `projectFTomega` symbol and passes GV-01 through GV-07 known truths.
+Under the frozen `LATE_TIME_VELOCITY_VALIDITY_MAP_PLAN.md`, seed 424242 was evolved at N32/N64 through requested z = 5, 2, 1, 0.5, 0.1. Particle IDs remain unique and identical across all five snapshots at both resolutions.
 
-Under the corrective gate frozen before real-field inspection:
+For the low band
 
 \[
-\boxed{\text{CENTERED\_VELOCITY\_SHEAR\_QUALIFIED\_P0Q}}.
+0<|\mathbf n|<4
 \]
 
-Median corrected shear resolution error improves 0.5094 -> 0.1656 and q95 improves 1.0681 -> 0.3158 from N32->N64 to N64->N128. Median eigenframe alignment improves to approximately (0.99871, 0.99704, 0.99872), and error/eigengap diagnostics improve in the same direction.
+the N32/N64 median relative shear error remains only about 0.081 to 0.110 across the full trajectory, median eigenframe alignments stay above roughly 0.9987, and divergence correlation remains above 0.9978.
 
-Centered-native versus continuum-spectral shear disagreement on the same physical band falls 0.2017 -> 0.08521 -> 0.02336 with refinement.
+For the high band `8<=|n|<15`, median shear error is about 1.52 to 1.99 and the N64 vorticity/shear RMS ratio rises from 0.113 near z=5 to 0.833 near z=0.1.
 
-The original staggered-velocity representation is preserved as a comparator but is not native shear evidence.
+Thus the development program now has a real Function/Limit Map: large-scale coarse-grained shear is comparatively robust, while smaller resolved scales become strongly rotational and resolution sensitive toward late time.
 
-All three corrected members are exactly epoch aligned at z = 98.99516176429084 and tau/L = 14.141552190017416.
+The primary development band is narrowed on representation-validity grounds to `|n|<4`; z~2 -> z~1 -> z~0.5 is the preferred first material-lineage development window. z~0.1 remains a stress/limit endpoint rather than being discarded.
 
-The E-sigma APQ-3 development route is therefore reopened without changing the independent Weyl qualification.
+No E-sigma predictive outcome has been computed.
 
 Detailed stop record: `WORKING_SCIENTIFIC_DEVELOPMENTS.md`.
 ## Next exact action
 
-Resume the APQ-3 late-time development plan using seed 424242 only. P1 remains closed.
+Qualify material-patch construction and tensor interpolation before any E-sigma predictive development:
 
-Development objectives before final PREG-MODAL-PA-1 freeze:
+1. implement periodic trilinear interpolation of grid scalars/vectors/tensors to particle positions;
+2. known-truth test interpolation on band-limited analytic fields and periodic-boundary crossings;
+3. define non-overlapping t0 material patches from particle IDs/positions and preserve membership through later snapshots;
+4. qualify patch tensor averaging and eigensystem recovery on analytic tensor fields;
+5. predeclare a small patch-scale family for identifiability testing only;
+6. perform a focused synchronized N64/N128 late-time Band-L check on the selected window;
+7. only then expose the development E-sigma predictor on seed 424242.
 
-1. qualify late-time scale/redshift validity of the coarse-grained velocity field using centered divergence/vorticity and multistream-sensitive diagnostics;
-2. define material patches prospectively at t0 from stable particle IDs and follow the same IDs to t1;
-3. qualify tensor interpolation and patch averaging;
-4. measure real-field E-sigma degeneracy/subspace identifiability;
-5. establish spatial blocking and seed-level uncertainty treatment;
-6. choose matched-capacity B0/B1 estimators and earn an equivalence/indeterminate tolerance using development evidence only;
-7. freeze the full MFR-14 preregistration before any untouched P1 seed is generated.
-
-The APQ residual remains: does t0 E-sigma relative geometry add prospective information about later changes in the separate E and coarse-grained-shear spectra beyond scalar state, standard tidal/web information, and the separate t0 tensor spectra themselves?
+PREG-MODAL-PA-1 remains NOT FROZEN and P1-M remains NOT ACTIVATED.
 ## Resume pointers
 
 - `PREG_LIT_COSMO_V1_FREEZE.md`
@@ -283,3 +281,15 @@ Current temporal gate outcome: REPRESENTATION_QUALIFIED_P0Q for the tested early
 - APQ-3 late-time development: LICENSED;
 - `PREG-MODAL-PA-1`: NOT YET FROZEN;
 - P1-M: NOT ACTIVATED.
+
+
+## Development 014 late-time validity artifacts
+
+- frozen plan: `LATE_TIME_VELOCITY_VALIDITY_MAP_PLAN.md`, commit `a0073988e92f350e8af044ea9d86715fac12a118`;
+- workflow run `36363519598`: SUCCESS;
+- durable map: `qualification/results/late_time_velocity_validity_map.json`;
+- outcome: `VALIDITY_MAP_COMPLETE`;
+- primary development band: (0<|n|<4);
+- preferred first development window: z~2 -> z~1 -> z~0.5;
+- stable particle lineage: qualified at N32 and N64;
+- P1 evidence: none opened.
