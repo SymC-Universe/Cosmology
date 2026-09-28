@@ -1,0 +1,2850 @@
+{
+  "bands": {
+    "A": {
+      "mode_count": 13996
+    },
+    "H": {
+      "mode_count": 11894
+    },
+    "L": {
+      "mode_count": 250
+    },
+    "M": {
+      "mode_count": 1852
+    }
+  },
+  "development_seed": 424242,
+  "frozen_plan_commit": "a0073988e92f350e8af044ea9d86715fac12a118",
+  "limitations": [
+    "vorticity is a multistream-sensitive coarse-grained diagnostic, not a direct shell-crossing count",
+    "N32/N64 comparison is a development map, not a final convergence proof",
+    "no E-sigma predictive outcome is computed",
+    "no vorticity acceptance threshold is frozen"
+  ],
+  "members": [
+    {
+      "grid": 32,
+      "lineage": {
+        "lineage_qualified": true,
+        "reference_particle_count": 32768,
+        "snapshot_count": 5,
+        "snapshots": [
+          {
+            "ids_unique": true,
+            "particle_count": 32768,
+            "particle_velocity_rms": 7.259219833821095e-05,
+            "position_max": [
+              0.9999980781165283,
+              0.9999492111113093,
+              0.9999744803296496
+            ],
+            "position_min": [
+              1.0484858487869175e-05,
+              6.553253735219755e-06,
+              8.220796744076096e-06
+            ],
+            "same_id_set_as_snapshot_0": true,
+            "snapshot_index": 0
+          },
+          {
+            "ids_unique": true,
+            "particle_count": 32768,
+            "particle_velocity_rms": 0.00020537697031065486,
+            "position_max": [
+              0.9999265087476318,
+              0.9999315420461319,
+              0.9999875778148707
+            ],
+            "position_min": [
+              1.1267837514594703e-05,
+              2.5537842849310266e-05,
+              9.208236826752092e-05
+            ],
+            "same_id_set_as_snapshot_0": true,
+            "snapshot_index": 1
+          },
+          {
+            "ids_unique": true,
+            "particle_count": 32768,
+            "particle_velocity_rms": 0.00037608200106465154,
+            "position_max": [
+              0.9999930419967634,
+              0.9999886230451861,
+              0.9999945776791577
+            ],
+            "position_min": [
+              3.451216456631428e-05,
+              2.5741310875319244e-05,
+              4.183530982948547e-05
+            ],
+            "same_id_set_as_snapshot_0": true,
+            "snapshot_index": 2
+          },
+          {
+            "ids_unique": true,
+            "particle_count": 32768,
+            "particle_velocity_rms": 0.0005594692397636297,
+            "position_max": [
+              0.9999723181502803,
+              0.9999848054727383,
+              0.9999035148488634
+            ],
+            "position_min": [
+              1.6053682314609574e-06,
+              3.86033674177888e-05,
+              5.640055597333493e-05
+            ],
+            "same_id_set_as_snapshot_0": true,
+            "snapshot_index": 3
+          },
+          {
+            "ids_unique": true,
+            "particle_count": 32768,
+            "particle_velocity_rms": 0.0007940100247744617,
+            "position_max": [
+              0.999978517449293,
+              0.9999868022676444,
+              0.9999853241648811
+            ],
+            "position_min": [
+              3.156403808339462e-05,
+              7.88251904046966e-05,
+              6.260904438004644e-06
+            ],
+            "same_id_set_as_snapshot_0": true,
+            "snapshot_index": 4
+          }
+        ]
+      },
+      "metadata": {
+        "boxsize_mpc_over_h": 64.0,
+        "gevolution_sha": "0cca42e51a824002ae4fb602cbd79d671e8ffe60",
+        "grid": 32,
+        "latfield2_sha": "2d8c737ab6adc965a1d2718c209f5085af27b09c",
+        "protocol": "P0-Q_LATE_TIME_VELOCITY_VALIDITY_MEMBER",
+        "requested_redshifts": [
+          5.0,
+          2.0,
+          1.0,
+          0.5,
+          0.1
+        ],
+        "seed": 424242,
+        "snapshots": [
+          {
+            "actual_redshift": 4.980006365955429,
+            "actual_scale_factor": 0.16722390225085143,
+            "cycle": 164,
+            "index": 0,
+            "requested_redshift": 5.0,
+            "tau_over_boxsize": 65.71767916010936
+          },
+          {
+            "actual_redshift": 1.9988759970628402,
+            "actual_scale_factor": 0.33345826935805956,
+            "cycle": 238,
+            "index": 1,
+            "requested_redshift": 2.0,
+            "tau_over_boxsize": 93.46767916010936
+          },
+          {
+            "actual_redshift": 0.9971753063575124,
+            "actual_scale_factor": 0.5007071721830066,
+            "cycle": 292,
+            "index": 2,
+            "requested_redshift": 1.0,
+            "tau_over_boxsize": 113.71767916010936
+          },
+          {
+            "actual_redshift": 0.4960042679779455,
+            "actual_scale_factor": 0.6684472908300167,
+            "cycle": 333,
+            "index": 3,
+            "requested_redshift": 0.5,
+            "tau_over_boxsize": 129.09267916010936
+          },
+          {
+            "actual_redshift": 0.09396814636076267,
+            "actual_scale_factor": 0.9141033980986002,
+            "cycle": 376,
+            "index": 4,
+            "requested_redshift": 0.1,
+            "tau_over_boxsize": 145.21767916010936
+          }
+        ],
+        "time_step_limit": 0.02
+      },
+      "snapshots": [
+        {
+          "actual_redshift": 4.980006365955429,
+          "bands": {
+            "A": {
+              "divergence_rms": 0.00904810436826919,
+              "mode_count": 13996,
+              "shear_frobenius_rms": 0.0074206726402725,
+              "shear_max_trace_abs": 7.806255641895632e-18,
+              "vorticity_over_shear": 0.1330754457646145,
+              "vorticity_vector_rms": 0.0009875093194775418
+            },
+            "H": {
+              "divergence_rms": 0.002323333837712003,
+              "mode_count": 11894,
+              "shear_frobenius_rms": 0.0019802159790850327,
+              "shear_max_trace_abs": 4.9873299934333204e-18,
+              "vorticity_over_shear": 0.40567736205044125,
+              "vorticity_vector_rms": 0.0008033287946853478
+            },
+            "L": {
+              "divergence_rms": 0.006852648421039485,
+              "mode_count": 250,
+              "shear_frobenius_rms": 0.005596895215274216,
+              "shear_max_trace_abs": 3.686287386450715e-18,
+              "vorticity_over_shear": 0.03517204309219991,
+              "vorticity_vector_rms": 0.00019685423969415222
+            },
+            "M": {
+              "divergence_rms": 0.005432450842415372,
+              "mode_count": 1852,
+              "shear_frobenius_rms": 0.004451953622793676,
+              "shear_max_trace_abs": 2.8189256484623115e-18,
+              "vorticity_over_shear": 0.12118809590578733,
+              "vorticity_vector_rms": 0.0005395237826072373
+            }
+          },
+          "requested_redshift": 5.0,
+          "snapshot_index": 0,
+          "tau_over_boxsize": 65.71767916010936
+        },
+        {
+          "actual_redshift": 1.9988759970628402,
+          "bands": {
+            "A": {
+              "divergence_rms": 0.012151458499973176,
+              "mode_count": 13996,
+              "shear_frobenius_rms": 0.01000396732715583,
+              "shear_max_trace_abs": 1.0408340855860843e-17,
+              "vorticity_over_shear": 0.18107634160036437,
+              "vorticity_vector_rms": 0.001811481805090953
+            },
+            "H": {
+              "divergence_rms": 0.003079085993655365,
+              "mode_count": 11894,
+              "shear_frobenius_rms": 0.002749299903494481,
+              "shear_max_trace_abs": 6.5052130349130266e-18,
+              "vorticity_over_shear": 0.5723703145658449,
+              "vorticity_vector_rms": 0.001573617650598983
+            },
+            "L": {
+              "divergence_rms": 0.009279721433402135,
+              "mode_count": 250,
+              "shear_frobenius_rms": 0.007578760225198165,
+              "shear_max_trace_abs": 5.204170427930421e-18,
+              "vorticity_over_shear": 0.03166009718491112,
+              "vorticity_vector_rms": 0.00023994428527091281
+            },
+            "M": {
+              "divergence_rms": 0.007215534854652334,
+              "mode_count": 1852,
+              "shear_frobenius_rms": 0.005923099338387027,
+              "shear_max_trace_abs": 4.336808689942018e-18,
+              "vorticity_over_shear": 0.1459794091996353,
+              "vorticity_vector_rms": 0.000864650542048489
+            }
+          },
+          "requested_redshift": 2.0,
+          "snapshot_index": 1,
+          "tau_over_boxsize": 93.46767916010936
+        },
+        {
+          "actual_redshift": 0.9971753063575124,
+          "bands": {
+            "A": {
+              "divergence_rms": 0.013572814654125454,
+              "mode_count": 13996,
+              "shear_frobenius_rms": 0.011327638288612647,
+              "shear_max_trace_abs": 1.3877787807814457e-17,
+              "vorticity_over_shear": 0.2928221857307595,
+              "vorticity_vector_rms": 0.0033169838028389953
+            },
+            "H": {
+              "divergence_rms": 0.0033435260510858347,
+              "mode_count": 11894,
+              "shear_frobenius_rms": 0.0034015520194546926,
+              "shear_max_trace_abs": 1.3010426069826053e-17,
+              "vorticity_over_shear": 0.8436637169204245,
+              "vorticity_vector_rms": 0.0028697660200313222
+            },
+            "L": {
+              "divergence_rms": 0.010585625135866117,
+              "mode_count": 250,
+              "shear_frobenius_rms": 0.008648004488759015,
+              "shear_max_trace_abs": 6.071532165918825e-18,
+              "vorticity_over_shear": 0.047492052028710714,
+              "vorticity_vector_rms": 0.00041071147912466693
+            },
+            "M": {
+              "divergence_rms": 0.007809396370006618,
+              "mode_count": 1852,
+              "shear_frobenius_rms": 0.006477410857664572,
+              "shear_max_trace_abs": 5.204170427930421e-18,
+              "vorticity_over_shear": 0.24884555149238086,
+              "vorticity_vector_rms": 0.001611874877118276
+            }
+          },
+          "requested_redshift": 1.0,
+          "snapshot_index": 2,
+          "tau_over_boxsize": 113.71767916010936
+        },
+        {
+          "actual_redshift": 0.4960042679779455,
+          "bands": {
+            "A": {
+              "divergence_rms": 0.013863799064655428,
+              "mode_count": 13996,
+              "shear_frobenius_rms": 0.011796370120269021,
+              "shear_max_trace_abs": 1.734723475976807e-17,
+              "vorticity_over_shear": 0.39793551711962855,
+              "vorticity_vector_rms": 0.004694194643943788
+            },
+            "H": {
+              "divergence_rms": 0.0037372498466312653,
+              "mode_count": 11894,
+              "shear_frobenius_rms": 0.0041900741043058845,
+              "shear_max_trace_abs": 9.540979117872439e-18,
+              "vorticity_over_shear": 0.9691660543551928,
+              "vorticity_vector_rms": 0.004060877587126002
+            },
+            "L": {
+              "divergence_rms": 0.011058528611029262,
+              "mode_count": 250,
+              "shear_frobenius_rms": 0.00903801503473714,
+              "shear_max_trace_abs": 5.204170427930421e-18,
+              "vorticity_over_shear": 0.06226516331090135,
+              "vorticity_vector_rms": 0.0005627534821442898
+            },
+            "M": {
+              "divergence_rms": 0.007479761563582261,
+              "mode_count": 1852,
+              "shear_frobenius_rms": 0.006317587454611641,
+              "shear_max_trace_abs": 5.204170427930421e-18,
+              "vorticity_over_shear": 0.36192484738130826,
+              "vorticity_vector_rms": 0.002286491875328386
+            }
+          },
+          "requested_redshift": 0.5,
+          "snapshot_index": 3,
+          "tau_over_boxsize": 129.09267916010936
+        },
+        {
+          "actual_redshift": 0.09396814636076267,
+          "bands": {
+            "A": {
+              "divergence_rms": 0.01347635471653167,
+              "mode_count": 13996,
+              "shear_frobenius_rms": 0.011743744513212641,
+              "shear_max_trace_abs": 1.734723475976807e-17,
+              "vorticity_over_shear": 0.49418490209543103,
+              "vorticity_vector_rms": 0.005803581232495744
+            },
+            "H": {
+              "divergence_rms": 0.004383151911349844,
+              "mode_count": 11894,
+              "shear_frobenius_rms": 0.005007822575510788,
+              "shear_max_trace_abs": 9.053088140253962e-18,
+              "vorticity_over_shear": 0.9892206638227032,
+              "vorticity_vector_rms": 0.004953841572453101
+            },
+            "L": {
+              "divergence_rms": 0.010886884377684853,
+              "mode_count": 250,
+              "shear_frobenius_rms": 0.00890545249934396,
+              "shear_max_trace_abs": 5.204170427930421e-18,
+              "vorticity_over_shear": 0.08565313140367971,
+              "vorticity_vector_rms": 0.0007627798931355361
+            },
+            "M": {
+              "divergence_rms": 0.006623885892339717,
+              "mode_count": 1852,
+              "shear_frobenius_rms": 0.005790523640029884,
+              "shear_max_trace_abs": 6.938893903907228e-18,
+              "vorticity_over_shear": 0.5052404695199985,
+              "vorticity_vector_rms": 0.0029256068826553493
+            }
+          },
+          "requested_redshift": 0.1,
+          "snapshot_index": 4,
+          "tau_over_boxsize": 145.21767916010936
+        }
+      ]
+    },
+    {
+      "grid": 64,
+      "lineage": {
+        "lineage_qualified": true,
+        "reference_particle_count": 262144,
+        "snapshot_count": 5,
+        "snapshots": [
+          {
+            "ids_unique": true,
+            "particle_count": 262144,
+            "particle_velocity_rms": 7.557924113174246e-05,
+            "position_max": [
+              0.9999987756759346,
+              0.9999933582987441,
+              0.9999993707789894
+            ],
+            "position_min": [
+              1.3067504810893027e-05,
+              5.59016123391487e-07,
+              9.03377478378431e-07
+            ],
+            "same_id_set_as_snapshot_0": true,
+            "snapshot_index": 0
+          },
+          {
+            "ids_unique": true,
+            "particle_count": 262144,
+            "particle_velocity_rms": 0.00022053799045379646,
+            "position_max": [
+              0.9999994003512545,
+              0.9999984858288427,
+              0.9999989156575331
+            ],
+            "position_min": [
+              6.103125418377431e-07,
+              7.07606208316669e-06,
+              3.738552702525766e-06
+            ],
+            "same_id_set_as_snapshot_0": true,
+            "snapshot_index": 1
+          },
+          {
+            "ids_unique": true,
+            "particle_count": 262144,
+            "particle_velocity_rms": 0.0004028614433013305,
+            "position_max": [
+              0.9999970501211076,
+              0.9999943154753808,
+              0.9999984151151152
+            ],
+            "position_min": [
+              4.987316359228444e-06,
+              2.0196850494258456e-06,
+              3.135877677751253e-06
+            ],
+            "same_id_set_as_snapshot_0": true,
+            "snapshot_index": 2
+          },
+          {
+            "ids_unique": true,
+            "particle_count": 262144,
+            "particle_velocity_rms": 0.0006013990856207449,
+            "position_max": [
+              0.9999998128057646,
+              0.999998288468894,
+              0.9999968625703727
+            ],
+            "position_min": [
+              2.8462547414509487e-06,
+              1.5707276833136442e-06,
+              1.7323945427083487e-05
+            ],
+            "same_id_set_as_snapshot_0": true,
+            "snapshot_index": 3
+          },
+          {
+            "ids_unique": true,
+            "particle_count": 262144,
+            "particle_velocity_rms": 0.0008545469655009132,
+            "position_max": [
+              0.9999828540775949,
+              0.9999996657119692,
+              0.999993163283273
+            ],
+            "position_min": [
+              8.48498369099282e-06,
+              3.183060910405544e-07,
+              1.5286226164423766e-05
+            ],
+            "same_id_set_as_snapshot_0": true,
+            "snapshot_index": 4
+          }
+        ]
+      },
+      "metadata": {
+        "boxsize_mpc_over_h": 64.0,
+        "gevolution_sha": "0cca42e51a824002ae4fb602cbd79d671e8ffe60",
+        "grid": 64,
+        "latfield2_sha": "2d8c737ab6adc965a1d2718c209f5085af27b09c",
+        "protocol": "P0-Q_LATE_TIME_VELOCITY_VALIDITY_MEMBER",
+        "requested_redshifts": [
+          5.0,
+          2.0,
+          1.0,
+          0.5,
+          0.1
+        ],
+        "seed": 424242,
+        "snapshots": [
+          {
+            "actual_redshift": 4.992542943078984,
+            "actual_scale_factor": 0.16687406490010023,
+            "cycle": 276,
+            "index": 0,
+            "requested_redshift": 5.0,
+            "tau_over_boxsize": 65.64633177519364
+          },
+          {
+            "actual_redshift": 1.9914042633266185,
+            "actual_scale_factor": 0.33429115959336797,
+            "cycle": 425,
+            "index": 1,
+            "requested_redshift": 2.0,
+            "tau_over_boxsize": 93.58383177519364
+          },
+          {
+            "actual_redshift": 0.9998915258916636,
+            "actual_scale_factor": 0.5000271199979929,
+            "cycle": 532,
+            "index": 2,
+            "requested_redshift": 1.0,
+            "tau_over_boxsize": 113.64633177519364
+          },
+          {
+            "actual_redshift": 0.4980106355966607,
+            "actual_scale_factor": 0.6675520027944915,
+            "cycle": 614,
+            "index": 3,
+            "requested_redshift": 0.5,
+            "tau_over_boxsize": 129.02133177519363
+          },
+          {
+            "actual_redshift": 0.09976320237832348,
+            "actual_scale_factor": 0.9092866517423226,
+            "cycle": 699,
+            "index": 4,
+            "requested_redshift": 0.1,
+            "tau_over_boxsize": 144.95883177519363
+          }
+        ],
+        "time_step_limit": 0.02
+      },
+      "snapshots": [
+        {
+          "actual_redshift": 4.992542943078984,
+          "bands": {
+            "A": {
+              "divergence_rms": 0.012488561592105258,
+              "mode_count": 13996,
+              "shear_frobenius_rms": 0.010207407813231843,
+              "shear_max_trace_abs": 8.239936510889834e-18,
+              "vorticity_over_shear": 0.06425099578182206,
+              "vorticity_vector_rms": 0.0006558361163512967
+            },
+            "H": {
+              "divergence_rms": 0.006722379242597303,
+              "mode_count": 11894,
+              "shear_frobenius_rms": 0.005506272132005503,
+              "shear_max_trace_abs": 3.686287386450715e-18,
+              "vorticity_over_shear": 0.11257279459684039,
+              "vorticity_vector_rms": 0.0006198564417105619
+            },
+            "L": {
+              "divergence_rms": 0.007278875913273112,
+              "mode_count": 250,
+              "shear_frobenius_rms": 0.0059432608401118695,
+              "shear_max_trace_abs": 3.469446951953614e-18,
+              "vorticity_over_shear": 0.007498484828817315,
+              "vorticity_vector_rms": 4.4565451243282904e-05
+            },
+            "M": {
+              "divergence_rms": 0.00760208875228881,
+              "mode_count": 1852,
+              "shear_frobenius_rms": 0.006208847885100646,
+              "shear_max_trace_abs": 3.469446951953614e-18,
+              "vorticity_over_shear": 0.033750884354022896,
+              "vorticity_vector_rms": 0.00020955410694175155
+            }
+          },
+          "requested_redshift": 5.0,
+          "snapshot_index": 0,
+          "tau_over_boxsize": 65.64633177519364
+        },
+        {
+          "actual_redshift": 1.9914042633266185,
+          "bands": {
+            "A": {
+              "divergence_rms": 0.01672509359972939,
+              "mode_count": 13996,
+              "shear_frobenius_rms": 0.013722485301846653,
+              "shear_max_trace_abs": 8.890457814381136e-18,
+              "vorticity_over_shear": 0.13906224648138604,
+              "vorticity_vector_rms": 0.0019082796333825963
+            },
+            "H": {
+              "divergence_rms": 0.008842661019587644,
+              "mode_count": 11894,
+              "shear_frobenius_rms": 0.007334578219626127,
+              "shear_max_trace_abs": 5.637851296924623e-18,
+              "vorticity_over_shear": 0.2489923595504137,
+              "vorticity_vector_rms": 0.0018262539372117818
+            },
+            "L": {
+              "divergence_rms": 0.00985670736926845,
+              "mode_count": 250,
+              "shear_frobenius_rms": 0.008048248456845177,
+              "shear_max_trace_abs": 5.204170427930421e-18,
+              "vorticity_over_shear": 0.011808972378799344,
+              "vorticity_vector_rms": 9.504154372459913e-05
+            },
+            "M": {
+              "divergence_rms": 0.010216722656947449,
+              "mode_count": 1852,
+              "shear_frobenius_rms": 0.008350824029787285,
+              "shear_max_trace_abs": 6.5052130349130266e-18,
+              "vorticity_over_shear": 0.06529265663308269,
+              "vorticity_vector_rms": 0.0005452474859801971
+            }
+          },
+          "requested_redshift": 2.0,
+          "snapshot_index": 1,
+          "tau_over_boxsize": 93.58383177519364
+        },
+        {
+          "actual_redshift": 0.9998915258916636,
+          "bands": {
+            "A": {
+              "divergence_rms": 0.017818521424727937,
+              "mode_count": 13996,
+              "shear_frobenius_rms": 0.014792546974722248,
+              "shear_max_trace_abs": 1.3877787807814457e-17,
+              "vorticity_over_shear": 0.2556909808896231,
+              "vorticity_vector_rms": 0.0037823208458225587
+            },
+            "H": {
+              "divergence_rms": 0.008467971195114554,
+              "mode_count": 11894,
+              "shear_frobenius_rms": 0.007363527901328315,
+              "shear_max_trace_abs": 6.938893903907228e-18,
+              "vorticity_over_shear": 0.48652074717093396,
+              "vorticity_vector_rms": 0.003582509096368271
+            },
+            "L": {
+              "divergence_rms": 0.011205942556670654,
+              "mode_count": 250,
+              "shear_frobenius_rms": 0.009150885668060464,
+              "shear_max_trace_abs": 4.7704895589362195e-18,
+              "vorticity_over_shear": 0.023578011297795787,
+              "vorticity_vector_rms": 0.00021575968566636718
+            },
+            "M": {
+              "divergence_rms": 0.01096448909064149,
+              "mode_count": 1852,
+              "shear_frobenius_rms": 0.008992174060582309,
+              "shear_max_trace_abs": 6.938893903907228e-18,
+              "vorticity_over_shear": 0.13275377798343801,
+              "vorticity_vector_rms": 0.0011937450788269742
+            }
+          },
+          "requested_redshift": 1.0,
+          "snapshot_index": 2,
+          "tau_over_boxsize": 113.64633177519364
+        },
+        {
+          "actual_redshift": 0.4980106355966607,
+          "bands": {
+            "A": {
+              "divergence_rms": 0.01761152166981119,
+              "mode_count": 13996,
+              "shear_frobenius_rms": 0.014844709436284279,
+              "shear_max_trace_abs": 1.3877787807814457e-17,
+              "vorticity_over_shear": 0.3511764196600582,
+              "vorticity_vector_rms": 0.005213111910728194
+            },
+            "H": {
+              "divergence_rms": 0.007655360112882347,
+              "mode_count": 11894,
+              "shear_frobenius_rms": 0.0071424565228683365,
+              "shear_max_trace_abs": 6.938893903907228e-18,
+              "vorticity_over_shear": 0.6843217443079017,
+              "vorticity_vector_rms": 0.00488773830637261
+            },
+            "L": {
+              "divergence_rms": 0.011764981473321645,
+              "mode_count": 250,
+              "shear_frobenius_rms": 0.009609157705730741,
+              "shear_max_trace_abs": 6.938893903907228e-18,
+              "vorticity_over_shear": 0.03586500265790339,
+              "vorticity_vector_rms": 0.00034463246665624586
+            },
+            "M": {
+              "divergence_rms": 0.010637028156431548,
+              "mode_count": 1852,
+              "shear_frobenius_rms": 0.00877580772653085,
+              "shear_max_trace_abs": 6.938893903907228e-18,
+              "vorticity_over_shear": 0.20281043861570042,
+              "vorticity_vector_rms": 0.0017798254142247743
+            }
+          },
+          "requested_redshift": 0.5,
+          "snapshot_index": 3,
+          "tau_over_boxsize": 129.02133177519363
+        },
+        {
+          "actual_redshift": 0.09976320237832348,
+          "bands": {
+            "A": {
+              "divergence_rms": 0.016714784876425526,
+              "mode_count": 13996,
+              "shear_frobenius_rms": 0.014360742673609555,
+              "shear_max_trace_abs": 1.3877787807814457e-17,
+              "vorticity_over_shear": 0.44012951126509986,
+              "vorticity_vector_rms": 0.006320586654339637
+            },
+            "H": {
+              "divergence_rms": 0.006966711180407537,
+              "mode_count": 11894,
+              "shear_frobenius_rms": 0.007037442932071696,
+              "shear_max_trace_abs": 6.938893903907228e-18,
+              "vorticity_over_shear": 0.8326668248039234,
+              "vorticity_vector_rms": 0.005859845260986952
+            },
+            "L": {
+              "divergence_rms": 0.011718593362885237,
+              "mode_count": 250,
+              "shear_frobenius_rms": 0.009574776584757775,
+              "shear_max_trace_abs": 5.204170427930421e-18,
+              "vorticity_over_shear": 0.05244142729758147,
+              "vorticity_vector_rms": 0.0005021149501601603
+            },
+            "M": {
+              "divergence_rms": 0.009670756867448907,
+              "mode_count": 1852,
+              "shear_frobenius_rms": 0.008064054840304525,
+              "shear_max_trace_abs": 6.938893903907228e-18,
+              "vorticity_over_shear": 0.287094760031355,
+              "vorticity_vector_rms": 0.0023151478892569142
+            }
+          },
+          "requested_redshift": 0.1,
+          "snapshot_index": 4,
+          "tau_over_boxsize": 144.95883177519363
+        }
+      ]
+    }
+  ],
+  "n32_vs_n64": [
+    {
+      "actual_redshift_n32": 4.980006365955429,
+      "actual_redshift_n64": 4.992542943078984,
+      "bands": {
+        "A": {
+          "divergence": {
+            "pearson_correlation": 0.9163276824765219,
+            "reference_rms": 0.00904810436826919,
+            "rms_error": 0.005544936696320712,
+            "rms_error_over_reference_rms": 0.6128285517755806
+          },
+          "shear": {
+            "directional_error_over_reference_gap_quantiles_by_pair": [
+              {
+                "finite_count": 32768,
+                "max": 151.09192724797202,
+                "median": 0.7210175829616183,
+                "min": 0.03985010259010232,
+                "q05": 0.2638777684178659,
+                "q95": 2.8115145225062954,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 227.0087279234008,
+                "median": 0.650799052726416,
+                "min": 0.042729503420732624,
+                "q05": 0.2514419493502331,
+                "q95": 2.4981924121177905,
+                "total_count": 32768
+              }
+            ],
+            "eigenframe_diagonal_alignment_quantiles_by_order": [
+              {
+                "finite_count": 32768,
+                "max": 0.9999999262962028,
+                "median": 0.9799834280846056,
+                "min": 0.000825165819664828,
+                "q05": 0.6088195658942384,
+                "q95": 0.9989764653612841,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.9999991270063494,
+                "median": 0.9561359212875287,
+                "min": 4.599664139668527e-05,
+                "q05": 0.4043390011519998,
+                "q95": 0.997772628828097,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.9999996572205125,
+                "median": 0.9838142597051429,
+                "min": 0.0008975131093895874,
+                "q05": 0.6769296455357973,
+                "q95": 0.9992002266287303,
+                "total_count": 32768
+              }
+            ],
+            "eigengap_abs_error_quantiles_by_pair": [
+              {
+                "finite_count": 32768,
+                "max": 0.017474446923207012,
+                "median": 0.0017417640540030512,
+                "min": 2.663346149699153e-08,
+                "q05": 0.00015823990834033065,
+                "q95": 0.005639554764471075,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.022949237775041934,
+                "median": 0.001935761415207994,
+                "min": 2.0875139965497586e-07,
+                "q05": 0.00018128883735656583,
+                "q95": 0.006258411418470593,
+                "total_count": 32768
+              }
+            ],
+            "operator_error_quantiles": {
+              "finite_count": 32768,
+              "max": 0.014652959049647531,
+              "median": 0.0029283108775782114,
+              "min": 0.0003056075899181181,
+              "q05": 0.0013959231572007738,
+              "q95": 0.005837414321145459,
+              "total_count": 32768
+            },
+            "relative_operator_error_quantiles": {
+              "finite_count": 32768,
+              "max": 6.384077154371752,
+              "median": 0.5932070455186903,
+              "min": 0.05030545442105857,
+              "q05": 0.26637101414944353,
+              "q95": 1.282911737029224,
+              "total_count": 32768
+            }
+          },
+          "vorticity": {
+            "pearson_correlation": 0.5261393460452907,
+            "reference_rms": 0.0009875093194775418,
+            "rms_error": 0.0008507604803234302,
+            "rms_error_over_reference_rms": 0.8615214697655098
+          }
+        },
+        "H": {
+          "divergence": {
+            "pearson_correlation": 0.8345574675868536,
+            "reference_rms": 0.002323333837712003,
+            "rms_error": 0.004951714147041088,
+            "rms_error_over_reference_rms": 2.1312968746314516
+          },
+          "shear": {
+            "directional_error_over_reference_gap_quantiles_by_pair": [
+              {
+                "finite_count": 32768,
+                "max": 404.4992976536249,
+                "median": 2.2443795676138723,
+                "min": 0.15729400455081666,
+                "q05": 0.926038530213313,
+                "q95": 8.127516231426432,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 597.6313567342507,
+                "median": 2.305641043757391,
+                "min": 0.1386885065199537,
+                "q05": 0.92538218076813,
+                "q95": 8.837644084499921,
+                "total_count": 32768
+              }
+            ],
+            "eigenframe_diagonal_alignment_quantiles_by_order": [
+              {
+                "finite_count": 32768,
+                "max": 0.9999985096318196,
+                "median": 0.9546859512708898,
+                "min": 0.000258355080464086,
+                "q05": 0.3455091836920806,
+                "q95": 0.997787721373142,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.9999969600998879,
+                "median": 0.8879449060249298,
+                "min": 0.00010606589105590587,
+                "q05": 0.1859290940969736,
+                "q95": 0.9943473110448044,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.9999990592830257,
+                "median": 0.9521921410824865,
+                "min": 0.00040775200704653826,
+                "q05": 0.35213960095356095,
+                "q95": 0.9976949141758655,
+                "total_count": 32768
+              }
+            ],
+            "eigengap_abs_error_quantiles_by_pair": [
+              {
+                "finite_count": 32768,
+                "max": 0.01549221368284069,
+                "median": 0.002047866326693657,
+                "min": 3.975039559412849e-07,
+                "q05": 0.00019567591037900636,
+                "q95": 0.005579222507190325,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.014923158703451055,
+                "median": 0.0019528852755175627,
+                "min": 5.136316747224572e-07,
+                "q05": 0.00018149051213862326,
+                "q95": 0.005203439708836275,
+                "total_count": 32768
+              }
+            ],
+            "operator_error_quantiles": {
+              "finite_count": 32768,
+              "max": 0.011245469289846169,
+              "median": 0.0026858256224446295,
+              "min": 0.00023761023975716453,
+              "q05": 0.0013044171371169877,
+              "q95": 0.005065273993408472,
+              "total_count": 32768
+            },
+            "relative_operator_error_quantiles": {
+              "finite_count": 32768,
+              "max": 29.84416989732256,
+              "median": 1.9933750831571597,
+              "min": 0.14652318702408876,
+              "q05": 0.9683970354269192,
+              "q95": 3.87685005398671,
+              "total_count": 32768
+            }
+          },
+          "vorticity": {
+            "pearson_correlation": 0.5101115575889409,
+            "reference_rms": 0.0008033287946853478,
+            "rms_error": 0.0007221776527039644,
+            "rms_error_over_reference_rms": 0.8989814102043123
+          }
+        },
+        "L": {
+          "divergence": {
+            "pearson_correlation": 0.9989432861421518,
+            "reference_rms": 0.006852648421039485,
+            "rms_error": 0.0005358047748418835,
+            "rms_error_over_reference_rms": 0.07818944471115984
+          },
+          "shear": {
+            "directional_error_over_reference_gap_quantiles_by_pair": [
+              {
+                "finite_count": 32768,
+                "max": 8.735362722041526,
+                "median": 0.0917107596461918,
+                "min": 0.006364608920671109,
+                "q05": 0.04047221581653534,
+                "q95": 0.3369222982894989,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 18.50321555443679,
+                "median": 0.0905280159968676,
+                "min": 0.011222668542221814,
+                "q05": 0.04227681297739859,
+                "q95": 0.3160328726142522,
+                "total_count": 32768
+              }
+            ],
+            "eigenframe_diagonal_alignment_quantiles_by_order": [
+              {
+                "finite_count": 32768,
+                "max": 0.9999999931554109,
+                "median": 0.9997569988670525,
+                "min": 0.0027989461482029517,
+                "q05": 0.9957602444463943,
+                "q95": 0.9999865774557896,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.9999999762791478,
+                "median": 0.9994650303324024,
+                "min": 0.0027910883495473764,
+                "q05": 0.9916291548721603,
+                "q95": 0.9999691699104772,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.9999999710786347,
+                "median": 0.9997662404261539,
+                "min": 0.029560781810705802,
+                "q05": 0.995938905420621,
+                "q95": 0.9999870378220872,
+                "total_count": 32768
+              }
+            ],
+            "eigengap_abs_error_quantiles_by_pair": [
+              {
+                "finite_count": 32768,
+                "max": 0.0009936133758219317,
+                "median": 0.00022364465161375672,
+                "min": 5.523687834387003e-09,
+                "q05": 2.1038029547766083e-05,
+                "q95": 0.00055972563373908,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.001349660616208101,
+                "median": 0.00024176575796049755,
+                "min": 1.0560747990082803e-08,
+                "q05": 2.4489944887225648e-05,
+                "q95": 0.000610515238508922,
+                "total_count": 32768
+              }
+            ],
+            "operator_error_quantiles": {
+              "finite_count": 32768,
+              "max": 0.0008886724729487154,
+              "median": 0.00032061818323410394,
+              "min": 4.4158554007357025e-05,
+              "q05": 0.00016186302862515264,
+              "q95": 0.0005099793547367089,
+              "total_count": 32768
+            },
+            "relative_operator_error_quantiles": {
+              "finite_count": 32768,
+              "max": 0.5676948569935675,
+              "median": 0.08146984596637419,
+              "min": 0.007710850118538265,
+              "q05": 0.04398068181275325,
+              "q95": 0.14505425825810342,
+              "total_count": 32768
+            }
+          },
+          "vorticity": {
+            "pearson_correlation": 0.7932872538981818,
+            "reference_rms": 0.00019685423969415222,
+            "rms_error": 0.0001637645101060325,
+            "rms_error_over_reference_rms": 0.8319074578249854
+          }
+        },
+        "M": {
+          "divergence": {
+            "pearson_correlation": 0.9850787526282521,
+            "reference_rms": 0.005432450842415372,
+            "rms_error": 0.0024371629439686304,
+            "rms_error_over_reference_rms": 0.4486304643458165
+          },
+          "shear": {
+            "directional_error_over_reference_gap_quantiles_by_pair": [
+              {
+                "finite_count": 32768,
+                "max": 52.710186244415105,
+                "median": 0.48821568147268557,
+                "min": 0.052151162414158445,
+                "q05": 0.24142494923180235,
+                "q95": 1.7097117527432872,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 143.179556034079,
+                "median": 0.5087230100069452,
+                "min": 0.07389328940319864,
+                "q05": 0.24781861508371245,
+                "q95": 1.831255963897945,
+                "total_count": 32768
+              }
+            ],
+            "eigenframe_diagonal_alignment_quantiles_by_order": [
+              {
+                "finite_count": 32768,
+                "max": 0.999999965943043,
+                "median": 0.996590185795737,
+                "min": 0.005781980489873524,
+                "q05": 0.9287402741697098,
+                "q95": 0.9998340696955558,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.9999997772581662,
+                "median": 0.9917147221694937,
+                "min": 0.0014568563567099579,
+                "q05": 0.8446787345221852,
+                "q95": 0.9995779988923615,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.9999997996616147,
+                "median": 0.9964151559915756,
+                "min": 0.0002198854168080002,
+                "q05": 0.9258590956891675,
+                "q95": 0.9998079062855921,
+                "total_count": 32768
+              }
+            ],
+            "eigengap_abs_error_quantiles_by_pair": [
+              {
+                "finite_count": 32768,
+                "max": 0.006211817183288216,
+                "median": 0.0010764011574424638,
+                "min": 1.7375111825679822e-07,
+                "q05": 0.00011024316090465678,
+                "q95": 0.00269194571130201,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.006268771848244311,
+                "median": 0.0010653231804823833,
+                "min": 2.9919765459456016e-08,
+                "q05": 0.00011565076275223444,
+                "q95": 0.002634227843769242,
+                "total_count": 32768
+              }
+            ],
+            "operator_error_quantiles": {
+              "finite_count": 32768,
+              "max": 0.004451665572810919,
+              "median": 0.0013798630616277223,
+              "min": 0.00012070146378182053,
+              "q05": 0.0006837730360971916,
+              "q95": 0.0023791696456400852,
+              "total_count": 32768
+            },
+            "relative_operator_error_quantiles": {
+              "finite_count": 32768,
+              "max": 5.775531087267283,
+              "median": 0.4458927198993444,
+              "min": 0.06169524923774775,
+              "q05": 0.2672617870882989,
+              "q95": 0.732152797647438,
+              "total_count": 32768
+            }
+          },
+          "vorticity": {
+            "pearson_correlation": 0.7056679196941589,
+            "reference_rms": 0.0005395237826072373,
+            "rms_error": 0.0004188484428106151,
+            "rms_error_over_reference_rms": 0.7763298974264652
+          }
+        }
+      },
+      "redshift_difference": 0.012536577123555048,
+      "requested_redshift": 5.0,
+      "snapshot_index": 0
+    },
+    {
+      "actual_redshift_n32": 1.9988759970628402,
+      "actual_redshift_n64": 1.9914042633266185,
+      "bands": {
+        "A": {
+          "divergence": {
+            "pearson_correlation": 0.9056589927144866,
+            "reference_rms": 0.012151458499973176,
+            "rms_error": 0.007698362913904635,
+            "rms_error_over_reference_rms": 0.6335340662128442
+          },
+          "shear": {
+            "directional_error_over_reference_gap_quantiles_by_pair": [
+              {
+                "finite_count": 32768,
+                "max": 198.0030236403715,
+                "median": 0.7483974925480767,
+                "min": 0.039918671383651176,
+                "q05": 0.2683477945853657,
+                "q95": 2.939976442949818,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 89.8599596938698,
+                "median": 0.6479003822015013,
+                "min": 0.030980981476409864,
+                "q05": 0.23873249676193858,
+                "q95": 2.4820752305744924,
+                "total_count": 32768
+              }
+            ],
+            "eigenframe_diagonal_alignment_quantiles_by_order": [
+              {
+                "finite_count": 32768,
+                "max": 0.9999999641332343,
+                "median": 0.9741111615222635,
+                "min": 0.00017545927724712344,
+                "q05": 0.49191160133463674,
+                "q95": 0.9987755426395333,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.9999990386900939,
+                "median": 0.9472707132229528,
+                "min": 6.273546920827164e-05,
+                "q05": 0.3262077326936418,
+                "q95": 0.9974497889908961,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.9999995791830527,
+                "median": 0.9821792972033782,
+                "min": 0.00023661329800726575,
+                "q05": 0.639927639690935,
+                "q95": 0.9990748705394171,
+                "total_count": 32768
+              }
+            ],
+            "eigengap_abs_error_quantiles_by_pair": [
+              {
+                "finite_count": 32768,
+                "max": 0.031110430862737057,
+                "median": 0.0020649956172971505,
+                "min": 4.359637893660423e-08,
+                "q05": 0.0001865235256657986,
+                "q95": 0.007693865047884078,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.03799453859563133,
+                "median": 0.002403938812564836,
+                "min": 9.109677698315201e-08,
+                "q05": 0.000213795964127013,
+                "q95": 0.009597740788689387,
+                "total_count": 32768
+              }
+            ],
+            "operator_error_quantiles": {
+              "finite_count": 32768,
+              "max": 0.02419657720087401,
+              "median": 0.003687991066738278,
+              "min": 0.0002317064037889515,
+              "q05": 0.0016074081351116368,
+              "q95": 0.009062101579647526,
+              "total_count": 32768
+            },
+            "relative_operator_error_quantiles": {
+              "finite_count": 32768,
+              "max": 7.368720521891288,
+              "median": 0.5996308105066339,
+              "min": 0.043531624652749755,
+              "q05": 0.2584563373846795,
+              "q95": 1.3494998342434559,
+              "total_count": 32768
+            }
+          },
+          "vorticity": {
+            "pearson_correlation": 0.4976363840183717,
+            "reference_rms": 0.001811481805090953,
+            "rms_error": 0.0018661524094541538,
+            "rms_error_over_reference_rms": 1.0301800460868862
+          }
+        },
+        "H": {
+          "divergence": {
+            "pearson_correlation": 0.7407396435693517,
+            "reference_rms": 0.003079085993655365,
+            "rms_error": 0.006880168834007821,
+            "rms_error_over_reference_rms": 2.2344841450303132
+          },
+          "shear": {
+            "directional_error_over_reference_gap_quantiles_by_pair": [
+              {
+                "finite_count": 32768,
+                "max": 515.929256492453,
+                "median": 2.221129577717597,
+                "min": 0.10867852633484826,
+                "q05": 0.793015148820511,
+                "q95": 8.547163725882402,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 354.402908429473,
+                "median": 2.333898757023664,
+                "min": 0.06008049324248671,
+                "q05": 0.8278486496059737,
+                "q95": 9.215342195535563,
+                "total_count": 32768
+              }
+            ],
+            "eigenframe_diagonal_alignment_quantiles_by_order": [
+              {
+                "finite_count": 32768,
+                "max": 0.9999999962087045,
+                "median": 0.9137387464481015,
+                "min": 0.0004011386693843075,
+                "q05": 0.2210289135378639,
+                "q95": 0.9957871095083242,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.9999950421406757,
+                "median": 0.7946573558445937,
+                "min": 0.00016306963543640326,
+                "q05": 0.1141897834731569,
+                "q95": 0.9892495771824533,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.9999997299581239,
+                "median": 0.9053644729060921,
+                "min": 4.68663108561588e-05,
+                "q05": 0.19914807299260906,
+                "q95": 0.9955540096702056,
+                "total_count": 32768
+              }
+            ],
+            "eigengap_abs_error_quantiles_by_pair": [
+              {
+                "finite_count": 32768,
+                "max": 0.02509809657460689,
+                "median": 0.0024521568437097852,
+                "min": 2.045673370679093e-07,
+                "q05": 0.00021647585358939282,
+                "q95": 0.008398782180792395,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.02064824225914314,
+                "median": 0.0021741204666982077,
+                "min": 6.4194812356708e-08,
+                "q05": 0.00019459070364644235,
+                "q95": 0.007224170278261533,
+                "total_count": 32768
+              }
+            ],
+            "operator_error_quantiles": {
+              "finite_count": 32768,
+              "max": 0.018549922287676927,
+              "median": 0.0035283127945472566,
+              "min": 0.0002049529912395051,
+              "q05": 0.001594471030544602,
+              "q95": 0.007777589552133097,
+              "total_count": 32768
+            },
+            "relative_operator_error_quantiles": {
+              "finite_count": 32768,
+              "max": 19.47660598467755,
+              "median": 1.9679330262432342,
+              "min": 0.07660639534651639,
+              "q05": 0.8393995204744892,
+              "q95": 4.329942714674653,
+              "total_count": 32768
+            }
+          },
+          "vorticity": {
+            "pearson_correlation": 0.4788081748984587,
+            "reference_rms": 0.001573617650598983,
+            "rms_error": 0.0017491294220722384,
+            "rms_error_over_reference_rms": 1.1115339367262744
+          }
+        },
+        "L": {
+          "divergence": {
+            "pearson_correlation": 0.9987471539900584,
+            "reference_rms": 0.009279721433402135,
+            "rms_error": 0.0007497347208192312,
+            "rms_error_over_reference_rms": 0.08079280463318425
+          },
+          "shear": {
+            "directional_error_over_reference_gap_quantiles_by_pair": [
+              {
+                "finite_count": 32768,
+                "max": 11.169876437499356,
+                "median": 0.09481585222753004,
+                "min": 0.012056186767200069,
+                "q05": 0.042664800855861246,
+                "q95": 0.3475911334041312,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 10.832709906384295,
+                "median": 0.09121740154998154,
+                "min": 0.009532305603957996,
+                "q05": 0.04320070087082123,
+                "q95": 0.31465467074022757,
+                "total_count": 32768
+              }
+            ],
+            "eigenframe_diagonal_alignment_quantiles_by_order": [
+              {
+                "finite_count": 32768,
+                "max": 0.9999999953140656,
+                "median": 0.9996996961164197,
+                "min": 0.08791773917735167,
+                "q05": 0.9949842898815953,
+                "q95": 0.9999839547737217,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.9999999729487343,
+                "median": 0.9993996927523083,
+                "min": 0.05295242568101187,
+                "q05": 0.9902976860856755,
+                "q95": 0.9999665097831565,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.9999999993000902,
+                "median": 0.9997428964577031,
+                "min": 0.05288014609449018,
+                "q05": 0.9956511541994513,
+                "q95": 0.9999861046085293,
+                "total_count": 32768
+              }
+            ],
+            "eigengap_abs_error_quantiles_by_pair": [
+              {
+                "finite_count": 32768,
+                "max": 0.0015353880116418363,
+                "median": 0.0003000641882312965,
+                "min": 2.5825617321756367e-09,
+                "q05": 2.9178936808840402e-05,
+                "q95": 0.0007739437214111099,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.0020034944741789025,
+                "median": 0.00033123170322398574,
+                "min": 5.74329501448409e-09,
+                "q05": 3.411460871468635e-05,
+                "q95": 0.0008501138258951114,
+                "total_count": 32768
+              }
+            ],
+            "operator_error_quantiles": {
+              "finite_count": 32768,
+              "max": 0.0013460171305411774,
+              "median": 0.0004386917154952082,
+              "min": 3.584905683886419e-05,
+              "q05": 0.0002219393352070647,
+              "q95": 0.000714894685008844,
+              "total_count": 32768
+            },
+            "relative_operator_error_quantiles": {
+              "finite_count": 32768,
+              "max": 1.1593769073876208,
+              "median": 0.08284043272357475,
+              "min": 0.011135645888823662,
+              "q05": 0.04614671940470451,
+              "q95": 0.15072234961679157,
+              "total_count": 32768
+            }
+          },
+          "vorticity": {
+            "pearson_correlation": 0.7466621384276082,
+            "reference_rms": 0.00023994428527091281,
+            "rms_error": 0.0001804200095505918,
+            "rms_error_over_reference_rms": 0.7519245951070924
+          }
+        },
+        "M": {
+          "divergence": {
+            "pearson_correlation": 0.9840011787737667,
+            "reference_rms": 0.007215534854652334,
+            "rms_error": 0.003371344867872143,
+            "rms_error_over_reference_rms": 0.46723422944848136
+          },
+          "shear": {
+            "directional_error_over_reference_gap_quantiles_by_pair": [
+              {
+                "finite_count": 32768,
+                "max": 119.79432713164803,
+                "median": 0.5041942702386214,
+                "min": 0.0534826404657035,
+                "q05": 0.2510646515689818,
+                "q95": 1.8054065625182467,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 104.89041428603758,
+                "median": 0.550870810145676,
+                "min": 0.05412526096599604,
+                "q05": 0.2590565846581306,
+                "q95": 2.0354998737562013,
+                "total_count": 32768
+              }
+            ],
+            "eigenframe_diagonal_alignment_quantiles_by_order": [
+              {
+                "finite_count": 32768,
+                "max": 0.999999820937729,
+                "median": 0.9958582561470042,
+                "min": 0.0006665455122257681,
+                "q05": 0.9147802433705717,
+                "q95": 0.9997978212120853,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.9999999136787174,
+                "median": 0.9900333835150013,
+                "min": 0.0011158350941595067,
+                "q05": 0.7997804304176204,
+                "q95": 0.9995097871468539,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.9999996494432152,
+                "median": 0.995568913875713,
+                "min": 0.009929008452009143,
+                "q05": 0.8976725546424342,
+                "q95": 0.9997802370956674,
+                "total_count": 32768
+              }
+            ],
+            "eigengap_abs_error_quantiles_by_pair": [
+              {
+                "finite_count": 32768,
+                "max": 0.008777494865953517,
+                "median": 0.0014185403778897315,
+                "min": 7.500632667918616e-08,
+                "q05": 0.0001393264107485436,
+                "q95": 0.0038376724735995323,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.00961726731924477,
+                "median": 0.0013809547663045669,
+                "min": 4.0396869803276114e-09,
+                "q05": 0.00013709021805659148,
+                "q95": 0.003784503012065558,
+                "total_count": 32768
+              }
+            ],
+            "operator_error_quantiles": {
+              "finite_count": 32768,
+              "max": 0.006877646868230621,
+              "median": 0.001837286519524375,
+              "min": 0.0001802218244065192,
+              "q05": 0.0008570813101804866,
+              "q95": 0.003489118040365538,
+              "total_count": 32768
+            },
+            "relative_operator_error_quantiles": {
+              "finite_count": 32768,
+              "max": 3.8581899070278847,
+              "median": 0.4684351198498189,
+              "min": 0.062253971311016724,
+              "q05": 0.27747832095325686,
+              "q95": 0.803375267313591,
+              "total_count": 32768
+            }
+          },
+          "vorticity": {
+            "pearson_correlation": 0.6940266359008921,
+            "reference_rms": 0.000864650542048489,
+            "rms_error": 0.0006249157545674025,
+            "rms_error_over_reference_rms": 0.7227379434550306
+          }
+        }
+      },
+      "redshift_difference": 0.007471733736221786,
+      "requested_redshift": 2.0,
+      "snapshot_index": 1
+    },
+    {
+      "actual_redshift_n32": 0.9971753063575124,
+      "actual_redshift_n64": 0.9998915258916636,
+      "bands": {
+        "A": {
+          "divergence": {
+            "pearson_correlation": 0.9091371267877608,
+            "reference_rms": 0.013572814654125454,
+            "rms_error": 0.007872480002410844,
+            "rms_error_over_reference_rms": 0.580018235202085
+          },
+          "shear": {
+            "directional_error_over_reference_gap_quantiles_by_pair": [
+              {
+                "finite_count": 32768,
+                "max": 151.41255854814648,
+                "median": 0.7018004965850899,
+                "min": 0.04375125617234022,
+                "q05": 0.26214372639200856,
+                "q95": 2.8242918512981556,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 250.40277285612905,
+                "median": 0.6085095212383314,
+                "min": 0.035562221012292165,
+                "q05": 0.2208340279514821,
+                "q95": 2.411015561681556,
+                "total_count": 32768
+              }
+            ],
+            "eigenframe_diagonal_alignment_quantiles_by_order": [
+              {
+                "finite_count": 32768,
+                "max": 0.9999992962177372,
+                "median": 0.972341715421994,
+                "min": 3.072034351046027e-05,
+                "q05": 0.48294558783949165,
+                "q95": 0.9986763403531403,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.9999998127972161,
+                "median": 0.9448152711602282,
+                "min": 0.0001538962586918676,
+                "q05": 0.31412909298579156,
+                "q95": 0.9974936303084937,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.9999998697849212,
+                "median": 0.9813890214360891,
+                "min": 0.0003592714889590639,
+                "q05": 0.6188415070271645,
+                "q95": 0.9990580479604337,
+                "total_count": 32768
+              }
+            ],
+            "eigengap_abs_error_quantiles_by_pair": [
+              {
+                "finite_count": 32768,
+                "max": 0.0334076329810226,
+                "median": 0.0019944061980170648,
+                "min": 2.609867296569403e-07,
+                "q05": 0.00017777640625079227,
+                "q95": 0.007881337785498401,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.03880217414870741,
+                "median": 0.0024300639712432856,
+                "min": 1.6812548424109675e-07,
+                "q05": 0.00021340969993015625,
+                "q95": 0.010335384950398088,
+                "total_count": 32768
+              }
+            ],
+            "operator_error_quantiles": {
+              "finite_count": 32768,
+              "max": 0.029604457903933314,
+              "median": 0.0037436281617049087,
+              "min": 0.0002046330634987505,
+              "q05": 0.0015889818783357767,
+              "q95": 0.009750800277099092,
+              "total_count": 32768
+            },
+            "relative_operator_error_quantiles": {
+              "finite_count": 32768,
+              "max": 5.885249225203301,
+              "median": 0.5668462240079338,
+              "min": 0.05148306329519371,
+              "q05": 0.24769038584313852,
+              "q95": 1.295388809539936,
+              "total_count": 32768
+            }
+          },
+          "vorticity": {
+            "pearson_correlation": 0.6023224092338555,
+            "reference_rms": 0.0033169838028389953,
+            "rms_error": 0.003192958304732502,
+            "rms_error_over_reference_rms": 0.9626089527478728
+          }
+        },
+        "H": {
+          "divergence": {
+            "pearson_correlation": 0.618234505393034,
+            "reference_rms": 0.0033435260510858347,
+            "rms_error": 0.006919371435114819,
+            "rms_error_over_reference_rms": 2.0694833326833812
+          },
+          "shear": {
+            "directional_error_over_reference_gap_quantiles_by_pair": [
+              {
+                "finite_count": 32768,
+                "max": 177.18370377519997,
+                "median": 2.055998429714454,
+                "min": 0.10309548949835139,
+                "q05": 0.7066619135398678,
+                "q95": 8.309427395044045,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 234.80480376745174,
+                "median": 2.114282871616938,
+                "min": 0.17511771673491283,
+                "q05": 0.7273289538421925,
+                "q95": 8.403646026987714,
+                "total_count": 32768
+              }
+            ],
+            "eigenframe_diagonal_alignment_quantiles_by_order": [
+              {
+                "finite_count": 32768,
+                "max": 0.9999986666484527,
+                "median": 0.8735241781134737,
+                "min": 8.142863558692175e-05,
+                "q05": 0.16486996538180237,
+                "q95": 0.9937520665800963,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.9999884295578328,
+                "median": 0.7245171439325424,
+                "min": 7.951692549662542e-05,
+                "q05": 0.08679760200887901,
+                "q95": 0.984186641471907,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.999997849295533,
+                "median": 0.8642700809420074,
+                "min": 4.1005378515763713e-05,
+                "q05": 0.16093976162041987,
+                "q95": 0.993324804275731,
+                "total_count": 32768
+              }
+            ],
+            "eigengap_abs_error_quantiles_by_pair": [
+              {
+                "finite_count": 32768,
+                "max": 0.028306533397433224,
+                "median": 0.002239946536023298,
+                "min": 4.816579112550817e-09,
+                "q05": 0.00019495541556617684,
+                "q95": 0.00844805121585198,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.01892445152858418,
+                "median": 0.001975105394475887,
+                "min": 2.799128880582799e-07,
+                "q05": 0.00016276643082251368,
+                "q95": 0.006949483638937322,
+                "total_count": 32768
+              }
+            ],
+            "operator_error_quantiles": {
+              "finite_count": 32768,
+              "max": 0.02139051287531068,
+              "median": 0.003648267412723934,
+              "min": 0.00031937275368658466,
+              "q05": 0.0016144229492224469,
+              "q95": 0.008303796479023963,
+              "total_count": 32768
+            },
+            "relative_operator_error_quantiles": {
+              "finite_count": 32768,
+              "max": 21.242432751207986,
+              "median": 1.7838149514340058,
+              "min": 0.12809630587062207,
+              "q05": 0.7358905041987819,
+              "q95": 4.11189858084392,
+              "total_count": 32768
+            }
+          },
+          "vorticity": {
+            "pearson_correlation": 0.5781560278044429,
+            "reference_rms": 0.0028697660200313222,
+            "rms_error": 0.0030301694876754743,
+            "rms_error_over_reference_rms": 1.0558942668233284
+          }
+        },
+        "L": {
+          "divergence": {
+            "pearson_correlation": 0.9986345902410784,
+            "reference_rms": 0.010585625135866117,
+            "rms_error": 0.0008418602746158354,
+            "rms_error_over_reference_rms": 0.07952863093209793
+          },
+          "shear": {
+            "directional_error_over_reference_gap_quantiles_by_pair": [
+              {
+                "finite_count": 32768,
+                "max": 46.49477021813843,
+                "median": 0.09608659728479499,
+                "min": 0.00751221623982973,
+                "q05": 0.04098059129152258,
+                "q95": 0.361669251138864,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 25.440261205024825,
+                "median": 0.09032240766254324,
+                "min": 0.010920238623644786,
+                "q05": 0.04116905134874784,
+                "q95": 0.31597720088382447,
+                "total_count": 32768
+              }
+            ],
+            "eigenframe_diagonal_alignment_quantiles_by_order": [
+              {
+                "finite_count": 32768,
+                "max": 0.9999999903613126,
+                "median": 0.9996631394913771,
+                "min": 0.0049345840473619335,
+                "q05": 0.9933038708653,
+                "q95": 0.9999796168122506,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.9999999390980754,
+                "median": 0.9992991100205715,
+                "min": 0.005004000818391121,
+                "q05": 0.9876619641794347,
+                "q95": 0.9999617467508615,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.999999997583451,
+                "median": 0.999699021295368,
+                "min": 0.0290709826970732,
+                "q05": 0.9949153055732095,
+                "q95": 0.9999813758179863,
+                "total_count": 32768
+              }
+            ],
+            "eigengap_abs_error_quantiles_by_pair": [
+              {
+                "finite_count": 32768,
+                "max": 0.0017053584534859959,
+                "median": 0.00031108736360367997,
+                "min": 1.9933239529465463e-08,
+                "q05": 2.978234860994385e-05,
+                "q95": 0.0008571766710371114,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.0028407541525224816,
+                "median": 0.00036623772792464867,
+                "min": 1.3952245116188866e-08,
+                "q05": 3.8297429879998334e-05,
+                "q95": 0.0010161261397929285,
+                "total_count": 32768
+              }
+            ],
+            "operator_error_quantiles": {
+              "finite_count": 32768,
+              "max": 0.0018580668876705991,
+              "median": 0.0004851317430628429,
+              "min": 4.442903996420296e-05,
+              "q05": 0.00024284916938001623,
+              "q95": 0.0008539782611815531,
+              "total_count": 32768
+            },
+            "relative_operator_error_quantiles": {
+              "finite_count": 32768,
+              "max": 0.9010250673448835,
+              "median": 0.08306997442565767,
+              "min": 0.010375088423479653,
+              "q05": 0.04328991945286141,
+              "q95": 0.1580006420452857,
+              "total_count": 32768
+            }
+          },
+          "vorticity": {
+            "pearson_correlation": 0.7727653844689092,
+            "reference_rms": 0.00041071147912466693,
+            "rms_error": 0.0002797838155221765,
+            "rms_error_over_reference_rms": 0.6812174232832953
+          }
+        },
+        "M": {
+          "divergence": {
+            "pearson_correlation": 0.9799424247506434,
+            "reference_rms": 0.007809396370006618,
+            "rms_error": 0.0036591681581063565,
+            "rms_error_over_reference_rms": 0.4685596664244173
+          },
+          "shear": {
+            "directional_error_over_reference_gap_quantiles_by_pair": [
+              {
+                "finite_count": 32768,
+                "max": 58.00370241366643,
+                "median": 0.5077596259720142,
+                "min": 0.04528422175414036,
+                "q05": 0.23581521181265275,
+                "q95": 1.8375589978327354,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 74.82631974413707,
+                "median": 0.5760521834596362,
+                "min": 0.03478451887936769,
+                "q05": 0.257232123777668,
+                "q95": 2.166687282337507,
+                "total_count": 32768
+              }
+            ],
+            "eigenframe_diagonal_alignment_quantiles_by_order": [
+              {
+                "finite_count": 32768,
+                "max": 0.9999998904011244,
+                "median": 0.9946568882520483,
+                "min": 0.005330964838551652,
+                "q05": 0.8857330568823579,
+                "q95": 0.9997293230044946,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.9999984346151707,
+                "median": 0.9865090075736127,
+                "min": 4.2725640757305615e-05,
+                "q05": 0.7358614316678513,
+                "q95": 0.9993449479933292,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.9999999887898402,
+                "median": 0.9935618893014254,
+                "min": 0.0011160990720079844,
+                "q05": 0.8612139900771831,
+                "q95": 0.9996721717000748,
+                "total_count": 32768
+              }
+            ],
+            "eigengap_abs_error_quantiles_by_pair": [
+              {
+                "finite_count": 32768,
+                "max": 0.013031502054388758,
+                "median": 0.0014473890524686751,
+                "min": 5.4043975270890235e-08,
+                "q05": 0.00013816830721180548,
+                "q95": 0.004179389117939891,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.012087975832723592,
+                "median": 0.0013749392705703365,
+                "min": 2.426699471035597e-08,
+                "q05": 0.00013142936501230312,
+                "q95": 0.0042464774065639034,
+                "total_count": 32768
+              }
+            ],
+            "operator_error_quantiles": {
+              "finite_count": 32768,
+              "max": 0.00958619274569552,
+              "median": 0.0019388746113128599,
+              "min": 9.139751364208242e-05,
+              "q05": 0.000903770556877594,
+              "q95": 0.003996068300927043,
+              "total_count": 32768
+            },
+            "relative_operator_error_quantiles": {
+              "finite_count": 32768,
+              "max": 5.876369569782839,
+              "median": 0.4734893719002211,
+              "min": 0.03769810868146454,
+              "q05": 0.26509193300016337,
+              "q95": 0.8967908039611199,
+              "total_count": 32768
+            }
+          },
+          "vorticity": {
+            "pearson_correlation": 0.8025265419466905,
+            "reference_rms": 0.001611874877118276,
+            "rms_error": 0.0009668384706312942,
+            "rms_error_over_reference_rms": 0.5998222841960391
+          }
+        }
+      },
+      "redshift_difference": 0.002716219534151243,
+      "requested_redshift": 1.0,
+      "snapshot_index": 2
+    },
+    {
+      "actual_redshift_n32": 0.4960042679779455,
+      "actual_redshift_n64": 0.4980106355966607,
+      "bands": {
+        "A": {
+          "divergence": {
+            "pearson_correlation": 0.9069972260116524,
+            "reference_rms": 0.013863799064655428,
+            "rms_error": 0.007711097360108451,
+            "rms_error_over_reference_rms": 0.5562037738823866
+          },
+          "shear": {
+            "directional_error_over_reference_gap_quantiles_by_pair": [
+              {
+                "finite_count": 32768,
+                "max": 266.9412570205336,
+                "median": 0.7082098433331205,
+                "min": 0.048497753810297514,
+                "q05": 0.2654180595966602,
+                "q95": 2.8202089015248304,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 154.40470680218118,
+                "median": 0.608570359674206,
+                "min": 0.02464629203928912,
+                "q05": 0.21844287383613206,
+                "q95": 2.4756267535573975,
+                "total_count": 32768
+              }
+            ],
+            "eigenframe_diagonal_alignment_quantiles_by_order": [
+              {
+                "finite_count": 32768,
+                "max": 0.9999994115703409,
+                "median": 0.9699839244010434,
+                "min": 1.1998791281397564e-05,
+                "q05": 0.4465061739201922,
+                "q95": 0.9986191199755654,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.9999989870047943,
+                "median": 0.9414727166123855,
+                "min": 0.0003033211900006218,
+                "q05": 0.2979112853270206,
+                "q95": 0.9973299328742856,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.99999981470421,
+                "median": 0.9792746447326315,
+                "min": 8.868268501593791e-05,
+                "q05": 0.5655101360471793,
+                "q95": 0.9989496331519299,
+                "total_count": 32768
+              }
+            ],
+            "eigengap_abs_error_quantiles_by_pair": [
+              {
+                "finite_count": 32768,
+                "max": 0.04438949886197997,
+                "median": 0.0019646785456573007,
+                "min": 2.5095340123277785e-07,
+                "q05": 0.0001720858401554551,
+                "q95": 0.007795698807872819,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.036520539611963575,
+                "median": 0.002352729692889472,
+                "min": 7.241438155537738e-08,
+                "q05": 0.0002051380946731153,
+                "q95": 0.010275369137662332,
+                "total_count": 32768
+              }
+            ],
+            "operator_error_quantiles": {
+              "finite_count": 32768,
+              "max": 0.03096124878940109,
+              "median": 0.0037823836866643593,
+              "min": 0.0002842489930390193,
+              "q05": 0.0016042941101991485,
+              "q95": 0.01030400372846163,
+              "total_count": 32768
+            },
+            "relative_operator_error_quantiles": {
+              "finite_count": 32768,
+              "max": 6.885444497159456,
+              "median": 0.5636208356308824,
+              "min": 0.02947892435824418,
+              "q05": 0.2489287503762903,
+              "q95": 1.328337684666018,
+              "total_count": 32768
+            }
+          },
+          "vorticity": {
+            "pearson_correlation": 0.5990148266456321,
+            "reference_rms": 0.004694194643943788,
+            "rms_error": 0.004460334270551571,
+            "rms_error_over_reference_rms": 0.9501809381309037
+          }
+        },
+        "H": {
+          "divergence": {
+            "pearson_correlation": 0.5026737870788598,
+            "reference_rms": 0.0037372498466312653,
+            "rms_error": 0.0066188055874816885,
+            "rms_error_over_reference_rms": 1.7710364195874784
+          },
+          "shear": {
+            "directional_error_over_reference_gap_quantiles_by_pair": [
+              {
+                "finite_count": 32768,
+                "max": 226.59367375449423,
+                "median": 1.8934550186235302,
+                "min": 0.09867321781294673,
+                "q05": 0.646813357977917,
+                "q95": 7.471616127791317,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 523.7167986867593,
+                "median": 1.9089895605462956,
+                "min": 0.08661504159522082,
+                "q05": 0.6574670573987468,
+                "q95": 7.85639734448184,
+                "total_count": 32768
+              }
+            ],
+            "eigenframe_diagonal_alignment_quantiles_by_order": [
+              {
+                "finite_count": 32768,
+                "max": 0.9999904419045285,
+                "median": 0.8256916206519077,
+                "min": 1.662259250678532e-05,
+                "q05": 0.13120446813223877,
+                "q95": 0.9918703471243311,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.9999994192822175,
+                "median": 0.66671686211163,
+                "min": 3.0128841443469115e-05,
+                "q05": 0.07677498231277062,
+                "q95": 0.9791663334086316,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.9999807688241457,
+                "median": 0.8145710870884915,
+                "min": 0.0001077337738853612,
+                "q05": 0.1238407014149279,
+                "q95": 0.9907362464979629,
+                "total_count": 32768
+              }
+            ],
+            "eigengap_abs_error_quantiles_by_pair": [
+              {
+                "finite_count": 32768,
+                "max": 0.024758348755504325,
+                "median": 0.0019798557385646183,
+                "min": 5.6906109351193696e-08,
+                "q05": 0.00017152069862481247,
+                "q95": 0.0075193937333721825,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.031413961540566394,
+                "median": 0.0017752153343141485,
+                "min": 8.219700141452041e-08,
+                "q05": 0.0001518649279509641,
+                "q95": 0.006526910064367166,
+                "total_count": 32768
+              }
+            ],
+            "operator_error_quantiles": {
+              "finite_count": 32768,
+              "max": 0.02241283486011794,
+              "median": 0.00365018970750688,
+              "min": 0.00034026484202590257,
+              "q05": 0.0016230430873283553,
+              "q95": 0.00850903325310796,
+              "total_count": 32768
+            },
+            "relative_operator_error_quantiles": {
+              "finite_count": 32768,
+              "max": 18.31856095229135,
+              "median": 1.6142581397895936,
+              "min": 0.11135795086561034,
+              "q05": 0.6795226938333785,
+              "q95": 3.811954776110756,
+              "total_count": 32768
+            }
+          },
+          "vorticity": {
+            "pearson_correlation": 0.5634988403195994,
+            "reference_rms": 0.004060877587126002,
+            "rms_error": 0.004243994727091073,
+            "rms_error_over_reference_rms": 1.045092996781188
+          }
+        },
+        "L": {
+          "divergence": {
+            "pearson_correlation": 0.9983213782437903,
+            "reference_rms": 0.011058528611029262,
+            "rms_error": 0.0009674008420991854,
+            "rms_error_over_reference_rms": 0.0874800686534685
+          },
+          "shear": {
+            "directional_error_over_reference_gap_quantiles_by_pair": [
+              {
+                "finite_count": 32768,
+                "max": 39.92476026434395,
+                "median": 0.11055404666794977,
+                "min": 0.009646089313795058,
+                "q05": 0.046905940505046546,
+                "q95": 0.41143437026383395,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 14.487659063688286,
+                "median": 0.10156396919608701,
+                "min": 0.009811327300130403,
+                "q05": 0.04478074189428872,
+                "q95": 0.35515687936526275,
+                "total_count": 32768
+              }
+            ],
+            "eigenframe_diagonal_alignment_quantiles_by_order": [
+              {
+                "finite_count": 32768,
+                "max": 0.9999999826593117,
+                "median": 0.9995467098363989,
+                "min": 0.0044602635918922036,
+                "q05": 0.9911007384810763,
+                "q95": 0.9999742745284257,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.9999999755430584,
+                "median": 0.9990527565204993,
+                "min": 0.0032599658567156655,
+                "q05": 0.9839402191434539,
+                "q95": 0.9999497647661445,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.9999999932346905,
+                "median": 0.9996155062174937,
+                "min": 0.018673107918576574,
+                "q05": 0.9936601084346013,
+                "q95": 0.9999758594462986,
+                "total_count": 32768
+              }
+            ],
+            "eigengap_abs_error_quantiles_by_pair": [
+              {
+                "finite_count": 32768,
+                "max": 0.0020996303417854627,
+                "median": 0.00035934432310907513,
+                "min": 1.5715522168335827e-08,
+                "q05": 3.349991360201031e-05,
+                "q95": 0.0009981550055557678,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.0033078322605152206,
+                "median": 0.00041620353584413856,
+                "min": 5.791250815619792e-08,
+                "q05": 4.014804192951091e-05,
+                "q95": 0.0011889196892800424,
+                "total_count": 32768
+              }
+            ],
+            "operator_error_quantiles": {
+              "finite_count": 32768,
+              "max": 0.002011734920789877,
+              "median": 0.0005592896582232286,
+              "min": 5.4889495738329404e-05,
+              "q05": 0.0002755575804968738,
+              "q95": 0.0010026543690410865,
+              "total_count": 32768
+            },
+            "relative_operator_error_quantiles": {
+              "finite_count": 32768,
+              "max": 1.2741073876048714,
+              "median": 0.09407563963902865,
+              "min": 0.012692899899136405,
+              "q05": 0.048643784542074256,
+              "q95": 0.1762658854527249,
+              "total_count": 32768
+            }
+          },
+          "vorticity": {
+            "pearson_correlation": 0.7926937922562616,
+            "reference_rms": 0.0005627534821442898,
+            "rms_error": 0.0003577541098660172,
+            "rms_error_over_reference_rms": 0.6357208284217941
+          }
+        },
+        "M": {
+          "divergence": {
+            "pearson_correlation": 0.9701602998760889,
+            "reference_rms": 0.007479761563582261,
+            "rms_error": 0.0038362182814457384,
+            "rms_error_over_reference_rms": 0.5128797554354753
+          },
+          "shear": {
+            "directional_error_over_reference_gap_quantiles_by_pair": [
+              {
+                "finite_count": 32768,
+                "max": 119.7217115506786,
+                "median": 0.5445852783708263,
+                "min": 0.047833635252279544,
+                "q05": 0.23301771958690076,
+                "q95": 2.113564654535798,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 129.79748357779442,
+                "median": 0.632114346959004,
+                "min": 0.05811891188156243,
+                "q05": 0.25205304469734857,
+                "q95": 2.5488570924522738,
+                "total_count": 32768
+              }
+            ],
+            "eigenframe_diagonal_alignment_quantiles_by_order": [
+              {
+                "finite_count": 32768,
+                "max": 0.9999999406320528,
+                "median": 0.9920789410422147,
+                "min": 0.00015770724038630487,
+                "q05": 0.815533837752146,
+                "q95": 0.9996287293143009,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.9999962865568823,
+                "median": 0.9796662571647198,
+                "min": 0.00012303212512969163,
+                "q05": 0.5839718996983192,
+                "q95": 0.9989958835232905,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.9999998342748321,
+                "median": 0.9902040653403089,
+                "min": 1.522560071939832e-05,
+                "q05": 0.7679181938582267,
+                "q95": 0.9995267803267005,
+                "total_count": 32768
+              }
+            ],
+            "eigengap_abs_error_quantiles_by_pair": [
+              {
+                "finite_count": 32768,
+                "max": 0.013825782350717707,
+                "median": 0.0014262113658077339,
+                "min": 3.90249987071694e-08,
+                "q05": 0.00013336292604594055,
+                "q95": 0.0045532429017429345,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.017798448001377136,
+                "median": 0.0012935888237320392,
+                "min": 2.2499653876996428e-08,
+                "q05": 0.00011466214783092343,
+                "q95": 0.004381270650855638,
+                "total_count": 32768
+              }
+            ],
+            "operator_error_quantiles": {
+              "finite_count": 32768,
+              "max": 0.011788835260591414,
+              "median": 0.0019621133854969353,
+              "min": 0.00020111351614887288,
+              "q05": 0.0008989435770769959,
+              "q95": 0.004514136831713189,
+              "total_count": 32768
+            },
+            "relative_operator_error_quantiles": {
+              "finite_count": 32768,
+              "max": 4.858280423398376,
+              "median": 0.5058504580444795,
+              "min": 0.0588882364446675,
+              "q05": 0.25684015366296,
+              "q95": 1.086600627063621,
+              "total_count": 32768
+            }
+          },
+          "vorticity": {
+            "pearson_correlation": 0.8159023334487312,
+            "reference_rms": 0.002286491875328386,
+            "rms_error": 0.0013248028375399724,
+            "rms_error_over_reference_rms": 0.5794041307711641
+          }
+        }
+      },
+      "redshift_difference": 0.002006367618715199,
+      "requested_redshift": 0.5,
+      "snapshot_index": 3
+    },
+    {
+      "actual_redshift_n32": 0.09396814636076267,
+      "actual_redshift_n64": 0.09976320237832348,
+      "bands": {
+        "A": {
+          "divergence": {
+            "pearson_correlation": 0.8903960530844026,
+            "reference_rms": 0.01347635471653167,
+            "rms_error": 0.0077372453706489805,
+            "rms_error_over_reference_rms": 0.5741348853898578
+          },
+          "shear": {
+            "directional_error_over_reference_gap_quantiles_by_pair": [
+              {
+                "finite_count": 32768,
+                "max": 277.31484545710873,
+                "median": 0.7612694094337746,
+                "min": 0.05021654312757226,
+                "q05": 0.2767991007447325,
+                "q95": 3.161297029100064,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 186.48334614978629,
+                "median": 0.6618530664695537,
+                "min": 0.030086216425210605,
+                "q05": 0.22472825090700058,
+                "q95": 2.9023234113631653,
+                "total_count": 32768
+              }
+            ],
+            "eigenframe_diagonal_alignment_quantiles_by_order": [
+              {
+                "finite_count": 32768,
+                "max": 0.9999981677151399,
+                "median": 0.9619668545635993,
+                "min": 7.319722145693705e-05,
+                "q05": 0.33764798690387277,
+                "q95": 0.9983581142926439,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.9999994085520985,
+                "median": 0.9276786628468159,
+                "min": 2.7314403221600697e-05,
+                "q05": 0.22720781136240323,
+                "q95": 0.996637583194956,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.999999292133814,
+                "median": 0.9736958373476476,
+                "min": 0.00013796250386169886,
+                "q05": 0.46882410325748364,
+                "q95": 0.998675980374283,
+                "total_count": 32768
+              }
+            ],
+            "eigengap_abs_error_quantiles_by_pair": [
+              {
+                "finite_count": 32768,
+                "max": 0.04092590442701529,
+                "median": 0.0020253140595966894,
+                "min": 1.4717929280308115e-07,
+                "q05": 0.00017974813360732236,
+                "q95": 0.008123747402210248,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.046244378566385885,
+                "median": 0.002326374048664345,
+                "min": 5.5243738537706644e-08,
+                "q05": 0.00020180485845930785,
+                "q95": 0.010003319338984452,
+                "total_count": 32768
+              }
+            ],
+            "operator_error_quantiles": {
+              "finite_count": 32768,
+              "max": 0.03375979734469532,
+              "median": 0.003925281096940517,
+              "min": 0.0003897318301550871,
+              "q05": 0.0016422829165574338,
+              "q95": 0.011063996838514448,
+              "total_count": 32768
+            },
+            "relative_operator_error_quantiles": {
+              "finite_count": 32768,
+              "max": 12.926662786110972,
+              "median": 0.6056767460555474,
+              "min": 0.03753933449776239,
+              "q05": 0.25437352198560553,
+              "q95": 1.5825965410319345,
+              "total_count": 32768
+            }
+          },
+          "vorticity": {
+            "pearson_correlation": 0.551829000043848,
+            "reference_rms": 0.005803581232495744,
+            "rms_error": 0.005757338446245981,
+            "rms_error_over_reference_rms": 0.9920320256756573
+          }
+        },
+        "H": {
+          "divergence": {
+            "pearson_correlation": 0.4085640296733595,
+            "reference_rms": 0.004383151911349844,
+            "rms_error": 0.006541799260150053,
+            "rms_error_over_reference_rms": 1.4924874593578545
+          },
+          "shear": {
+            "directional_error_over_reference_gap_quantiles_by_pair": [
+              {
+                "finite_count": 32768,
+                "max": 367.38468349975795,
+                "median": 1.8043074003726307,
+                "min": 0.0677330219931174,
+                "q05": 0.6171191010113628,
+                "q95": 7.517857722269218,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 410.00040376516796,
+                "median": 1.7892338545677817,
+                "min": 0.10450776853709165,
+                "q05": 0.617824277739471,
+                "q95": 7.382432743878904,
+                "total_count": 32768
+              }
+            ],
+            "eigenframe_diagonal_alignment_quantiles_by_order": [
+              {
+                "finite_count": 32768,
+                "max": 0.9999982697568526,
+                "median": 0.7612653430537457,
+                "min": 3.831317156894375e-05,
+                "q05": 0.09618745264886773,
+                "q95": 0.9875225663989329,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.999993884856716,
+                "median": 0.6217243649925911,
+                "min": 2.4188936485637734e-05,
+                "q05": 0.06688581438115197,
+                "q95": 0.9757183040888077,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.9999994520913972,
+                "median": 0.7545289394974611,
+                "min": 0.00020917527944800006,
+                "q05": 0.09736909810859481,
+                "q95": 0.987702967047154,
+                "total_count": 32768
+              }
+            ],
+            "eigengap_abs_error_quantiles_by_pair": [
+              {
+                "finite_count": 32768,
+                "max": 0.02946306725794871,
+                "median": 0.0017919849777816644,
+                "min": 1.7904375217668578e-08,
+                "q05": 0.00015599014747032285,
+                "q95": 0.006911493951159668,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.0350488040660554,
+                "median": 0.0016846968467473275,
+                "min": 5.6936772345472786e-08,
+                "q05": 0.00014786696913359515,
+                "q95": 0.006559412259545565,
+                "total_count": 32768
+              }
+            ],
+            "operator_error_quantiles": {
+              "finite_count": 32768,
+              "max": 0.02544998862268774,
+              "median": 0.0037909365872056838,
+              "min": 0.0002722793112594451,
+              "q05": 0.0016723984098251461,
+              "q95": 0.009309913537745533,
+              "total_count": 32768
+            },
+            "relative_operator_error_quantiles": {
+              "finite_count": 32768,
+              "max": 17.903504159569522,
+              "median": 1.516867199117113,
+              "min": 0.09969427558022789,
+              "q05": 0.6401505544389274,
+              "q95": 3.6126171142968473,
+              "total_count": 32768
+            }
+          },
+          "vorticity": {
+            "pearson_correlation": 0.49905430346247576,
+            "reference_rms": 0.004953841572453101,
+            "rms_error": 0.005468500024050841,
+            "rms_error_over_reference_rms": 1.1038907773029336
+          }
+        },
+        "L": {
+          "divergence": {
+            "pearson_correlation": 0.9978017992258279,
+            "reference_rms": 0.010886884377684853,
+            "rms_error": 0.001119208748067678,
+            "rms_error_over_reference_rms": 0.10280340171167344
+          },
+          "shear": {
+            "directional_error_over_reference_gap_quantiles_by_pair": [
+              {
+                "finite_count": 32768,
+                "max": 21.990004397549406,
+                "median": 0.13105903830161825,
+                "min": 0.011922182206699753,
+                "q05": 0.05382299022185947,
+                "q95": 0.49325223291656334,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 33.33545238453316,
+                "median": 0.12110574739981063,
+                "min": 0.008506008409776736,
+                "q05": 0.0520294390997152,
+                "q95": 0.4183048442487307,
+                "total_count": 32768
+              }
+            ],
+            "eigenframe_diagonal_alignment_quantiles_by_order": [
+              {
+                "finite_count": 32768,
+                "max": 0.9999999830385389,
+                "median": 0.9993445106452237,
+                "min": 0.025267278295146158,
+                "q05": 0.9862239996832417,
+                "q95": 0.9999649277283372,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.9999999966577174,
+                "median": 0.9987143802947644,
+                "min": 0.0010369607389377256,
+                "q05": 0.9769528978416481,
+                "q95": 0.9999363094125776,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.9999999981431463,
+                "median": 0.9994909847359592,
+                "min": 4.86982175609491e-06,
+                "q05": 0.9914742033192329,
+                "q95": 0.9999691523310774,
+                "total_count": 32768
+              }
+            ],
+            "eigengap_abs_error_quantiles_by_pair": [
+              {
+                "finite_count": 32768,
+                "max": 0.002368569357631495,
+                "median": 0.0003951855317503017,
+                "min": 1.0461545040842124e-08,
+                "q05": 3.770661979987868e-05,
+                "q95": 0.001181858562711454,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.0038687514884407255,
+                "median": 0.0004667844031419981,
+                "min": 1.1236372799219851e-08,
+                "q05": 4.535492149434637e-05,
+                "q95": 0.0014397466635208236,
+                "total_count": 32768
+              }
+            ],
+            "operator_error_quantiles": {
+              "finite_count": 32768,
+              "max": 0.002521138304035413,
+              "median": 0.00062822513103919,
+              "min": 5.979055065035584e-05,
+              "q05": 0.0003056727384757707,
+              "q95": 0.0012483811750772995,
+              "total_count": 32768
+            },
+            "relative_operator_error_quantiles": {
+              "finite_count": 32768,
+              "max": 1.269393918075379,
+              "median": 0.11043652152240359,
+              "min": 0.010625362309930973,
+              "q05": 0.05591783216443621,
+              "q95": 0.20638068277797672,
+              "total_count": 32768
+            }
+          },
+          "vorticity": {
+            "pearson_correlation": 0.8005531857611108,
+            "reference_rms": 0.0007627798931355361,
+            "rms_error": 0.00046981245607813967,
+            "rms_error_over_reference_rms": 0.6159213952886146
+          }
+        },
+        "M": {
+          "divergence": {
+            "pearson_correlation": 0.9490010738192385,
+            "reference_rms": 0.006623885892339717,
+            "rms_error": 0.003977084377251519,
+            "rms_error_over_reference_rms": 0.6004155931869044
+          },
+          "shear": {
+            "directional_error_over_reference_gap_quantiles_by_pair": [
+              {
+                "finite_count": 32768,
+                "max": 162.95172238868895,
+                "median": 0.617950529290958,
+                "min": 0.037897907565389306,
+                "q05": 0.24265740980995884,
+                "q95": 2.4956825607534467,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 139.01379710846683,
+                "median": 0.7071971550148268,
+                "min": 0.05044847676710694,
+                "q05": 0.2619351371431554,
+                "q95": 2.9156792729059724,
+                "total_count": 32768
+              }
+            ],
+            "eigenframe_diagonal_alignment_quantiles_by_order": [
+              {
+                "finite_count": 32768,
+                "max": 0.999999691458854,
+                "median": 0.9871437031107172,
+                "min": 7.311822257447103e-05,
+                "q05": 0.6999311714154023,
+                "q95": 0.9994109022556815,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.9999999695167769,
+                "median": 0.966294224165941,
+                "min": 0.00019116257218219327,
+                "q05": 0.4257627488771344,
+                "q95": 0.9984202896965907,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.9999996986147708,
+                "median": 0.9837045859277109,
+                "min": 0.0008461479616673254,
+                "q05": 0.6179112491668654,
+                "q95": 0.9992712264297543,
+                "total_count": 32768
+              }
+            ],
+            "eigengap_abs_error_quantiles_by_pair": [
+              {
+                "finite_count": 32768,
+                "max": 0.01947104354174431,
+                "median": 0.0013584458249618458,
+                "min": 2.1531706131602824e-09,
+                "q05": 0.0001193350064512875,
+                "q95": 0.004799150307228246,
+                "total_count": 32768
+              },
+              {
+                "finite_count": 32768,
+                "max": 0.014857952279220205,
+                "median": 0.0012074243330881885,
+                "min": 1.9354933131470603e-09,
+                "q05": 0.0001133389517191792,
+                "q95": 0.004272610869289282,
+                "total_count": 32768
+              }
+            ],
+            "operator_error_quantiles": {
+              "finite_count": 32768,
+              "max": 0.013678977228422706,
+              "median": 0.0019899943361685914,
+              "min": 0.0001790870035863125,
+              "q05": 0.0008954046270970062,
+              "q95": 0.004907916989655568,
+              "total_count": 32768
+            },
+            "relative_operator_error_quantiles": {
+              "finite_count": 32768,
+              "max": 7.148271731748256,
+              "median": 0.5617334255949964,
+              "min": 0.049907818885892276,
+              "q05": 0.26447636428778654,
+              "q95": 1.3618954542845467,
+              "total_count": 32768
+            }
+          },
+          "vorticity": {
+            "pearson_correlation": 0.8044451206659678,
+            "reference_rms": 0.0029256068826553493,
+            "rms_error": 0.0017383123216763634,
+            "rms_error_over_reference_rms": 0.5941715313776642
+          }
+        }
+      },
+      "redshift_difference": 0.005795056017560807,
+      "requested_redshift": 0.1,
+      "snapshot_index": 4
+    }
+  ],
+  "outcome": "VALIDITY_MAP_COMPLETE",
+  "p1_evidence_used": false,
+  "protocol": "P0-Q_LATE_TIME_COARSE_GRAINED_VELOCITY_VALIDITY_MAP",
+  "scientific_claim_tested": false,
+  "stage": "P0-Q",
+  "target_grid": 32,
+  "workflow_head": "6671a8b849eba85035e59c8a48de42332bf41de5"
+}

@@ -1,0 +1,58 @@
+{
+  "boxsize_mpc_over_h": 64.0,
+  "gevolution_sha": "0cca42e51a824002ae4fb602cbd79d671e8ffe60",
+  "grid": 64,
+  "latfield2_sha": "2d8c737ab6adc965a1d2718c209f5085af27b09c",
+  "protocol": "P0-Q_LATE_TIME_VELOCITY_VALIDITY_MEMBER",
+  "requested_redshifts": [
+    5.0,
+    2.0,
+    1.0,
+    0.5,
+    0.1
+  ],
+  "seed": 424242,
+  "snapshots": [
+    {
+      "actual_redshift": 4.992542943078984,
+      "actual_scale_factor": 0.16687406490010023,
+      "cycle": 276,
+      "index": 0,
+      "requested_redshift": 5.0,
+      "tau_over_boxsize": 65.64633177519364
+    },
+    {
+      "actual_redshift": 1.9914042633266185,
+      "actual_scale_factor": 0.33429115959336797,
+      "cycle": 425,
+      "index": 1,
+      "requested_redshift": 2.0,
+      "tau_over_boxsize": 93.58383177519364
+    },
+    {
+      "actual_redshift": 0.9998915258916636,
+      "actual_scale_factor": 0.5000271199979929,
+      "cycle": 532,
+      "index": 2,
+      "requested_redshift": 1.0,
+      "tau_over_boxsize": 113.64633177519364
+    },
+    {
+      "actual_redshift": 0.4980106355966607,
+      "actual_scale_factor": 0.6675520027944915,
+      "cycle": 614,
+      "index": 3,
+      "requested_redshift": 0.5,
+      "tau_over_boxsize": 129.02133177519363
+    },
+    {
+      "actual_redshift": 0.09976320237832348,
+      "actual_scale_factor": 0.9092866517423226,
+      "cycle": 699,
+      "index": 4,
+      "requested_redshift": 0.1,
+      "tau_over_boxsize": 144.95883177519363
+    }
+  ],
+  "time_step_limit": 0.02
+}
