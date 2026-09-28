@@ -2,7 +2,7 @@
 
 **Project:** Cosmic Stability Architecture  
 **Branch:** `dark-sector-stability-architecture`  
-**Current stage:** P0-Q material-patch / grid-to-particle interpolation qualification after local electric-Weyl eigensystem requalification; P1 unopened  
+**Current stage:** APQ/freeze of late-time Band-L material relational development design after material-patch interpolation QUALIFIED; P1 unopened  
 **Current scientific state:** The bounded nonperturbative/additional-architecture pass is complete. The full no-dark-substance route is UNSUPPORTED_AT_CURRENT_STAGE under the frozen literature rules, not falsified. The active branch is now the partial architecture; the full route remains open only in P0-D for genuinely new future candidates.
 
 ## Frozen objects
@@ -23,16 +23,15 @@ Scalar, Vector/Modal, and Conglomerate/System are starting representations only.
 
 ## Active Plan / APQ state
 
-- **Development 016 outcome:** `LOCAL_WEYL_EIGENSYSTEM_P0Q = QUALIFIED` after frozen tensor co-location and N32/N64/N128 fixed-band requalification.
-- **Co-location gate:** `TENSOR_COLOCATION_QUALIFIED_P0Q`; TC-01 through TC-08 pass.
-- **Co-located Weyl gate:** `COLOCATED_LOCAL_WEYL_QUALIFIED_P0Q`; decisive workflow `36365508065` SUCCESS.
-- **Preserved exception:** tiny tensor-sector native-versus-continuum comparison remains `NEED_MORE_INFO`; it is not hidden inside the total.
-- **Velocity-shear state:** corrected centered gevolution velocity shear is vertex-centered and `QUALIFIED_P0Q` after Development 013.
-- **Particle lineage:** stable particle-ID lineage is already qualified after Development 014.
-- **Active dependency:** qualify deterministic interpolation of co-located E and corrected centered sigma from the vertex grid to identical tracked particle/material locations, then qualify non-overlapping material-patch aggregation/eigensystems.
-- **Primary development domain after qualification:** Band L `0<|n|<4`, preferred first window `z~2 -> z~1 -> z~0.5`.
-- **APQ lineage:** `PREG_MODAL_PA1_APQ3_PLAN_PACKET.md` and `PREG_MODAL_PA1_APQ3_ADJUDICATION.md` remain authoritative upstream records.
-- **P1 exposure:** none; prohibited until material-patch development and final modal preregistration freeze are complete.
+- **Development 016:** `LOCAL_WEYL_EIGENSYSTEM_P0Q = QUALIFIED` after tensor co-location.
+- **Development 017:** `MATERIAL_PATCH_INTERPOLATION_QUALIFIED_P0Q`; periodic trilinear tensor interpolation, stable-ID joining, frozen material membership, patch means, and patch eigensystems pass MP-01 through MP-12.
+- **Preserved MP failure:** run `36365910881` failed only because MP-02 expected-array shape was `(1,3,3)` rather than explicit `(200,3,3)`; repaired test-only run `36366019003` succeeded without changing method or thresholds.
+- **Representation stack now qualified:** component Weyl fields -> tensor co-location -> local Weyl eigensystem -> centered velocity shear -> stable particle lineage -> grid-to-particle tensor interpolation -> ID-frozen material patch aggregation.
+- **Primary development domain inherited from Development 014:** Band L `0<|n|<4`; preferred first window `z~2 -> z~1 -> z~0.5`; seed 424242 remains development-only.
+- **Active dependency:** APQ/freeze the actual late-time material relational development design before opening any real patch-level E-sigma outcome.
+- **Scientific choices still unfrozen:** reference epoch, patch scale family, exact relational descriptors, later modal endpoint, persistence/autoregressive comparator, acceptance/refusal/need-more-info logic, stopping rule.
+- **Parent APQ lineage:** `PREG_MODAL_PA1_APQ3_PLAN_PACKET.md` and `PREG_MODAL_PA1_APQ3_ADJUDICATION.md` remain authoritative.
+- **P1 exposure:** none; prohibited until development and final confirmatory preregistration are separately frozen.
 ## Current Stage A literature state
 
 ### Admitted foundations
@@ -107,39 +106,35 @@ See `LITERATURE_EXPLORATION_QUEUE.md`.
 
 ## Latest scientific development
 
-**Development 016: tensor co-location repairs and requalifies the local electric-Weyl eigensystem.**
-
-The frozen vertex co-location operator passes TC-01 through TC-08 and the focused N32/N64/N128 co-located Weyl ladder passes the frozen local-eigensystem gate.
+**Development 017: material-patch tensor interpolation and ID-frozen membership qualify P0-Q.**
 
 \[
-\boxed{\text{TENSOR\_COLOCATION\_QUALIFIED\_P0Q}}
+\boxed{\text{MATERIAL\_PATCH\_INTERPOLATION\_QUALIFIED\_P0Q}}
 \]
 
-and
+All MP-01 through MP-12 pass under the frozen plan. Periodic trilinear interpolation preserves tensor structure, converges at second order on smooth known truths, and is invariant to particle record ordering when joined by stable ID. Reference patch membership is frozen by ID, so later particle motion does not silently reclassify material patches.
 
-\[
-\boxed{\text{LOCAL\_WEYL\_EIGENSYSTEM\_P0Q = QUALIFIED}}.
-\]
+The first integrated run failed only because MP-02 used an expected array of shape `(1,3,3)` against the correct `(200,3,3)` output. No interpolation or scientific setting changed; the repaired test-only run is green.
 
-For full Weyl, median relative resolution error improves from 0.2740 to 0.07671 and q95 from 0.5798 to 0.1504. Median eigenframe alignment improves to approximately (0.999669, 0.999277, 0.999671) at N64->N128, with q05 approximately (0.99424, 0.98855, 0.99465).
+No scientific patch scale, reference epoch, or real E-sigma outcome was inspected during this gate.
 
-Native-versus-continuum full/scalar median discrepancy collapses 0.42873 -> 0.11027 -> 0.027578 on the frozen common band. The tensor sector remains a preserved comparator-specific NEED_MORE_INFO exception: its N128 native/continuum discrepancy 0.02629 remains above its native N64->N128 resolution error 0.01737.
-
-Pre-co-location raw-index local eigensystem interpretations are superseded. Componentwise native Weyl field results remain qualified.
-
-Detailed record: `COLOCATED_WEYL_FIXED_BAND_REQUALIFICATION_ADJUDICATION.md` and Development 016 in `WORKING_SCIENTIFIC_DEVELOPMENTS.md`.
+Detailed record: `MATERIAL_PATCH_INTERPOLATION_QUALIFICATION_ADJUDICATION.md` and Development 017 in `WORKING_SCIENTIFIC_DEVELOPMENTS.md`.
 ## Next exact action
 
-Proceed to the material-patch / interpolation dependency without exposing P1.
+APQ/freeze the late-time Band-L material relational development experiment before opening any patch-level E-sigma result.
 
-1. verify no existing material-patch interpolation plan or implementation already supersedes this checkpoint;
-2. freeze the grid-to-particle and material-patch qualification plan before inspecting real late-time E-sigma patch outcomes;
-3. qualify periodic trilinear interpolation of vertex-centered tensor fields to particle positions on analytic known truths, including boundary wrapping, symmetry, linearity, and convergence;
-4. use stable particle IDs to define reproducible non-overlapping material patches without outcome-dependent regrouping;
-5. qualify patch tensor aggregation and patch eigensystem recovery on known truths, including near-degenerate refusal/subspace handling;
-6. only after those gates pass, apply co-located E and corrected centered sigma to the same tracked particles/patches in Development 014 Band L `0<|n|<4`;
-7. use the preferred first development window `z~2 -> z~1 -> z~0.5` and seed 424242 only as P0-Q development evidence;
-8. do not open untouched P1 realizations until the parent APQ-3 claim/comparator/falsifier/decision rules are finally frozen.
+Required plan elements:
+1. choose and justify the reference epoch for ID-frozen patch membership;
+2. define a prospectively bounded patch-scale family rather than selecting a scale from outcome performance;
+3. freeze Band-L filtering and whether filtering occurs before or after vertex interpolation, with one primary order of operations;
+4. freeze the relational feature family from the already-qualified E-sigma modal objects, avoiding rediscovery of density/tidal-anisotropy results;
+5. define a later modal endpoint that does not leak the same algebraic feature used at baseline;
+6. include a persistence/autoregressive baseline and the full marginal E/sigma comparator required by the parent APQ;
+7. split development evaluation by material patch and, where appropriate, simulation realization rather than pseudo-replicating particles;
+8. freeze ACCEPT / EQUIVALENT / SUBTRACTS / NEED_MORE_INFO / REFUSED semantics and a bounded stopping rule;
+9. use seed 424242 only for P0-Q development; do not consume untouched P1 seeds.
+
+Only after this plan survives its proportional adversarial review may the first real z~2 -> z~1 -> z~0.5 material E-sigma development run be opened.
 ## Resume pointers
 
 - `PREG_LIT_COSMO_V1_FREEZE.md`
