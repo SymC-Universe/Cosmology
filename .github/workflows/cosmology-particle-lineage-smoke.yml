@@ -1,0 +1,146 @@
+name: Cosmology particle-lineage smoke
+
+on:
+  push:
+    branches:
+      - dark-sector-stability-architecture
+    paths:
+      - 'dark_sector_architecture/qualification/inspect_particle_lineage_hdf5.py'
+      - 'dark_sector_architecture/qualification/gevolution_modal_pilot.ini'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cosmology-particle-lineage-smoke
+  cancel-in-progress: true
+
+jobs:
+  particle-lineage-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      GEVOLUTION_SHA: 0cca42e51a824002ae4fb602cbd79d671e8ffe60
+      LATFIELD2_SHA: 2d8c737ab6adc965a1d2718c209f5085af27b09c
+      TEMPLATE_BLOB: d4de9a5400ef58f6a0181fbe61f18056b233a425
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: dark-sector-stability-architecture
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential openmpi-bin libopenmpi-dev libfftw3-dev libgsl-dev libhdf5-dev
+          python -m pip install --upgrade pip
+          python -m pip install numpy h5py
+      - name: Fetch pinned sources and template
+        run: |
+          git clone https://github.com/gevolution-code/gevolution-1.3.git gevolution
+          git -C gevolution checkout "$GEVOLUTION_SHA"
+          git clone https://gitlab.uzh.ch/julian.adamek/LATfield2.git LATfield2
+          git -C LATfield2 checkout "$LATFIELD2_SHA"
+          curl -L --fail --silent --show-error \
+            https://raw.githubusercontent.com/gevolution-code/gevolution-1.2/df8a930732aae1bafa32fd839ee70728bb10773a/sc1_crystal.dat \
+            -o gevolution/lineage_template.dat
+          test "$(git hash-object gevolution/lineage_template.dat)" = "$TEMPLATE_BLOB"
+      - name: Compile gevolution
+        working-directory: gevolution
+        run: |
+          make clean
+          make -j2 \
+            INCLUDE="-I../LATfield2 -I/usr/include/hdf5/serial" \
+            LIB="-lfftw3 -lm -L/usr/lib/x86_64-linux-gnu/hdf5/serial -lhdf5 -lgsl -lgslcblas" \
+            DGEVOLUTION="-DPHINONLINEAR -DBENCHMARK -DVELOCITY"
+      - name: Build two-snapshot lineage settings
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          base = Path('dark_sector_architecture/qualification/gevolution_modal_pilot.ini').read_text()
+          replacements = {
+              'template file = pilot_template.dat': 'template file = lineage_template.dat',
+              'tiling factor = 2': 'tiling factor = 8',
+              'Ngrid = 8': 'Ngrid = 32',
+              'time step limit = 0.04': 'time step limit = 0.005',
+              'output path = ../pilot_output/': 'output path = ../lineage_output/',
+              'generic file base = modalpilot': 'generic file base = lineage',
+              'snapshot file base = modalpilot_snap': 'snapshot file base = lineage_snap',
+              'snapshot redshifts = 99': 'snapshot redshifts = 99, 98.5',
+              'snapshot outputs = phi, B, chi, hij, v': 'snapshot outputs = particles',
+              'Pk redshifts = 99': 'Pk redshifts = 98.5',
+              'Pk outputs = phi, B, chi, hij': 'Pk outputs = phi',
+          }
+          for old, new in replacements.items():
+              if old not in base:
+                  raise SystemExit(f'missing token: {old}')
+              base = base.replace(old, new, 1)
+          Path('gevolution/lineage.ini').write_text(base)
+          PY
+      - name: Run lineage smoke
+        run: |
+          mkdir -p lineage_output
+          cd gevolution
+          mpirun --oversubscribe -np 4 ./gevolution -n 2 -m 2 -s lineage.ini | tee ../lineage.log
+      - name: Find particle snapshot files
+        run: |
+          find lineage_output -maxdepth 2 -type f -print | sort | tee lineage_files.txt
+          test "$(find lineage_output -type f | wc -l)" -gt 0
+      - name: Inspect schema and stable IDs
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import subprocess
+
+          root = Path('lineage_output')
+          first = sorted([p for p in root.rglob('*') if p.is_file() and '000_cdm' in p.name])
+          second = sorted([p for p in root.rglob('*') if p.is_file() and '001_cdm' in p.name])
+          print('first candidates', first)
+          print('second candidates', second)
+          if len(first) != 1 or len(second) != 1:
+              raise SystemExit('expected one CDM particle HDF5 file per snapshot')
+          subprocess.run([
+              'python',
+              'dark_sector_architecture/qualification/inspect_particle_lineage_hdf5.py',
+              '--first', str(first[0]),
+              '--second', str(second[0]),
+              '--output', 'dark_sector_architecture/qualification/results/particle_lineage_schema_smoke.json',
+          ], check=True)
+          PY
+      - name: Require stable ID join
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('dark_sector_architecture/qualification/results/particle_lineage_schema_smoke.json')
+          d=json.loads(p.read_text())
+          print(json.dumps(d, indent=2))
+          if not d['lineage']['id_join_qualified']:
+              raise SystemExit('particle ID join not qualified')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cosmology-particle-lineage-smoke
+          path: |
+            lineage.log
+            lineage_files.txt
+            gevolution/lineage.ini
+            dark_sector_architecture/qualification/results/particle_lineage_schema_smoke.json
+          if-no-files-found: error
+      - name: Persist lineage report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add dark_sector_architecture/qualification/results/particle_lineage_schema_smoke.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Persist particle-lineage schema qualification"
+          for attempt in 1 2 3 4 5; do
+            git fetch origin dark-sector-stability-architecture
+            git rebase origin/dark-sector-stability-architecture
+            if git push origin HEAD:dark-sector-stability-architecture; then exit 0; fi
+            sleep 2
+          done
+          exit 1
