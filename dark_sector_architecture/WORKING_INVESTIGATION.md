@@ -2,7 +2,7 @@
 
 **Project:** Cosmic Stability Architecture  
 **Branch:** `dark-sector-stability-architecture`  
-**Current stage:** P0-Q modal preregistration APQ-3; late-time velocity Function/Limit Map complete; primary development band narrowed to |n|<4; material-patch/interpolation qualification next; P1 unopened  
+**Current stage:** P0-Q modal preregistration APQ-3; native electric-Weyl component fields remain qualified, but local Weyl eigensystems returned to NEED_MORE_INFO in Development 015 pending tensor co-location; P1 unopened  
 **Current scientific state:** The bounded nonperturbative/additional-architecture pass is complete. The full no-dark-substance route is UNSUPPORTED_AT_CURRENT_STAGE under the frozen literature rules, not falsified. The active branch is now the partial architecture; the full route remains open only in P0-D for genuinely new future candidates.
 
 ## Frozen objects
@@ -94,40 +94,42 @@ See `LITERATURE_EXPLORATION_QUEUE.md`.
 
 ## Latest scientific development
 
-**Development 014: the late-time coarse-grained velocity map separates a robust large-scale modal band from a rotational/resolution-sensitive high-k regime.**
+**Development 015: gevolution's native tensor components are staggered and must be co-located before a local electric-Weyl eigensystem is physically meaningful.**
 
-Under the frozen `LATE_TIME_VELOCITY_VALIDITY_MAP_PLAN.md`, seed 424242 was evolved at N32/N64 through requested z = 5, 2, 1, 0.5, 0.1. Particle IDs remain unique and identical across all five snapshots at both resolutions.
+Source inspection confirms diagonal tensor components live on the vertex lattice while off-diagonal components live at ij-plaquette centers offset by half a cell in the two corresponding directions. The native scalar Hessian, vector symmetric-gradient, and h_ij tensor sector share this tensor staggering consistently.
 
-For the low band
+Therefore the componentwise electric-Weyl equations remain native and valid, but a raw six-component array entry is not yet a co-located local 3x3 tensor. Finite-resolution eigenvalues, eigenframes, eigengaps, local matrix norms, and the planned E-sigma commutator/eigenframe relation must be requalified after co-location.
+
+Current status:
 
 \[
-0<|\mathbf n|<4
+\boxed{\text{WEYL\_COMPONENT\_FIELDS\_P0Q = QUALIFIED}}
 \]
 
-the N32/N64 median relative shear error remains only about 0.081 to 0.110 across the full trajectory, median eigenframe alignments stay above roughly 0.9987, and divergence correlation remains above 0.9978.
+and
 
-For the high band `8<=|n|<15`, median shear error is about 1.52 to 1.99 and the N64 vorticity/shear RMS ratio rises from 0.113 near z=5 to 0.833 near z=0.1.
+\[
+\boxed{\text{LOCAL\_WEYL\_EIGENSYSTEM\_P0Q = NEED\_MORE\_INFO}}.
+\]
 
-Thus the development program now has a real Function/Limit Map: large-scale coarse-grained shear is comparatively robust, while smaller resolved scales become strongly rotational and resolution sensitive toward late time.
+The corrected centered velocity-shear tensor is already vertex-centered and remains qualified.
 
-The primary development band is narrowed on representation-validity grounds to `|n|<4`; z~2 -> z~1 -> z~0.5 is the preferred first material-lineage development window. z~0.1 remains a stress/limit endpoint rather than being discarded.
-
-No E-sigma predictive outcome has been computed.
+No late-time E-sigma predictive outcome has been exposed.
 
 Detailed stop record: `WORKING_SCIENTIFIC_DEVELOPMENTS.md`.
 ## Next exact action
 
-Qualify material-patch construction and tensor interpolation before any E-sigma predictive development:
+Repair local Weyl modal semantics before material-patch interpolation:
 
-1. implement periodic trilinear interpolation of grid scalars/vectors/tensors to particle positions;
-2. known-truth test interpolation on band-limited analytic fields and periodic-boundary crossings;
-3. define non-overlapping t0 material patches from particle IDs/positions and preserve membership through later snapshots;
-4. qualify patch tensor averaging and eigensystem recovery on analytic tensor fields;
-5. predeclare a small patch-scale family for identifiability testing only;
-6. perform a focused synchronized N64/N128 late-time Band-L check on the selected window;
-7. only then expose the development E-sigma predictor on seed 424242.
+1. implement tensor co-location from native staggered component sites to the vertex lattice;
+2. qualify the operator analytically with constant and band-limited tensor fields and periodic boundary crossings;
+3. verify the Fourier transfer factor for off-diagonal components;
+4. re-run the frozen N32/N64/N128 common-band Weyl eigensystem qualification with co-located tensors;
+5. re-evaluate native-versus-continuum modal agreement after co-location;
+6. update the Development 010/011 modal claim ceiling without deleting componentwise evidence;
+7. only after co-located Weyl eigensystems qualify return to material-patch interpolation and the APQ-3 E-sigma development route.
 
-PREG-MODAL-PA-1 remains NOT FROZEN and P1-M remains NOT ACTIVATED.
+`PREG-MODAL-PA-1` remains NOT FROZEN and P1-M remains NOT ACTIVATED.
 ## Resume pointers
 
 - `PREG_LIT_COSMO_V1_FREEZE.md`
@@ -293,3 +295,13 @@ Current temporal gate outcome: REPRESENTATION_QUALIFIED_P0Q for the tested early
 - preferred first development window: z~2 -> z~1 -> z~0.5;
 - stable particle lineage: qualified at N32 and N64;
 - P1 evidence: none opened.
+
+
+## Development 015 tensor co-location hold
+
+- source audit confirms native tensor staggering;
+- componentwise electric-Weyl fields remain qualified;
+- raw-index local Weyl eigensystems are reclassified `NEED_MORE_INFO`;
+- corrected centered velocity shear remains qualified and vertex-centered;
+- material-patch interpolation is paused until Weyl is co-located;
+- no E-sigma predictive outcome has been opened.
