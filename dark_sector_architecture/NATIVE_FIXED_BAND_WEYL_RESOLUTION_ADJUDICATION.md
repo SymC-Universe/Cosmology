@@ -11,8 +11,10 @@
 ## Adjudicated outcome
 
 \[
-\boxed{\text{NATIVE\_FIXED\_BAND\_QUALIFIED\_P0Q}}
+\boxed{\text{NATIVE\_FIXED\_BAND\_WEYL\_QUALIFIED\_P0Q}}
 \]
+
+**Development 012 correction:** the electric-Weyl qualification remains valid, but the velocity-shear line item is withdrawn from native qualification because gevolution's exported `vi` field uses a centered vertex-lattice derivative rather than the staggered metric-vector derivative used in the original shear reconstruction. Corrected shear status is `NEED_MORE_INFO` pending centered-operator requalification.
 
 Independent representation-split classification:
 
@@ -81,9 +83,9 @@ The cross-resolution differences are many orders of magnitude larger, so the obs
 | Vector Weyl | 0.7117 | 0.4384 | 1.0128 | 0.9310 | convergent |
 | Tensor Weyl | 0.07594 | 0.03101 | 0.1826 | 0.07609 | convergent |
 | Full Weyl | 0.3041 | 0.1428 | 0.7149 | 0.3468 | convergent |
-| Native shear | 0.4987 | 0.1925 | 1.0831 | 0.4221 | convergent |
+| Prior shear representation | 0.4987 | 0.1925 | 1.0831 | 0.4221 | preserved but not native-gevolution shear after Development 012 |
 
-All five frozen objects therefore move in the refinement direction required by the preregistration.
+All four electric-Weyl sector objects move in the refinement direction required by the preregistration. The prior shear line also converged numerically, but Development 012 found that its derivative staggering did not match gevolution's native velocity field; it is therefore preserved as representation-specific evidence and reclassified `NEED_MORE_INFO`.
 
 Full-Weyl median eigenframe alignments also improve from approximately (0.9915, 0.9794, 0.9913) for N32->N64 to (0.9980, 0.9954, 0.9979) for N64->N128. The corresponding q05 alignments improve from approximately (0.8134, 0.6265, 0.8153) to (0.9565, 0.9079, 0.9573). Error/eigengap direction diagnostics improve in the same direction.
 
@@ -145,3 +147,8 @@ It is not sufficient to activate that preregistration automatically. Its claim, 
 ## Exploration firewall
 
 No scalar, Conglomerate/System, joint-meaning, additional-component, or P0-D exploration gate is closed by this result.
+
+
+## Development 012 correction
+
+gevolution's exported `vi` field is vertex-centered and its native Fourier divergence/vorticity routines use the centered symbol (N\sin(2\pi n/N)). The prior shear line used the staggered (B_i) operator. This does not affect scalar/vector/tensor/full electric Weyl. The original preregistration explicitly allowed shear to remain `NEED_MORE_INFO` without invalidating the independent full-Weyl gate. A corrected shear-only qualification is required before E-sigma relational testing.
