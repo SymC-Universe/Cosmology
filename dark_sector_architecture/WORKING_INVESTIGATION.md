@@ -2,7 +2,7 @@
 
 **Project:** Cosmic Stability Architecture  
 **Branch:** `dark-sector-stability-architecture`  
-**Current stage:** P0-Q tensor co-location and local electric-Weyl eigensystem requalification after Development 015; P1 unopened  
+**Current stage:** P0-Q local electric-Weyl eigensystem requalification after tensor co-location QUALIFIED; co-located N32/N64/N128 fixed-band workflow 36365508065 active; P1 unopened  
 **Current scientific state:** The bounded nonperturbative/additional-architecture pass is complete. The full no-dark-substance route is UNSUPPORTED_AT_CURRENT_STAGE under the frozen literature rules, not falsified. The active branch is now the partial architecture; the full route remains open only in P0-D for genuinely new future candidates.
 
 ## Frozen objects
@@ -23,13 +23,15 @@ Scalar, Vector/Modal, and Conglomerate/System are starting representations only.
 
 ## Active Plan / APQ state
 
-- **Active Plan:** Development 015 representation repair: co-locate staggered native electric-Weyl tensor components onto the vertex lattice before any local matrix eigensystem or E-sigma relational interpretation.
-- **APQ lineage:** the existing `PREG_MODAL_PA1_APQ3_PLAN_PACKET.md` and `PREG_MODAL_PA1_APQ3_ADJUDICATION.md` remain the authoritative upstream modal preregistration records. P1 remains unopened.
-- **Representation hold:** `WEYL_COMPONENT_FIELDS_P0Q = QUALIFIED`; `LOCAL_WEYL_EIGENSYSTEM_P0Q = NEED_MORE_INFO` pending co-location.
+- **Active Plan:** Development 015 local-Weyl representation repair.
+- **Co-location gate:** `TENSOR_COLOCATION_QUALIFIED_P0Q`; TC-01 through TC-08 pass under frozen `TENSOR_COLOCATION_QUALIFICATION_PLAN_v0.1.md`.
+- **Co-location freeze commit:** `c32931c3f2ae7c51b5a82811a2c83a34ef8d3a72`.
+- **Focused local-Weyl plan:** `COLOCATED_WEYL_FIXED_BAND_REQUALIFICATION_PLAN_v0.1.md`, freeze commit `6acc0d4868d0574c4041eeaec53426efdfe3f290`.
+- **Active workflow:** `36365508065`, N32/N64/N128 early fixed-band requalification.
+- **Representation hold:** `WEYL_COMPONENT_FIELDS_P0Q = QUALIFIED`; `LOCAL_WEYL_EIGENSYSTEM_P0Q = NEED_MORE_INFO` until workflow adjudication.
 - **Velocity-shear state:** corrected centered gevolution velocity shear is vertex-centered and `QUALIFIED_P0Q` after Development 013.
-- **Late-time development domain:** Development 014 identifies primary Band L `0<|n|<4` and preferred first development window `z~2 -> z~1 -> z~0.5`; these remain development-only until local Weyl eigensystems are repaired.
-- **Next plan gate:** freeze/qualify the tensor co-location operator, then rerun focused co-located N32/N64/N128 Weyl fixed-band eigensystem convergence and native-versus-continuum modal comparison.
-- **P1 exposure:** prohibited until co-location/eigensystem qualification and the downstream APQ freeze are complete.
+- **APQ lineage:** `PREG_MODAL_PA1_APQ3_PLAN_PACKET.md` and `PREG_MODAL_PA1_APQ3_ADJUDICATION.md` remain authoritative upstream records.
+- **P1 exposure:** none; prohibited until local Weyl eigensystems requalify and downstream preregistration freezes complete.
 ## Current Stage A literature state
 
 ### Admitted foundations
