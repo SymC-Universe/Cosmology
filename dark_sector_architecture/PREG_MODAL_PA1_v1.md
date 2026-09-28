@@ -1,3 +1,15 @@
+# SUPERSEDED PRE-EXPOSURE RECOVERY BRANCH - DO NOT ACTIVATE
+
+This preregistration was frozen during timeout recovery before the authoritative later APQ-3 / Development 014-017 lineage was fully reloaded. No seed listed in this file was opened. It is superseded prospectively by:
+
+- `PREG_MODAL_PA1_APQ3_PLAN_PACKET.md`;
+- `PREG_MODAL_PA1_APQ3_ADJUDICATION.md`;
+- `LATE_TIME_MATERIAL_RELATIONAL_APQ2_PLAN_PACKET_v0.1.md`;
+- `LATE_TIME_MATERIAL_RELATIONAL_APQ2_ADJUDICATION_v0.1.md`.
+
+The conflict is scientific-design, not evidence-driven: the authoritative lineage requires Band-L coarse-grained peculiar-velocity validity and ID-frozen material lineage, whereas this recovery branch proposed a direct Eulerian K32 target. Because no P1 evidence was opened, this branch is preserved as an abandoned preregistration and has no adjudication authority.
+
+---
 # PREG-MODAL-PA-1 v1
 
 ## Title
