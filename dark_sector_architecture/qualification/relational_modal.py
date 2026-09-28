@@ -108,12 +108,32 @@ def relational_modal_record(
     a: np.ndarray,
     b: np.ndarray,
     degeneracy_atol: float = 1e-12,
-) -> dict[str, np.ndarray | str]:
-    aa = _as_tensor_field(a, "a")
-    bb = _as_tensor_field(b, "b")
-    if aa.shape != bb.shape:
-        raise ValueError("a and b must have matching shapes")
+) -> dict[str, np.ndarray | str | None]:
+    raw_a = np.asarray(a, dtype=float)
+    raw_b = np.asarray(b, dtype=float)
 
+    if (
+        raw_a.ndim < 2
+        or raw_b.ndim < 2
+        or raw_a.shape[-2:] != (3, 3)
+        or raw_b.shape[-2:] != (3, 3)
+        or raw_a.shape != raw_b.shape
+    ):
+        return {
+            "refusal_status": "REFUSED_SHAPE",
+            "direction_status": "REFUSED",
+            "kappa": None,
+        }
+
+    if not np.all(np.isfinite(raw_a)) or not np.all(np.isfinite(raw_b)):
+        return {
+            "refusal_status": "REFUSED_NONFINITE",
+            "direction_status": "REFUSED",
+            "kappa": None,
+        }
+
+    aa = raw_a
+    bb = raw_b
     na = frobenius_norm(aa)
     nb = frobenius_norm(bb)
     kappa = normalized_commutator_kappa(aa, bb)
