@@ -39,6 +39,9 @@ on:
       - 'dark_sector_architecture/qualification/modal_relational.py'
       - 'dark_sector_architecture/qualification/test_modal_relational.py'
       - 'dark_sector_architecture/qualification/run_modal_relational_known_truth_suite.py'
+      - 'dark_sector_architecture/qualification/modal_pairing_null.py'
+      - 'dark_sector_architecture/qualification/test_modal_pairing_null.py'
+      - 'dark_sector_architecture/qualification/run_modal_pairing_null_known_truth_suite.py'
       - 'dark_sector_architecture/qualification/gevolution_velocity_operators.py'
       - 'dark_sector_architecture/qualification/test_gevolution_velocity_operators.py'
       - 'dark_sector_architecture/qualification/run_gevolution_velocity_operator_known_truth_suite.py'
@@ -97,6 +100,7 @@ jobs:
             dark_sector_architecture/qualification/test_electric_weyl_temporal_pilot.py \
             dark_sector_architecture/qualification/test_latfield2_native_operators.py \
             dark_sector_architecture/qualification/test_modal_relational.py \
+            dark_sector_architecture/qualification/test_modal_pairing_null.py \
             dark_sector_architecture/qualification/test_gevolution_velocity_operators.py \
             dark_sector_architecture/qualification/test_gevolution_particle_lineage.py \
             dark_sector_architecture/qualification/test_tensor_colocation.py \
@@ -116,6 +120,8 @@ jobs:
             --output dark_sector_architecture/qualification/results/latfield2_native_operator_known_truth_report.json
           python dark_sector_architecture/qualification/run_modal_relational_known_truth_suite.py \
             --output dark_sector_architecture/qualification/results/modal_relational_known_truth_report.json
+          python dark_sector_architecture/qualification/run_modal_pairing_null_known_truth_suite.py \
+            --output dark_sector_architecture/qualification/results/modal_pairing_null_known_truth_report.json
           python dark_sector_architecture/qualification/run_gevolution_velocity_operator_known_truth_suite.py \
             --output dark_sector_architecture/qualification/results/gevolution_velocity_operator_known_truth_report.json
           python dark_sector_architecture/qualification/run_tensor_colocation_known_truth_suite.py \
@@ -134,6 +140,7 @@ jobs:
             dark_sector_architecture/qualification/results/temporal_derivative_known_truth_report.json
             dark_sector_architecture/qualification/results/latfield2_native_operator_known_truth_report.json
             dark_sector_architecture/qualification/results/modal_relational_known_truth_report.json
+            dark_sector_architecture/qualification/results/modal_pairing_null_known_truth_report.json
             dark_sector_architecture/qualification/results/gevolution_velocity_operator_known_truth_report.json
             dark_sector_architecture/qualification/results/tensor_colocation_known_truth_report.json
             dark_sector_architecture/qualification/results/material_patch_known_truth_report.json
@@ -150,6 +157,7 @@ jobs:
             dark_sector_architecture/qualification/results/temporal_derivative_known_truth_report.json \
             dark_sector_architecture/qualification/results/latfield2_native_operator_known_truth_report.json \
             dark_sector_architecture/qualification/results/modal_relational_known_truth_report.json \
+            dark_sector_architecture/qualification/results/modal_pairing_null_known_truth_report.json \
             dark_sector_architecture/qualification/results/gevolution_velocity_operator_known_truth_report.json \
             dark_sector_architecture/qualification/results/tensor_colocation_known_truth_report.json \
             dark_sector_architecture/qualification/results/material_patch_known_truth_report.json
