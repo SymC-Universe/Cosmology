@@ -5,7 +5,7 @@
       "case_id": "TD-01",
       "first_abs_error": 0.0,
       "purpose": "nonuniform quadratic first and second derivative exactness",
-      "second_abs_error": 2.6645352591003757e-15,
+      "second_abs_error": 1.4210854715202004e-14,
       "status": "PASS"
     },
     {
@@ -13,22 +13,22 @@
       "moment_errors": {
         "first_constant": 0.0,
         "first_linear": 0.0,
-        "first_quadratic": 1.9158530970825644e-17,
+        "first_quadratic": 2.7755575615628914e-17,
         "second_constant": 1.7763568394002505e-15,
-        "second_linear": 1.3883037997434946e-16,
-        "second_quadratic": 2.220446049250313e-16
+        "second_linear": 0.0,
+        "second_quadratic": 4.440892098500626e-16
       },
       "purpose": "arbitrary-node finite-difference moment identities",
       "status": "PASS"
     },
     {
-      "b_inner_max_abs_error": 9.947598300641403e-14,
+      "b_inner_max_abs_error": 7.105427357601002e-14,
       "b_inner_weights": [
-        -4.62962962962963,
-        1.6666666666666665,
+        -4.629629629629629,
+        1.6666666666666663,
         2.962962962962963
       ],
-      "b_outer_max_abs_error": 2.842170943040401e-14,
+      "b_outer_max_abs_error": 3.552713678800501e-14,
       "b_outer_weights": [
         -2.9437229437229444,
         1.8207282913165281,

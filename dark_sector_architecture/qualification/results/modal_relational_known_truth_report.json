@@ -198,11 +198,11 @@
       "status": "PASS_RELATIONAL_INFORMATION_NOT_REDUCED_TO_SEPARATE_SPECTRA"
     },
     {
-      "alignment_max_abs_error": 3.1108679402239887e-16,
+      "alignment_max_abs_error": 2.220446049250313e-16,
       "axial_rotation_max_abs_error": 4.440892098500626e-16,
       "case_id": "MR-03",
       "commutator_norm_abs_error": 8.881784197001252e-16,
-      "normalized_commutator_abs_error": 5.551115123125783e-17,
+      "normalized_commutator_abs_error": 1.1102230246251565e-16,
       "purpose": "common coordinate rotation covariance",
       "status": "PASS"
     },

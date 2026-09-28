@@ -1,0 +1,61 @@
+{
+  "case_count": 7,
+  "cases": [
+    {
+      "case_id": "GV-01",
+      "max_abs_error": 3.552713678800501e-15,
+      "purpose": "centered derivative reproduces direct periodic centered difference",
+      "status": "PASS"
+    },
+    {
+      "case_id": "GV-02",
+      "purpose": "velocity divergence and STF shear reproduce direct centered formulas",
+      "shear_max_abs_error": 4.440892098500626e-15,
+      "shear_max_trace_abs": 3.552713678800501e-15,
+      "status": "PASS",
+      "theta_max_abs_error": 8.881784197001252e-15
+    },
+    {
+      "case_id": "GV-03",
+      "max_abs_error": 7.105427357601002e-15,
+      "purpose": "vorticity reproduces direct centered curl",
+      "status": "PASS"
+    },
+    {
+      "case_id": "GV-04",
+      "max_fourier_abs_error": 2.278173318171838e-13,
+      "purpose": "divergence reproduces gevolution projectFTtheta symbol",
+      "status": "PASS",
+      "symbol": "N sin(2 pi n/N)"
+    },
+    {
+      "case_id": "GV-05",
+      "max_fourier_abs_error": 2.3437142008433856e-13,
+      "purpose": "curl reproduces gevolution projectFTomega centered symbol",
+      "status": "PASS"
+    },
+    {
+      "case_id": "GV-06",
+      "max_abs_vorticity": 3.574234809232119e-14,
+      "purpose": "discrete centered gradient remains irrotational",
+      "status": "PASS"
+    },
+    {
+      "case_id": "GV-07",
+      "purpose": "centered vi operator and staggered/backward vector operator are demonstrably distinct",
+      "rms_difference": 15.643277300154336,
+      "status": "PASS_DIFFERENCE_DETECTED"
+    }
+  ],
+  "next_gate": "corrected N32/N64/N128 shear-only fixed-band qualification",
+  "protocol": "GEVOLUTION_CENTERED_VELOCITY_OPERATOR_KNOWN_TRUTH_SUITE",
+  "scientific_claim_tested": false,
+  "scientific_thresholds_frozen": false,
+  "source_semantics": [
+    "projection_Ti0_project deposits Ti0 on the scalar/vertex lattice",
+    "vertexProjectionCIC_comm communicates Ti0 on that lattice",
+    "compute_vi_rescaled forms vi = Ti0/source/a",
+    "projectFTtheta and projectFTomega use N sin(2 pi n/N)"
+  ],
+  "stage": "P0-Q"
+}
