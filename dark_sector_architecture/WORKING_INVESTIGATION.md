@@ -2,7 +2,7 @@
 
 **Project:** Cosmic Stability Architecture  
 **Branch:** `dark-sector-stability-architecture`  
-**Current stage:** P0-Q modal preregistration APQ-3; native electric-Weyl component fields remain qualified, but local Weyl eigensystems returned to NEED_MORE_INFO in Development 015 pending tensor co-location; P1 unopened  
+**Current stage:** P0-Q tensor co-location and local electric-Weyl eigensystem requalification after Development 015; P1 unopened  
 **Current scientific state:** The bounded nonperturbative/additional-architecture pass is complete. The full no-dark-substance route is UNSUPPORTED_AT_CURRENT_STAGE under the frozen literature rules, not falsified. The active branch is now the partial architecture; the full route remains open only in P0-D for genuinely new future candidates.
 
 ## Frozen objects
@@ -23,19 +23,13 @@ Scalar, Vector/Modal, and Conglomerate/System are starting representations only.
 
 ## Active Plan / APQ state
 
-- **Active Plan:** determine whether a genuinely residual standalone modal claim survives prior-art subtraction after Development 011.
-- **APQ level:** APQ-3 CONFIRMATORY/FOUNDATIONAL.
-- **Plan Packet:** `apq/PREG_MODAL_PA1_PLAN_PACKET_v0.1.md`, commit `8152c033c5307ea1c1a8d581f476139e2c6c9d00`.
-- **Objection ledger:** `apq/PREG_MODAL_PA1_OBJECTION_LEDGER_v0.1.md`, commit `d72ffdc3dffb283b899bf84b75a742ac42af2b6f`.
-- **External isolated review:** Undermind deep search `APQ3 Modal Residual Novelty Domain Attack` IN_PROGRESS.
-- **Independence limitation:** two additional external deep-review launches were mechanically blocked by an Undermind usage ceiling; they are not counted as completed review.
-- **Direct evidence route:** primary-literature/web verification is active and independently confirms that tidal anisotropy beyond density, nonlinear T/V-web divergence, standard shear-E coupling, and Newtonian-limit electric-Weyl evolution are established territory.
-- **Current unresolved BLOCKER:** whether any standalone S-class relational modal claim remains scientifically distinct from reduced-order compression of standard dynamics.
-- **Current MATERIAL holds if standalone P1 survives:** algebraic redundancy of mixed invariants; Lagrangian/material tracking; temporal-autocorrelation control; strongest comparator completeness; norm/eigengap identifiability.
-- **Plan status:** PLAN_REVIEW / PLAN_HOLD FOR P1.
-- **Next plan gate:** complete novelty/domain adversarial review -> evidence-mediated objection resolution -> Plan Delta -> revised-plan recheck -> either qualified freeze, TOOL_ONLY/M-class reclassification, or NOT_ACTIVATED.
-- **P1 exposure:** prohibited while the BLOCKER remains.
-
+- **Active Plan:** Development 015 representation repair: co-locate staggered native electric-Weyl tensor components onto the vertex lattice before any local matrix eigensystem or E-sigma relational interpretation.
+- **APQ lineage:** the existing `PREG_MODAL_PA1_APQ3_PLAN_PACKET.md` and `PREG_MODAL_PA1_APQ3_ADJUDICATION.md` remain the authoritative upstream modal preregistration records. P1 remains unopened.
+- **Representation hold:** `WEYL_COMPONENT_FIELDS_P0Q = QUALIFIED`; `LOCAL_WEYL_EIGENSYSTEM_P0Q = NEED_MORE_INFO` pending co-location.
+- **Velocity-shear state:** corrected centered gevolution velocity shear is vertex-centered and `QUALIFIED_P0Q` after Development 013.
+- **Late-time development domain:** Development 014 identifies primary Band L `0<|n|<4` and preferred first development window `z~2 -> z~1 -> z~0.5`; these remain development-only until local Weyl eigensystems are repaired.
+- **Next plan gate:** freeze/qualify the tensor co-location operator, then rerun focused co-located N32/N64/N128 Weyl fixed-band eigensystem convergence and native-versus-continuum modal comparison.
+- **P1 exposure:** prohibited until co-location/eigensystem qualification and the downstream APQ freeze are complete.
 ## Current Stage A literature state
 
 ### Admitted foundations
@@ -135,22 +129,16 @@ No late-time E-sigma predictive outcome has been exposed.
 Detailed stop record: `WORKING_SCIENTIFIC_DEVELOPMENTS.md`.
 ## Next exact action
 
-Complete APQ-3 before any untouched modal P1 execution.
+Resume exactly from Development 015. Do not return to the already-completed broad APQ residual search as the active blocker.
 
-The active decision is now whether `PREG-MODAL-PA-1` has a scientifically worthwhile standalone S-class residual at all. Broad density-vs-modal novelty has been subtracted. A shear-electric-Weyl commutator/eigenframe relation may be used only as a relational diagnostic, not as a new degree of freedom or uniquely relativistic mechanism.
-
-The next valid sequence is:
-
-1. finish the isolated novelty/domain attack currently running in Undermind;
-2. compare it with the independent direct primary-literature route and the role-isolated method/falsification attack;
-3. resolve O3 in `apq/PREG_MODAL_PA1_OBJECTION_LEDGER_v0.1.md`: distinguish genuinely unresolved physical content from reduced-order compression of standard dynamics;
-4. if an S-class residual survives, produce a Plan Delta and run the required bounded revised-plan recheck before freezing P1;
-5. if only method/tool utility survives, reclassify the candidate to M-class rather than disguising it as physics;
-6. if no worthwhile standalone residual survives, mark `PREG-MODAL-PA-1` NOT_ACTIVATED and carry the qualified modal representation forward into Conglomerate/System and joint Scalar + Modal + Conglomerate tests;
-7. keep all P0-D exploration branches open under every disposition.
-
-The hourly `Cosmology APQ Resume Watch` is active and will resume this sequence if the external review finishes after the current interactive session.
-
+1. verify no existing tensor-co-location preregistration or implementation already supersedes this checkpoint;
+2. freeze the co-location qualification plan before inspecting co-located outcomes;
+3. implement vertex co-location for native staggered tensor fields: diagonal components pass through, off-diagonal `T_ij` use the four-point periodic average over `(x, x-e_i, x-e_j, x-e_i-e_j)`;
+4. qualify the operator analytically, including periodic boundaries, symmetry preservation, Fourier stagger-phase removal, expected `cos(k_i Delta/2) cos(k_j Delta/2)` attenuation, second-order recovery on smooth known truths, and explicit near-Nyquist filtering rather than inversion;
+5. rerun the focused N32/N64/N128 fixed-physical-band Weyl qualification using co-located local tensors before any eigensystem, matrix norm, or E-sigma relational calculation;
+6. re-evaluate native-versus-continuum modal agreement after both representations are co-located to the same physical lattice;
+7. if the local Weyl eigensystem requalifies, proceed to material-patch interpolation with stable particle lineage in the Development 014 Band L / z~2 -> 1 -> 0.5 development window;
+8. keep P1 closed throughout this repair and preserve Conglomerate/System, joint, inheritance, and P0-D exploration gates regardless of outcome.
 ## Resume pointers
 
 - `PREG_LIT_COSMO_V1_FREEZE.md`
