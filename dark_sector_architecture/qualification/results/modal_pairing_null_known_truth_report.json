@@ -1,0 +1,57 @@
+{
+  "case_count": 7,
+  "cases": [
+    {
+      "case_id": "MP-01",
+      "max_abs_value": 0.0,
+      "purpose": "aligned tensor field yields zero relational invariant",
+      "status": "PASS"
+    },
+    {
+      "case_id": "MP-02",
+      "purpose": "same marginal spectra can carry different pairing geometry",
+      "status": "PASS",
+      "w1_observed_vs_repaired": 0.0
+    },
+    {
+      "case_id": "MP-03",
+      "max_abs_error": 1.1102230246251565e-16,
+      "purpose": "field-level common rotation invariance",
+      "status": "PASS"
+    },
+    {
+      "case_id": "MP-04",
+      "labels_preserved": true,
+      "purpose": "conditional permutation never crosses frozen strata",
+      "status": "PASS"
+    },
+    {
+      "case_id": "MP-05",
+      "observed_median": 0.022644047258595406,
+      "permutation_w1_quantiles": {
+        "median": 0.08667107618115061,
+        "q05": 0.07007934219854868,
+        "q95": 0.10361865984111776
+      },
+      "purpose": "planted relational pairing separates from spectrum-preserving null",
+      "status": "PASS"
+    },
+    {
+      "case_id": "MP-06",
+      "max_w1": 0.0,
+      "purpose": "true relational null remains null under re-pairing",
+      "status": "PASS"
+    },
+    {
+      "case_id": "MP-07",
+      "max_w1": 0.0,
+      "purpose": "sparse/singleton strata cannot fabricate a cross-stratum null",
+      "status": "PASS_NEED_MORE_INFO_BEHAVIOR"
+    }
+  ],
+  "next_gate": "Hunting Friction adjudication and PREG-MODAL-PA-1 activation decision",
+  "protocol": "MODAL_PAIRING_NULL_KNOWN_TRUTH_SUITE",
+  "scientific_claim_tested": false,
+  "scientific_thresholds_frozen": false,
+  "stage": "P0-Q"
+}
