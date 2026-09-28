@@ -7,6 +7,7 @@ on:
     paths:
       - 'dark_sector_architecture/qualification/inspect_particle_lineage_hdf5.py'
       - 'dark_sector_architecture/qualification/gevolution_modal_pilot.ini'
+      - '.github/workflows/cosmology-particle-lineage-smoke.yml'
   workflow_dispatch:
 
 permissions:
