@@ -1920,3 +1920,170 @@ Then run a focused co-located Weyl fixed-band qualification.
 
 **Status:** Significant representation-development stop. Repair is P0-Q and
 may proceed mechanically. P1 remains unopened.
+
+
+---
+
+## Development 016 - Tensor Co-location Repairs and Requalifies the Local Electric-Weyl Eigensystem
+
+**Date:** 2026-09-27  
+**Trigger:** Development 015 staggered-tensor hold  
+**Co-location freeze:** `TENSOR_COLOCATION_QUALIFICATION_PLAN_v0.1.md`, commit `c32931c3f2ae7c51b5a82811a2c83a34ef8d3a72`  
+**Co-located Weyl freeze:** `COLOCATED_WEYL_FIXED_BAND_REQUALIFICATION_PLAN_v0.1.md`, commit `6acc0d4868d0574c4041eeaec53426efdfe3f290`  
+**Decisive workflow:** `36365508065`, SUCCESS  
+**Adjudication:** `COLOCATED_WEYL_FIXED_BAND_REQUALIFICATION_ADJUDICATION.md`
+
+### Scientific / methodological development
+
+Development 015 correctly identified that gevolution/LATfield2 diagonal and off-diagonal tensor components do not share one physical lattice point.
+
+The frozen vertex co-location operator passed TC-01 through TC-08:
+- exact diagonal passthrough;
+- exact four-point periodic off-diagonal mapping;
+- symmetry preservation;
+- Fourier stagger-phase removal with the expected cosine transfer factor;
+- second-order smooth-field recovery;
+- explicit Nyquist attenuation without inverse filtering;
+- linearity;
+- fail-closed invalid-input semantics.
+
+Outcome:
+
+[
+oxed{	ext{TENSOR_COLOCATION_QUALIFIED_P0Q}}
+]
+
+The electric-Weyl N32/N64/N128 ladder was then rerun with the required order of operations:
+
+[
+	ext{native staggered reconstruction}
+ightarrow
+	ext{vertex co-location}
+ightarrow
+	ext{local eigensystem}
+ightarrow
+	ext{fixed-band projection}.
+]
+
+The resulting gate is:
+
+[
+oxed{	ext{COLOCATED_LOCAL_WEYL_QUALIFIED_P0Q}}
+]
+
+and therefore:
+
+[
+oxed{	ext{LOCAL_WEYL_EIGENSYSTEM_P0Q = QUALIFIED}}.
+]
+
+### Resolution result
+
+For the full local electric-Weyl tensor, median relative operator error improves
+
+[
+0.2740 ightarrow 0.07671
+]
+
+from N32->N64 to N64->N128, while q95 improves
+
+[
+0.5798 ightarrow 0.1504.
+]
+
+Full-Weyl median eigenframe diagonal alignment improves from approximately
+
+[
+(0.99571,0.99043,0.99568)
+]
+
+to
+
+[
+(0.999669,0.999277,0.999671).
+]
+
+The q05 eigenframe alignment improves from approximately
+
+[
+(0.9163,0.8255,0.9213)
+]
+
+to
+
+[
+(0.99424,0.98855,0.99465).
+]
+
+Median error/eigengap directional diagnostics improve from about 0.315 to about 0.087, with q95 improving from about 1.21-1.23 to about 0.322-0.329.
+
+The three resolutions are exactly epoch-aligned in the recorded coordinates at
+(z=98.99516176429084), (	au/L=14.141552190017416).
+
+### Temporal floor
+
+Full-Weyl inner/outer temporal-stencil median relative errors remain only
+(2.0	imes10^{-9}) to (2.8	imes10^{-9}), with q95 below about
+(6.1	imes10^{-9}).
+
+The resolution result is therefore not limited by the demonstrated temporal stencil.
+
+### Native-versus-continuum comparison
+
+After native co-location, the full/scalar median native-versus-continuum discrepancy becomes
+
+[
+0.42873 ightarrow 0.11027 ightarrow 0.027578
+]
+
+for N32, N64, N128.
+
+At N128 the discrepancy is below the native N64->N128 median resolution uncertainty of 0.07671.
+
+Thus the full/scalar representation classification remains:
+
+[
+oxed{	ext{COLLAPSES_ON_COMMON_BAND}}.
+]
+
+This is substantially tighter than the pre-co-location raw-index comparison and demonstrates that the stagger-location mismatch accounted for a material part of the finite-resolution representation split.
+
+### Preserved sector-specific hold
+
+The tensor sector itself is natively convergent, but its N128 native-versus-continuum discrepancy
+0.02629 remains larger than its native N64->N128 median resolution error 0.01737.
+
+Therefore:
+
+[
+oxed{	ext{TENSOR-SECTOR NATIVE-vs-CONTINUUM = NEED_MORE_INFO}}.
+]
+
+This exception is preserved rather than averaged away. The tensor sector is only about
+(1.6	imes10^{-6}) of the scalar-sector Frobenius RMS at this tested early epoch, so it does not control the full-Weyl qualification.
+
+### Consequence
+
+The Development 015 hold is closed for local full/scalar Weyl eigensystems in the tested early regime.
+
+Pre-co-location raw-index eigenvalue/eigenframe interpretations are retained as historical evidence of the representation defect but are superseded for local-matrix interpretation.
+
+Componentwise Weyl field qualification was never withdrawn.
+
+The next licensed dependency is no longer tensor co-location. It is **material-patch / grid-to-particle interpolation qualification** so co-located E and corrected centered velocity shear can be evaluated at the same tracked material locations.
+
+Primary downstream development domain remains the Development 014 Band L (0<|n|<4) and preferred first window (zsim2ightarrow1ightarrow0.5).
+
+P1 remains unopened.
+
+### Linked artifacts
+
+- `TENSOR_COLOCATION_QUALIFICATION_PLAN_v0.1.md`
+- `qualification/tensor_colocation.py`
+- `qualification/results/tensor_colocation_known_truth_report.json`
+- `COLOCATED_WEYL_FIXED_BAND_REQUALIFICATION_PLAN_v0.1.md`
+- `qualification/results/colocated_weyl_fixed_band_requalification.json`
+- `COLOCATED_WEYL_FIXED_BAND_REQUALIFICATION_ADJUDICATION.md`
+- `WORKING_INVESTIGATION.md`
+
+**Status:** Representation repair complete. Continue to material-patch/interpolation P0-Q qualification without exposing P1.
