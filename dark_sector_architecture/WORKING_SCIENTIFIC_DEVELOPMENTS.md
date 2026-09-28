@@ -1745,3 +1745,178 @@ Before any predictive E-sigma test:
 
 **Status:** Significant Function/Limit Map development. Material-patch and
 interpolation qualification is the next valid step; P1 remains closed.
+
+
+---
+
+## Development 015 - Native Tensor Staggering Requires Co-Location Before Local Weyl Eigensystem Interpretation
+
+**Date:** 2026-09-27  
+**Trigger:** source-level audit immediately before material-patch/interpolation qualification  
+**Affected objects:** finite-resolution local electric-Weyl tensor eigensystems and any future E-sigma relational eigenframe/commutator analysis  
+**Unaffected at source-equation level:** native componentwise scalar/vector/tensor/full electric-Weyl reconstruction, gevolution TT/transversality constraints, temporal derivative qualification
+
+### Scientific/methodological development
+
+The gevolution/LATfield2 tensor representation is staggered.
+
+Source inspection of `projection_Tij_project`, `projectFTtensor`,
+`computeTensorDiagnostics`, and the native `kshift` phases confirms:
+
+- diagonal tensor components (T_{ii}) live on the scalar/vertex lattice;
+- off-diagonal components (T_{ij}), (i
+e j), live at (ij)-plaquette
+  centers, displaced by (+Delta/2) along both (i) and (j) relative to
+  the vertex indexed by the same lattice coordinate.
+
+The native Fourier shift is
+
+[
+k_{m shift}(n)
+=
+2Nsin(pi n/N)e^{-ipi n/N},
+]
+
+and the off-diagonal scalar/tensor operators carry conjugate phase factors,
+placing their real-space output at the corresponding half-cell-shifted
+plaquette centers.
+
+The source-level real-space tensor projection independently confirms the same
+geometry through half-cell-shifted weights for (T_{01},T_{02},T_{12}).
+
+### Why this matters
+
+A six-component native tensor field at one array index is therefore **not yet
+a co-located local (3	imes3) tensor**.
+
+Constructing
+
+[
+egin{pmatrix}
+T_{00}[x] & T_{01}[x] & T_{02}[x]\\
+T_{01}[x] & T_{11}[x] & T_{12}[x]\\
+T_{02}[x] & T_{12}[x] & T_{22}[x]
+end{pmatrix}
+]
+
+and diagonalizing it directly mixes values from different physical points.
+
+That operation does not have a valid local eigentensor interpretation at
+finite resolution.
+
+This affects finite-resolution:
+- Weyl eigenvalues/eigenframes;
+- eigengaps;
+- matrix operator norms that assume a co-located tensor;
+- error/eigengap directional diagnostics;
+- the planned E-sigma alignment matrix and commutator.
+
+### What remains valid
+
+The following remain valid as componentwise/native-field results:
+
+- electric-Weyl algebra and sign/convention qualification;
+- temporal (B'_i) and (h''_{ij}) qualification;
+- native lattice scalar/vector/tensor derivative semantics;
+- (B_i) transversality and (h_{ij}) TT diagnostics;
+- componentwise scalar/vector/tensor/full Weyl fields on their native
+  staggered locations;
+- common-band Fourier/component convergence evidence insofar as it does not
+  require treating staggered components as a local matrix.
+
+The Development 011 and related **modal eigensystem** interpretations must be
+requalified after co-location.
+
+The Development 010/011 native-versus-continuum matrix comparison is also
+reopened because the continuum spectral tensor was vertex-collocated while the
+native off-diagonal entries retained their plaquette staggering. Part of the
+previous finite-resolution split may therefore have been a location mismatch
+rather than a derivative-representation difference.
+
+### Native co-location target
+
+Use the scalar/vertex lattice as the common physical location.
+
+For an off-diagonal component (T_{ij}) stored at
+(x+(hat e_i+hat e_j)Delta/2), the second-order symmetric vertex
+co-location is
+
+[
+T^{V}_{ij}(x)
+=
+rac14
+left[
+T_{ij}(x)
++
+T_{ij}(x-hat e_i)
++
+T_{ij}(x-hat e_j)
++
+T_{ij}(x-hat e_i-hat e_j)
+ight].
+]
+
+Diagonal components remain unchanged.
+
+For a Fourier mode this removes the stagger phase and applies the expected
+symmetric interpolation factor
+
+[
+cos(k_iDelta/2)cos(k_jDelta/2).
+]
+
+The co-location is therefore a defined interpolation/filtering operation, not
+an exact inversion of unresolved near-Nyquist information.
+
+### Corrected current status
+
+[
+oxed{	ext{WEYL_COMPONENT_FIELDS_P0Q = QUALIFIED}}
+]
+
+but
+
+[
+oxed{	ext{LOCAL_WEYL_EIGENSYSTEM_P0Q = NEED_MORE_INFO}}
+]
+
+until the co-location operator is implemented and qualified.
+
+The corrected centered velocity-shear tensor from Development 013 is already
+vertex-centered and remains qualified as a local tensor.
+
+### Consequence for PREG-MODAL-PA-1
+
+The planned E-sigma relational state cannot be constructed until electric Weyl
+is vertex-co-located.
+
+No late-time E-sigma predictive outcome has been exposed.
+
+Material-patch interpolation is paused because the correct order is now:
+
+1. co-locate native electric-Weyl components to one physical lattice;
+2. qualify the co-location operator analytically;
+3. requalify fixed-band Weyl eigensystems at N32/N64/N128;
+4. re-evaluate native-versus-continuum modal agreement using co-located
+   tensors;
+5. only then interpolate both E and corrected sigma to material patches.
+
+### Exact restart point
+
+Implement `tensor_colocation.py` with vertex co-location of staggered native
+tensor components and analytic known-truth tests.
+
+Then run a focused co-located Weyl fixed-band qualification.
+
+### Linked artifacts
+
+- `qualification/latfield2_native_operators.py`
+- `qualification/electric_weyl.py`
+- `NATIVE_FIXED_BAND_WEYL_RESOLUTION_PREREG.md`
+- `NATIVE_FIXED_BAND_WEYL_RESOLUTION_ADJUDICATION.md`
+- `PREG_MODAL_PA1_APQ3_ADJUDICATION.md`
+- gevolution source `projection_Tij_project`, `projectFTtensor`,
+  `computeTensorDiagnostics`
+
+**Status:** Significant representation-development stop. Repair is P0-Q and
+may proceed mechanically. P1 remains unopened.
