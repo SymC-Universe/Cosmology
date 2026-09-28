@@ -266,3 +266,35 @@ No P1 claim is activated by any result in this index.
 ## Development 012 velocity-shear correction
 
 Source audit shows gevolution's exported velocity field is differentiated natively with the centered lattice symbol (N\sin(2\pi n/N)) in `projectFTtheta` and `projectFTomega`. The earlier fixed-band shear line used the staggered metric-vector operator. Those values are preserved as a non-native comparator representation. Electric-Weyl qualification is unaffected. Corrected native velocity shear is pending.
+
+
+## gevolution centered velocity-operator known truth
+
+Path:
+`qualification/results/gevolution_velocity_operator_known_truth_report.json`
+
+Status:
+**GENERATED / DURABLE**
+
+Cases:
+GV-01 through GV-07.
+
+Source semantics:
+- exported `vi` is formed from vertex-lattice (T^i{}_0/T^0{}_0);
+- gevolution `projectFTtheta` and `projectFTomega` use the centered symbol
+  (Nsin(2pi n/N));
+- this is distinct from the staggered metric-vector (B_i) operator.
+
+Known-truth result:
+- direct centered periodic derivatives pass;
+- divergence/STF shear pass;
+- vorticity/curl pass;
+- Fourier divergence and curl reproduce gevolution source symbols;
+- irrotational discrete gradients retain zero vorticity to numerical precision;
+- centered and staggered vector operators are demonstrably non-interchangeable.
+
+Current corrected shear gate:
+`NATIVE_CENTERED_VELOCITY_SHEAR_CORRECTION_PREREG.md`
+
+Current status:
+**REAL-FIELD N32/N64/N128 CORRECTION RUN ACTIVE**
