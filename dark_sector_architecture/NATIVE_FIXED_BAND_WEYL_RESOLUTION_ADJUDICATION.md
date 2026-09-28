@@ -152,3 +152,25 @@ No scalar, Conglomerate/System, joint-meaning, additional-component, or P0-D exp
 ## Development 012 correction
 
 gevolution's exported `vi` field is vertex-centered and its native Fourier divergence/vorticity routines use the centered symbol (N\sin(2\pi n/N)). The prior shear line used the staggered (B_i) operator. This does not affect scalar/vector/tensor/full electric Weyl. The original preregistration explicitly allowed shear to remain `NEED_MORE_INFO` without invalidating the independent full-Weyl gate. A corrected shear-only qualification is required before E-sigma relational testing.
+
+
+## Development 013 shear-resolution addendum
+
+The Development 012 centered-velocity correction has now completed under a
+separately frozen gate.
+
+Corrected native centered velocity shear is
+`CENTERED_VELOCITY_SHEAR_QUALIFIED_P0Q`.
+
+Its common-band median relative resolution error improves
+0.5094 -> 0.1656 and q95 improves 1.0681 -> 0.3158 from N32->N64 to
+N64->N128. Eigenframe and error/eigengap diagnostics improve in the same
+direction.
+
+Accordingly, the original fixed-band program now has:
+- native electric-Weyl: QUALIFIED_P0Q;
+- corrected native coarse-grained velocity shear: QUALIFIED_P0Q.
+
+The historical Development 011 staggered-shear numbers remain preserved but
+are superseded for native velocity-shear semantics by the Development 013
+centered result.
