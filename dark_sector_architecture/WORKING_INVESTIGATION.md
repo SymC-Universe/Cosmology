@@ -20,6 +20,22 @@ No outcome is presumed.
 
 Scalar, Vector/Modal, and Conglomerate/System are starting representations only. They do not exhaust (Chi), and additional architecture components remain open to discovery.
 
+
+## Active Plan / APQ state
+
+- **Active Plan:** determine whether a genuinely residual standalone modal claim survives prior-art subtraction after Development 011.
+- **APQ level:** APQ-3 CONFIRMATORY/FOUNDATIONAL.
+- **Plan Packet:** `apq/PREG_MODAL_PA1_PLAN_PACKET_v0.1.md`, commit `8152c033c5307ea1c1a8d581f476139e2c6c9d00`.
+- **Objection ledger:** `apq/PREG_MODAL_PA1_OBJECTION_LEDGER_v0.1.md`, commit `d72ffdc3dffb283b899bf84b75a742ac42af2b6f`.
+- **External isolated review:** Undermind deep search `APQ3 Modal Residual Novelty Domain Attack` IN_PROGRESS.
+- **Independence limitation:** two additional external deep-review launches were mechanically blocked by an Undermind usage ceiling; they are not counted as completed review.
+- **Direct evidence route:** primary-literature/web verification is active and independently confirms that tidal anisotropy beyond density, nonlinear T/V-web divergence, standard shear-E coupling, and Newtonian-limit electric-Weyl evolution are established territory.
+- **Current unresolved BLOCKER:** whether any standalone S-class relational modal claim remains scientifically distinct from reduced-order compression of standard dynamics.
+- **Current MATERIAL holds if standalone P1 survives:** algebraic redundancy of mixed invariants; Lagrangian/material tracking; temporal-autocorrelation control; strongest comparator completeness; norm/eigengap identifiability.
+- **Plan status:** PLAN_REVIEW / PLAN_HOLD FOR P1.
+- **Next plan gate:** complete novelty/domain adversarial review -> evidence-mediated objection resolution -> Plan Delta -> revised-plan recheck -> either qualified freeze, TOOL_ONLY/M-class reclassification, or NOT_ACTIVATED.
+- **P1 exposure:** prohibited while the BLOCKER remains.
+
 ## Current Stage A literature state
 
 ### Admitted foundations
@@ -119,17 +135,22 @@ No late-time E-sigma predictive outcome has been exposed.
 Detailed stop record: `WORKING_SCIENTIFIC_DEVELOPMENTS.md`.
 ## Next exact action
 
-Repair local Weyl modal semantics before material-patch interpolation:
+Complete APQ-3 before any untouched modal P1 execution.
 
-1. implement tensor co-location from native staggered component sites to the vertex lattice;
-2. qualify the operator analytically with constant and band-limited tensor fields and periodic boundary crossings;
-3. verify the Fourier transfer factor for off-diagonal components;
-4. re-run the frozen N32/N64/N128 common-band Weyl eigensystem qualification with co-located tensors;
-5. re-evaluate native-versus-continuum modal agreement after co-location;
-6. update the Development 010/011 modal claim ceiling without deleting componentwise evidence;
-7. only after co-located Weyl eigensystems qualify return to material-patch interpolation and the APQ-3 E-sigma development route.
+The active decision is now whether `PREG-MODAL-PA-1` has a scientifically worthwhile standalone S-class residual at all. Broad density-vs-modal novelty has been subtracted. A shear-electric-Weyl commutator/eigenframe relation may be used only as a relational diagnostic, not as a new degree of freedom or uniquely relativistic mechanism.
 
-`PREG-MODAL-PA-1` remains NOT FROZEN and P1-M remains NOT ACTIVATED.
+The next valid sequence is:
+
+1. finish the isolated novelty/domain attack currently running in Undermind;
+2. compare it with the independent direct primary-literature route and the role-isolated method/falsification attack;
+3. resolve O3 in `apq/PREG_MODAL_PA1_OBJECTION_LEDGER_v0.1.md`: distinguish genuinely unresolved physical content from reduced-order compression of standard dynamics;
+4. if an S-class residual survives, produce a Plan Delta and run the required bounded revised-plan recheck before freezing P1;
+5. if only method/tool utility survives, reclassify the candidate to M-class rather than disguising it as physics;
+6. if no worthwhile standalone residual survives, mark `PREG-MODAL-PA-1` NOT_ACTIVATED and carry the qualified modal representation forward into Conglomerate/System and joint Scalar + Modal + Conglomerate tests;
+7. keep all P0-D exploration branches open under every disposition.
+
+The hourly `Cosmology APQ Resume Watch` is active and will resume this sequence if the external review finishes after the current interactive session.
+
 ## Resume pointers
 
 - `PREG_LIT_COSMO_V1_FREEZE.md`
