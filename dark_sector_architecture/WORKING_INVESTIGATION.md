@@ -2,7 +2,7 @@
 
 **Project:** Cosmic Stability Architecture  
 **Branch:** `dark-sector-stability-architecture`  
-**Current stage:** APQ/freeze of late-time Band-L material relational development design after material-patch interpolation QUALIFIED; P1 unopened  
+**Current stage:** frozen late-time Band-L material relational P0-Q development ACTIVE under APQ-2; seed 424242 only; P1 unopened  
 **Current scientific state:** The bounded nonperturbative/additional-architecture pass is complete. The full no-dark-substance route is UNSUPPORTED_AT_CURRENT_STAGE under the frozen literature rules, not falsified. The active branch is now the partial architecture; the full route remains open only in P0-D for genuinely new future candidates.
 
 ## Frozen objects
@@ -121,20 +121,18 @@ No scientific patch scale, reference epoch, or real E-sigma outcome was inspecte
 Detailed record: `MATERIAL_PATCH_INTERPOLATION_QUALIFICATION_ADJUDICATION.md` and Development 017 in `WORKING_SCIENTIFIC_DEVELOPMENTS.md`.
 ## Next exact action
 
-APQ/freeze the late-time Band-L material relational development experiment before opening any patch-level E-sigma result.
+Complete the already frozen late-time Band-L material relational development run `36414756245` under `LATE_TIME_MATERIAL_RELATIONAL_APQ2_PLAN_PACKET_v0.1.md` and `LATE_TIME_MATERIAL_RELATIONAL_APQ2_ADJUDICATION_v0.1.md`.
 
-Required plan elements:
-1. choose and justify the reference epoch for ID-frozen patch membership;
-2. define a prospectively bounded patch-scale family rather than selecting a scale from outcome performance;
-3. freeze Band-L filtering and whether filtering occurs before or after vertex interpolation, with one primary order of operations;
-4. freeze the relational feature family from the already-qualified E-sigma modal objects, avoiding rediscovery of density/tidal-anisotropy results;
-5. define a later modal endpoint that does not leak the same algebraic feature used at baseline;
-6. include a persistence/autoregressive baseline and the full marginal E/sigma comparator required by the parent APQ;
-7. split development evaluation by material patch and, where appropriate, simulation realization rather than pseudo-replicating particles;
-8. freeze ACCEPT / EQUIVALENT / SUBTRACTS / NEED_MORE_INFO / REFUSED semantics and a bounded stopping rule;
-9. use seed 424242 only for P0-Q development; do not consume untouched P1 seeds.
+Do not open P1 evidence.
 
-Only after this plan survives its proportional adversarial review may the first real z~2 -> z~1 -> z~0.5 material E-sigma development run be opened.
+After the development result persists:
+1. classify it only as DEVELOPMENT_SIGNAL_PRESENT, DEVELOPMENT_EQUIVALENT_OR_UNRESOLVED, DEVELOPMENT_SUBTRACTS, NEED_MORE_INFO, or REFUSED using the frozen APQ-2 rules;
+2. preserve the 4x4x4 and 16x16x16 patch sensitivities without allowing them to overturn the primary 8x8x8 classification;
+3. investigate failure/outlier patches and root causes while keeping the majority distribution visible;
+4. if DEVELOPMENT_SIGNAL_PRESENT, perform the final Plan Delta / P1 preregistration freeze on independent seeds;
+5. otherwise follow the frozen failure consequence without tuning the development volume into confirmation.
+
+Recovery provenance: `PREG_MODAL_PA1_v1.md` is explicitly superseded pre-exposure. None of its four proposed P1 seeds was opened.
 ## Resume pointers
 
 - `PREG_LIT_COSMO_V1_FREEZE.md`
