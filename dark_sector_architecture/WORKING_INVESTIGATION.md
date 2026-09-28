@@ -2,7 +2,7 @@
 
 **Project:** Cosmic Stability Architecture  
 **Branch:** `dark-sector-stability-architecture`  
-**Current stage:** P0-Q modal preregistration APQ-3; electric-Weyl representation remains QUALIFIED, native velocity-shear returned to NEED_MORE_INFO after Development 012 operator-semantic correction  
+**Current stage:** P0-Q modal preregistration APQ-3; electric-Weyl and corrected centered native velocity-shear representations QUALIFIED; late-time development licensed, P1 unopened  
 **Current scientific state:** The bounded nonperturbative/additional-architecture pass is complete. The full no-dark-substance route is UNSUPPORTED_AT_CURRENT_STAGE under the frozen literature rules, not falsified. The active branch is now the partial architecture; the full route remains open only in P0-D for genuinely new future candidates.
 
 ## Frozen objects
@@ -94,48 +94,42 @@ See `LITERATURE_EXPLORATION_QUEUE.md`.
 
 ## Latest scientific development
 
-**Development 012: gevolution's exported velocity field uses a centered vertex-lattice derivative, not the staggered B-field derivative used in the prior shear reconstruction.**
+**Development 013: corrected centered gevolution velocity shear qualifies on the frozen N32/N64/N128 common band.**
 
-The source audit performed during PREG-MODAL-PA-1 APQ-3 found:
+Development 012 identified the prior shear derivative as semantically wrong for exported `vi`. The corrected operator reproduces gevolution's centered `projectFTtheta` / `projectFTomega` symbol and passes GV-01 through GV-07 known truths.
 
-- `vi` is formed from `projection_Ti0_project`, communicated by `vertexProjectionCIC_comm`, and exported as the coarse-grained peculiar-velocity field;
-- gevolution's own `projectFTtheta` and `projectFTomega` differentiate this field with the centered symbol
-
-\[
-k_i^{(v)} = N\sin(2\pi n_i/N),
-\]
-
-not the staggered `kshift` symbol used by the metric vector field B_i;
-- the Development 011 shear object used `lattice_vector_symmetric_gradient`, which is the staggered-vector operator and therefore is not the native gevolution velocity-shear derivative.
-
-Consequence:
+Under the corrective gate frozen before real-field inspection:
 
 \[
-\boxed{\text{VELOCITY\_SHEAR\_NATIVE\_P0Q = NEED\_MORE\_INFO}}.
+\boxed{\text{CENTERED\_VELOCITY\_SHEAR\_QUALIFIED\_P0Q}}.
 \]
 
-The prior shear numbers are preserved as a representation-specific record and are not deleted.
+Median corrected shear resolution error improves 0.5094 -> 0.1656 and q95 improves 1.0681 -> 0.3158 from N32->N64 to N64->N128. Median eigenframe alignment improves to approximately (0.99871, 0.99704, 0.99872), and error/eigengap diagnostics improve in the same direction.
 
-The Development 011 electric-Weyl results remain valid: scalar, vector, tensor, and full Weyl fixed-band convergence and native-versus-continuum split collapse are unaffected because their operators are separate and already qualified.
+Centered-native versus continuum-spectral shear disagreement on the same physical band falls 0.2017 -> 0.08521 -> 0.02336 with refinement.
 
-The original fixed-band preregistration explicitly allowed shear to be NEED_MORE_INFO without invalidating the independent full-Weyl result. Therefore the Weyl P0-Q qualification remains admitted, while the statement that all five objects were natively qualified is withdrawn.
+The original staggered-velocity representation is preserved as a comparator but is not native shear evidence.
 
-The late-time modal development run has not been opened. This was caught during APQ before outcome exposure.
+All three corrected members are exactly epoch aligned at z = 98.99516176429084 and tau/L = 14.141552190017416.
+
+The E-sigma APQ-3 development route is therefore reopened without changing the independent Weyl qualification.
 
 Detailed stop record: `WORKING_SCIENTIFIC_DEVELOPMENTS.md`.
 ## Next exact action
 
-Repair the shear-side representation before any late-time P0-Q modal outcome is inspected:
+Resume the APQ-3 late-time development plan using seed 424242 only. P1 remains closed.
 
-1. implement the centered gevolution velocity derivative symbol used by `projectFTtheta` / `projectFTomega`;
-2. construct centered native velocity divergence, vorticity, and symmetric trace-free shear;
-3. known-truth test against direct periodic centered differences and gevolution's published/source Fourier formulas;
-4. rerun only the shear side of the frozen N32/N64/N128 common-band ladder;
-5. compare corrected centered shear with the preserved staggered-operator record;
-6. if corrected shear qualifies, return to the APQ-3 residual plan and run development seed 424242;
-7. if it does not qualify, narrow or refuse the E-sigma relational preregistration without affecting the independent Weyl branch.
+Development objectives before final PREG-MODAL-PA-1 freeze:
 
-`PREG-MODAL-PA-1` remains NOT FROZEN and P1-M remains NOT ACTIVATED.
+1. qualify late-time scale/redshift validity of the coarse-grained velocity field using centered divergence/vorticity and multistream-sensitive diagnostics;
+2. define material patches prospectively at t0 from stable particle IDs and follow the same IDs to t1;
+3. qualify tensor interpolation and patch averaging;
+4. measure real-field E-sigma degeneracy/subspace identifiability;
+5. establish spatial blocking and seed-level uncertainty treatment;
+6. choose matched-capacity B0/B1 estimators and earn an equivalence/indeterminate tolerance using development evidence only;
+7. freeze the full MFR-14 preregistration before any untouched P1 seed is generated.
+
+The APQ residual remains: does t0 E-sigma relative geometry add prospective information about later changes in the separate E and coarse-grained-shear spectra beyond scalar state, standard tidal/web information, and the separate t0 tensor spectra themselves?
 ## Resume pointers
 
 - `PREG_LIT_COSMO_V1_FREEZE.md`
@@ -277,3 +271,15 @@ Current temporal gate outcome: REPRESENTATION_QUALIFIED_P0Q for the tested early
 - `qualification/results/particle_lineage_schema_smoke.json`: stable CDM particle-ID lineage qualified across snapshots.
 - Undermind novelty and reduction attacks completed before late-time outcome exposure.
 - Development 012 blocks shear-side late-time interpretation until centered velocity operators qualify.
+
+
+## Development 013 corrected velocity-shear qualification
+
+- corrective preregistration: `NATIVE_CENTERED_VELOCITY_SHEAR_CORRECTION_PREREG.md`, commit `d7388aba58cd3abad35c861ed03dc25faba9276e`;
+- known truth: GV-01 through GV-07 PASS;
+- decisive corrective workflow: run `36363141244`, SUCCESS;
+- durable report: `qualification/results/centered_velocity_shear_correction.json`;
+- corrected native shear: `CENTERED_VELOCITY_SHEAR_QUALIFIED_P0Q`;
+- APQ-3 late-time development: LICENSED;
+- `PREG-MODAL-PA-1`: NOT YET FROZEN;
+- P1-M: NOT ACTIVATED.
