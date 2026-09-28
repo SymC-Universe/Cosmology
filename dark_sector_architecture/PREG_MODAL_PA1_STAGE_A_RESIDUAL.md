@@ -1,3 +1,8 @@
+# SUPPLEMENTAL RECOVERY LITERATURE SUBTRACTION - PRESERVED, NON-AUTHORITATIVE
+
+This file was created during timeout recovery. Its prior-art subtraction is retained as useful Stage A evidence, but it does not override the authoritative APQ-3 / APQ-2 material-lineage design.
+
+---
 # PREG-MODAL-PA-1 Stage A Residual and Literature Adjudication
 
 **Project:** Cosmic Stability Architecture  
