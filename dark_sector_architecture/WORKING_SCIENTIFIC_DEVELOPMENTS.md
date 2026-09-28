@@ -1334,3 +1334,210 @@ late-time seed-424242 modal outcome is opened.
 
 **Status:** Scientific/methodological stop. Repair is mechanical and
 representation-qualification work may proceed without user intervention.
+
+
+---
+
+## Development 013 - Corrected Centered gevolution Velocity Shear Qualifies
+
+**Date:** 2026-09-27  
+**Frozen corrective gate:** NATIVE_CENTERED_VELOCITY_SHEAR_CORRECTION_PREREG.md  
+**Frozen gate commit:** d7388aba58cd3abad35c861ed03dc25faba9276e  
+**Decisive workflow:** run 36363141244, SUCCESS  
+**Workflow head:** 3ad77086229b1c35722b561f037473a5612b5b13
+
+### Scientific/methodological development
+
+Development 012 identified that the exported gevolution velocity field `vi`
+requires the centered vertex-lattice derivative
+
+[
+k_i^{(v)}=Nsin(2pi n_i/N),
+]
+
+rather than the staggered metric-vector (B_i) operator.
+
+That corrected operator was implemented and independently qualified in the
+GV-01 through GV-07 known-truth suite. The suite reproduces direct periodic
+centered differences and gevolution's own `projectFTtheta` /
+`projectFTomega` Fourier symbols.
+
+A prospectively frozen shear-only (N=32,64,128) common-band correction was
+then run on the unchanged (K_{32}) physical support.
+
+The frozen outcome is:
+
+[
+oxed{	ext{CENTERED_VELOCITY_SHEAR_QUALIFIED_P0Q}}
+]
+
+### Corrected fixed-band convergence
+
+Centered native velocity-shear median relative tensor error:
+
+[
+0.5094
+quad (32ightarrow64)
+]
+
+to
+
+[
+0.1656
+quad (64ightarrow128).
+]
+
+q95 relative tensor error improves from
+
+[
+1.0681
+ightarrow
+0.3158.
+]
+
+Median eigenframe diagonal alignments improve from approximately
+
+[
+(0.9868, 0.9686, 0.9871)
+]
+
+to
+
+[
+(0.99871, 0.99704, 0.99872).
+]
+
+The q05 eigenframe alignments improve from approximately
+
+[
+(0.731, 0.507, 0.735)
+]
+
+to
+
+[
+(0.977, 0.948, 0.974).
+]
+
+Median tensor-error/eigengap direction diagnostics improve from approximately
+
+[
+(0.589, 0.581)
+]
+
+to
+
+[
+(0.189, 0.188).
+]
+
+All preregistered refinement-direction checks pass.
+
+### Exact epoch control
+
+All three grids land at exactly the same recorded central epoch:
+
+[
+z=98.99516176429084,
+qquad
+	au/L=14.141552190017416.
+]
+
+Thus epoch mismatch is zero in the recorded evolution coordinates.
+
+### Corrected native versus continuum behavior
+
+On the same common band, centered-native versus continuum-spectral shear median
+relative tensor error decreases with resolution:
+
+[
+0.2017
+ightarrow
+0.08521
+ightarrow
+0.02336.
+]
+
+The corresponding N128 median eigenframe alignments are approximately
+
+[
+(0.999971, 0.999934, 0.999971).
+]
+
+This is consistent with both derivative representations approaching the same
+resolved-band limit.
+
+### Corrected versus preserved prior staggered representation
+
+The difference between centered-native shear and the previously used staggered
+velocity representation also decreases:
+
+[
+0.3865
+ightarrow
+0.2674
+ightarrow
+0.1435
+]
+
+in median relative tensor error from N32 to N128.
+
+Therefore Development 012 was a genuine semantic/representation error, not an
+irrelevant naming issue. The prior numbers remain preserved but are not native
+velocity-shear evidence.
+
+### Vorticity diagnostic
+
+The corrected native operator also provides a gevolution-consistent vorticity
+diagnostic.
+
+On the common (K_{32}) band, vorticity-vector RMS decreases with refinement:
+
+- N32: (2.086	imes10^{-4});
+- N64: (1.361	imes10^{-4});
+- N128: (8.101	imes10^{-5}).
+
+The unrestricted full-grid vorticity RMS increases with resolution, as expected
+when progressively smaller-scale multistream/rotational structure is resolved.
+This reinforces the need to freeze physical bands/scales in late-time
+multistream validity tests rather than interpreting full-grid vorticity
+amplitudes naively.
+
+### Consequence
+
+The shear-side representation hold is closed:
+
+[
+oxed{	ext{VELOCITY_SHEAR_NATIVE_P0Q = QUALIFIED}}
+]
+
+The APQ-3 late-time E-sigma development plan can resume.
+
+This does not activate P1-M. The remaining APQ material items are:
+- admissible late-time multistream scale/redshift domain;
+- material-patch interpolation/averaging stability;
+- real-field eigenframe degeneracy/subspace handling;
+- spatial blocking and seed-level uncertainty;
+- matched-capacity estimator/equivalence tolerance;
+- robustness route beyond the frozen weak-field Poisson-gauge representation.
+
+### Exact restart point
+
+Resume `PREG_MODAL_PA1_APQ3_ADJUDICATION.md` at the licensed development
+stage using seed 424242 only.
+
+No untouched P1 seed may be generated or opened.
+
+### Linked artifacts
+
+- `NATIVE_CENTERED_VELOCITY_SHEAR_CORRECTION_PREREG.md`
+- `qualification/gevolution_velocity_operators.py`
+- `qualification/results/gevolution_velocity_operator_known_truth_report.json`
+- `qualification/results/centered_velocity_shear_correction.json`
+- `qualification/results/centered_velocity_shear_n32_metadata.json`
+- `qualification/results/centered_velocity_shear_n64_metadata.json`
+- `qualification/results/centered_velocity_shear_n128_metadata.json`
+- `PREG_MODAL_PA1_APQ3_ADJUDICATION.md`
+
+**Status:** Significant methodological repair completed. Late-time P0-Q modal
+development is licensed; P1 remains unopened.
