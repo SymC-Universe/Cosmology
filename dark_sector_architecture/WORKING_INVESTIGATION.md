@@ -2,7 +2,7 @@
 
 **Project:** Cosmic Stability Architecture  
 **Branch:** `dark-sector-stability-architecture`  
-**Current stage:** P0-Q native Weyl/shear modal representation QUALIFIED through frozen N32/N64/N128 fixed-band resolution; stopped before PREG-MODAL-PA-1 activation  
+**Current stage:** P0-Q modal preregistration APQ-3; electric-Weyl representation remains QUALIFIED, native velocity-shear returned to NEED_MORE_INFO after Development 012 operator-semantic correction  
 **Current scientific state:** The bounded nonperturbative/additional-architecture pass is complete. The full no-dark-substance route is UNSUPPORTED_AT_CURRENT_STAGE under the frozen literature rules, not falsified. The active branch is now the partial architecture; the full route remains open only in P0-D for genuinely new future candidates.
 
 ## Frozen objects
@@ -94,56 +94,48 @@ See `LITERATURE_EXPLORATION_QUEUE.md`.
 
 ## Latest scientific development
 
-**Development 011: the native Weyl/shear modal representation qualifies on the prospectively frozen N32/N64/N128 physical band, and the native-versus-continuum split collapses on that common band.**
+**Development 012: gevolution's exported velocity field uses a centered vertex-lattice derivative, not the staggered B-field derivative used in the prior shear reconstruction.**
 
-The frozen `NATIVE_FIXED_BAND_WEYL_RESOLUTION_PREREG.md` is adjudicated:
+The source audit performed during PREG-MODAL-PA-1 APQ-3 found:
 
-\[
-\boxed{\text{NATIVE\_FIXED\_BAND\_QUALIFIED\_P0Q}}
-\]
-
-with independent representation classification:
+- `vi` is formed from `projection_Ti0_project`, communicated by `vertexProjectionCIC_comm`, and exported as the coarse-grained peculiar-velocity field;
+- gevolution's own `projectFTtheta` and `projectFTomega` differentiate this field with the centered symbol
 
 \[
-\boxed{\text{SPLIT\_COLLAPSES\_ON\_COMMON\_BAND}}.
+k_i^{(v)} = N\sin(2\pi n_i/N),
 \]
 
-All five frozen objects improve from N32->N64 to N64->N128 in both median and q95 relative operator error:
+not the staggered `kshift` symbol used by the metric vector field B_i;
+- the Development 011 shear object used `lattice_vector_symmetric_gradient`, which is the staggered-vector operator and therefore is not the native gevolution velocity-shear derivative.
 
-- scalar Weyl: median 0.3041 -> 0.1428;
-- vector Weyl: 0.7117 -> 0.4384;
-- tensor Weyl: 0.07594 -> 0.03101;
-- full Weyl: 0.3041 -> 0.1428;
-- native shear: 0.4987 -> 0.1925.
+Consequence:
 
-The full-Weyl median eigenframe alignment improves from approximately (0.9915, 0.9794, 0.9913) to (0.9980, 0.9954, 0.9979), with q05 and error/eigengap diagnostics improving in the same direction.
+\[
+\boxed{\text{VELOCITY\_SHEAR\_NATIVE\_P0Q = NEED\_MORE\_INFO}}.
+\]
 
-The central snapshots are exactly aligned across all three resolutions at z = 98.99516176429084 and tau/L = 14.141552190017416. Native constraints remain machine-small. The common-band temporal-stencil median full-Weyl uncertainty is only about 2-3e-9, far below the measured resolution differences.
+The prior shear numbers are preserved as a representation-specific record and are not deleted.
 
-The native-versus-continuum median discrepancy decreases monotonically on the same frozen band. For scalar/full Weyl it falls 0.5803 -> 0.2817 -> 0.1397. By N128, every frozen family is no more discrepant from its continuum comparator than the native N64->N128 resolution uncertainty, satisfying the frozen collapse rule.
+The Development 011 electric-Weyl results remain valid: scalar, vector, tensor, and full Weyl fixed-band convergence and native-versus-continuum split collapse are unaffected because their operators are separate and already qualified.
 
-Therefore the large unrestricted N64 native/continuum split from Development 010 does not persist as a stable common-band representation separation. The evidence is consistent with both constructions approaching the same resolved physical-band limit while remaining different finite-resolution representations.
+The original fixed-band preregistration explicitly allowed shear to be NEED_MORE_INFO without invalidating the independent full-Weyl result. Therefore the Weyl P0-Q qualification remains admitted, while the statement that all five objects were natively qualified is withdrawn.
 
-The early Function/Limit Map remains scalar-dominated in amplitude only: on the common band, vector/scalar falls from 2.35e-6 at N32 to 8.25e-7 at N128, while tensor/scalar remains about 1.6e-6. These modal sectors remain explicitly preserved and this is not a universal scalar-dominance claim.
+The late-time modal development run has not been opened. This was caught during APQ before outcome exposure.
 
-Detailed adjudication: `NATIVE_FIXED_BAND_WEYL_RESOLUTION_ADJUDICATION.md`.
+Detailed stop record: `WORKING_SCIENTIFIC_DEVELOPMENTS.md`.
 ## Next exact action
 
-Stop before activating `PREG-MODAL-PA-1`.
+Repair the shear-side representation before any late-time P0-Q modal outcome is inspected:
 
-The representation is now qualified strongly enough that the next scientific decision is no longer another resolution repair. It is to freeze the **exact residual modal preregistration**.
+1. implement the centered gevolution velocity derivative symbol used by `projectFTtheta` / `projectFTomega`;
+2. construct centered native velocity divergence, vorticity, and symmetric trace-free shear;
+3. known-truth test against direct periodic centered differences and gevolution's published/source Fourier formulas;
+4. rerun only the shear side of the frozen N32/N64/N128 common-band ladder;
+5. compare corrected centered shear with the preserved staggered-operator record;
+6. if corrected shear qualifies, return to the APQ-3 residual plan and run development seed 424242;
+7. if it does not qualify, narrow or refuse the E-sigma relational preregistration without affecting the independent Weyl branch.
 
-Required before activation:
-
-1. define the residual claim in terms of native Weyl/shear eigenstructure, not generic modes;
-2. specify the strongest native comparator and what scalar information it already contains;
-3. define ACCEPT / REFUSE / NEED_MORE_INFO logic before untouched decisive evidence is inspected;
-4. freeze the falsifier and indeterminate zone;
-5. identify the untouched decisive evidence route so the qualification data are not reused as confirmation;
-6. keep Conglomerate/System and joint Scalar + Modal + Conglomerate gates independent and open;
-7. preserve P0-D exploration even if the modal claim later refuses.
-
-After that freeze, the modal decisive test may begin. Only afterward should the program move to `PREG-CONGLOMERATE-PA-1` and `PREG-JOINT-PA-1/2`.
+`PREG-MODAL-PA-1` remains NOT FROZEN and P1-M remains NOT ACTIVATED.
 ## Resume pointers
 
 - `PREG_LIT_COSMO_V1_FREEZE.md`
@@ -275,3 +267,13 @@ Current temporal gate outcome: REPRESENTATION_QUALIFIED_P0Q for the tested early
 - native fixed-band gate: `NATIVE_FIXED_BAND_QUALIFIED_P0Q`.
 - native/continuum classification: `SPLIT_COLLAPSES_ON_COMMON_BAND`.
 - `PREG-MODAL-PA-1`: still CANDIDATE, not activated.
+
+
+## APQ-3 modal preregistration construction
+
+- `PREG_MODAL_PA1_APQ3_PLAN_PACKET.md`: pre-result Plan Packet.
+- `PREG_MODAL_PA1_APQ3_ADJUDICATION.md`: adversarial Plan Delta.
+- `qualification/results/modal_relational_known_truth_report.json`: MR-01 through MR-07 durable.
+- `qualification/results/particle_lineage_schema_smoke.json`: stable CDM particle-ID lineage qualified across snapshots.
+- Undermind novelty and reduction attacks completed before late-time outcome exposure.
+- Development 012 blocks shear-side late-time interpretation until centered velocity operators qualify.
