@@ -336,3 +336,39 @@ the same band:
 Development 012 is therefore repaired. The prior staggered-velocity shear
 result remains preserved as comparator evidence and is not used as the native
 object.
+
+
+## Tensor vertex co-location qualification
+
+Frozen plan:
+`TENSOR_COLOCATION_QUALIFICATION_PLAN_v0.1.md`
+
+Freeze commit:
+`c32931c3f2ae7c51b5a82811a2c83a34ef8d3a72`
+
+Implementation:
+`qualification/tensor_colocation.py`
+
+Durable report:
+`qualification/results/tensor_colocation_known_truth_report.json`
+
+Outcome:
+**TENSOR_COLOCATION_QUALIFIED_P0Q**
+
+Cases TC-01 through TC-08 all pass.
+
+Key representation checks:
+- diagonal tensor components pass through unchanged;
+- off-diagonal components reproduce the frozen four-point periodic vertex average exactly;
+- symmetry is preserved;
+- a single staggered Fourier mode is phase-corrected to the vertex lattice with the expected cosine transfer factor;
+- smooth analytic recovery is second order, with refinement error ratios approximately 3.93 and 3.98 for N16->N32 and N32->N64;
+- Nyquist content along a staggered axis is attenuated to numerical zero and is not deconvolved;
+- invalid/nonfinite/nonsymmetric inputs fail closed.
+
+Current downstream status:
+- `WEYL_COMPONENT_FIELDS_P0Q = QUALIFIED`;
+- `TENSOR_COLOCATION_P0Q = QUALIFIED`;
+- `LOCAL_WEYL_EIGENSYSTEM_P0Q = NEED_MORE_INFO` pending the frozen N32/N64/N128 co-located fixed-band rerun;
+- active workflow: `36365508065`;
+- P1 remains unopened.
