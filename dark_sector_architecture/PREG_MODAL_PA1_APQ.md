@@ -1,3 +1,10 @@
+# SUPERSEDED RECOVERY APQ BRANCH - NOT AUTHORITATIVE FOR EXECUTION
+
+This file was created during timeout recovery before the authoritative later APQ lineage was fully reloaded. Its literature attacks remain useful as supplementary adversarial notes, but execution authority belongs to `PREG_MODAL_PA1_APQ3_PLAN_PACKET.md`, `PREG_MODAL_PA1_APQ3_ADJUDICATION.md`, `LATE_TIME_MATERIAL_RELATIONAL_APQ2_PLAN_PACKET_v0.1.md`, and `LATE_TIME_MATERIAL_RELATIONAL_APQ2_ADJUDICATION_v0.1.md`.
+
+No P1 evidence was opened under this recovery APQ.
+
+---
 # PREG-MODAL-PA-1 Adversarial Plan Qualification
 
 **Project:** Cosmic Stability Architecture  
