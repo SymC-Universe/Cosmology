@@ -1,0 +1,81 @@
+{
+  "case_count": 8,
+  "cases": [
+    {
+      "case_id": "TC-01",
+      "max_abs_error": 0.0,
+      "purpose": "diagonal passthrough",
+      "status": "PASS"
+    },
+    {
+      "case_id": "TC-02",
+      "max_abs_error": 0.0,
+      "purpose": "four-point periodic formula",
+      "status": "PASS"
+    },
+    {
+      "case_id": "TC-03",
+      "max_abs_error": 0.0,
+      "purpose": "symmetry preservation",
+      "status": "PASS"
+    },
+    {
+      "case_id": "TC-04",
+      "max_abs_error": 2.942091015256665e-15,
+      "purpose": "single-mode phase removal and cosine transfer",
+      "status": "PASS",
+      "transfer_factor": 0.843946030794889
+    },
+    {
+      "case_id": "TC-05",
+      "grid_sizes": [
+        16,
+        32,
+        64
+      ],
+      "purpose": "second-order smooth-field recovery",
+      "refinement_error_ratios": [
+        3.926920905829559,
+        3.9816181187208777
+      ],
+      "rms_errors": [
+        0.01346121042477127,
+        0.003427930113078659,
+        0.0008609389476507369
+      ],
+      "status": "PASS"
+    },
+    {
+      "case_id": "TC-06",
+      "filtered_max_abs": 5.287437154777308e-15,
+      "inverse_attempted": false,
+      "purpose": "Nyquist attenuation without inversion",
+      "status": "PASS",
+      "transfer_factor": 6.005577771483278e-17
+    },
+    {
+      "case_id": "TC-07",
+      "max_abs_error": 4.440892098500626e-16,
+      "purpose": "linearity",
+      "status": "PASS"
+    },
+    {
+      "case_id": "TC-08",
+      "purpose": "explicit invalid-input refusals",
+      "refusals": {
+        "noncubic": "tensor spatial grid must be cubic",
+        "nonfinite": "tensor must contain only finite values",
+        "nonsymmetric": "tensor must be symmetric before co-location; max residual=1.000000e+00",
+        "shape": "tensor must have shape (N,N,N,3,3)"
+      },
+      "status": "PASS"
+    }
+  ],
+  "local_weyl_eigensystem_tested": false,
+  "near_nyquist_policy": "FILTER_REPORT_DO_NOT_INVERT",
+  "next_gate": "focused co-located N32/N64/N128 Weyl fixed-band eigensystem qualification",
+  "outcome": "TENSOR_COLOCATION_QUALIFIED_P0Q",
+  "protocol": "NATIVE_TENSOR_VERTEX_COLOCATION_v0.1",
+  "scientific_claim_tested": false,
+  "stage": "P0-Q"
+}
