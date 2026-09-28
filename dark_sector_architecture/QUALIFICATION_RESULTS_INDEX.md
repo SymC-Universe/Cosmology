@@ -372,3 +372,44 @@ Current downstream status:
 - `LOCAL_WEYL_EIGENSYSTEM_P0Q = NEED_MORE_INFO` pending the frozen N32/N64/N128 co-located fixed-band rerun;
 - active workflow: `36365508065`;
 - P1 remains unopened.
+
+
+## Material-patch interpolation qualification
+
+Frozen plan:
+`MATERIAL_PATCH_INTERPOLATION_QUALIFICATION_PLAN_v0.1.md`
+
+Freeze commit:
+`bf515b294f3f3b725a361c59177fbb083e201c21`
+
+Implementation:
+`qualification/material_patch.py`
+
+Durable report:
+`qualification/results/material_patch_known_truth_report.json`
+
+First integrated run:
+`36365910881` **FAILURE**, preserved as a test-harness shape mismatch in MP-02.
+
+Decisive repaired run:
+`36366019003` **SUCCESS**
+
+Outcome:
+**MATERIAL_PATCH_INTERPOLATION_QUALIFIED_P0Q**
+
+Cases MP-01 through MP-12 all pass.
+
+Key qualification results:
+- vertex interpolation exact at lattice vertices;
+- constant-field maximum error (4.44\times10^{-16});
+- periodic-wrap maximum error (8.33\times10^{-17});
+- linearity maximum error (8.88\times10^{-16});
+- smooth periodic interpolation has refinement error ratios 3.902 and 4.050 for N16->N32 and N32->N64;
+- stable-ID joins are record-order invariant;
+- reference patch membership is deterministic and non-overlapping;
+- later membership remains frozen by particle ID rather than Eulerian position;
+- equal-mass patch tensor means are deterministic and particle-order invariant;
+- nondegenerate patch eigensystems recover the known result while exact degeneracy retains refusal/subspace semantics;
+- duplicate IDs, changed ID sets, invalid patch shape, nonfinite positions, and nonsymmetric tensors fail closed.
+
+Scientific patch scale and reference epoch remain unselected. This gate qualifies only the generic material representation.
