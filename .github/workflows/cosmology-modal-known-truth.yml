@@ -43,10 +43,10 @@ on:
       - 'dark_sector_architecture/qualification/test_gevolution_velocity_operators.py'
       - 'dark_sector_architecture/qualification/run_gevolution_velocity_operator_known_truth_suite.py'
       - 'dark_sector_architecture/qualification/gevolution_particle_lineage.py'
+      - 'dark_sector_architecture/qualification/test_gevolution_particle_lineage.py'
       - 'dark_sector_architecture/qualification/tensor_colocation.py'
       - 'dark_sector_architecture/qualification/test_tensor_colocation.py'
       - 'dark_sector_architecture/qualification/run_tensor_colocation_known_truth_suite.py'
-      - 'dark_sector_architecture/qualification/test_gevolution_particle_lineage.py'
       - 'dark_sector_architecture/qualification/run_latfield2_native_operator_known_truth_suite.py'
       - 'dark_sector_architecture/qualification/test_electric_weyl_temporal_pilot.py'
       - '.github/workflows/cosmology-modal-known-truth.yml'
@@ -128,8 +128,7 @@ jobs:
             dark_sector_architecture/qualification/results/temporal_derivative_known_truth_report.json
             dark_sector_architecture/qualification/results/latfield2_native_operator_known_truth_report.json
             dark_sector_architecture/qualification/results/modal_relational_known_truth_report.json
-            dark_sector_architecture/qualification/results/gevolution_velocity_operator_known_truth_report.json \
-            dark_sector_architecture/qualification/results/tensor_colocation_known_truth_report.json
+            dark_sector_architecture/qualification/results/gevolution_velocity_operator_known_truth_report.json
             dark_sector_architecture/qualification/results/tensor_colocation_known_truth_report.json
           if-no-files-found: error
 
@@ -144,7 +143,8 @@ jobs:
             dark_sector_architecture/qualification/results/temporal_derivative_known_truth_report.json \
             dark_sector_architecture/qualification/results/latfield2_native_operator_known_truth_report.json \
             dark_sector_architecture/qualification/results/modal_relational_known_truth_report.json \
-            dark_sector_architecture/qualification/results/gevolution_velocity_operator_known_truth_report.json
+            dark_sector_architecture/qualification/results/gevolution_velocity_operator_known_truth_report.json \
+            dark_sector_architecture/qualification/results/tensor_colocation_known_truth_report.json
           if git diff --cached --quiet; then
             echo "Qualification reports unchanged."
             exit 0
