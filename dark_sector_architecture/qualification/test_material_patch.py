@@ -55,7 +55,8 @@ def test_mp02_constant_field_exact_at_arbitrary_positions():
     rng=np.random.default_rng(2)
     pos=rng.uniform(-2.0,3.0,size=(200,3))
     got=interpolate_vertex_tensor_periodic(grid,pos)
-    np.testing.assert_allclose(got,matrix[None,:,:],atol=2e-15,rtol=2e-15)
+    expected=np.broadcast_to(matrix,got.shape)
+    np.testing.assert_allclose(got,expected,atol=2e-15,rtol=2e-15)
 
 
 def test_mp03_periodic_wrap_equivalence():
