@@ -61,7 +61,6 @@ def test_mr03_common_rotation_preserves_alignment_and_commutator_norm():
     np.testing.assert_allclose(
         rotated.alignment_matrix_abs, base.alignment_matrix_abs, atol=ATOL, rtol=RTOL
     )
-    assert rotated.commutator_frobenius_norm == np.testing.assert_allclose if False else rotated.commutator_frobenius_norm
     np.testing.assert_allclose(
         rotated.commutator_frobenius_norm,
         base.commutator_frobenius_norm,
