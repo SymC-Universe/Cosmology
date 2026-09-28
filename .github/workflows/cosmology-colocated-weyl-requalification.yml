@@ -1,0 +1,372 @@
+name: Cosmology co-located Weyl fixed-band requalification
+
+on:
+  push:
+    branches:
+      - dark-sector-stability-architecture
+    paths:
+      - 'dark_sector_architecture/COLOCATED_WEYL_FIXED_BAND_REQUALIFICATION_PLAN_v0.1.md'
+      - 'dark_sector_architecture/qualification/run_colocated_weyl_fixed_band_requalification.py'
+      - 'dark_sector_architecture/qualification/tensor_colocation.py'
+      - 'dark_sector_architecture/qualification/fourier_resolution.py'
+      - 'dark_sector_architecture/qualification/electric_weyl.py'
+      - 'dark_sector_architecture/qualification/latfield2_native_operators.py'
+      - 'dark_sector_architecture/qualification/temporal_derivatives.py'
+      - 'dark_sector_architecture/qualification/latfield_hdf5.py'
+      - 'dark_sector_architecture/qualification/gevolution_modal_pilot.ini'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cosmology-colocated-weyl-fixed-band-requalification
+  cancel-in-progress: true
+
+jobs:
+  colocated-weyl-requalification:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+
+    env:
+      GEVOLUTION_SHA: 0cca42e51a824002ae4fb602cbd79d671e8ffe60
+      LATFIELD2_SHA: 2d8c737ab6adc965a1d2718c209f5085af27b09c
+      TEMPLATE_BLOB: d4de9a5400ef58f6a0181fbe61f18056b233a425
+      BOXSIZE: 64.0
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          ref: dark-sector-stability-architecture
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install build and analysis dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            build-essential \
+            openmpi-bin \
+            libopenmpi-dev \
+            libfftw3-dev \
+            libgsl-dev \
+            libhdf5-dev
+          python -m pip install --upgrade pip
+          python -m pip install numpy h5py
+
+      - name: Verify frozen preregistration
+        run: |
+          test -f dark_sector_architecture/COLOCATED_WEYL_FIXED_BAND_REQUALIFICATION_PLAN_v0.1.md
+          git log -1 --format=%H -- dark_sector_architecture/COLOCATED_WEYL_FIXED_BAND_REQUALIFICATION_PLAN_v0.1.md \
+            | tee colocated_weyl_prereg_commit.txt
+
+      - name: Fetch pinned gevolution and canonical CPU LATfield2
+        run: |
+          git clone https://github.com/gevolution-code/gevolution-1.3.git gevolution
+          git -C gevolution checkout "$GEVOLUTION_SHA"
+          git clone https://gitlab.uzh.ch/julian.adamek/LATfield2.git LATfield2
+          git -C LATfield2 checkout "$LATFIELD2_SHA"
+          printf 'gevolution=%s\nLATfield2=%s\n' \
+            "$(git -C gevolution rev-parse HEAD)" \
+            "$(git -C LATfield2 rev-parse HEAD)" \
+            | tee colocated_weyl_upstream_revisions.txt
+
+      - name: Fetch and verify canonical particle template
+        run: |
+          curl -L --fail --silent --show-error \
+            https://raw.githubusercontent.com/gevolution-code/gevolution-1.2/df8a930732aae1bafa32fd839ee70728bb10773a/sc1_crystal.dat \
+            -o gevolution/native_ladder_template.dat
+          test "$(git hash-object gevolution/native_ladder_template.dat)" = "$TEMPLATE_BLOB"
+
+      - name: Patch snapshots to emit dynamically evolved hij and precise epochs
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('gevolution/main.cpp')
+          text = path.read_text()
+          marker = (
+              '\t\t// snapshot output\n'
+              '\t\tif (snapcount < sim.num_snapshot && '
+              '1. / a < sim.z_snapshot[snapcount] + 1.)\n'
+          )
+          if marker not in text:
+              raise SystemExit('snapshot marker not found in pinned gevolution source')
+
+          replacement = (
+              '\t\t// snapshot output\n'
+              '#ifdef TENSOR_EVOLUTION\n'
+              '\t\t// Qualification-only patch: write dynamically evolved hijFT.\n'
+              '\t\tif ((sim.out_snapshot & MASK_HIJ) &&\n'
+              '\t\t    snapcount < sim.num_snapshot &&\n'
+              '\t\t    1. / a < sim.z_snapshot[snapcount] + 1.)\n'
+              '\t\t{\n'
+              '\t\t\tplan_hij.execute(FFT_BACKWARD);\n'
+              '\t\t\tSij.updateHalo();\n'
+              '\t\t\tdone_hij = 1;\n'
+              '\t\t}\n'
+              '#endif\n'
+              '\t\tif (snapcount < sim.num_snapshot && '
+              '1. / a < sim.z_snapshot[snapcount] + 1.)\n'
+              '\t\t{\n'
+              '\t\t\tchar ew_temporal_meta[256];\n'
+              '\t\t\tsprintf(ew_temporal_meta, '
+              '"EW_TEMPORAL_META index=%d cycle=%d a=%.17g z=%.17g '
+              'tau_over_boxsize=%.17g", snapcount, cycle, a, '
+              '(1. / a) - 1., tau);\n'
+              '\t\t\tCOUT << ew_temporal_meta << endl;\n'
+              '\t\t}\n'
+              '\t\tif (snapcount < sim.num_snapshot && '
+              '1. / a < sim.z_snapshot[snapcount] + 1.)\n'
+          )
+          text = text.replace(marker, replacement, 1)
+          path.write_text(text)
+          PY
+          sha256sum gevolution/main.cpp | tee colocated_weyl_patched_main_sha256.txt
+
+      - name: Compile gevolution with dynamic tensor and velocity support
+        working-directory: gevolution
+        run: |
+          make clean
+          make -j2 \
+            INCLUDE="-I../LATfield2 -I/usr/include/hdf5/serial" \
+            LIB="-lfftw3 -lm -L/usr/lib/x86_64-linux-gnu/hdf5/serial -lhdf5 -lgsl -lgslcblas" \
+            DGEVOLUTION="-DPHINONLINEAR -DBENCHMARK -DVELOCITY -DTENSOR_EVOLUTION"
+          test -x gevolution
+
+      - name: Build frozen N32 N64 N128 five-snapshot settings
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json
+
+          base = Path(
+              'dark_sector_architecture/qualification/gevolution_modal_pilot.ini'
+          ).read_text()
+          scale_factors = [0.009950, 0.009975, 0.010000, 0.010025, 0.010050]
+          redshifts = [(1.0 / a) - 1.0 for a in scale_factors]
+          redshift_text = ', '.join(f'{z:.12f}' for z in redshifts)
+
+          for n, tiling in ((32, 8), (64, 16), (128, 32)):
+              tag = f'n{n}'
+              text = base
+              replacements = {
+                  'template file = pilot_template.dat': 'template file = native_ladder_template.dat',
+                  'tiling factor = 2': f'tiling factor = {tiling}',
+                  'Ngrid = 8': f'Ngrid = {n}',
+                  'time step limit = 0.04': 'time step limit = 0.0005',
+                  'output path = ../pilot_output/': f'output path = ../native_ladder_{tag}_output/',
+                  'generic file base = modalpilot': f'generic file base = native_ladder_{tag}',
+                  'snapshot file base = modalpilot_snap': f'snapshot file base = native_ladder_{tag}_snap',
+                  'snapshot redshifts = 99': f'snapshot redshifts = {redshift_text}',
+                  'Pk file base = modalpilot_pk': f'Pk file base = native_ladder_{tag}_pk',
+                  'Pk redshifts = 99': f'Pk redshifts = {redshifts[2]:.12f}',
+              }
+              for old, new in replacements.items():
+                  if old not in text:
+                      raise SystemExit(f'missing expected settings token: {old}')
+                  text = text.replace(old, new, 1)
+              Path(f'gevolution/native_ladder_{tag}.ini').write_text(text)
+              Path(f'native_ladder_{tag}_requested.json').write_text(
+                  json.dumps({
+                      'grid': n,
+                      'tiling_factor': tiling,
+                      'seed': 424242,
+                      'scale_factors': scale_factors,
+                      'requested_redshifts': redshifts,
+                      'time_step_limit': 0.0005,
+                  }, indent=2, sort_keys=True) + '\n'
+              )
+          PY
+
+      - name: Run N32 member
+        run: |
+          set -o pipefail
+          rm -rf native_ladder_n32_output
+          mkdir -p native_ladder_n32_output
+          cd gevolution
+          mpirun --oversubscribe -np 4 ./gevolution -n 2 -m 2 -s native_ladder_n32.ini \
+            | tee ../native_ladder_n32.log
+
+      - name: Run N64 member
+        run: |
+          set -o pipefail
+          rm -rf native_ladder_n64_output
+          mkdir -p native_ladder_n64_output
+          cd gevolution
+          mpirun --oversubscribe -np 4 ./gevolution -n 2 -m 2 -s native_ladder_n64.ini \
+            | tee ../native_ladder_n64.log
+
+      - name: Run N128 member
+        run: |
+          set -o pipefail
+          rm -rf native_ladder_n128_output
+          mkdir -p native_ladder_n128_output
+          cd gevolution
+          mpirun --oversubscribe -np 4 ./gevolution -n 2 -m 2 -s native_ladder_n128.ini \
+            | tee ../native_ladder_n128.log
+
+      - name: Parse precise epochs and native constraints
+        run: |
+          python - <<'PY'
+          import json
+          import re
+          from pathlib import Path
+
+          meta_pattern = re.compile(
+              r'EW_TEMPORAL_META index=([0-9]+) cycle=([0-9]+) '
+              r'a=([0-9eE+.-]+) z=([0-9eE+.-]+) '
+              r'tau_over_boxsize=([0-9eE+.-]+)'
+          )
+          b_pattern = re.compile(
+              r'B diagnostics: max \|divB\| = ([0-9eE+.-]+), '
+              r'max \|curlB\| = ([0-9eE+.-]+)'
+          )
+          h_pattern = re.compile(
+              r'GW diagnostics: max \|divh\| = ([0-9eE+.-]+), '
+              r'max \|traceh\| = ([0-9eE+.-]+), '
+              r'max \|h\| = ([0-9eE+.-]+)'
+          )
+          out = Path('dark_sector_architecture/qualification/results')
+          out.mkdir(parents=True, exist_ok=True)
+
+          for n in (32, 64, 128):
+              tag = f'n{n}'
+              requested = json.loads(Path(f'native_ladder_{tag}_requested.json').read_text())
+              text = Path(f'native_ladder_{tag}.log').read_text()
+              matches = meta_pattern.findall(text)
+              if len(matches) != 5:
+                  raise SystemExit(f'N{n}: expected five precise snapshot entries, got {matches}')
+              snapshots = []
+              for index_text, cycle, a, z, tau in matches:
+                  index = int(index_text)
+                  if index != len(snapshots):
+                      raise SystemExit(f'N{n}: unexpected snapshot sequence')
+                  snapshots.append({
+                      'index': index,
+                      'requested_redshift': requested['requested_redshifts'][index],
+                      'actual_scale_factor': float(a),
+                      'actual_redshift': float(z),
+                      'cycle': int(cycle),
+                      'tau_over_boxsize': float(tau),
+                  })
+              b_matches = b_pattern.findall(text)
+              h_matches = h_pattern.findall(text)
+              if len(b_matches) != 5 or len(h_matches) != 5:
+                  raise SystemExit(f'N{n}: native diagnostics missing')
+              native = []
+              for index in range(5):
+                  div_b, curl_b = map(float, b_matches[index])
+                  div_h, trace_h, norm_h = map(float, h_matches[index])
+                  native.append({
+                      'index': index,
+                      'B_max_abs_divergence': div_b,
+                      'B_max_abs_curl': curl_b,
+                      'B_divergence_over_curl': div_b / curl_b if curl_b > 0 else None,
+                      'h_max_abs_divergence': div_h,
+                      'h_max_abs_trace': trace_h,
+                      'h_max_norm': norm_h,
+                      'h_divergence_over_norm': div_h / norm_h if norm_h > 0 else None,
+                      'h_trace_over_norm': trace_h / norm_h if norm_h > 0 else None,
+                  })
+              taus = [x['tau_over_boxsize'] for x in snapshots]
+              cycles = [x['cycle'] for x in snapshots]
+              if any(b <= a for a, b in zip(taus, taus[1:])):
+                  raise SystemExit(f'N{n}: conformal times not increasing')
+              if len(set(cycles)) != 5:
+                  raise SystemExit(f'N{n}: snapshots not on distinct cycles')
+              root = Path(f'native_ladder_{tag}_output')
+              for index in range(5):
+                  for token in ('phi', 'chi', 'B', 'hij', 'v'):
+                      fields = list(root.glob(f'*snap{index:03d}_{token}.h5'))
+                      if len(fields) != 1:
+                          raise SystemExit(f'N{n}: missing snap{index:03d}_{token}: {fields}')
+              metadata = {
+                  'protocol': 'P0-Q_COLOCATED_WEYL_MEMBER_METADATA',
+                  'grid': n,
+                  'boxsize_mpc_over_h': 64.0,
+                  'seed': 424242,
+                  'gevolution_sha': '0cca42e51a824002ae4fb602cbd79d671e8ffe60',
+                  'latfield2_sha': '2d8c737ab6adc965a1d2718c209f5085af27b09c',
+                  'template_blob': 'd4de9a5400ef58f6a0181fbe61f18056b233a425',
+                  'tensor_evolution_compiled': True,
+                  'dynamic_hij_snapshot_patch': True,
+                  'native_field_diagnostics': native,
+                  'snapshots': snapshots,
+              }
+              (out / f'colocated_weyl_n{n}_metadata.json').write_text(
+                  json.dumps(metadata, indent=2, sort_keys=True) + '\n'
+              )
+          PY
+
+      - name: Analyze frozen co-located Weyl fixed-band ladder
+        run: |
+          python dark_sector_architecture/qualification/run_colocated_weyl_fixed_band_requalification.py \
+            --target-grid 32 \
+            --boxsize-mpc-over-h "$BOXSIZE" \
+            --member 32 native_ladder_n32_output dark_sector_architecture/qualification/results/colocated_weyl_n32_metadata.json \
+            --member 64 native_ladder_n64_output dark_sector_architecture/qualification/results/colocated_weyl_n64_metadata.json \
+            --member 128 native_ladder_n128_output dark_sector_architecture/qualification/results/colocated_weyl_n128_metadata.json \
+            --output dark_sector_architecture/qualification/results/colocated_weyl_fixed_band_requalification.json
+
+      - name: Add frozen provenance
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          path = Path('dark_sector_architecture/qualification/results/colocated_weyl_fixed_band_requalification.json')
+          data = json.loads(path.read_text())
+          data['frozen_preregistration_commit'] = Path('colocated_weyl_prereg_commit.txt').read_text().strip()
+          data['workflow_head'] = '${{ github.sha }}'
+          path.write_text(json.dumps(data, indent=2, sort_keys=True) + '\n')
+          PY
+
+      - name: Upload compact co-located Weyl artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: cosmology-colocated-weyl-fixed-band-requalification
+          path: |
+            colocated_weyl_prereg_commit.txt
+            colocated_weyl_upstream_revisions.txt
+            colocated_weyl_patched_main_sha256.txt
+            native_ladder_n32.log
+            native_ladder_n64.log
+            native_ladder_n128.log
+            gevolution/native_ladder_n32.ini
+            gevolution/native_ladder_n64.ini
+            gevolution/native_ladder_n128.ini
+            dark_sector_architecture/qualification/results/colocated_weyl_n32_metadata.json
+            dark_sector_architecture/qualification/results/colocated_weyl_n64_metadata.json
+            dark_sector_architecture/qualification/results/colocated_weyl_n128_metadata.json
+            dark_sector_architecture/qualification/results/colocated_weyl_fixed_band_requalification.json
+          if-no-files-found: error
+
+      - name: Persist co-located Weyl summaries
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            dark_sector_architecture/qualification/results/colocated_weyl_n32_metadata.json \
+            dark_sector_architecture/qualification/results/colocated_weyl_n64_metadata.json \
+            dark_sector_architecture/qualification/results/colocated_weyl_n128_metadata.json \
+            dark_sector_architecture/qualification/results/colocated_weyl_fixed_band_requalification.json
+          if git diff --cached --quiet; then
+            echo "Co-located Weyl summaries unchanged."
+            exit 0
+          fi
+          git commit -m "Persist co-located Weyl requalification"
+          for attempt in 1 2 3 4 5; do
+            git fetch origin dark-sector-stability-architecture
+            git rebase origin/dark-sector-stability-architecture
+            if git push origin HEAD:dark-sector-stability-architecture; then
+              exit 0
+            fi
+            echo "Push race on attempt $attempt; retrying."
+            sleep 2
+          done
+          exit 1
