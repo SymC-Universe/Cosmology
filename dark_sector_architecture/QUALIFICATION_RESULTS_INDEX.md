@@ -298,3 +298,41 @@ Current corrected shear gate:
 
 Current status:
 **REAL-FIELD N32/N64/N128 CORRECTION RUN ACTIVE**
+
+
+## Corrected centered velocity-shear fixed-band qualification
+
+Frozen gate:
+`NATIVE_CENTERED_VELOCITY_SHEAR_CORRECTION_PREREG.md`
+
+Gate commit:
+`d7388aba58cd3abad35c861ed03dc25faba9276e`
+
+Workflow:
+`36363141244` **SUCCESS**
+
+Durable report:
+`qualification/results/centered_velocity_shear_correction.json`
+
+Outcome:
+**CENTERED_VELOCITY_SHEAR_QUALIFIED_P0Q**
+
+Corrected centered-native median relative shear error:
+- N32->N64: 0.5094;
+- N64->N128: 0.1656.
+
+q95:
+- 1.0681 -> 0.3158.
+
+Median eigenframe alignment improves from approximately
+(0.9868, 0.9686, 0.9871) to (0.99871, 0.99704, 0.99872).
+
+Centered-native versus continuum-spectral shear median relative difference on
+the same band:
+- N32: 0.2017;
+- N64: 0.08521;
+- N128: 0.02336.
+
+Development 012 is therefore repaired. The prior staggered-velocity shear
+result remains preserved as comparator evidence and is not used as the native
+object.
