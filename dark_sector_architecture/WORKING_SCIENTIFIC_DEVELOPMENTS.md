@@ -1216,3 +1216,121 @@ no scientific values were changed.
 
 **Status:** Significant scientific/methodological development. Stop before
 PREG-MODAL-PA-1 activation and surface the result for scientific review.
+
+
+---
+
+## Development 012 - gevolution Velocity-Shear Operator Semantics Were Misidentified
+
+**Date:** 2026-09-27  
+**Trigger:** source-level audit during APQ-3 construction for PREG-MODAL-PA-1  
+**Affected object:** coarse-grained peculiar-velocity shear only  
+**Unaffected object:** scalar/vector/tensor/full electric-Weyl reconstruction
+
+### Scientific/methodological development
+
+The source audit found that gevolution's exported velocity field `vi` is not
+the same staggered vector representation as the metric vector field (B_i).
+
+gevolution constructs `vi` by:
+
+1. projecting (T^i{}_0) onto the scalar/vertex lattice with
+   `projection_Ti0_project`;
+2. communicating that field with `vertexProjectionCIC_comm`;
+3. converting it to the rescaled velocity field with
+   `compute_vi_rescaled`.
+
+Most decisively, gevolution's own Fourier velocity diagnostics use
+
+[
+k_i^{(v)}
+=
+Nsinleft(rac{2pi n_i}{N}ight),
+]
+
+in `projectFTtheta` and `projectFTomega`.
+
+This is the centered lattice derivative symbol for the vertex-centered velocity
+field.
+
+The Development 011 fixed-band ladder instead constructed its reported
+"native shear" with `lattice_vector_symmetric_gradient`, which was written for
+the staggered gevolution (B_i) representation and uses the (k_{m shift})
+operator.
+
+Therefore the Development 011 **velocity-shear component is not a
+native-gevolution velocity-shear qualification**.
+
+### What remains valid
+
+The following Development 011 results are unaffected:
+
+- scalar electric-Weyl fixed-band convergence;
+- vector electric-Weyl fixed-band convergence;
+- tensor electric-Weyl fixed-band convergence;
+- full electric-Weyl fixed-band convergence;
+- native-versus-continuum Weyl split collapse on the common physical band;
+- electric-Weyl temporal qualification;
+- native (B_i) and (h_{ij}) transversality/TT diagnostics.
+
+Those objects use the previously qualified LATfield2/gevolution metric-sector
+operators, not the velocity derivative operator.
+
+### Corrected status of the shear evidence
+
+The prior shear convergence numbers are preserved as evidence from a
+**staggered-vector derivative representation applied to the velocity field**.
+They are not deleted and are not relabeled.
+
+Current status:
+
+[
+oxed{	ext{VELOCITY_SHEAR_NATIVE_P0Q = NEED_MORE_INFO}}
+]
+
+until the centered native velocity derivative is implemented, known-truth
+qualified, and the frozen fixed-band ladder is re-evaluated for shear.
+
+Under the original fixed-band preregistration, shear was allowed to be
+`NEED_MORE_INFO` without invalidating the independent full-Weyl convergence
+result. Thus the Weyl qualification remains admitted, while the statement that
+all five objects were natively qualified is withdrawn.
+
+### Consequence for PREG-MODAL-PA-1
+
+The late-time P0-Q development run is paused before outcome exposure.
+
+The E-sigma relational preregistration cannot proceed using the staggered
+velocity-shear operator.
+
+Required repair:
+
+1. implement the centered gevolution velocity derivative symbol used by
+   `projectFTtheta` and `projectFTomega`;
+2. derive native centered velocity divergence, vorticity, and symmetric
+   trace-free shear;
+3. known-truth test those operators against direct periodic centered
+   differences and gevolution Fourier formulas;
+4. rerun the fixed-band (N=32,64,128) **shear-only** qualification on the
+   already frozen physical support;
+5. compare corrected centered shear against the preserved staggered-result
+   record;
+6. only if the corrected object is numerically admissible return to the APQ-3
+   late-time modal development plan.
+
+### Exact restart point
+
+Implement and qualify `gevolution_centered_velocity_operators` before any
+late-time seed-424242 modal outcome is opened.
+
+### Linked artifacts
+
+- `PREG_MODAL_PA1_APQ3_PLAN_PACKET.md`
+- `PREG_MODAL_PA1_APQ3_ADJUDICATION.md`
+- `NATIVE_FIXED_BAND_WEYL_RESOLUTION_PREREG.md`
+- `NATIVE_FIXED_BAND_WEYL_RESOLUTION_ADJUDICATION.md`
+- `qualification/latfield2_native_operators.py`
+- `qualification/results/native_fixed_band_weyl_ladder.json`
+
+**Status:** Scientific/methodological stop. Repair is mechanical and
+representation-qualification work may proceed without user intervention.
