@@ -1,0 +1,132 @@
+{
+  "first_file": "lineage_output/lineage_snap000_cdm.h5",
+  "first_inventory": [
+    {
+      "dtype": "[('ID', '<i8'), ('positionX', '<f8'), ('positionY', '<f8'), ('positionZ', '<f8'), ('velocityX', '<f8'), ('velocityY', '<f8'), ('velocityZ', '<f8')]",
+      "dtype_names": [
+        "ID",
+        "positionX",
+        "positionY",
+        "positionZ",
+        "velocityX",
+        "velocityY",
+        "velocityZ"
+      ],
+      "path": "data",
+      "shape": [
+        32768
+      ]
+    },
+    {
+      "dtype": "float64",
+      "dtype_names": null,
+      "path": "localBoxOffset",
+      "shape": [
+        4,
+        3
+      ]
+    },
+    {
+      "dtype": "float64",
+      "dtype_names": null,
+      "path": "localBoxSize",
+      "shape": [
+        4,
+        3
+      ]
+    },
+    {
+      "dtype": "int64",
+      "dtype_names": null,
+      "path": "numParts",
+      "shape": [
+        4
+      ]
+    },
+    {
+      "dtype": "[('mass', '<f8'), ('relativistic', '<i4'), ('type_name_size', '<i4'), ('type_name', 'S64')]",
+      "dtype_names": [
+        "mass",
+        "relativistic",
+        "type_name_size",
+        "type_name"
+      ],
+      "path": "part_info",
+      "shape": [
+        1
+      ]
+    }
+  ],
+  "lineage": {
+    "common_id_count": 32768,
+    "first_id_count": 32768,
+    "first_unique": true,
+    "id_field_first": "data:ID",
+    "id_field_second": "data:ID",
+    "id_join_qualified": true,
+    "same_id_set": true,
+    "second_id_count": 32768,
+    "second_unique": true
+  },
+  "protocol": "GEVOLUTION_PARTICLE_LINEAGE_SCHEMA_SMOKE",
+  "scientific_claim_tested": false,
+  "second_file": "lineage_output/lineage_snap001_cdm.h5",
+  "second_inventory": [
+    {
+      "dtype": "[('ID', '<i8'), ('positionX', '<f8'), ('positionY', '<f8'), ('positionZ', '<f8'), ('velocityX', '<f8'), ('velocityY', '<f8'), ('velocityZ', '<f8')]",
+      "dtype_names": [
+        "ID",
+        "positionX",
+        "positionY",
+        "positionZ",
+        "velocityX",
+        "velocityY",
+        "velocityZ"
+      ],
+      "path": "data",
+      "shape": [
+        32768
+      ]
+    },
+    {
+      "dtype": "float64",
+      "dtype_names": null,
+      "path": "localBoxOffset",
+      "shape": [
+        4,
+        3
+      ]
+    },
+    {
+      "dtype": "float64",
+      "dtype_names": null,
+      "path": "localBoxSize",
+      "shape": [
+        4,
+        3
+      ]
+    },
+    {
+      "dtype": "int64",
+      "dtype_names": null,
+      "path": "numParts",
+      "shape": [
+        4
+      ]
+    },
+    {
+      "dtype": "[('mass', '<f8'), ('relativistic', '<i4'), ('type_name_size', '<i4'), ('type_name', 'S64')]",
+      "dtype_names": [
+        "mass",
+        "relativistic",
+        "type_name_size",
+        "type_name"
+      ],
+      "path": "part_info",
+      "shape": [
+        1
+      ]
+    }
+  ],
+  "stage": "P0-Q infrastructure"
+}
