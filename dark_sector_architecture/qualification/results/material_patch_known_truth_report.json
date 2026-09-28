@@ -1,0 +1,118 @@
+{
+  "case_count": 12,
+  "cases": [
+    {
+      "case_id": "MP-01",
+      "max_abs_error": 0.0,
+      "purpose": "vertex exactness",
+      "status": "PASS"
+    },
+    {
+      "case_id": "MP-02",
+      "max_abs_error": 4.440892098500626e-16,
+      "purpose": "constant tensor exactness",
+      "status": "PASS"
+    },
+    {
+      "case_id": "MP-03",
+      "max_abs_error": 8.326672684688674e-17,
+      "purpose": "periodic wrap equivalence",
+      "status": "PASS"
+    },
+    {
+      "case_id": "MP-04",
+      "max_abs_error": 8.881784197001252e-16,
+      "purpose": "linearity",
+      "status": "PASS"
+    },
+    {
+      "case_id": "MP-05",
+      "purpose": "symmetry and trace-free preservation",
+      "status": "PASS",
+      "symmetry_max_abs": 0.0,
+      "trace_max_abs": 4.440892098500626e-16
+    },
+    {
+      "case_id": "MP-06",
+      "grid_sizes": [
+        16,
+        32,
+        64
+      ],
+      "purpose": "second-order smooth periodic interpolation",
+      "refinement_error_ratios": [
+        3.901625736067725,
+        4.05029551106172
+      ],
+      "rms_errors": [
+        0.0057541617718594035,
+        0.001474811312286136,
+        0.0003641243727175694
+      ],
+      "status": "PASS"
+    },
+    {
+      "case_id": "MP-07",
+      "max_abs_error": 0.0,
+      "purpose": "ID-keyed reorder invariance",
+      "status": "PASS"
+    },
+    {
+      "case_id": "MP-08",
+      "nonempty_patch_count": 6,
+      "particle_count": 8,
+      "purpose": "deterministic complete reference partition",
+      "status": "PASS"
+    },
+    {
+      "aligned_patch_ids": [
+        7,
+        0,
+        0,
+        7
+      ],
+      "case_id": "MP-09",
+      "purpose": "ID-frozen material membership",
+      "status": "PASS"
+    },
+    {
+      "case_id": "MP-10",
+      "mean_max_abs_error": 5.551115123125783e-17,
+      "purpose": "patch mean exactness and order invariance",
+      "reorder_max_abs_error": 0.0,
+      "status": "PASS"
+    },
+    {
+      "case_id": "MP-11",
+      "degenerate_pairs_control": [
+        true,
+        false
+      ],
+      "nondegenerate_eigenvalues": [
+        2.0,
+        -0.5,
+        -1.5
+      ],
+      "purpose": "patch modal recovery and degeneracy semantics",
+      "status": "PASS"
+    },
+    {
+      "case_id": "MP-12",
+      "purpose": "fail-closed lineage and invalid data",
+      "refusals": {
+        "changed_id_set": "current_ids must contain exactly the frozen reference ID set",
+        "duplicate_ids": "ids must be unique",
+        "nonfinite_position": "positions must be finite",
+        "nonsymmetric_grid": "tensor grid must be symmetric; max residual=1.000000e+00",
+        "patch_shape": "patch_grid_shape entries must be positive integers"
+      },
+      "status": "PASS"
+    }
+  ],
+  "next_gate": "APQ/freeze late-time Band-L material relational development design",
+  "outcome": "MATERIAL_PATCH_INTERPOLATION_QUALIFIED_P0Q",
+  "patch_scale_selected": false,
+  "protocol": "MATERIAL_PATCH_INTERPOLATION_QUALIFICATION_v0.1",
+  "scientific_claim_tested": false,
+  "stage": "P0-Q"
+}
