@@ -2,7 +2,7 @@
 
 **Project:** Cosmic Stability Architecture
 **Stage:** P1-M preregistration freeze
-**Status:** FROZEN / NOT YET EXECUTED
+**Status:** FROZEN v2 AFTER PRE-ACTIVATION HUNTING FRICTION / NOT YET EXECUTED
 **Date:** 2026-09-28
 **Parent qualification:** NATIVE_FIXED_BAND_QUALIFIED_P0Q
 **Parent development:** Development 011
@@ -143,40 +143,71 @@ No learned environment classifier, PCA component, DMD mode, or web-label thresho
 
 ## 9. Primary tests
 
-### M1. Nonlinear departure test
+### Design correction from pre-activation Hunting Friction
 
-For each seed and epoch, measure the distribution of C_SE.
+The original v1 draft contained:
+- a primary temporal-growth contrast for C_SE; and
+- a later-state prediction test using earlier C_SE.
 
-The primary within-seed contrast is the predeclared temporal change:
+These are withdrawn before activation and before decisive evidence generation.
+
+Reason:
+- nonlinear divergence between tidal and velocity-shear descriptions is already established literature territory, making simple temporal growth too weak as the residual claim;
+- predicting later relational state from earlier relational state overlaps the separately governed Stability Inheritance / joint gate.
+
+The modal preregistration therefore tests contemporaneous **joint relational organization** only.
+
+### M1. Spectrum- and scalar-matched pairing-null test
+
+At each frozen epoch and in each untouched seed, construct the observed paired field (S(x), E(x)) and its primary invariant C_SE(x).
+
+Construct a conditional pairing null by permuting E tensors among cells only within predeclared strata that preserve:
+- epoch;
+- overdensity bin;
+- velocity-divergence / expansion-proxy bin;
+- shear-norm bin;
+- electric-Weyl-norm bin;
+- ordered S-eigenvalue-spectrum bin;
+- ordered E-eigenvalue-spectrum bin.
+
+This destroys local S-E relational pairing while preserving the declared scalar state and both standalone modal spectra.
+
+Primary statistic:
 
 \[
-\Delta\mathcal C_{SE}^{1\to4}
+T_{\rm rel}
 =
-\mathrm{median}(\mathcal C_{SE,T4})
--
-\mathrm{median}(\mathcal C_{SE,T1}).
+W_1\left[
+P_{\rm obs}(\mathcal C_{SE}),
+P_{\rm null}(\mathcal C_{SE})
+\right],
 \]
 
-Secondary temporal contrasts T1->T2, T2->T3, and T3->T4 are descriptive and multiplicity-controlled.
+where W_1 is the one-dimensional Wasserstein distance between the observed C_SE distribution and the permutation-null distribution.
 
-### M2. Scalar/spectrum-conditioned residual test
+The permutation plan is frozen at 10,000 conditional permutations per seed/epoch unless computational qualification demonstrates that fewer permutations reproduce the same null quantiles to the predeclared Monte Carlo precision before decisive outputs are opened.
 
-Fit the frozen null model using only the declared scalar amplitudes, standalone S spectrum, standalone E spectrum, and epoch.
+No web-class threshold enters the primary test.
 
-Then test whether C_SE retains structured residual variation across nonlinear environments that is reproducible across all three untouched seeds.
+### M2. Cross-seed replication test
 
-The modal claim does not require a specific sign of association with density, filamentarity, or vorticity. Direction is discovery-level unless separately preregistered.
+The relational effect is not accepted from one volume.
 
-### M3. Relational-added-information test
+For each epoch, record T_rel independently in all three untouched seeds. The primary confirmatory epoch is T4 (a=1.00). T1-T3 are prespecified secondary time-course checks.
 
-Compare two frozen out-of-sample models for a later relational state C_SE(T4):
+The primary claim requires the T4 observed pairing to exceed the conditional-pairing null in all three seeds under the frozen uncertainty treatment.
 
-- Comparator A: T1 scalar/environment covariates plus standalone S and E spectra;
-- Comparator B: the same variables plus T1 C_SE.
+### M3. Relational specificity controls
 
-The endpoint is T4 C_SE itself, not density, halo abundance, lensing, or expansion. Those belong to later joint/conglomerate gates.
+Three prespecified controls test whether the effect is merely a disguised marginal statistic:
 
-Added value is evaluated across held-out seeds, never by in-sample fit.
+1. **Spectrum-only control:** the same conditional null already preserves both standalone spectra.
+2. **Scalar-only control:** a broader null preserves scalar bins but not spectra. The spectrum-matched null must be at least as hard to reject as the scalar-only null.
+3. **Rigid common-rotation control:** apply the same random orthogonal rotation to both S and E at each cell. C_SE must remain invariant to numerical tolerance.
+
+A fourth known-truth control constructs tensor pairs with identical individual spectra but different relative rotations. C_SE must distinguish them.
+
+No later-time physical endpoint is used in PREG-MODAL-PA-1.
 
 ## 10. Acceptance / refusal / need-more-info logic
 
@@ -184,37 +215,45 @@ Added value is evaluated across held-out seeds, never by in-sample fit.
 
 Accept the residual modal claim only if all are true:
 
-1. C_SE is numerically identifiable on the frozen support in all three decisive seeds;
-2. the T1->T4 change has the same non-zero direction in all three seeds and its across-seed uncertainty excludes the numerical-equivalence region defined from qualification uncertainty;
-3. the scalar/spectrum-conditioned residual structure is reproducible across seeds;
-4. Comparator B improves held-out T4 C_SE prediction over Comparator A in every seed or in the pooled leave-one-seed-out analysis without a seed showing material subtraction;
-5. the improvement is larger than the precomputed numerical/representation uncertainty budget;
-6. no result requires post hoc Fourier, environment, eigengap, epoch, or masking changes.
+1. C_SE and T_rel pass the known-truth and numerical-identifiability gates;
+2. at the primary T4 epoch, the observed T_rel lies beyond the frozen conditional-pairing-null acceptance region in all three untouched seeds;
+3. the pooled leave-one-seed-out estimate is directionally consistent with every individual seed;
+4. the effect remains after preserving both standalone spectra and all declared scalar conditioning variables;
+5. the effect is larger than the propagated numerical/representation uncertainty in C_SE and T_rel;
+6. the rigid common-rotation control passes;
+7. no post hoc Fourier, binning, environment, eigengap, epoch, mask, or permutation-plan changes are required.
 
-### REFUSE: MODAL_RELATION_EQUIVALENT_OR_SUBTRACTS
+### REFUSE: MODAL_RELATION_EQUIVALENT
 
-Refuse the added modal claim for this regime if any decisive condition holds:
+Refuse the added relational modal claim for this regime if:
 
-1. C_SE is reproducibly equivalent to its numerical-equivalence region across the nonlinear evolution;
-2. after conditioning on scalar amplitudes and standalone spectra, no reproducible residual organization remains;
-3. adding T1 C_SE is equivalent to or worse than Comparator A on untouched held-out prediction;
-4. apparent relational structure disappears under the already-frozen numerical/representation robustness checks;
-5. the observed result is fully explained by a known static tidal-anisotropy or standalone shear/tidal spectrum relation.
+1. the observed T4 paired distribution is reproducibly inside the conditional-pairing-null acceptance region in all three seeds; or
+2. any apparent departure disappears once both standalone spectra and scalar state are preserved; or
+3. the effect is no larger than demonstrated numerical/representation uncertainty.
 
-Refusal retires only this added relational modal claim for the tested regime. It does not erase descriptive shear/Weyl results, close Conglomerate/System exploration, or close P0-D.
+This means the tested shear-Weyl relationship carries no demonstrated joint modal organization beyond the frozen marginals in this regime.
+
+### REFUSE: MODAL_RELATION_ARTIFACT
+
+Refuse the representation for this claim if:
+- the common-rotation invariance control fails;
+- C_SE changes materially under an already-qualified equivalent implementation;
+- denominator masking manufactures the effect;
+- the result depends on outcome-selected binning or mode deletion.
+
+Artifact refusal blocks this representation-specific claim but does not imply physical equivalence.
 
 ### NEED_MORE_INFO: MODAL_RELATION_INDETERMINATE
 
 Use NEED_MORE_INFO when:
-- seeds disagree materially in direction;
-- effect size is comparable to numerical/representation uncertainty;
+- decisive seeds disagree materially;
+- the effect is comparable to the numerical/representation uncertainty region;
+- conditional strata are too sparse for the frozen permutation null;
 - the resolvability mask becomes strongly environment-selective;
-- finite-volume variance dominates the cross-seed result;
-- one decisive seed fails scientifically or numerically in a way that cannot be repaired without changing the frozen design;
-- Comparator B adds value only under one permissible fitting/regularization variant;
-- eigenframe secondary diagnostics disagree while the invariant commutator remains ambiguous.
+- finite-volume variance dominates the result;
+- the scalar+spectra matching cannot be achieved without materially changing the frozen design.
 
-No threshold may be adjusted to convert NEED_MORE_INFO into ACCEPT.
+No threshold or stratum definition may be changed after outcome inspection to convert NEED_MORE_INFO into ACCEPT.
 
 ## 11. Equivalence and uncertainty region
 
@@ -232,12 +271,13 @@ The uncertainty budget is propagated through C_SE using the same frozen operator
 
 Primary family:
 - one primary invariant C_SE;
-- one primary temporal contrast T1->T4;
-- one primary conditioned residual test;
-- one primary held-out added-information comparison.
+- one primary conditional pairing-null statistic T_rel;
+- one primary confirmatory epoch T4;
+- three untouched seed replications.
 
 Secondary family:
-- three intermediate temporal contrasts;
+- T1, T2, and T3 prespecified time-course pairing-null tests;
+- scalar-only pairing null;
 - eigenframe angles where identifiable;
 - sector-specific electric-Weyl participation;
 - vorticity-conditioned descriptive maps.
@@ -246,7 +286,7 @@ Secondary analyses cannot rescue a failed primary family.
 
 ## 13. Explicit falsifier
 
-The modal-architecture residual is falsified for the tested regime if the shear-electric-Weyl relational invariant provides no reproducible information beyond the frozen scalar and standalone-spectrum comparator on untouched realizations, or if its apparent added value is at or below demonstrated numerical/representation uncertainty.
+The modal-architecture residual is falsified for the tested regime if the observed local pairing of shear and electric-Weyl tensors is reproducibly equivalent to the frozen scalar-and-spectrum-preserving pairing null on untouched realizations, or if any departure is at or below demonstrated numerical/representation uncertainty.
 
 ## 14. Hunting Friction targets before execution
 
