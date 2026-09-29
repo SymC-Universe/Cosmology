@@ -2192,3 +2192,22 @@ P1 remains unopened.
 - `WORKING_INVESTIGATION.md`
 
 **Status:** Material-patch representation qualified. Proceed to APQ/freeze of the late-time development experiment before any E-sigma material-patch outcome exposure.
+
+
+## Development 018 - Late-time material relation is scale-dependent and unresolved
+
+**Date:** 2026-09-29  
+**Evidence class:** P0-Q development adjudication plus post-result P0-D follow-up  
+**Source run:** 36414756245  
+**Disposition:** NEED_MORE_INFO  
+**P1:** CLOSED
+
+The frozen primary 8 Mpc/h patch result was individually signal-like: Delta_rel=0.0028475227, above shift-null q95=-0.0130096489, with SSE_B1=7.47148 < SSE_B0=7.49282 and < SSE_persistence=7.83368. The 4 Mpc/h sensitivity was also positive at Delta_rel=0.0098261148. The 16 Mpc/h sensitivity reversed strongly at Delta_rel=-0.6739536170, with B1 worse than both B0 and persistence and seven of eight folds negative.
+
+The APQ requires NEED_MORE_INFO when prespecified material-scale sensitivities materially reverse interpretation. Temporal uncertainty was negligible at the tested level and no patches were refused, so the unresolved axis is scale dependence rather than an obvious representation/temporal failure.
+
+Working interpretation: **SCALE_DEPENDENT_RELATIONAL_ARCHITECTURE_UNRESOLVED**.
+
+A fixed dyadic post-result P0-D map over 32,16,8,4,2 Mpc/h patch side lengths was frozen before execution. It is exploratory only and cannot select a favorable scale, activate P1, or become retrospective confirmation.
+
+**Continuity incident:** the completed development artifact sat unadjudicated for approximately one day because the cosmology continuation monitor was disabled. Classified CONTINUITY_FAILURE_MONITOR_DISABLED. The dedicated Cosmology Continuation Controller is now active with IDLE prohibited.
