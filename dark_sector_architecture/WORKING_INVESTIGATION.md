@@ -2,7 +2,7 @@
 
 **Project:** Cosmic Stability Architecture  
 **Branch:** `dark-sector-stability-architecture`  
-**Current stage:** frozen late-time Band-L material relational P0-Q development ACTIVE under APQ-2; seed 424242 only; P1 unopened  
+**Current stage:** late-time Band-L material relational P0-Q development adjudicated NEED_MORE_INFO for prespecified scale reversal; post-result P0-D dyadic scale map ACTIVE; P1 unopened
 **Current scientific state:** The bounded nonperturbative/additional-architecture pass is complete. The full no-dark-substance route is UNSUPPORTED_AT_CURRENT_STAGE under the frozen literature rules, not falsified. The active branch is now the partial architecture; the full route remains open only in P0-D for genuinely new future candidates.
 
 ## Frozen objects
@@ -106,33 +106,29 @@ See `LITERATURE_EXPLORATION_QUEUE.md`.
 
 ## Latest scientific development
 
-**Development 017: material-patch tensor interpolation and ID-frozen membership qualify P0-Q.**
+**Development 018: frozen late-time material relational development adjudicated NEED_MORE_INFO for scale dependence.**
 
-\[
-\boxed{\text{MATERIAL\_PATCH\_INTERPOLATION\_QUALIFIED\_P0Q}}
-\]
+The primary 8 Mpc/h material-patch result itself cleared the frozen development signal conditions: Delta_rel=0.0028475227 exceeded the 511-shift q95=-0.0130096489 and B1 SSE=7.47148 beat both B0 SSE=7.49282 and persistence SSE=7.83368. The 4 Mpc/h sensitivity was also positive (Delta_rel=0.00982611), but the 16 Mpc/h sensitivity reversed strongly negative (Delta_rel=-0.67395362), with B1 worse than both B0 and persistence and seven of eight folds negative. Temporal derivative uncertainty remained ~1e-9 and no patches were refused.
 
-All MP-01 through MP-12 pass under the frozen plan. Periodic trilinear interpolation preserves tensor structure, converges at second order on smooth known truths, and is invariant to particle record ordering when joined by stable ID. Reference patch membership is frozen by ID, so later particle motion does not silently reclassify material patches.
+Under the prospectively frozen APQ, the material-scale sign reversal forces NEED_MORE_INFO. P1 remains closed. The correct working interpretation is SCALE_DEPENDENT_RELATIONAL_ARCHITECTURE_UNRESOLVED, not failed signal and not scale selection.
 
-The first integrated run failed only because MP-02 used an expected array of shape `(1,3,3)` against the correct `(200,3,3)` output. No interpolation or scientific setting changed; the repaired test-only run is green.
+A continuity failure is also recorded: workflow 36414756245 completed on 2026-09-28, but the project monitor was disabled and the result sat unadjudicated until 2026-09-29. This is CONTINUITY_FAILURE_MONITOR_DISABLED, an operations failure only.
 
-No scientific patch scale, reference epoch, or real E-sigma outcome was inspected during this gate.
+A post-result P0-D scale map is now frozen over the fixed dyadic 32, 16, 8, 4, and 2 Mpc/h patch-side hierarchy on the same development seed. It cannot activate P1 or select a favorable scale.
 
-Detailed record: `MATERIAL_PATCH_INTERPOLATION_QUALIFICATION_ADJUDICATION.md` and Development 017 in `WORKING_SCIENTIFIC_DEVELOPMENTS.md`.
 ## Next exact action
 
-Complete the already frozen late-time Band-L material relational development run `36414756245` under `LATE_TIME_MATERIAL_RELATIONAL_APQ2_PLAN_PACKET_v0.1.md` and `LATE_TIME_MATERIAL_RELATIONAL_APQ2_ADJUDICATION_v0.1.md`.
+Complete the active post-result P0-D dyadic material scale-map workflow from `LATE_TIME_MATERIAL_SCALE_MAP_P0D_PLAN_v0.1.md`.
 
-Do not open P1 evidence.
+When it completes:
+1. preserve every fixed scale, including numerical-identifiability/refusal limits;
+2. map z~2->z~1 and z~2->z~0.5 direction, conditioning, fold structure, and particle support;
+3. do not choose a best scale or infer a transition threshold from five points;
+4. update Function and Limit maps;
+5. construct the next independent-seed prospective question only after the scale boundary is understood and APQ-qualified.
 
-After the development result persists:
-1. classify it only as DEVELOPMENT_SIGNAL_PRESENT, DEVELOPMENT_EQUIVALENT_OR_UNRESOLVED, DEVELOPMENT_SUBTRACTS, NEED_MORE_INFO, or REFUSED using the frozen APQ-2 rules;
-2. preserve the 4x4x4 and 16x16x16 patch sensitivities without allowing them to overturn the primary 8x8x8 classification;
-3. investigate failure/outlier patches and root causes while keeping the majority distribution visible;
-4. if DEVELOPMENT_SIGNAL_PRESENT, perform the final Plan Delta / P1 preregistration freeze on independent seeds;
-5. otherwise follow the frozen failure consequence without tuning the development volume into confirmation.
+P1 evidence remains unopened.
 
-Recovery provenance: `PREG_MODAL_PA1_v1.md` is explicitly superseded pre-exposure. None of its four proposed P1 seeds was opened.
 ## Resume pointers
 
 - `PREG_LIT_COSMO_V1_FREEZE.md`
