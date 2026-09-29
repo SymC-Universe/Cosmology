@@ -1,0 +1,1907 @@
+{
+  "band_l": {
+    "definition": "0 < |n| < 4",
+    "mode_count": 250
+  },
+  "boxsize_mpc_over_h": 64.0,
+  "disposition": "SCALE_MAP_COMPLETE",
+  "frozen_scale_map_plan_commit": "2eeba60c563d7d32d85c8edf3620471d6c05e406",
+  "grid": 64,
+  "interpretation_firewall": [
+    "do not choose a best scale from this map",
+    "do not infer a physical transition threshold from five points",
+    "do not treat same-seed scale mapping as replication",
+    "P1 remains closed"
+  ],
+  "p1_evidence": false,
+  "patch_grids": [
+    2,
+    4,
+    8,
+    16,
+    32
+  ],
+  "protocol": "P0-D_LATE_TIME_MATERIAL_SCALE_MAP",
+  "scales": {
+    "16": {
+      "patch_grid": 16,
+      "patch_side_mpc_over_h": 4.0,
+      "status": "MAPPED",
+      "z2_to_z0p5": {
+        "b0_fold_diagnostics": [
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 38.73611268844838,
+            "fold": 0,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 512,
+            "train_n": 3584
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 38.112366885653756,
+            "fold": 1,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 512,
+            "train_n": 3584
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 37.67014951432852,
+            "fold": 2,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 512,
+            "train_n": 3584
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 39.14718596213679,
+            "fold": 3,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 512,
+            "train_n": 3584
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 39.173773864575566,
+            "fold": 4,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 512,
+            "train_n": 3584
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 38.19028596475492,
+            "fold": 5,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 512,
+            "train_n": 3584
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 37.792986919148966,
+            "fold": 6,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 512,
+            "train_n": 3584
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 37.66671096495032,
+            "fold": 7,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 512,
+            "train_n": 3584
+          }
+        ],
+        "b1_fold_diagnostics": [
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 88.81560461272109,
+            "fold": 0,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 512,
+            "train_n": 3584
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 156.64868388301284,
+            "fold": 1,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 512,
+            "train_n": 3584
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 88.6964288860274,
+            "fold": 2,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 512,
+            "train_n": 3584
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 89.13293085203037,
+            "fold": 3,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 512,
+            "train_n": 3584
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 97.4857195868195,
+            "fold": 4,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 512,
+            "train_n": 3584
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 94.20999544222074,
+            "fold": 5,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 512,
+            "train_n": 3584
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 90.89407895077314,
+            "fold": 6,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 512,
+            "train_n": 3584
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 88.42947168661243,
+            "fold": 7,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 512,
+            "train_n": 3584
+          }
+        ],
+        "b1_rank_deficient_fold_count": 0,
+        "delta_rel": 0.013753044402194669,
+        "finite_fold_count": 8,
+        "labels": [
+          "RELATIONAL_ADDS_AT_SCALE"
+        ],
+        "negative_fold_count": 2,
+        "particle_count_max": 850,
+        "particle_count_mean": 64.0,
+        "particle_count_min": 7,
+        "patch_grid": 16,
+        "patch_side_mpc_over_h": 4.0,
+        "positive_fold_count": 6,
+        "refused_patch_count": 0,
+        "sse_b0": 160.80941331238745,
+        "sse_b1": 158.5977943108113,
+        "sse_persistence": 186.9254670742331,
+        "valid_patch_count": 4096,
+        "zero_fold_count": 0
+      },
+      "z2_to_z1": {
+        "b0_fold_diagnostics": [
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 38.73611268844838,
+            "fold": 0,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 512,
+            "train_n": 3584
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 38.112366885653756,
+            "fold": 1,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 512,
+            "train_n": 3584
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 37.67014951432852,
+            "fold": 2,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 512,
+            "train_n": 3584
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 39.14718596213679,
+            "fold": 3,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 512,
+            "train_n": 3584
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 39.173773864575566,
+            "fold": 4,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 512,
+            "train_n": 3584
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 38.19028596475492,
+            "fold": 5,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 512,
+            "train_n": 3584
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 37.792986919148966,
+            "fold": 6,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 512,
+            "train_n": 3584
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 37.66671096495032,
+            "fold": 7,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 512,
+            "train_n": 3584
+          }
+        ],
+        "b1_fold_diagnostics": [
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 88.81560461272109,
+            "fold": 0,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 512,
+            "train_n": 3584
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 156.64868388301284,
+            "fold": 1,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 512,
+            "train_n": 3584
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 88.6964288860274,
+            "fold": 2,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 512,
+            "train_n": 3584
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 89.13293085203037,
+            "fold": 3,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 512,
+            "train_n": 3584
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 97.4857195868195,
+            "fold": 4,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 512,
+            "train_n": 3584
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 94.20999544222074,
+            "fold": 5,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 512,
+            "train_n": 3584
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 90.89407895077314,
+            "fold": 6,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 512,
+            "train_n": 3584
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 88.42947168661243,
+            "fold": 7,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 512,
+            "train_n": 3584
+          }
+        ],
+        "b1_rank_deficient_fold_count": 0,
+        "delta_rel": 0.009826114779448173,
+        "finite_fold_count": 8,
+        "labels": [
+          "RELATIONAL_ADDS_AT_SCALE"
+        ],
+        "negative_fold_count": 3,
+        "particle_count_max": 850,
+        "particle_count_mean": 64.0,
+        "particle_count_min": 7,
+        "patch_grid": 16,
+        "patch_side_mpc_over_h": 4.0,
+        "positive_fold_count": 5,
+        "refused_patch_count": 0,
+        "sse_b0": 67.38727575205485,
+        "sse_b1": 66.72512064584083,
+        "sse_persistence": 72.55220923370723,
+        "valid_patch_count": 4096,
+        "zero_fold_count": 0
+      }
+    },
+    "2": {
+      "patch_grid": 2,
+      "patch_side_mpc_over_h": 32.0,
+      "status": "MAPPED",
+      "z2_to_z0p5": {
+        "b0_fold_diagnostics": [
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 47.05415945825952,
+            "fold": 0,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 7,
+            "test_n": 1,
+            "train_n": 7
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 45.57600178239942,
+            "fold": 1,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 7,
+            "test_n": 1,
+            "train_n": 7
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 80.98785165815094,
+            "fold": 2,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 7,
+            "test_n": 1,
+            "train_n": 7
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 157.08052698923183,
+            "fold": 3,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 7,
+            "test_n": 1,
+            "train_n": 7
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 30.89023251698747,
+            "fold": 4,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 7,
+            "test_n": 1,
+            "train_n": 7
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 58.641262893920874,
+            "fold": 5,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 7,
+            "test_n": 1,
+            "train_n": 7
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 45.237394756234345,
+            "fold": 6,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 7,
+            "test_n": 1,
+            "train_n": 7
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 63.02596198458426,
+            "fold": 7,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 7,
+            "test_n": 1,
+            "train_n": 7
+          }
+        ],
+        "b1_fold_diagnostics": [
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 7.0296608310746835,
+            "fold": 0,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 7,
+            "test_n": 1,
+            "train_n": 7
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 8.062311388478456,
+            "fold": 1,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 7,
+            "test_n": 1,
+            "train_n": 7
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 10.58663594912578,
+            "fold": 2,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 7,
+            "test_n": 1,
+            "train_n": 7
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 12.043808224162781,
+            "fold": 3,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 7,
+            "test_n": 1,
+            "train_n": 7
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 11.823047067792892,
+            "fold": 4,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 7,
+            "test_n": 1,
+            "train_n": 7
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 6.629658336013243,
+            "fold": 5,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 7,
+            "test_n": 1,
+            "train_n": 7
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 9.7361017466035,
+            "fold": 6,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 7,
+            "test_n": 1,
+            "train_n": 7
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 7.758957324881836,
+            "fold": 7,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 7,
+            "test_n": 1,
+            "train_n": 7
+          }
+        ],
+        "b1_rank_deficient_fold_count": 8,
+        "delta_rel": -602.9514229622807,
+        "finite_fold_count": 8,
+        "labels": [
+          "NUMERICAL_IDENTIFIABILITY_LIMIT_AT_SCALE",
+          "RELATIONAL_SUBTRACTS_AT_SCALE"
+        ],
+        "negative_fold_count": 3,
+        "particle_count_max": 45066,
+        "particle_count_mean": 32768.0,
+        "particle_count_min": 26569,
+        "patch_grid": 2,
+        "patch_side_mpc_over_h": 32.0,
+        "positive_fold_count": 5,
+        "refused_patch_count": 0,
+        "sse_b0": 0.38685700820026847,
+        "sse_b1": 233.64284058548287,
+        "sse_persistence": 0.25520886209871513,
+        "valid_patch_count": 8,
+        "zero_fold_count": 0
+      },
+      "z2_to_z1": {
+        "b0_fold_diagnostics": [
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 47.05415945825952,
+            "fold": 0,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 7,
+            "test_n": 1,
+            "train_n": 7
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 45.57600178239942,
+            "fold": 1,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 7,
+            "test_n": 1,
+            "train_n": 7
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 80.98785165815094,
+            "fold": 2,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 7,
+            "test_n": 1,
+            "train_n": 7
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 157.08052698923183,
+            "fold": 3,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 7,
+            "test_n": 1,
+            "train_n": 7
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 30.89023251698747,
+            "fold": 4,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 7,
+            "test_n": 1,
+            "train_n": 7
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 58.641262893920874,
+            "fold": 5,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 7,
+            "test_n": 1,
+            "train_n": 7
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 45.237394756234345,
+            "fold": 6,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 7,
+            "test_n": 1,
+            "train_n": 7
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 63.02596198458426,
+            "fold": 7,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 7,
+            "test_n": 1,
+            "train_n": 7
+          }
+        ],
+        "b1_fold_diagnostics": [
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 7.0296608310746835,
+            "fold": 0,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 7,
+            "test_n": 1,
+            "train_n": 7
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 8.062311388478456,
+            "fold": 1,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 7,
+            "test_n": 1,
+            "train_n": 7
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 10.58663594912578,
+            "fold": 2,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 7,
+            "test_n": 1,
+            "train_n": 7
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 12.043808224162781,
+            "fold": 3,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 7,
+            "test_n": 1,
+            "train_n": 7
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 11.823047067792892,
+            "fold": 4,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 7,
+            "test_n": 1,
+            "train_n": 7
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 6.629658336013243,
+            "fold": 5,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 7,
+            "test_n": 1,
+            "train_n": 7
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 9.7361017466035,
+            "fold": 6,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 7,
+            "test_n": 1,
+            "train_n": 7
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 7.758957324881836,
+            "fold": 7,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 7,
+            "test_n": 1,
+            "train_n": 7
+          }
+        ],
+        "b1_rank_deficient_fold_count": 8,
+        "delta_rel": -28.7178736335911,
+        "finite_fold_count": 8,
+        "labels": [
+          "NUMERICAL_IDENTIFIABILITY_LIMIT_AT_SCALE",
+          "RELATIONAL_SUBTRACTS_AT_SCALE"
+        ],
+        "negative_fold_count": 3,
+        "particle_count_max": 45066,
+        "particle_count_mean": 32768.0,
+        "particle_count_min": 26569,
+        "patch_grid": 2,
+        "patch_side_mpc_over_h": 32.0,
+        "positive_fold_count": 5,
+        "refused_patch_count": 0,
+        "sse_b0": 1.288774311293094,
+        "sse_b1": 38.29963212522657,
+        "sse_persistence": 0.13785769024687217,
+        "valid_patch_count": 8,
+        "zero_fold_count": 0
+      }
+    },
+    "32": {
+      "patch_grid": 32,
+      "patch_side_mpc_over_h": 2.0,
+      "status": "MAPPED",
+      "z2_to_z0p5": {
+        "b0_fold_diagnostics": [
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 37.45135931382912,
+            "fold": 0,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 4091,
+            "train_n": 28613
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 37.30996482555969,
+            "fold": 1,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 4086,
+            "train_n": 28618
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 36.507385969535484,
+            "fold": 2,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 4087,
+            "train_n": 28617
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 37.67368167591835,
+            "fold": 3,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 4093,
+            "train_n": 28611
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 37.820824173910026,
+            "fold": 4,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 4082,
+            "train_n": 28622
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 37.381361498962775,
+            "fold": 5,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 4091,
+            "train_n": 28613
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 36.94689068034505,
+            "fold": 6,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 4082,
+            "train_n": 28622
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 36.76713102530185,
+            "fold": 7,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 4092,
+            "train_n": 28612
+          }
+        ],
+        "b1_fold_diagnostics": [
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 91.63769241074178,
+            "fold": 0,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 4091,
+            "train_n": 28613
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 119.42085703768731,
+            "fold": 1,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 4086,
+            "train_n": 28618
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 90.76440373202574,
+            "fold": 2,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 4087,
+            "train_n": 28617
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 94.89732901752488,
+            "fold": 3,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 4093,
+            "train_n": 28611
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 98.44288561370139,
+            "fold": 4,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 4082,
+            "train_n": 28622
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 91.88465513111468,
+            "fold": 5,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 4091,
+            "train_n": 28613
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 91.75024769243036,
+            "fold": 6,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 4082,
+            "train_n": 28622
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 91.55567007012705,
+            "fold": 7,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 4092,
+            "train_n": 28612
+          }
+        ],
+        "b1_rank_deficient_fold_count": 0,
+        "delta_rel": 0.01806450443633348,
+        "finite_fold_count": 8,
+        "labels": [
+          "RELATIONAL_ADDS_AT_SCALE"
+        ],
+        "negative_fold_count": 1,
+        "particle_count_max": 460,
+        "particle_count_mean": 8.015655577299412,
+        "particle_count_min": 1,
+        "patch_grid": 32,
+        "patch_side_mpc_over_h": 2.0,
+        "positive_fold_count": 7,
+        "refused_patch_count": 0,
+        "sse_b0": 1377.4168997130673,
+        "sse_b1": 1352.53454601752,
+        "sse_persistence": 1617.4402707788722,
+        "valid_patch_count": 32704,
+        "zero_fold_count": 0
+      },
+      "z2_to_z1": {
+        "b0_fold_diagnostics": [
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 37.45135931382912,
+            "fold": 0,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 4091,
+            "train_n": 28613
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 37.30996482555969,
+            "fold": 1,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 4086,
+            "train_n": 28618
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 36.507385969535484,
+            "fold": 2,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 4087,
+            "train_n": 28617
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 37.67368167591835,
+            "fold": 3,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 4093,
+            "train_n": 28611
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 37.820824173910026,
+            "fold": 4,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 4082,
+            "train_n": 28622
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 37.381361498962775,
+            "fold": 5,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 4091,
+            "train_n": 28613
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 36.94689068034505,
+            "fold": 6,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 4082,
+            "train_n": 28622
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 36.76713102530185,
+            "fold": 7,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 4092,
+            "train_n": 28612
+          }
+        ],
+        "b1_fold_diagnostics": [
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 91.63769241074178,
+            "fold": 0,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 4091,
+            "train_n": 28613
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 119.42085703768731,
+            "fold": 1,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 4086,
+            "train_n": 28618
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 90.76440373202574,
+            "fold": 2,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 4087,
+            "train_n": 28617
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 94.89732901752488,
+            "fold": 3,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 4093,
+            "train_n": 28611
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 98.44288561370139,
+            "fold": 4,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 4082,
+            "train_n": 28622
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 91.88465513111468,
+            "fold": 5,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 4091,
+            "train_n": 28613
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 91.75024769243036,
+            "fold": 6,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 4082,
+            "train_n": 28622
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 91.55567007012705,
+            "fold": 7,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 4092,
+            "train_n": 28612
+          }
+        ],
+        "b1_rank_deficient_fold_count": 0,
+        "delta_rel": 0.021550575687481515,
+        "finite_fold_count": 8,
+        "labels": [
+          "RELATIONAL_ADDS_AT_SCALE"
+        ],
+        "negative_fold_count": 1,
+        "particle_count_max": 460,
+        "particle_count_mean": 8.015655577299412,
+        "particle_count_min": 1,
+        "patch_grid": 32,
+        "patch_side_mpc_over_h": 2.0,
+        "positive_fold_count": 7,
+        "refused_patch_count": 0,
+        "sse_b0": 585.7147353656749,
+        "sse_b1": 573.0922456299037,
+        "sse_persistence": 631.2327135919068,
+        "valid_patch_count": 32704,
+        "zero_fold_count": 0
+      }
+    },
+    "4": {
+      "patch_grid": 4,
+      "patch_side_mpc_over_h": 16.0,
+      "status": "MAPPED",
+      "z2_to_z0p5": {
+        "b0_fold_diagnostics": [
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 80.24239795191387,
+            "fold": 0,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 8,
+            "train_n": 56
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 77.88911756119305,
+            "fold": 1,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 8,
+            "train_n": 56
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 82.83212103392572,
+            "fold": 2,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 8,
+            "train_n": 56
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 82.85633641843472,
+            "fold": 3,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 8,
+            "train_n": 56
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 78.1176179791956,
+            "fold": 4,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 8,
+            "train_n": 56
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 78.64460315781865,
+            "fold": 5,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 8,
+            "train_n": 56
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 80.58642171775794,
+            "fold": 6,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 8,
+            "train_n": 56
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 83.07966202144475,
+            "fold": 7,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 8,
+            "train_n": 56
+          }
+        ],
+        "b1_fold_diagnostics": [
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 756.171030622012,
+            "fold": 0,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 8,
+            "train_n": 56
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 616.2070917230691,
+            "fold": 1,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 8,
+            "train_n": 56
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 730.0324544727661,
+            "fold": 2,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 8,
+            "train_n": 56
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 816.7107754968073,
+            "fold": 3,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 8,
+            "train_n": 56
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 737.4030543619009,
+            "fold": 4,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 8,
+            "train_n": 56
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 847.4490378768,
+            "fold": 5,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 8,
+            "train_n": 56
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 482.3157850619497,
+            "fold": 6,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 8,
+            "train_n": 56
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 738.9787208164255,
+            "fold": 7,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 8,
+            "train_n": 56
+          }
+        ],
+        "b1_rank_deficient_fold_count": 0,
+        "delta_rel": -0.755220705785907,
+        "finite_fold_count": 8,
+        "labels": [
+          "RELATIONAL_SUBTRACTS_AT_SCALE"
+        ],
+        "negative_fold_count": 6,
+        "particle_count_max": 7420,
+        "particle_count_mean": 4096.0,
+        "particle_count_min": 2132,
+        "patch_grid": 4,
+        "patch_side_mpc_over_h": 16.0,
+        "positive_fold_count": 2,
+        "refused_patch_count": 0,
+        "sse_b0": 1.2434606252709333,
+        "sse_b1": 2.182547836305033,
+        "sse_persistence": 1.3126559262069946,
+        "valid_patch_count": 64,
+        "zero_fold_count": 0
+      },
+      "z2_to_z1": {
+        "b0_fold_diagnostics": [
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 80.24239795191387,
+            "fold": 0,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 8,
+            "train_n": 56
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 77.88911756119305,
+            "fold": 1,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 8,
+            "train_n": 56
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 82.83212103392572,
+            "fold": 2,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 8,
+            "train_n": 56
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 82.85633641843472,
+            "fold": 3,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 8,
+            "train_n": 56
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 78.1176179791956,
+            "fold": 4,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 8,
+            "train_n": 56
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 78.64460315781865,
+            "fold": 5,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 8,
+            "train_n": 56
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 80.58642171775794,
+            "fold": 6,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 8,
+            "train_n": 56
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 83.07966202144475,
+            "fold": 7,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 8,
+            "train_n": 56
+          }
+        ],
+        "b1_fold_diagnostics": [
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 756.171030622012,
+            "fold": 0,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 8,
+            "train_n": 56
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 616.2070917230691,
+            "fold": 1,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 8,
+            "train_n": 56
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 730.0324544727661,
+            "fold": 2,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 8,
+            "train_n": 56
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 816.7107754968073,
+            "fold": 3,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 8,
+            "train_n": 56
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 737.4030543619009,
+            "fold": 4,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 8,
+            "train_n": 56
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 847.4490378768,
+            "fold": 5,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 8,
+            "train_n": 56
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 482.3157850619497,
+            "fold": 6,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 8,
+            "train_n": 56
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 738.9787208164255,
+            "fold": 7,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 8,
+            "train_n": 56
+          }
+        ],
+        "b1_rank_deficient_fold_count": 0,
+        "delta_rel": -0.6739536170305738,
+        "finite_fold_count": 8,
+        "labels": [
+          "RELATIONAL_SUBTRACTS_AT_SCALE"
+        ],
+        "negative_fold_count": 7,
+        "particle_count_max": 7420,
+        "particle_count_mean": 4096.0,
+        "particle_count_min": 2132,
+        "patch_grid": 4,
+        "patch_side_mpc_over_h": 16.0,
+        "positive_fold_count": 1,
+        "refused_patch_count": 0,
+        "sse_b0": 0.53093471162734,
+        "sse_b1": 0.8887600809356704,
+        "sse_persistence": 0.42810947075422046,
+        "valid_patch_count": 64,
+        "zero_fold_count": 0
+      }
+    },
+    "8": {
+      "patch_grid": 8,
+      "patch_side_mpc_over_h": 8.0,
+      "status": "MAPPED",
+      "z2_to_z0p5": {
+        "b0_fold_diagnostics": [
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 43.03481991870019,
+            "fold": 0,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 64,
+            "train_n": 448
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 42.15772022062878,
+            "fold": 1,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 64,
+            "train_n": 448
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 41.8784679185767,
+            "fold": 2,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 64,
+            "train_n": 448
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 43.27655324029217,
+            "fold": 3,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 64,
+            "train_n": 448
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 41.73376980972848,
+            "fold": 4,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 64,
+            "train_n": 448
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 42.23410263540124,
+            "fold": 5,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 64,
+            "train_n": 448
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 42.29277958429156,
+            "fold": 6,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 64,
+            "train_n": 448
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 42.96101613481264,
+            "fold": 7,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 64,
+            "train_n": 448
+          }
+        ],
+        "b1_fold_diagnostics": [
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 170.70161003270994,
+            "fold": 0,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 64,
+            "train_n": 448
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 169.83577166809013,
+            "fold": 1,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 64,
+            "train_n": 448
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 168.83852266988634,
+            "fold": 2,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 64,
+            "train_n": 448
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 157.9219270959045,
+            "fold": 3,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 64,
+            "train_n": 448
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 249.4107048905093,
+            "fold": 4,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 64,
+            "train_n": 448
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 170.7907883951521,
+            "fold": 5,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 64,
+            "train_n": 448
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 186.43067103939802,
+            "fold": 6,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 64,
+            "train_n": 448
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 183.95415444042123,
+            "fold": 7,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 64,
+            "train_n": 448
+          }
+        ],
+        "b1_rank_deficient_fold_count": 0,
+        "delta_rel": -0.04238427291528457,
+        "finite_fold_count": 8,
+        "labels": [
+          "RELATIONAL_EQUIVALENT_OR_WEAK_AT_SCALE"
+        ],
+        "negative_fold_count": 4,
+        "particle_count_max": 2393,
+        "particle_count_mean": 512.0,
+        "particle_count_min": 145,
+        "patch_grid": 8,
+        "patch_side_mpc_over_h": 8.0,
+        "positive_fold_count": 4,
+        "refused_patch_count": 0,
+        "sse_b0": 19.25499454272066,
+        "sse_b1": 20.071103486401647,
+        "sse_persistence": 21.141921162390794,
+        "valid_patch_count": 512,
+        "zero_fold_count": 0
+      },
+      "z2_to_z1": {
+        "b0_fold_diagnostics": [
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 43.03481991870019,
+            "fold": 0,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 64,
+            "train_n": 448
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 42.15772022062878,
+            "fold": 1,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 64,
+            "train_n": 448
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 41.8784679185767,
+            "fold": 2,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 64,
+            "train_n": 448
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 43.27655324029217,
+            "fold": 3,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 64,
+            "train_n": 448
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 41.73376980972848,
+            "fold": 4,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 64,
+            "train_n": 448
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 42.23410263540124,
+            "fold": 5,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 64,
+            "train_n": 448
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 42.29277958429156,
+            "fold": 6,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 64,
+            "train_n": 448
+          },
+          {
+            "columns_with_intercept": 9,
+            "condition_number": 42.96101613481264,
+            "fold": 7,
+            "nonconstant_columns": 8,
+            "prediction_finite": true,
+            "rank": 9,
+            "test_n": 64,
+            "train_n": 448
+          }
+        ],
+        "b1_fold_diagnostics": [
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 170.70161003270994,
+            "fold": 0,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 64,
+            "train_n": 448
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 169.83577166809013,
+            "fold": 1,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 64,
+            "train_n": 448
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 168.83852266988634,
+            "fold": 2,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 64,
+            "train_n": 448
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 157.9219270959045,
+            "fold": 3,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 64,
+            "train_n": 448
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 249.4107048905093,
+            "fold": 4,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 64,
+            "train_n": 448
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 170.7907883951521,
+            "fold": 5,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 64,
+            "train_n": 448
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 186.43067103939802,
+            "fold": 6,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 64,
+            "train_n": 448
+          },
+          {
+            "columns_with_intercept": 19,
+            "condition_number": 183.95415444042123,
+            "fold": 7,
+            "nonconstant_columns": 18,
+            "prediction_finite": true,
+            "rank": 19,
+            "test_n": 64,
+            "train_n": 448
+          }
+        ],
+        "b1_rank_deficient_fold_count": 0,
+        "delta_rel": 0.0028475226718052958,
+        "finite_fold_count": 8,
+        "labels": [
+          "RELATIONAL_ADDS_AT_SCALE"
+        ],
+        "negative_fold_count": 3,
+        "particle_count_max": 2393,
+        "particle_count_mean": 512.0,
+        "particle_count_min": 145,
+        "patch_grid": 8,
+        "patch_side_mpc_over_h": 8.0,
+        "positive_fold_count": 5,
+        "refused_patch_count": 0,
+        "sse_b0": 7.492815392496604,
+        "sse_b1": 7.4714794307908186,
+        "sse_persistence": 7.8336779686362785,
+        "valid_patch_count": 512,
+        "zero_fold_count": 0
+      }
+    }
+  },
+  "scientific_stage": "POST_RESULT_P0D_EXPLORATION",
+  "seed": 424242,
+  "workflow_head": "5f64a45a133e539f2ad5bcb55e19ee7cfd4a3e21"
+}
